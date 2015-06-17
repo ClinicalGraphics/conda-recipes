@@ -1,11 +1,11 @@
 package:
-  name: nibabel
-  version: "2.0.0"
+  name: mechanize
+  version: !!str 0.2.5
 
 source:
-  fn: nibabel-2.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/n/nibabel/nibabel-2.0.0.tar.gz
-  md5: befa2fcbd242496a83007a47aad538de
+  fn: mechanize-0.2.5.zip
+  url: https://pypi.python.org/packages/source/m/mechanize/mechanize-0.2.5.zip
+  md5: a497ad4e875f7506ffcf8ad3ada4c2fc
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -16,12 +16,11 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - nibabel = nibabel:main
+    # - mechanize = mechanize:main
     #
-    # Would create an entry point called nibabel that calls nibabel.main()
+    # Would create an entry point called mechanize that calls mechanize.main()
 
 
-#build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   # number: 1
@@ -29,6 +28,7 @@ source:
 requirements:
   build:
     - python
+    - setuptools
 
   run:
     - python
@@ -36,20 +36,7 @@ requirements:
 test:
   # Python imports
   imports:
-    - nibabel
-    - nibabel.benchmarks
-    - nibabel.externals
-    - nibabel.externals.tests
-    - nibabel.freesurfer
-    - nibabel.freesurfer.tests
-    - nibabel.gifti
-    - nibabel.gifti.tests
-    - nibabel.nicom
-    - nibabel.nicom.tests
-    - nibabel.testing
-    - nibabel.tests
-    - nisext
-    - nisext.tests
+    - mechanize
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -64,9 +51,9 @@ test:
     # - nose
 
 about:
-  home: http://nipy.org/nibabel
-  license: MIT License
-  summary: 'Access a multitude of neuroimaging data formats'
+  home: http://wwwsearch.sourceforge.net/mechanize/
+  license: BSD License or Zope Public License
+  summary: 'Stateful programmatic web browsing.'
 
 # See
 # http://docs.continuum.io/conda/build.html for

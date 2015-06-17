@@ -1,11 +1,11 @@
 package:
-  name: nibabel
-  version: "2.0.0"
+  name: python_dateutil
+  version: "2.4.0"
 
 source:
-  fn: nibabel-2.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/n/nibabel/nibabel-2.0.0.tar.gz
-  md5: befa2fcbd242496a83007a47aad538de
+  fn: python-dateutil-2.4.0.tar.gz
+  url: https://pypi.python.org/packages/source/p/python-dateutil/python-dateutil-2.4.0.tar.gz
+  md5: 75714163bb96bedd07685cdb2071b8bc
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -16,12 +16,11 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - nibabel = nibabel:main
+    # - python-dateutil = python-dateutil:main
     #
-    # Would create an entry point called nibabel that calls nibabel.main()
+    # Would create an entry point called python-dateutil that calls python-dateutil.main()
 
 
-#build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   # number: 1
@@ -29,27 +28,18 @@ source:
 requirements:
   build:
     - python
+    - setuptools
+    - six >=1.5
 
   run:
     - python
+    - six >=1.5
 
 test:
   # Python imports
   imports:
-    - nibabel
-    - nibabel.benchmarks
-    - nibabel.externals
-    - nibabel.externals.tests
-    - nibabel.freesurfer
-    - nibabel.freesurfer.tests
-    - nibabel.gifti
-    - nibabel.gifti.tests
-    - nibabel.nicom
-    - nibabel.nicom.tests
-    - nibabel.testing
-    - nibabel.tests
-    - nisext
-    - nisext.tests
+    - dateutil
+    - dateutil.zoneinfo
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -64,9 +54,9 @@ test:
     # - nose
 
 about:
-  home: http://nipy.org/nibabel
-  license: MIT License
-  summary: 'Access a multitude of neuroimaging data formats'
+  home: https://dateutil.readthedocs.org
+  license: BSD License
+  summary: 'Extensions to the standard Python datetime module'
 
 # See
 # http://docs.continuum.io/conda/build.html for

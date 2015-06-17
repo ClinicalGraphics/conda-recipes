@@ -1,11 +1,11 @@
 package:
-  name: nibabel
-  version: "2.0.0"
+  name: enum34
+  version: "1.0.4"
 
 source:
-  fn: nibabel-2.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/n/nibabel/nibabel-2.0.0.tar.gz
-  md5: befa2fcbd242496a83007a47aad538de
+  fn: enum34-1.0.4.tar.gz
+  url: https://pypi.python.org/packages/source/e/enum34/enum34-1.0.4.tar.gz
+  md5: ac80f432ac9373e7d162834b264034b6
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -16,12 +16,11 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - nibabel = nibabel:main
+    # - enum34 = enum34:main
     #
-    # Would create an entry point called nibabel that calls nibabel.main()
+    # Would create an entry point called enum34 that calls enum34.main()
 
 
-#build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   # number: 1
@@ -36,20 +35,7 @@ requirements:
 test:
   # Python imports
   imports:
-    - nibabel
-    - nibabel.benchmarks
-    - nibabel.externals
-    - nibabel.externals.tests
-    - nibabel.freesurfer
-    - nibabel.freesurfer.tests
-    - nibabel.gifti
-    - nibabel.gifti.tests
-    - nibabel.nicom
-    - nibabel.nicom.tests
-    - nibabel.testing
-    - nibabel.tests
-    - nisext
-    - nisext.tests
+    - enum
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -64,9 +50,9 @@ test:
     # - nose
 
 about:
-  home: http://nipy.org/nibabel
-  license: MIT License
-  summary: 'Access a multitude of neuroimaging data formats'
+  home: https://pypi.python.org/pypi/enum34
+  license: BSD License
+  summary: 'Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4'
 
 # See
 # http://docs.continuum.io/conda/build.html for

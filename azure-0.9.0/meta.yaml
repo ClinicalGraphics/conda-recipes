@@ -1,11 +1,11 @@
 package:
-  name: nibabel
-  version: "2.0.0"
+  name: azure
+  version: !!str 0.9.0
 
 source:
-  fn: nibabel-2.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/n/nibabel/nibabel-2.0.0.tar.gz
-  md5: befa2fcbd242496a83007a47aad538de
+  fn: azure-0.9.0.zip
+  url: https://pypi.python.org/packages/source/a/azure/azure-0.9.0.zip
+  md5: 9616767cf45c1c00794624e2a0889f23
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -16,12 +16,11 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - nibabel = nibabel:main
+    # - azure = azure:main
     #
-    # Would create an entry point called nibabel that calls nibabel.main()
+    # Would create an entry point called azure that calls azure.main()
 
 
-#build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
   # number: 1
@@ -29,27 +28,20 @@ source:
 requirements:
   build:
     - python
+    - python-dateutil
 
   run:
     - python
+    - python-dateutil
 
 test:
   # Python imports
   imports:
-    - nibabel
-    - nibabel.benchmarks
-    - nibabel.externals
-    - nibabel.externals.tests
-    - nibabel.freesurfer
-    - nibabel.freesurfer.tests
-    - nibabel.gifti
-    - nibabel.gifti.tests
-    - nibabel.nicom
-    - nibabel.nicom.tests
-    - nibabel.testing
-    - nibabel.tests
-    - nisext
-    - nisext.tests
+    - azure
+    - azure.http
+    - azure.servicebus
+    - azure.servicemanagement
+    - azure.storage
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -64,9 +56,9 @@ test:
     # - nose
 
 about:
-  home: http://nipy.org/nibabel
-  license: MIT License
-  summary: 'Access a multitude of neuroimaging data formats'
+  home: https://github.com/WindowsAzure/azure-sdk-for-python
+  license: Apache Software License
+  summary: 'Windows Azure client APIs'
 
 # See
 # http://docs.continuum.io/conda/build.html for

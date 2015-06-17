@@ -67,5 +67,9 @@ test:
 
 about:
   home: http://celeryproject.org
-  license: BSD
-  summary: Distributed Task Queue
+  license: BSD License
+  summary: 'Distributed Task Queue'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
