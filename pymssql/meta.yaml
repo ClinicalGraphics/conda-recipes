@@ -1,28 +1,26 @@
 package:
-  name: invoke
-  version: "0.10.1"
+  name: pymssql
+  version: "2.1.1"
 
 source:
-  fn: invoke-0.10.1.tar.gz
-  url: https://pypi.python.org/packages/source/i/invoke/invoke-0.10.1.tar.gz
-  md5: 68b5858e2d03e2df00c35d3ae843b45e
+  fn: pymssql-2.1.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/pymssql/pymssql-2.1.1.tar.gz
+  md5: 98d596508cb1030eb5451c98f8e845fc
 #  patches:
    # List any patch files here
    # - fix.patch
 
-build:
+# build:
   # noarch_python: True
   # preserve_egg_dir: True
-  entry_points:
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - invoke = invoke:main
+    # - pymssql = pymssql:main
     #
-    # Would create an entry point called invoke that calls invoke.main()
+    # Would create an entry point called pymssql that calls pymssql.main()
 
-    - invoke = invoke.cli:main
-    - inv = invoke.cli:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -36,23 +34,14 @@ requirements:
   run:
     - python
 
-test:
+# test:
   # Python imports
-  imports:
-    - invoke
-    - invoke.parser
-    - invoke.vendor
-    - invoke.vendor.fluidity
-    - invoke.vendor.lexicon
-    - invoke.vendor.yaml2 [py2k]
-    - invoke.vendor.yaml3 [py3k]
+  # imports:
 
-  commands:
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - invoke --help
-    - inv --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -62,9 +51,9 @@ test:
     # - nose
 
 about:
-  home: http://docs.pyinvoke.org
-  license: BSD License
-  summary: 'Pythonic task execution'
+  home: http://pymssql.org
+  license: GNU Library or Lesser General Public License (LGPL)
+  summary: 'DB-API interface to Microsoft SQL Server for Python. (new Cython-based version)'
 
 # See
 # http://docs.continuum.io/conda/build.html for
