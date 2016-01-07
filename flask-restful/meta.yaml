@@ -1,37 +1,35 @@
 package:
-  name: flask-restful 
-  version: 2.1.0
+  name: flask-restful
+  version: 0.3.3
 
 source:
-  fn: Flask-RESTful-0.2.5.tar.gz 
-  url: https://pypi.python.org/packages/source/F/Flask-RESTful/Flask-RESTful-0.2.5.tar.gz#md5=62144cd6d57be64bb15bc0a027679db5
-  md5: 62144cd6d57be64bb15bc0a027679db5
+  fn: Flask-RESTful-0.3.3.tar.gz 
+  url: https://pypi.python.org/packages/source/F/Flask-RESTful/Flask-RESTful-0.3.3.tar.gz#md5=ad1c32551c23c7ed295c43fd4850b658
+  md5: ad1c32551c23c7ed295c43fd4850b658
+
 requirements:
   build:
-    - python
-    - flask
-    - setuptools
-    - six
-    - mock
-    - sphinx
-    - pycrypto
-    - blinker
-    - nose
+  - python
+  - setuptools
+  - flask
+  - six
+  - pytz
+  - aniso8601
+
+    - aniso8601
 
   run:
-    - python
-    - flask
-    - six
+  - python
+  - flask
+  - six
+  - pytz
+  - aniso8601
 
 test:
-  # Python imports
   imports:
-    - flask_restful 
+  - flask_restful
 
 about:
-  home: https://www.github.com/twilio/flask-restful/
-  license: https://github.com/twilio/flask-restful/blob/master/LICENSE 
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  home: https://github.com/flask-restful/flask-restful
+  license: https://github.com/flask-restful/flask-restful/blob/master/LICENSE 
+  summary: Simple framework for creating REST APIs.
