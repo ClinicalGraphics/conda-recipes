@@ -8,18 +8,19 @@ source:
 
 requirements:
   build:
-  - python
-  - setuptools
-  - python-dateutil
+    - python
+    - setuptools
+    - python-dateutil
 
   run:
-  - python
-  - setuptools
-  - python-dateutil
+    - python
+    - setuptools
+    - python-dateutil
 
 test:
+  # Python imports
   imports:
-  - aniso8601
+    - aniso8601
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the

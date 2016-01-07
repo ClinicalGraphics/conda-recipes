@@ -22,9 +22,7 @@ build:
     # Would create an entry point called pytest that calls pytest.main()
 
     - py.test = pytest:main
-    - py.test-3.3 = pytest:main # [py33]
-    - py.test-2.6 = pytest:main # [py26]
-    - py.test-2.7 = pytest:main # [py27]
+    - py.test-3.5 = pytest:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -35,13 +33,10 @@ requirements:
     - python
     - setuptools
     - py >=1.4.29
-    - argparse # [py26]
-    - colorama # [win]
 
   run:
     - python
     - py >=1.4.29
-    - argparse # [py26]
 
 test:
   # Python imports
@@ -55,9 +50,7 @@ test:
     # entry points work.
 
     - py.test --help
-    - py.test-3.3 --help # [py33]
-    - py.test-2.6 --help # [py26]
-    - py.test-2.7 --help # [py27]
+    - py.test-3.5 --help
     - py.test-3.5 --help # [py35]
 
   # You can also put a file called run_test.py in the recipe that will be run
