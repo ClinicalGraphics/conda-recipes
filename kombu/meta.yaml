@@ -1,23 +1,44 @@
 package:
   name: kombu
-  version: 3.0.29
+  version: "3.0.30"
 
 source:
-  fn: kombu-3.0.29.tar.gz
-  url: https://pypi.python.org/packages/source/k/kombu/kombu-3.0.29.tar.gz
-  md5: 892bf89ee247c0d16d2bdd63f1ddf4c5
+  fn: kombu-3.0.30.tar.gz
+  url: https://pypi.python.org/packages/source/k/kombu/kombu-3.0.30.tar.gz
+  md5: a95f3886fd628862e45c5dc4e3658e89
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - kombu = kombu:main
+    #
+    # Would create an entry point called kombu that calls kombu.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
 
 requirements:
   build:
-  - python
-  - setuptools
-  - anyjson >=0.3.3
-  - amqp >=1.4.7,<2.0
+    - python
+    - setuptools
+    - anyjson >=0.3.3
+    - amqp >=1.4.7,<2.0
+    - django
 
   run:
-  - python
-  - anyjson >=0.3.3
-  - amqp >=1.4.7,<2.0
+    - python
+    - anyjson >=0.3.3
+    - amqp >=1.4.7,<2.0
+    - django
 
 test:
   # Python imports
@@ -30,6 +51,13 @@ test:
     - kombu.tests.transport.virtual
     - kombu.tests.utils
     - kombu.transport
+    #- kombu.transport.django
+    #- kombu.transport.django.management
+    #- kombu.transport.django.management.commands
+    #- kombu.transport.django.migrations
+    #- kombu.transport.django.south_migrations
+    #- kombu.transport.sqlalchemy
+    - kombu.transport.virtual
     - kombu.utils
 
   # commands:
@@ -40,7 +68,11 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
+  requires:
+    - mock
+    - nose
+    - unittest2 >=0.5.0
+    - django
     # Put any additional test requirements here.  For example
     # - nose
 

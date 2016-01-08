@@ -2,7 +2,7 @@ REM configure according to your preferences
 set TARGET=clinicalgraphics
 set PKG=pydicom
 set VER=0.9.10
-set CONDA_BLD_DIR=%userprofile%\Miniconda\conda-bld
+set CONDA_BLD_DIR=%userprofile%\Miniconda2\conda-bld
 set BUILD_PLATFORM=win-64
 set BUILD_NR=0
 REM configure these lists for the pythons and platforms you want to support

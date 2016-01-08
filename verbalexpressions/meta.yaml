@@ -1,0 +1,48 @@
+package:
+  name: verbalexpressions
+  version: 0.0.1
+
+source:
+  git_tag: master
+  git_url: https://github.com/VerbalExpressions/PythonVerbalExpressions.git
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  #preserve_egg_dir: True
+  #entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - uwsgi = uwsgi:main
+    #
+    # Would create an entry point called uwsgi that calls uwsgi.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest
+
+  run:
+    - python
+
+test:
+  # Python imports
+  imports:
+    - verbalexpressions
+
+about:
+  home: https://github.com/VerbalExpressions/PythonVerbalExpressions
+  license: MIT
+  summary: 'Make difficult regular expressions easy!'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

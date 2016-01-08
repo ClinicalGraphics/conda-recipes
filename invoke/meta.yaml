@@ -13,7 +13,6 @@ source:
 build:
   # noarch_python: True
   # preserve_egg_dir: True
-  pyc_compilation: False
   entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example

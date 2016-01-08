@@ -1,16 +1,17 @@
 package:
   name: joblib
-  version: !!str 0.8.4
+  version: "0.9.3"
 
 source:
-  fn: joblib-0.8.4.tar.gz
-  url: https://pypi.python.org/packages/source/j/joblib/joblib-0.8.4.tar.gz
-  md5: 90a1c25cc4dc4a8e3536093dbc35cff3
+  fn: joblib-0.9.3.tar.gz
+  url: https://pypi.python.org/packages/source/j/joblib/joblib-0.9.3.tar.gz
+  md5: b90652daf3f5458e1d65b9b9d0f74756
 #  patches:
    # List any patch files here
    # - fix.patch
 
 # build:
+  # noarch_python: True
   # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
@@ -28,7 +29,6 @@ source:
 requirements:
   build:
     - python
-    - setuptools
 
   run:
     - python
@@ -38,6 +38,7 @@ test:
   imports:
     - joblib
     - joblib.test
+    - joblib.test.data
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -52,7 +53,7 @@ test:
     - nose
 
 about:
-  home: http://packages.python.org/joblib/
+  home: http://pythonhosted.org/joblib/
   license: BSD License
   summary: '\nLightweight pipelining: using Python functions as pipeline jobs.\n'
 
