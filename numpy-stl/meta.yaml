@@ -1,0 +1,75 @@
+package:
+  name: numpy-stl
+  version: "1.5.0"
+
+source:
+  fn: numpy-stl-1.5.0.tar.gz
+  url: https://pypi.python.org/packages/source/n/numpy-stl/numpy-stl-1.5.0.tar.gz
+  md5: 1b9c811ec9bb7b922f8b5e8771f3bd5a
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - numpy-stl = numpy-stl:main
+    #
+    # Would create an entry point called numpy-stl that calls numpy-stl.main()
+
+    - stl = stl.main:main
+    - stl2ascii = stl.main:to_ascii
+    - stl2bin = stl.main:to_binary
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - numpy
+    - nine
+    - python-utils >=1.6.2
+
+  run:
+    - python
+    - numpy
+    - nine
+    - python-utils >=1.6.2
+
+test:
+  # Python imports
+  imports:
+    - stl
+    - tests
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - stl --help
+    - stl2ascii --help
+    - stl2bin --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - pytest
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/WoLpH/numpy-stl/
+  license: BSD License
+  summary: '\nLibrary to make reading, writing and modifying both binary and ascii STL files\neasy.\n'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

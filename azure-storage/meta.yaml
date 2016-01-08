@@ -1,11 +1,10 @@
 package:
   name: azure-storage
-  version: "0.20.2"
+  version: "0.20.3"
 
 source:
-  fn: azure-storage-0.20.2.zip
-  url: https://pypi.python.org/packages/source/a/azure-storage/azure-storage-0.20.2.zip
-  md5: 19266cb50c9e6f31a463ca0909e0cc5a
+  fn: azure-storage-0.20.3.zip
+  url: https://pypi.python.org/packages/source/a/azure-storage/azure-storage-0.20.3.zip
 #  patches:
    # List any patch files here
    # - fix.patch
