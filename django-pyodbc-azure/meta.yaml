@@ -3,10 +3,9 @@ package:
   version: "1.9.0.1"
 
 source:
-  #fn: django-pyodbc-azure-1.9.0.1.zip
-  #url: https://pypi.python.org/packages/source/d/django-pyodbc-azure/django-pyodbc-azure-1.9.0.1.zip
-  #md5: 610aa6c50ad98183942150557939bf19
-  path: C:\Development\Projects\django-pyodbc-azure
+  fn: django-pyodbc-azure-1.9.0.1.zip
+  url: https://pypi.python.org/packages/source/d/django-pyodbc-azure/django-pyodbc-azure-1.9.0.1.zip
+  md5: 610aa6c50ad98183942150557939bf19
 #  patches:
    # List any patch files here
    # - fix.patch

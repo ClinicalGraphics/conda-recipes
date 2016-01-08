@@ -1,11 +1,11 @@
 package:
   name: kombu
-  version: "3.0.30"
+  version: "3.0.32"
 
 source:
-  fn: kombu-3.0.30.tar.gz
-  url: https://pypi.python.org/packages/source/k/kombu/kombu-3.0.30.tar.gz
-  md5: a95f3886fd628862e45c5dc4e3658e89
+  fn: kombu-3.0.32.tar.gz
+  url: https://pypi.python.org/packages/source/k/kombu/kombu-3.0.32.tar.gz
+  md5: 8819aa97abb09f5b27f29e35b8ecaeaf
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -32,13 +32,11 @@ requirements:
     - setuptools
     - anyjson >=0.3.3
     - amqp >=1.4.7,<2.0
-    - django
 
   run:
     - python
     - anyjson >=0.3.3
     - amqp >=1.4.7,<2.0
-    - django
 
 test:
   # Python imports
@@ -57,7 +55,7 @@ test:
     #- kombu.transport.django.migrations
     #- kombu.transport.django.south_migrations
     #- kombu.transport.sqlalchemy
-    - kombu.transport.virtual
+    #- kombu.transport.virtual
     - kombu.utils
 
   # commands:
@@ -72,7 +70,6 @@ test:
     - mock
     - nose
     - unittest2 >=0.5.0
-    - django
     # Put any additional test requirements here.  For example
     # - nose
 

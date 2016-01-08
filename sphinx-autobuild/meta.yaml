@@ -1,0 +1,77 @@
+package:
+  name: sphinx-autobuild
+  version: "0.5.2"
+
+source:
+  fn: sphinx-autobuild-0.5.2.tar.gz
+  url: https://pypi.python.org/packages/source/s/sphinx-autobuild/sphinx-autobuild-0.5.2.tar.gz
+  md5: 701fa0f5d01183eeac8bb0a160aa6161
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - sphinx-autobuild = sphinx-autobuild:main
+    #
+    # Would create an entry point called sphinx-autobuild that calls sphinx-autobuild.main()
+
+    - sphinx-autobuild=sphinx_autobuild:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - watchdog >=0.7.1
+    - argh >=0.24.1
+    - pathtools >=0.1.2
+    - pyyaml >=3.10
+    - tornado >=3.2
+    - livereload >=2.3.0
+
+  run:
+    - python
+    - setuptools
+    - watchdog >=0.7.1
+    - argh >=0.24.1
+    - pathtools >=0.1.2
+    - pyyaml >=3.10
+    - tornado >=3.2
+    - livereload >=2.3.0
+
+test:
+  # Python imports
+  imports:
+    - sphinx_autobuild
+    - sphinx_autobuild.test
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - sphinx-autobuild --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/GaretJax/sphinx-autobuild
+  license: MIT License
+  summary: 'Watch a Sphinx directory and rebuild the documentation when a change is detected. Also includes a livereload enabled web server.'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

@@ -1,25 +1,25 @@
 package:
-  name: pytest-timeout
-  version: "1.0.0"
+  name: sqlalchemy-migrate
+  version: "0.10.0"
 
 source:
-  fn: pytest-timeout-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-timeout/pytest-timeout-1.0.0.tar.gz
-  md5: f9f162bd079689980b5614673ddfdae4
+  fn: sqlalchemy-migrate-0.10.0.tar.gz
+  url: https://pypi.python.org/packages/source/s/sqlalchemy-migrate/sqlalchemy-migrate-0.10.0.tar.gz
+  md5: af20c212b3379c142a1b3f66bb39b6d8
 #  patches:
    # List any patch files here
    # - fix.patch
 
-build:
+# build:
   # noarch_python: True
-  preserve_egg_dir: True
+  # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pytest-timeout = pytest-timeout:main
+    # - sqlalchemy-migrate = sqlalchemy-migrate:main
     #
-    # Would create an entry point called pytest-timeout that calls pytest-timeout.main()
+    # Would create an entry point called sqlalchemy-migrate that calls sqlalchemy-migrate.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,14 +30,10 @@ requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
+    - pbr
 
   run:
     - python
-    - setuptools
-    - pytest >=2.8.0
-    - colorama
 
 # test:
   # Python imports
@@ -56,9 +52,9 @@ requirements:
     # - nose
 
 about:
-  home: http://bitbucket.org/pytest-dev/pytest-timeout/
-  license: MIT License
-  summary: 'py.test plugin to abort hanging tests'
+  #home: The package home page
+  license: Apache Software License
+  summary: 'Database schema migration for SQLAlchemy'
 
 # See
 # http://docs.continuum.io/conda/build.html for

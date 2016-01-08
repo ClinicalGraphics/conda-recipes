@@ -1,11 +1,11 @@
 package:
-  name: pytest-timeout
-  version: "1.0.0"
+  name: flake8-future-import
+  version: "0.3.2"
 
 source:
-  fn: pytest-timeout-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-timeout/pytest-timeout-1.0.0.tar.gz
-  md5: f9f162bd079689980b5614673ddfdae4
+  fn: flake8-future-import-0.3.2.tar.gz
+  url: https://pypi.python.org/packages/source/f/flake8-future-import/flake8-future-import-0.3.2.tar.gz
+  md5: 3f5114ba4a8f4647cb36a1aecc71824b
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -17,9 +17,9 @@ build:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pytest-timeout = pytest-timeout:main
+    # - flake8-future-import = flake8-future-import:main
     #
-    # Would create an entry point called pytest-timeout that calls pytest-timeout.main()
+    # Would create an entry point called flake8-future-import that calls flake8-future-import.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,14 +30,12 @@ requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
+    - flake8
 
   run:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
+    - flake8
 
 # test:
   # Python imports
@@ -56,9 +54,9 @@ requirements:
     # - nose
 
 about:
-  home: http://bitbucket.org/pytest-dev/pytest-timeout/
+  home: https://github.com/xZise/flake8-future-import
   license: MIT License
-  summary: 'py.test plugin to abort hanging tests'
+  summary: '__future__ import checker, plugin for flake8'
 
 # See
 # http://docs.continuum.io/conda/build.html for

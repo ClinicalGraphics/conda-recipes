@@ -1,25 +1,25 @@
 package:
-  name: pytest-timeout
-  version: "1.0.0"
+  name: djangorestframework
+  version: "3.3.2"
 
 source:
-  fn: pytest-timeout-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-timeout/pytest-timeout-1.0.0.tar.gz
-  md5: f9f162bd079689980b5614673ddfdae4
+  fn: djangorestframework-3.3.2.tar.gz
+  url: https://pypi.python.org/packages/source/d/djangorestframework/djangorestframework-3.3.2.tar.gz
+  md5: f45b14a65e95b85216018bd009341683
 #  patches:
    # List any patch files here
    # - fix.patch
 
-build:
+# build:
   # noarch_python: True
-  preserve_egg_dir: True
+  # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pytest-timeout = pytest-timeout:main
+    # - djangorestframework = djangorestframework:main
     #
-    # Would create an entry point called pytest-timeout that calls pytest-timeout.main()
+    # Would create an entry point called djangorestframework that calls djangorestframework.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,18 +30,18 @@ requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
 
   run:
     - python
-    - setuptools
-    - pytest >=2.8.0
-    - colorama
 
-# test:
+test:
   # Python imports
-  # imports:
+  imports:
+    - rest_framework
+    - rest_framework.authtoken
+    - rest_framework.authtoken.migrations
+    - rest_framework.templatetags
+    - rest_framework.utils
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -56,9 +56,9 @@ requirements:
     # - nose
 
 about:
-  home: http://bitbucket.org/pytest-dev/pytest-timeout/
-  license: MIT License
-  summary: 'py.test plugin to abort hanging tests'
+  home: http://www.django-rest-framework.org
+  license: BSD License
+  summary: 'Web APIs for Django, made easy.'
 
 # See
 # http://docs.continuum.io/conda/build.html for

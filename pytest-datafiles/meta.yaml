@@ -1,11 +1,11 @@
 package:
-  name: pytest-timeout
-  version: "1.0.0"
+  name: pytest-datafiles
+  version: "0.2"
 
 source:
-  fn: pytest-timeout-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-timeout/pytest-timeout-1.0.0.tar.gz
-  md5: f9f162bd079689980b5614673ddfdae4
+  fn: pytest-datafiles-0.2.tar.gz
+  url: https://pypi.python.org/packages/source/p/pytest-datafiles/pytest-datafiles-0.2.tar.gz
+  md5: c4ef8cfed3f5ef48b1982854888fcaab
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -17,9 +17,9 @@ build:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pytest-timeout = pytest-timeout:main
+    # - pytest-datafiles = pytest-datafiles:main
     #
-    # Would create an entry point called pytest-timeout that calls pytest-timeout.main()
+    # Would create an entry point called pytest-datafiles that calls pytest-datafiles.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,14 +30,16 @@ requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
+    - py
+    - pytest
+    - colorama [win]
+    - argparse [win and py26]
 
   run:
     - python
     - setuptools
-    - pytest >=2.8.0
-    - colorama
+    - py
+    - pytest
 
 # test:
   # Python imports
@@ -56,9 +58,9 @@ requirements:
     # - nose
 
 about:
-  home: http://bitbucket.org/pytest-dev/pytest-timeout/
+  home: https://github.com/omarkohl/pytest-datafiles
   license: MIT License
-  summary: 'py.test plugin to abort hanging tests'
+  summary: "py.test plugin to create a 'tmpdir' containing predefined files/directories."
 
 # See
 # http://docs.continuum.io/conda/build.html for
