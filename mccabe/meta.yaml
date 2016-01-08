@@ -1,17 +1,19 @@
 package:
   name: mccabe
-  version: 0.2.1
+  version: "0.3.1"
 
 source:
-  fn: mccabe-0.2.1.tar.gz
-  url: https://pypi.python.org/packages/source/m/mccabe/mccabe-0.2.1.tar.gz
-  md5: 5a3f3fa6a4bad126c88aaaa7dab682f5
+  fn: mccabe-0.3.1.tar.gz
+  url: https://pypi.python.org/packages/source/m/mccabe/mccabe-0.3.1.tar.gz
+  md5: 9a1570c470ff5db678cc0c03d5c0c237
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
-  entry_points:
+  # noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
@@ -22,7 +24,7 @@ build:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 1
+  # number: 1
 
 requirements:
   build:
@@ -31,13 +33,13 @@ requirements:
 
   run:
     - python
+    - setuptools
 
-test:
+# test:
   # Python imports
-  imports:
-    - mccabe
+  # imports:
 
-  commands:
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
@@ -52,6 +54,7 @@ test:
 about:
   home: https://github.com/flintwork/mccabe
   license: MIT License
+  summary: 'McCabe checker, plugin for flake8'
 
 # See
 # http://docs.continuum.io/conda/build.html for

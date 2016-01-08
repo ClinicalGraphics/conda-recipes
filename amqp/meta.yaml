@@ -1,25 +1,67 @@
 package:
   name: amqp
-  version: 1.4.7
+  version: "1.4.8"
 
 source:
-  fn: amqp-1.4.7.tar.gz
-  url: https://pypi.python.org/packages/source/a/amqp/amqp-1.4.7.tar.gz
-  md5: 5aa44107d142f56385d2375f302cf7b0
+  fn: amqp-1.4.8.tar.gz
+  url: https://pypi.python.org/packages/source/a/amqp/amqp-1.4.8.tar.gz
+  md5: 13ca20ef5c1cea8c2841b9d1f91f7163
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - amqp = amqp:main
+    #
+    # Would create an entry point called amqp that calls amqp.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
 
 requirements:
   build:
-  - python
-  - setuptools
+    - python
+    - setuptools
 
   run:
-  - python
+    - python
 
 test:
+  # Python imports
   imports:
-  - amqp
+    - amqp
+    - amqp.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    - coverage >=3.0
+    - mock
+    - nose
+    - nose-cover3
+    - unittest2 >=0.4.0
+    # Put any additional test requirements here.  For example
+    # - nose
 
 about:
   home: http://github.com/celery/py-amqp
-  license: BSD License or GNU Library or Lesser General Public License (LGPL)
-  summary: Low-level AMQP client for Python (fork of amqplib)
+  license: GNU Library or Lesser General Public License (LGPL) or BSD License
+  summary: 'Low-level AMQP client for Python (fork of amqplib)'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

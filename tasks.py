@@ -36,12 +36,24 @@ def init(pkg):
     except:    
         pass
 
+@task()        
+def upload_all():
+    platforms=["win-32", "win-64", "linux-32", "linux-64", "osx-64"]   
+    for platform in platforms:    
+        for package in os.listdir(os.path.join(CONDA_BLD_DIR, platform)):
+            pkg_path = os.path.join(CONDA_BLD_DIR, platform, package)
+            try:
+                run("""anaconda upload {} -u {}""".format(pkg_path, ANACONDA_USER))
+            except:
+                pass
+        
 @task(help={"pkg":"Name of the package", 
             "version":"Version of the package",
             "python_version":"Version of python used",
             "build_number":"Number of the build"})
 def upload(pkg, version, python_version, build_number):     
     platforms=["win-32", "win-64", "linux-32", "linux-64", "osx-64"]
+    # FIXME Use glob and search a bit more specific?
     for platform in platforms:    
         for package in os.listdir(os.path.join(CONDA_BLD_DIR, platform)):
             py_build = "py{}_{}".format(python_version, build_number)
