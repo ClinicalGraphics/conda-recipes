@@ -1,31 +1,25 @@
 package:
-  name: pytest
-  version: "2.8.5"
+  name: autoupgrade
+  version: "0.2.0"
 
 source:
-  fn: pytest-2.8.5.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest/pytest-2.8.5.tar.gz
+  fn: autoupgrade-0.2.0.tar.gz
+  url: https://pypi.python.org/packages/source/a/autoupgrade/autoupgrade-0.2.0.tar.gz
+  md5: 2d624612715aa45ed896408d5bcf380a
 #  patches:
    # List any patch files here
    # - fix.patch
 
-build:
-  # noarch_python: True
+# build:
   # preserve_egg_dir: True
-  entry_points:
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - pytest = pytest:main
+    # - autoupgrade = autoupgrade:main
     #
-    # Would create an entry point called pytest that calls pytest.main()
+    # Would create an entry point called autoupgrade that calls autoupgrade.main()
 
-    - py.test = pytest:main    
-    - py.test-2.6 = pytest:main # [py26]
-    - py.test-2.7 = pytest:main # [py27]
-    - py.test-3.3 = pytest:main # [py33]
-    - py.test-3.4 = pytest:main # [py34]
-    - py.test-3.5 = pytest:main # [py35]
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -34,25 +28,23 @@ build:
 requirements:
   build:
     - python
-    - setuptools
-    - py >=1.4.29
+    - pip
+    - beautifulsoup4
 
   run:
     - python
-    - py >=1.4.29
+    - pip
+    - beautifulsoup4
 
 test:
   # Python imports
   imports:
-    - _pytest
-    - _pytest.assertion
-    - _pytest.vendored_packages
+    - autoupgrade
 
-  commands:
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - py.test --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -62,9 +54,9 @@ test:
     # - nose
 
 about:
-  home: http://pytest.org
+  home: https://bitbucket.org/jorkar/autoupgrade
   license: MIT License
-  summary: 'pytest: simple powerful testing with Python'
+  summary: 'Automatic upgrade of python modules and packages'
 
 # See
 # http://docs.continuum.io/conda/build.html for
