@@ -3,10 +3,11 @@ import shutil
 import yaml
 from invoke import task, run
 
-# CONDA_BLD_DIR="/home/ivo/miniconda3/conda-bld"
-CONDA_BLD_DIR = r"C:\Users\Admin\Miniconda2\conda-bld"
-RECIPE_DIR = r"C:\conda-recipes"
-BUILD_PLATFORM = "win-64"
+CONDA_BLD_DIR="/home/ivo/miniconda3/conda-bld"
+#CONDA_BLD_DIR = r"C:\Users\Admin\Miniconda2\conda-bld"
+RECIPE_DIR = "~/conda-recipes"
+#RECIPE_DIR = r"C:\conda-recipes"
+BUILD_PLATFORM = "linux-64"
 ANACONDA_USER="clinicalgraphics"   
 
 def _check_anaconda_release_exists(user, package, version_number, build_number):
