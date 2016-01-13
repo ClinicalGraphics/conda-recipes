@@ -47,7 +47,7 @@ requirements:
 test:
   # Python imports
   imports:
-    - recommonmark
+    - recommonmark [not py26]
 
   commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -69,7 +69,7 @@ test:
 
 about:
   #home: The package home page
-  license: 
+  license: MIT
   summary: None
 
 # See

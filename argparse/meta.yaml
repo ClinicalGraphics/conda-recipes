@@ -34,21 +34,18 @@ requirements:
   run:
     - python
 
-# test:
+test:
   # Python imports
-  # imports:
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
+  imports:
+    - argparse
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
+  requires:
     # Put any additional test requirements here.  For example
     # - nose
+    - setuptools
 
 about:
   home: https://github.com/ThomasWaldmann/argparse/

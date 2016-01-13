@@ -7,10 +7,10 @@ source:
   git_tag: fix_hog
   patches:
     - buffer_mismatch.patch
-    - strip_interactive_tests.patch
+    - strip_interactive_tests.patch [win]
 
 build:
-  number: 6
+  number: 7
   features:
     - vc9  # [win and (py26 or py27)]
     - vc10  # [win and (py33 or py34)]

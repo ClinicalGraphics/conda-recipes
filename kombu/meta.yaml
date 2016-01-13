@@ -67,9 +67,10 @@ test:
   # at test time.
 
   requires:
-    - mock
+    - mock >=0.7.0
     - nose
     - unittest2 >=0.5.0
+    - setuptools >=0.7
     # Put any additional test requirements here.  For example
     # - nose
 

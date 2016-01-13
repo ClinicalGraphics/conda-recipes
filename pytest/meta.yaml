@@ -3,8 +3,9 @@ package:
   version: "2.8.5"
 
 source:
-  fn: pytest-2.8.5.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest/pytest-2.8.5.tar.gz
+  fn: pytest-2.8.5.zip
+  url: https://pypi.python.org/packages/source/p/pytest/pytest-2.8.5.zip
+  md5: 8493b06f700862f1294298d6c1b715a9
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -20,12 +21,12 @@ build:
     #
     # Would create an entry point called pytest that calls pytest.main()
 
-    - py.test = pytest:main    
-    - py.test-2.6 = pytest:main # [py26]
-    - py.test-2.7 = pytest:main # [py27]
-    - py.test-3.3 = pytest:main # [py33]
-    - py.test-3.4 = pytest:main # [py34]
-    - py.test-3.5 = pytest:main # [py35]
+    - py.test = pytest:main
+    - py.test-2.6 = pytest:main [py26]
+    - py.test-2.7 = pytest:main [py27]
+    - py.test-3.3 = pytest:main [py33]
+    - py.test-3.4 = pytest:main [py34]
+    - py.test-3.5 = pytest:main [py35]
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -36,10 +37,13 @@ requirements:
     - python
     - setuptools
     - py >=1.4.29
+    - argparse [py26]
 
   run:
     - python
+    - setuptools
     - py >=1.4.29
+    - argparse [py26]
 
 test:
   # Python imports
@@ -53,13 +57,20 @@ test:
     # entry points work.
 
     - py.test --help
+    - py.test-2.6 --help [py26]
+    - py.test-2.7 --help [py27]
+    - py.test-3.3 --help [py33]
+    - py.test-3.4 --help [py34]
+    - py.test-3.5 --help [py35]
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
+  requires:
     # Put any additional test requirements here.  For example
     # - nose
+    - setuptools
+    - argparse [py26]
 
 about:
   home: http://pytest.org

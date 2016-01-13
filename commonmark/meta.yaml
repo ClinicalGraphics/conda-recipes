@@ -29,14 +29,16 @@ source:
 requirements:
   build:
     - python
+    - argparse [py26]
 
   run:
     - python
-
+    - argparse [py26]
+    
 test:
   # Python imports
   imports:
-    - CommonMark
+    - CommonMark [py3k]
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -46,9 +48,10 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  # requires:
+  requires:
     # Put any additional test requirements here.  For example
     # - nose
+    - argparse [py26]
 
 about:
   home: https://github.com/rolandshoemaker/CommonMark-py
