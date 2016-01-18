@@ -9,10 +9,10 @@ source:
   url: https://github.com/malaterre/GDCM/archive/v2.6.1.tar.gz  # [not win]
 
 build:
-  number: 7
+  number: 8
   features:
-    - vc9  # [win and (py26 or py27)]
-    - vc10  # [win and (py33 or py34)]
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
     - vc14  # [win and py35]
 
 requirements:
@@ -22,6 +22,8 @@ requirements:
     - cmake
   run:
     - python
+    - msvc_runtime  # [win and py26]
+    - msvc_runtime  # [win and py33]
 
 test:
   imports:
