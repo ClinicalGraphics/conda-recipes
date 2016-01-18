@@ -4,7 +4,7 @@ set PKG=invoke
 set VER=0.11.1
 set CONDA_BLD_DIR=%userprofile%\Miniconda\conda-bld
 set BUILD_PLATFORM=win-64
-set BUILD_NR=3
+set BUILD_NR=4
 REM configure these lists for the pythons and platforms you want to support
 set pythons=26 27 33 34 35
 set platforms=win-64

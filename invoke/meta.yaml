@@ -26,7 +26,7 @@ build:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 3
+  number: 4
 
 requirements:
   build:
@@ -44,7 +44,7 @@ test:
     - invoke.vendor
     - invoke.vendor.fluidity
     - invoke.vendor.lexicon
-    - invoke.vendor.yaml2    # [py2k]
+    - invoke.vendor.yaml2    # [not py3k]
     - invoke.vendor.yaml3    # [py3k]
 
   commands:
