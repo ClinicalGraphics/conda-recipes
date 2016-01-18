@@ -49,14 +49,15 @@ cmake .. -G"%GENERATOR_NAME%" ^
     -DVTK_LINKER_FATAL_WARNINGS:BOOL=ON ^    
     -DModule_vtkPythonInterpreter:BOOL=ON ^     
     -DVTK_WRAP_PYTHON=ON ^
-    -DVTK_PYTHON_VERSION=%VTK_PYTHON_VERSION% ^
+    -DVTK_PYTHON_VERSION=%PY_VER% ^
     -DPYTHON_EXECUTABLE:FILEPATH=%PYTHON% ^
-    -DPYTHON_INCLUDE_PATH=%PREFIX%\\include ^
-    -DPYTHON_INCLUDE_DIR:PATH=%PREFIX%\\include ^
+    -DPYTHON_INCLUDE_PATH=%PREFIX%\include ^
+    -DPYTHON_INCLUDE_DIR:PATH=%PREFIX%\include ^
     -DPYTHON_LIBRARY:FILEPATH=%PYTHON_LIBRARY% ^
-    -DVTK_INSTALL_PYTHON_MODULE_DIR=%PREFIX%\\Lib\\site-packages
+    -DVTK_INSTALL_PYTHON_MODULE_DIR=%PREFIX%\Lib\site-packages
 
-cmake --build . --target INSTALL --config %BUILD_CONFIG%
+cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
+cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
 if errorlevel 1 exit 1
 
 exit /b 0
