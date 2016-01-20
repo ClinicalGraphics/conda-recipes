@@ -1,58 +1,51 @@
 package:
-  name: invoke
-  version: "0.11.1"
+  name: flake8-docstrings
+  version: "0.2.4"
 
 source:
-  fn: invoke-0.11.1.tar.gz
-  url: https://pypi.python.org/packages/source/i/invoke/invoke-0.11.1.tar.gz
-  md5: 3d4ecbe26779ceef1046ecf702c9c4a8
+  fn: flake8-docstrings-0.2.4.tar.gz
+  url: https://pypi.python.org/packages/source/f/flake8-docstrings/flake8-docstrings-0.2.4.tar.gz
+  md5: 4325ddc42afdf619ed4cfe4d335efbf2
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
   # noarch_python: True
-  # preserve_egg_dir: True
-  entry_points:
+  preserve_egg_dir: True
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - invoke = invoke:main
+    # - flake8-docstrings = flake8-docstrings:main
     #
-    # Would create an entry point called invoke that calls invoke.main()
+    # Would create an entry point called flake8-docstrings that calls flake8-docstrings.main()
 
-    - invoke = invoke.cli:main
-    - inv = invoke.cli:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 4
+  # number: 1
 
 requirements:
   build:
     - python
     - setuptools
+    - flake8
+    - pep257
 
   run:
     - python
+    - flake8
+    - pep257
 
-test:
+# test:
   # Python imports
-  imports:
-    - invoke
-    - invoke.parser
-    - invoke.vendor
-    - invoke.vendor.fluidity
-    - invoke.vendor.lexicon
-    - invoke.vendor.yaml2    # [not py3k]
-    - invoke.vendor.yaml3    # [py3k]
+  # imports:
 
-  commands:
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - invoke --help
-    - inv --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -62,9 +55,9 @@ test:
     # - nose
 
 about:
-  home: http://docs.pyinvoke.org
-  license: BSD License
-  summary: 'Pythonic task execution'
+  home: https://gitlab.com/pycqa/flake8-docstrings
+  license: MIT License
+  summary: 'Extension for flake8 which uses pep257 to check docstrings'
 
 # See
 # http://docs.continuum.io/conda/build.html for

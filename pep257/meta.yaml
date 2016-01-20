@@ -1,11 +1,11 @@
 package:
-  name: invoke
-  version: "0.11.1"
+  name: pep257
+  version: "0.7.0"
 
 source:
-  fn: invoke-0.11.1.tar.gz
-  url: https://pypi.python.org/packages/source/i/invoke/invoke-0.11.1.tar.gz
-  md5: 3d4ecbe26779ceef1046ecf702c9c4a8
+  fn: pep257-0.7.0.tar.gz
+  url: https://pypi.python.org/packages/source/p/pep257/pep257-0.7.0.tar.gz
+  md5: ff3dc9622c2406b7b583a283fbea651e
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -17,16 +17,15 @@ build:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - invoke = invoke:main
+    # - pep257 = pep257:main
     #
-    # Would create an entry point called invoke that calls invoke.main()
+    # Would create an entry point called pep257 that calls pep257.main()
 
-    - invoke = invoke.cli:main
-    - inv = invoke.cli:main
+    - pep257 = pep257:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 4
+  # number: 1
 
 requirements:
   build:
@@ -38,21 +37,13 @@ requirements:
 
 test:
   # Python imports
-  imports:
-    - invoke
-    - invoke.parser
-    - invoke.vendor
-    - invoke.vendor.fluidity
-    - invoke.vendor.lexicon
-    - invoke.vendor.yaml2    # [not py3k]
-    - invoke.vendor.yaml3    # [py3k]
+  # imports:
 
   commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - invoke --help
-    - inv --help
+    - pep257 --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -62,9 +53,9 @@ test:
     # - nose
 
 about:
-  home: http://docs.pyinvoke.org
-  license: BSD License
-  summary: 'Pythonic task execution'
+  home: https://github.com/GreenSteam/pep257/
+  license: MIT License
+  summary: 'Python docstring style checker'
 
 # See
 # http://docs.continuum.io/conda/build.html for

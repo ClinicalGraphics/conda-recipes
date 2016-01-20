@@ -34,24 +34,25 @@ cmake -Wno-dev -G"%GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% -DGDCM_BUI
 if errorlevel 1 exit 1
 
 REM build
-cmake --build .  --config %BUILD_CONFIG%
+cmake --build . --config %BUILD_CONFIG%
 if errorlevel 1 exit 1
 
-REM copy build output into package
-set GDCMDIR=%SP_DIR%\gdcm
+REM install into environment
+xcopy .\bin\%BUILD_CONFIG%\*.dll "%LIBRARY_BIN%"
+xcopy .\bin\%BUILD_CONFIG%\*.exe "%LIBRARY_BIN%"
+xcopy .\bin\%BUILD_CONFIG%\*.lib "%LIBRARY_LIB%"
 
-mkdir "%GDCMDIR%"
-if errorlevel 1 exit 1
-
-xcopy .\bin\%BUILD_CONFIG%\* "%GDCMDIR%"
-if errorlevel 1 exit 1
+mkdir %SP_DIR%\gdcm
+xcopy .\bin\%BUILD_CONFIG%\*.pyd "%SP_DIR%\gdcm"
+xcopy .\bin\%BUILD_CONFIG%\*.pyc "%SP_DIR%\gdcm"
+xcopy .\bin\%BUILD_CONFIG%\*.py "%SP_DIR%\gdcm"
 
 REM link executables from Scripts dir so that they will be on the PATH
-for %%f in ("%GDCMDIR%\*.exe") do echo %%f %%* >> "%SCRIPTS%\%%~nf.bat"
+for %%f in ("%LIBRARY_BIN%\*.exe") do echo %%f %%* >> "%SCRIPTS%\%%~nf.bat"
 if errorlevel 1 exit 1
 
 REM link python wrappers so that they will be importable
-echo %GDCMDIR% >> "%SP_DIR%\gdcm.pth"
+echo %SP_DIR%\gdcm >> "%SP_DIR%\gdcm.pth"
 if errorlevel 1 exit 1
 
 exit /b 0
