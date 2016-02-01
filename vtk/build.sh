@@ -4,8 +4,8 @@ mkdir build
 cd build
 
 if [ `uname` == Linux ]; then
-    CC=gcc44
-    CXX=g++44
+    CC=gcc
+    CXX=g++
     PY_LIB="libpython${PY_VER}.so"
 
     cmake .. \
