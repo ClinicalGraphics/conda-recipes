@@ -3,8 +3,8 @@ package:
   version: 2.6.3
 
 source:
-  url: http://sourceforge.net/settings/mirror_choices?projectname=gdcm&filename=gdcm%202.x/GDCM%202.6.3/gdcm-2.6.3.tar.gz 
-  fn: v2.6.3.tar.gz 
+  url: http://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.3/gdcm-2.6.3.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgdcm%2F&ts=1454342917&use_mirror=netcologne
+  fn: gdcm-2.6.3.tar.gz
 
 build:
   number: 0
@@ -21,7 +21,6 @@ requirements:
 test:
   imports:
     - gdcm
-    - gdcm.ImageReader
 
 about:
   home: https://sourceforge.net/p/gdcm/gdcm/

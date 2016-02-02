@@ -4,13 +4,15 @@ mkdir build
 cd build
 
 include_path=${PREFIX}/include/python${PY_VER}
-if [ ! -f ${PREFIX}/include/python${PY_VER} ]; then
-    include_path=${PREFIX}/include/python${PY_VER}m
+if [ ! -d $include_path ]; then
+  # Control will enter here if $DIRECTORY doesn't exist.
+  include_path=${PREFIX}/include/python${PY_VER}m
 fi
 
-library_path=${PREFIX}/lib/${PY_LIB}
-if [ ! -f ${PREFIX}/include/python${PY_VER} ]; then
-    library_path=${PREFIX}/lib/libpython3.5m.so
+PY_LIB="libpython${PY_VER}.so"
+library_file_path=${PREFIX}/lib/${PY_LIB}
+if [ ! -f $library_file_path ]; then
+    library_file_path=${PREFIX}/lib/libpython3.5m.so
 fi
 
 if [ `uname` == Linux ]; then
@@ -32,7 +34,7 @@ if [ `uname` == Linux ]; then
         -DVTK_WRAP_PYTHON=ON \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_INCLUDE_PATH=$include_path \
-        -DPYTHON_LIBRARY=$library_path \
+        -DPYTHON_LIBRARY=$library_file_path \
         -DVTK_INSTALL_PYTHON_MODULE_DIR=${SP_DIR} \
         -DVTK_USE_X=ON \
         -DModule_vtkRenderingMatplotlib=ON 
