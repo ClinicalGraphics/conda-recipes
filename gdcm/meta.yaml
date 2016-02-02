@@ -1,15 +1,13 @@
 package:
   name: gdcm
-  version: 2.6.1
+  version: 2.6.3
 
 source:
-  fn: v2.6.1.zip  # [win]
-  url: https://github.com/malaterre/GDCM/archive/v2.6.1.zip  # [win]
-  fn: v2.6.1.tar.gz  # [not win]
-  url: https://github.com/malaterre/GDCM/archive/v2.6.1.tar.gz  # [not win]
+  url: http://sourceforge.net/settings/mirror_choices?projectname=gdcm&filename=gdcm%202.x/GDCM%202.6.3/gdcm-2.6.3.tar.gz 
+  fn: v2.6.3.tar.gz 
 
 build:
-  number: 9
+  number: 0
 
 requirements:
   build:
@@ -18,11 +16,12 @@ requirements:
     - cmake
   run:
     - python
-    - msvc_runtime  # [win]
+    - msvc_runtime  # [win and (py27 or py34 or py35)]
 
 test:
   imports:
     - gdcm
+    - gdcm.ImageReader
 
 about:
   home: https://sourceforge.net/p/gdcm/gdcm/
