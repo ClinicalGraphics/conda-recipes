@@ -27,32 +27,37 @@ if %ARCH%==64 (
 
 REM tell cmake where Python is
 set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
-set PYTHON_INCLUDE_DIR=%PREFIX%\include
 
 REM generate visual studio solution
-cmake -Wno-dev -G"%GENERATOR_NAME%" -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% -DGDCM_BUILD_APPLICATIONS:BOOL=ON -DGDCM_BUILD_SHARED_LIBS:BOOL=ON -DGDCM_WRAP_PYTHON:BOOL=ON -DGDCM_USE_PVRG:BOOL=ON -DPYTHON_LIBRARY="%PYTHON_LIBRARY%" -DPYTHON_INCLUDE_DIR="%PYTHON_INCLUDE_DIR%" .
+cmake . -G"%GENERATOR_NAME%" ^
+    -Wno-dev ^
+    -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
+    -DGDCM_BUILD_APPLICATIONS:BOOL=ON ^
+    -DGDCM_BUILD_SHARED_LIBS:BOOL=ON ^
+    -DGDCM_USE_PVRG:BOOL=ON ^
+    ^
+    -DGDCM_USE_VTK:BOOL=OFF ^
+    ^
+    -DGDCM_WRAP_PYTHON:BOOL=ON ^
+    -DPYTHON_EXECUTABLE=%PYTHON% ^
+    -DPYTHON_LIBRARY=%PYTHON_LIBRARY% ^
+    -DPYTHON_INCLUDE_DIR=%PREFIX%\include ^
+    ^
+    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+    -DCMAKE_INSTALL_RPATH:STRING=%LIBRARY_LIB% ^
+    -DGDCM_INSTALL_BIN_DIR=%LIBRARY_BIN% ^
+    -DGDCM_INSTALL_LIB_DIR=%LIBRARY_LIB% ^
+    -DGDCM_INSTALL_DATA_DIR=%LIBRARY_PREFIX% ^
+    -DGDCM_INSTALL_INCLUDE_DIR=%LIBRARY_INC% ^
+    -DGDCM_INSTALL_NO_DOCUMENTATION:BOOL=ON ^
+    -DGDCM_INSTALL_NO_DEVELOPMENT:BOOL=ON ^
+    -DGDCM_INSTALL_PYTHONMODULE_DIR:PATH=%SP_DIR%
+    
 if errorlevel 1 exit 1
 
 REM build
-cmake --build . --config %BUILD_CONFIG%
-if errorlevel 1 exit 1
-
-REM install into environment
-xcopy .\bin\%BUILD_CONFIG%\*.dll "%LIBRARY_BIN%"
-xcopy .\bin\%BUILD_CONFIG%\*.exe "%LIBRARY_BIN%"
-xcopy .\bin\%BUILD_CONFIG%\*.lib "%LIBRARY_LIB%"
-
-mkdir %SP_DIR%\gdcm
-xcopy .\bin\%BUILD_CONFIG%\*.pyd "%SP_DIR%\gdcm"
-xcopy .\bin\%BUILD_CONFIG%\*.pyc "%SP_DIR%\gdcm"
-xcopy .\bin\%BUILD_CONFIG%\*.py "%SP_DIR%\gdcm"
-
-REM link executables from Scripts dir so that they will be on the PATH
-for %%f in ("%LIBRARY_BIN%\*.exe") do echo %%f %%* >> "%SCRIPTS%\%%~nf.bat"
-if errorlevel 1 exit 1
-
-REM link python wrappers so that they will be importable
-echo %SP_DIR%\gdcm >> "%SP_DIR%\gdcm.pth"
+cmake --build . --target ALL_BUILD --config %BUILD_CONFIG%
+cmake --build . --target INSTALL --config %BUILD_CONFIG%
 if errorlevel 1 exit 1
 
 exit /b 0

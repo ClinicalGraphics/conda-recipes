@@ -8,10 +8,6 @@ source:
 
 build:
   number: 2
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and py35]
 
 requirements:
   build:
@@ -19,6 +15,7 @@ requirements:
     - python
   run:
     - python
+    - msvc_runtime  # [win and (py27 or py34 or py35)]
 
 test:
   imports:
