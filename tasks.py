@@ -3,9 +3,10 @@ import shutil
 import yaml
 from invoke import task, run
 
-# CONDA_BLD_DIR="/home/ivo/miniconda3/conda-bld"
+#CONDA_BLD_DIR="/home/ivo/miniconda3/conda-bld"
 CONDA_BLD_DIR = r"C:\Python27x64\conda-bld"
 RECIPE_DIR = r"C:\Development\Projects\conda-recipes"
+#BUILD_PLATFORM = "linux-64"
 BUILD_PLATFORM = "win-64"
 ANACONDA_USER="clinicalgraphics"   
 

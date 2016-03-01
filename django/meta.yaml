@@ -39,11 +39,51 @@ test:
   # Python imports
   imports:
     - django
-    - django.apps
     - django.conf
+    - django.conf.app_template.migrations
+    - django.conf.locale
+    - django.conf.urls
     - django.contrib
-    - django.conf.app_template.migrations    
-    - django.conf.urls    
+    - django.contrib.admin
+    - django.contrib.admin.migrations
+    - django.contrib.admin.templatetags
+    - django.contrib.admin.views
+    - django.contrib.admindocs
+    - django.contrib.admindocs.tests
+    - django.contrib.auth
+    - django.contrib.auth.handlers
+    - django.contrib.auth.management
+    - django.contrib.auth.management.commands
+    - django.contrib.auth.migrations
+    - django.contrib.auth.tests
+    - django.contrib.contenttypes
+    - django.contrib.contenttypes.migrations
+    - django.contrib.flatpages
+    - django.contrib.flatpages.migrations
+    - django.contrib.flatpages.templatetags
+    - django.contrib.humanize
+    - django.contrib.humanize.templatetags
+    - django.contrib.messages
+    - django.contrib.messages.storage
+    - django.contrib.redirects
+    - django.contrib.redirects.migrations
+    - django.contrib.sessions
+    - django.contrib.sessions.backends
+    - django.contrib.sessions.management
+    - django.contrib.sessions.management.commands
+    - django.contrib.sessions.migrations
+    - django.contrib.sitemaps
+    - django.contrib.sitemaps.management
+    - django.contrib.sitemaps.management.commands
+    - django.contrib.sites
+    - django.contrib.sites.migrations
+    - django.contrib.staticfiles
+    - django.contrib.staticfiles.management
+    - django.contrib.staticfiles.management.commands
+    - django.contrib.staticfiles.templatetags
+    - django.contrib.syndication
+    - django.contrib.webdesign
+    - django.contrib.webdesign.templatetags
     - django.core
     - django.core.cache
     - django.core.cache.backends
@@ -60,7 +100,6 @@ test:
     - django.core.servers
     - django.db
     - django.db.backends
-    - django.db.backends.base
     - django.db.migrations
     - django.db.migrations.operations
     - django.db.models

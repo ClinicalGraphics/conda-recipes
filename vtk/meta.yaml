@@ -1,18 +1,13 @@
 package:
   name: vtk
-  version: 6.3.0
+  version: "7.0.0.rc1"
 
 source:
-  url: http://www.vtk.org/files/release/6.3/VTK-6.3.0.tar.gz
-  fn:  vtk-6.3.0.tar.gz
-  patches:
-    - dlls.patch                              [win]
-    - apple.patch                             [osx]
+  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.rc1.tar.gz
+  fn:  VTK-7.0.0.rc1.tar.gz
 
 build:
-  number: 1
-  has_prefix_files:                           [win]
-    - Lib/site-packages/vtk/__init__.py       [win]
+  number: 2
 
 requirements:
   build:
@@ -20,6 +15,7 @@ requirements:
     - python
   run:
     - python
+    - msvc_runtime
 
 test:
   imports:
