@@ -1,11 +1,11 @@
 package:
-  name: urllib3
-  version: "1.14"
+  name: elasticsearch
+  version: "2.2.0"
 
 source:
-  fn: urllib3-1.14.tar.gz
-  url: https://pypi.python.org/packages/source/u/urllib3/urllib3-1.14.tar.gz
-  md5: 5e1407428ac33b521c71a7ac273b3847
+  fn: elasticsearch-2.2.0.tar.gz
+  url: https://pypi.python.org/packages/source/e/elasticsearch/elasticsearch-2.2.0.tar.gz
+  md5: 9c00f4128eea2fb20affbfbb970a58e7
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -17,9 +17,9 @@ source:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - urllib3 = urllib3:main
+    # - elasticsearch = elasticsearch:main
     #
-    # Would create an entry point called urllib3 that calls urllib3.main()
+    # Would create an entry point called elasticsearch that calls elasticsearch.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,18 +30,19 @@ requirements:
   build:
     - python
     - setuptools
+    - urllib3 >=1.8,<2.0
 
   run:
     - python
+    - urllib3 >=1.8,<2.0
 
 test:
   # Python imports
   imports:
-    - urllib3
-    - urllib3.contrib
-    - urllib3.packages
-    - urllib3.packages.ssl_match_hostname
-    - urllib3.util
+    - elasticsearch
+    - elasticsearch.client
+    - elasticsearch.connection
+    - elasticsearch.helpers
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -52,16 +53,19 @@ test:
   # at test time.
 
   requires:
+    - coverage
     - mock
     - nose
-    - tornado
+    - nosexcover
+    - pyyaml
+    - requests >=1.0.0,<3.0.0
     # Put any additional test requirements here.  For example
     # - nose
 
 about:
-  home: http://urllib3.readthedocs.org/
-  license: MIT License
-  summary: 'HTTP library with thread-safe connection pooling, file post, and more.'
+  home: https://github.com/elastic/elasticsearch-py
+  license: Apache Software License
+  summary: 'Python client for Elasticsearch'
 
 # See
 # http://docs.continuum.io/conda/build.html for

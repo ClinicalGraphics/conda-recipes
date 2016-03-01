@@ -1,25 +1,25 @@
 package:
-  name: urllib3
-  version: "1.14"
+  name: nosexcover
+  version: "1.0.10"
 
 source:
-  fn: urllib3-1.14.tar.gz
-  url: https://pypi.python.org/packages/source/u/urllib3/urllib3-1.14.tar.gz
-  md5: 5e1407428ac33b521c71a7ac273b3847
+  fn: nosexcover-1.0.10.tar.gz
+  url: https://pypi.python.org/packages/source/n/nosexcover/nosexcover-1.0.10.tar.gz
+  md5: 12bf494a801b376debeb6a167c247391
 #  patches:
    # List any patch files here
    # - fix.patch
 
-# build:
+build:
   # noarch_python: True
-  # preserve_egg_dir: True
+  preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - urllib3 = urllib3:main
+    # - nosexcover = nosexcover:main
     #
-    # Would create an entry point called urllib3 that calls urllib3.main()
+    # Would create an entry point called nosexcover that calls nosexcover.main()
 
 
   # If this is a new build for the same version, increment the build
@@ -30,18 +30,19 @@ requirements:
   build:
     - python
     - setuptools
+    - nose
+    - coverage >=3.4
 
   run:
     - python
+    - setuptools
+    - nose
+    - coverage >=3.4
 
 test:
   # Python imports
   imports:
-    - urllib3
-    - urllib3.contrib
-    - urllib3.packages
-    - urllib3.packages.ssl_match_hostname
-    - urllib3.util
+    - nosexcover
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -51,17 +52,14 @@ test:
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
 
-  requires:
-    - mock
-    - nose
-    - tornado
+  # requires:
     # Put any additional test requirements here.  For example
     # - nose
 
 about:
-  home: http://urllib3.readthedocs.org/
-  license: MIT License
-  summary: 'HTTP library with thread-safe connection pooling, file post, and more.'
+  home: http://github.com/cmheisel/nose-xcover/
+  license: BSD License
+  summary: 'Extends nose.plugins.cover to add Cobertura-style XML reports'
 
 # See
 # http://docs.continuum.io/conda/build.html for
