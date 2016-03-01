@@ -1,10 +1,10 @@
 package:
   name: vtk
-  version: "7.0.0.rc1"
+  version: "7.0.0"
 
 source:
-  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.rc1.tar.gz
-  fn:  VTK-7.0.0.rc1.tar.gz
+  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz
+  fn:  VTK-7.0.0.tar.gz
 
 build:
   number: 2
@@ -15,7 +15,7 @@ requirements:
     - python
   run:
     - python
-    - msvc_runtime
+    - msvc_runtime  # [win and (py27 or py34 or py35)]
 
 test:
   imports:

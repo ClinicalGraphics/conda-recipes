@@ -1,0 +1,24 @@
+package:
+  name: pytest-mock
+  version: 0.10.1
+
+source:
+  fn: pytest-mock-0.10.1.zip
+  md5: 68bfb83ed24acb4e16c0e5f816a4b181
+  url: https://pypi.python.org/packages/source/p/pytest-mock/pytest-mock-0.10.1.zip
+
+build:
+  number: 2
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest >=2.7
+    - mock # [py27]
+  run:
+    - python
+test:
+
+about:
+  home: https://pypi.python.org/pypi/pytest-mock
