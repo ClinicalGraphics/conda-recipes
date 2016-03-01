@@ -4,8 +4,8 @@ import yaml
 from invoke import task, run
 
 # CONDA_BLD_DIR="/home/ivo/miniconda3/conda-bld"
-CONDA_BLD_DIR = r"C:\Users\Admin\Miniconda2\conda-bld"
-RECIPE_DIR = r"C:\conda-recipes"
+CONDA_BLD_DIR = r"C:\Python27x64\conda-bld"
+RECIPE_DIR = r"C:\Development\Projects\conda-recipes"
 BUILD_PLATFORM = "win-64"
 ANACONDA_USER="clinicalgraphics"   
 
@@ -38,8 +38,10 @@ def init(pkg):
 
 @task()        
 def upload_all():
-    platforms=["win-32", "win-64", "linux-32", "linux-64", "osx-64"]   
+    platforms=["win-64", "linux-64", "osx-64"]   
     for platform in platforms:    
+        if not os.path.exists(os.path.join(CONDA_BLD_DIR, platform)):
+            continue
         for package in os.listdir(os.path.join(CONDA_BLD_DIR, platform)):
             pkg_path = os.path.join(CONDA_BLD_DIR, platform, package)
             try:
@@ -52,9 +54,11 @@ def upload_all():
             "python_version":"Version of python used",
             "build_number":"Number of the build"})
 def upload(pkg, version, python_version, build_number):     
-    platforms=["win-32", "win-64", "linux-32", "linux-64", "osx-64"]
+    platforms=["win-64", "linux-64", "osx-64"]
     # FIXME Use glob and search a bit more specific?
     for platform in platforms:    
+        if not os.path.exists(os.path.join(CONDA_BLD_DIR, platform)):
+            continue
         for package in os.listdir(os.path.join(CONDA_BLD_DIR, platform)):
             py_build = "py{}_{}".format(python_version, build_number)
             if pkg in package and version in package and py_build in package:
@@ -69,8 +73,10 @@ def upload(pkg, version, python_version, build_number):
             "python_version":"Version of python used",
             "build_number":"Number of the build"})
 def convert(pkg, version, python_version, build_number):     
-    platforms=["win-32", "win-64", "linux-32", "linux-64", "osx-64"]
+    platforms=["win-64", "linux-64", "osx-64"]
     for platform in platforms:    
+        if not os.path.exists(os.path.join(CONDA_BLD_DIR, platform)):
+            continue
         for package in os.listdir(os.path.join(CONDA_BLD_DIR, platform)):
             py_build = "py{}_{}".format(python_version, build_number)
             if pkg in package and version in package and py_build in package:
