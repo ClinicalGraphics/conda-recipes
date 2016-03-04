@@ -1,11 +1,11 @@
 package:
   name: pytest-cov
-  version: "2.2.0"
+  version: "2.2.1"
 
 source:
-  fn: pytest-cov-2.2.0.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-cov/pytest-cov-2.2.0.tar.gz
-  md5: 65a5238cdcfaa8618e6607c94faecbd6
+  fn: pytest-cov-2.2.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/pytest-cov/pytest-cov-2.2.1.tar.gz
+  md5: d4c65c5561343e6c6a583d5fd29e6a63
 #  patches:
    # List any patch files here
    # - fix.patch

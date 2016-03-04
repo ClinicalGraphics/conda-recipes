@@ -1,13 +1,12 @@
 package:
   name: miktex-portable
-  version: 2.9.5857
+  version: 2.9.5719
 
 source:
-  fn: miktex-portable-2.9.5857.exe [win]
-  url: http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5857.exe [win]
+  path: E:\miktex-portable
 
 build:
-  number: 2
+  number: 4
   binary_relocation: false
   has_prefix_files:                                             [win]
     - Scripts/a5toa4.bat                                   [win]
@@ -53,7 +52,7 @@ build:
     - Scripts/cefspdflatex.bat                                   [win]
     - Scripts/checkcites.bat                                   [win]
     - Scripts/cjklatex.bat                                   [win]
-    #- Scripts/cmap2enc.bat                                   [win]
+    - Scripts/cmap2enc.bat                                   [win]
     - Scripts/creatdtx.bat                                   [win]
     - Scripts/cslatex.bat                                   [win]
     - Scripts/csplain.bat                                   [win]
@@ -100,7 +99,7 @@ build:
     - Scripts/fig4latex.bat                                   [win]
     - Scripts/findhyph.bat                                   [win]
     - Scripts/findtexmf.bat                                   [win]
-    #- Scripts/font2afm.bat                                   [win]
+    - Scripts/font2afm.bat                                   [win]
     - Scripts/font2c.bat                                   [win]
     - Scripts/fullref.bat                                   [win]
     - Scripts/gbklatex.bat                                   [win]
@@ -268,7 +267,7 @@ build:
     - Scripts/pf2afm.bat                                   [win]
     - Scripts/pfarrei.bat                                   [win]
     - Scripts/pfbtopfa.bat                                   [win]
-    #- Scripts/pfm2kpx.bat                                   [win]
+    - Scripts/pfm2kpx.bat                                   [win]
     - Scripts/pftogsf.bat                                   [win]
     - Scripts/pkfix-helper.bat                                   [win]
     - Scripts/pkfix.bat                                   [win]
@@ -298,7 +297,7 @@ build:
     - Scripts/pstops.bat                                   [win]
     - Scripts/rcsinfo.bat                                   [win]
     - Scripts/scor2prt.bat                                   [win]
-    #- Scripts/showglyphs.bat                                   [win]
+    - Scripts/showglyphs.bat                                   [win]
     - Scripts/sjisconv.bat                                   [win]
     - Scripts/sjislatex.bat                                   [win]
     - Scripts/sjispdflatex.bat                                   [win]
@@ -350,10 +349,6 @@ build:
     - Scripts/xindy.bat                                   [win]
     - Scripts/xmltex.bat                                   [win]
     - Scripts/yap.bat                                   [win]
-
-requirements:
-  build:
-    - 7za 
 
 about:
   home: http://miktex.org/
