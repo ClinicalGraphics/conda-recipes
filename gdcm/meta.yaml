@@ -3,8 +3,8 @@ package:
   version: 2.6.3
 
 source:
-  url: https://github.com/malaterre/GDCM/archive/master.zip
-  fn: master.zip
+  url: https://github.com/malaterre/GDCM/archive/7c72a07e48c81e364a654e192515adc1e30a23f6.zip
+  fn: 7c72a07e48c81e364a654e192515adc1e30a23f6.zip
 
 build:
   number: 2
