@@ -7,13 +7,17 @@ source:
   fn:  VTK-7.0.0.tar.gz
 
 build:
-  number: 2
+  number: 4
 
 requirements:
   build:
+    - gcc # [linux and (py27 or py34 or py35)]
+    - mesa # [linux and (py27 or py34 or py35)]
     - cmake
     - python
   run:
+    - mesa # [linux and (py27 or py34 or py35)]
+    - libgcc # [linux and (py27 or py34 or py35)]
     - python
     - msvc_runtime  # [win and (py27 or py34 or py35)]
 

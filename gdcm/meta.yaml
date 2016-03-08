@@ -3,18 +3,20 @@ package:
   version: 2.6.3
 
 source:
-  url: http://downloads.sourceforge.net/project/gdcm/gdcm%202.x/GDCM%202.6.3/gdcm-2.6.3.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fgdcm%2F&ts=1454342917&use_mirror=netcologne
-  fn: gdcm-2.6.3.tar.gz
+  url: https://github.com/malaterre/GDCM/archive/master.zip
+  fn: master.zip
 
 build:
-  number: 0
+  number: 2
 
 requirements:
   build:
+    - gcc # [linux and (py27 or py34 or py35)]
     - python
     - swig
     - cmake
   run:
+    - libgcc # [linux and (py27 or py34 or py35)]
     - python
     - msvc_runtime  # [win and (py27 or py34 or py35)]
 
