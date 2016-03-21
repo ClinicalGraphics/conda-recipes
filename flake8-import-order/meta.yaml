@@ -1,0 +1,50 @@
+package:
+  name: flake8-import-order
+  version: !!str 0.7
+
+source:
+  git_url: https://github.com/public/flake8-import-order.git
+  git_rev: 61ca64d9468ba649d39514ea6b8b2a3e6623c6e3
+
+build:
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - flake8
+
+  run:
+    - python
+    - flake8
+
+test:
+  # Python imports
+  imports:
+    - flake8
+    - flake8.tests
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - flake8 --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  requires:
+    # Put any additional test requirements here.  For example
+    - pytest
+    - flake8
+    - pep8
+
+about:
+  home: https://github.com/public/flake8-import-order
+  license: LGPLv3
+  summary: Flake8 plugin that checks import order in the fashion of the Google Python Style Guide
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

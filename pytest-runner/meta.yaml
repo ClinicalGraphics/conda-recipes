@@ -1,25 +1,26 @@
 package:
-  name: flake8
-  version: !!str 2.5.4
+  name: pytest-runner
+  version: "2.6.2"
 
 source:
-  fn: flake8-2.5.4.tar.gz
-  url: https://github.com/PyCQA/flake8/archive/2.5.4.tar.gz
+  fn: pytest-runner-2.6.2.tar.gz
+  url: https://pypi.python.org/packages/source/p/pytest-runner/pytest-runner-2.6.2.tar.gz
+  md5: b81b698289addb13c2ed8d6ba6c8feb4
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
+  # noarch_python: True
   preserve_egg_dir: True
-  entry_points:
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - flake8 = flake8:main
+    # - pytest-runner = pytest-runner:main
     #
-    # Would create an entry point called flake8 that calls flake8.main()
+    # Would create an entry point called pytest-runner that calls pytest-runner.main()
 
-    - flake8 = flake8.main:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -29,28 +30,20 @@ requirements:
   build:
     - python
     - setuptools
-    - pyflakes >=0.8.1,<1.1
-    - pep8 >=1.5.7,!=1.6.0,!=1.6.1,!=1.6.2
-    - mccabe >=0.2.1,<0.5
+    - setuptools_scm
 
   run:
     - python
     - setuptools
-    - pyflakes >=0.8.1,<1.1
-    - pep8 >=1.5.7,!=1.6.0,!=1.6.1,!=1.6.2
-    - mccabe >=0.2.1,<0.5
 
-test:
+# test:
   # Python imports
-  imports:
-    - flake8
-    - flake8.tests
+  # imports:
 
-  commands:
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - flake8 --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -60,9 +53,9 @@ test:
     # - nose
 
 about:
-  home: https://gitlab.com/pycqa/flake8
+  home: https://bitbucket.org/pytest-dev/pytest-runner
   license: MIT License
-  summary: 'the modular source code checker: pep8, pyflakes and co'
+  summary: 'Invoke py.test as distutils command with dependency resolution.'
 
 # See
 # http://docs.continuum.io/conda/build.html for

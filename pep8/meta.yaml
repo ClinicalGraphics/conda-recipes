@@ -1,11 +1,10 @@
 package:
   name: pep8
-  version: "1.6.2"
+  version: "1.7.0"
 
 source:
-  fn: pep8-1.6.2.tar.gz
-  url: https://pypi.python.org/packages/source/p/pep8/pep8-1.6.2.tar.gz
-  md5: c7a3f57d832484a6295164661fbb1335
+  fn: pep8-1.7.0.tar.gz
+  url: https://github.com/PyCQA/pycodestyle/archive/1.7.0.tar.gz
 #  patches:
    # List any patch files here
    # - fix.patch

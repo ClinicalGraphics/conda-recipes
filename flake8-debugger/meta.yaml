@@ -1,25 +1,26 @@
 package:
-  name: flake8
-  version: !!str 2.5.4
+  name: flake8-debugger
+  version: "1.4.0"
 
 source:
-  fn: flake8-2.5.4.tar.gz
-  url: https://github.com/PyCQA/flake8/archive/2.5.4.tar.gz
+  fn: flake8-debugger-1.4.0.tar.gz
+  url: https://pypi.python.org/packages/source/f/flake8-debugger/flake8-debugger-1.4.0.tar.gz
+  md5: 9f7d01657d6a56a7b2bf0c2343fecf60
 #  patches:
    # List any patch files here
    # - fix.patch
 
 build:
+  # noarch_python: True
   preserve_egg_dir: True
-  entry_points:
+  # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - flake8 = flake8:main
+    # - flake8-debugger = flake8-debugger:main
     #
-    # Would create an entry point called flake8 that calls flake8.main()
+    # Would create an entry point called flake8-debugger that calls flake8-debugger.main()
 
-    - flake8 = flake8.main:main
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
@@ -29,28 +30,21 @@ requirements:
   build:
     - python
     - setuptools
-    - pyflakes >=0.8.1,<1.1
-    - pep8 >=1.5.7,!=1.6.0,!=1.6.1,!=1.6.2
-    - mccabe >=0.2.1,<0.5
+    - flake8
 
   run:
     - python
     - setuptools
-    - pyflakes >=0.8.1,<1.1
-    - pep8 >=1.5.7,!=1.6.0,!=1.6.1,!=1.6.2
-    - mccabe >=0.2.1,<0.5
-
-test:
-  # Python imports
-  imports:
     - flake8
-    - flake8.tests
 
-  commands:
+# test:
+  # Python imports
+  # imports:
+
+  # commands:
     # You can put test commands to be run here.  Use this to test that the
     # entry points work.
 
-    - flake8 --help
 
   # You can also put a file called run_test.py in the recipe that will be run
   # at test time.
@@ -60,9 +54,9 @@ test:
     # - nose
 
 about:
-  home: https://gitlab.com/pycqa/flake8
+  home: https://github.com/jbkahn/flake8-debugger
   license: MIT License
-  summary: 'the modular source code checker: pep8, pyflakes and co'
+  summary: 'ipdb/pdb statement checker plugin for flake8'
 
 # See
 # http://docs.continuum.io/conda/build.html for
