@@ -1,11 +1,11 @@
 package:
   name: pytest-xdist
-  version: "1.13.1"
+  version: "1.14"
 
 source:
-  fn: pytest-xdist-1.13.1.tar.gz
-  url: https://pypi.python.org/packages/source/p/pytest-xdist/pytest-xdist-1.13.1.tar.gz
-  md5: 7741b4f3adce45f3f3a0ec97cdd8eadf
+  fn: pytest-xdist-1.14.zip
+  url: https://pypi.python.org/packages/source/p/pytest-xdist/pytest-xdist-1.14.zip#md5=958699a0487226505470e984f1843329
+  md5: 958699a0487226505470e984f1843329
 #  patches:
    # List any patch files here
    # - fix.patch
@@ -67,7 +67,7 @@ test:
     - pytest >=2.4.2
     - py >=1.4.22
     - colorama
-	
+
 about:
   home: http://bitbucket.org/hpk42/pytest-xdist
   license: MIT License
