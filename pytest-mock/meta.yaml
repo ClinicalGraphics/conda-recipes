@@ -1,51 +1,47 @@
 package:
-  name: flexx
-  version: "0.3"
+  name: pytest-mock
+  version: "0.10.1"
 
 source:
-  git_url: https://github.com/zoofIO/flexx.git
-  git_tag: master
+  fn: pytest-mock-0.10.1.zip
+  url: https://pypi.python.org/packages/source/p/pytest-mock/pytest-mock-0.10.1.zip
+  md5: 68bfb83ed24acb4e16c0e5f816a4b181
+#  patches:
+   # List any patch files here
+   # - fix.patch
 
 build:
   # noarch_python: True
-  # preserve_egg_dir: True
+  preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - flexx = flexx:main
+    # - pytest-mock = pytest-mock:main
     #
-    # Would create an entry point called flexx that calls flexx.main()
+    # Would create an entry point called pytest-mock that calls pytest-mock.main()
 
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 0
+  # number: 1
 
 requirements:
   build:
     - python
     - setuptools
+    - pytest >=2.7
+    - mock [py27]
 
   run:
     - python
-    - tornado
+    - setuptools
+    - pytest >=2.7
+    - mock [py27]
 
-test:
-  requires:
-    - tornado
+# test:
   # Python imports
-  imports:
-    - flexx
-    - flexx.app
-    - flexx.lui
-    - flexx.pyscript
-    - flexx.react
-    - flexx.ui
-    - flexx.ui.layouts
-    - flexx.ui.widgets
-    - flexx.util
-    - flexx.webruntime
+  # imports:
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -60,9 +56,9 @@ test:
     # - nose
 
 about:
-  home: http://flexx.readthedocs.org
-  license: BSD License
-  summary: "Pure Python toolkit for creating GUI's using web technology."
+  home: https://github.com/pytest-dev/pytest-mock/
+  license: GNU Lesser General Public License v3 (LGPLv3)
+  summary: 'Thin-wrapper around the mock package for easier use with py.test'
 
 # See
 # http://docs.continuum.io/conda/build.html for
