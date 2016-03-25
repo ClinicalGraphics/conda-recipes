@@ -28,13 +28,19 @@ build:
   # number: 1
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - setuptools_scm
-    run:
-        - python
-        - pytest >=2.5
+  build:
+    - python
+    - setuptools
+    - pytest >=2.5
+    - colorama
+    - setuptools_scm ==1.8.0
+
+  run:
+    - python
+    - setuptools
+    - pytest >=2.5
+    - colorama
+    - setuptools_scm ==1.8.0
 
 test:
   # Python imports

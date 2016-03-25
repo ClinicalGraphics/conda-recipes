@@ -1,51 +1,51 @@
 package:
-  name: protobuf
-  version: "3.0.0b2"
+  name: flexx
+  version: "0.3"
 
 source:
-  fn: protobuf-3.0.0b2.tar.gz
-  url: https://pypi.python.org/packages/source/p/protobuf/protobuf-3.0.0b2.tar.gz
-  md5: f0d3bd2394345a9af4a277cd0302ae83
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  git_url: https://github.com/zoofIO/flexx.git
+  git_tag: master
 
 build:
   # noarch_python: True
-  preserve_egg_dir: True
+  # preserve_egg_dir: True
   # entry_points:
     # Put any entry points (scripts to be generated automatically) here. The
     # syntax is module:function.  For example
     #
-    # - protobuf = protobuf:main
+    # - flexx = flexx:main
     #
-    # Would create an entry point called protobuf that calls protobuf.main()
+    # Would create an entry point called flexx that calls flexx.main()
 
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 0
 
 requirements:
   build:
     - python
-    - six >=1.9
     - setuptools
 
   run:
     - python
-    - six >=1.9
-    - setuptools
+    - tornado
 
 test:
+  requires:
+    - tornado
   # Python imports
   imports:
-    - google
-    - google.protobuf
-    - google.protobuf.compiler
-    - google.protobuf.internal
-    - google.protobuf.pyext
-    - google.protobuf.util
+    - flexx
+    - flexx.app
+    - flexx.lui
+    - flexx.pyscript
+    - flexx.react
+    - flexx.ui
+    - flexx.ui.layouts
+    - flexx.ui.widgets
+    - flexx.util
+    - flexx.webruntime
 
   # commands:
     # You can put test commands to be run here.  Use this to test that the
@@ -60,9 +60,9 @@ test:
     # - nose
 
 about:
-  home: https://developers.google.com/protocol-buffers/
-  license: New BSD License
-  summary: 'Protocol Buffers'
+  home: http://flexx.readthedocs.org
+  license: BSD License
+  summary: "Pure Python toolkit for creating GUI's using web technology."
 
 # See
 # http://docs.continuum.io/conda/build.html for
