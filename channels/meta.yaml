@@ -1,0 +1,29 @@
+package:
+  name: channels
+  version: 0.10.3
+
+source:
+  url: https://github.com/andrewgodwin/channels/archive/e710ac02df4661672f95164440c1105a204b927b.zip
+  fn: e710ac02df4661672f95164440c1105a204b927b.zip
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - daphne >=0.10.1
+    - autobahn >=0.12
+  run:
+    - python
+    - daphne >=0.10.1
+    - autobahn >=0.12
+
+test:
+  imports:
+    - channels
+
+about:
+  home: http://github.com/andrewgodwin/django-channels
+  license: BSD
+  summary: Brings event-driven capabilities to Django with a channel system. Django 1.8 and up only.

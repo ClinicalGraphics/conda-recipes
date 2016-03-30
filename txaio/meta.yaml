@@ -1,0 +1,28 @@
+package:
+  name: txaoi
+  version: 2.2.2
+
+source:
+  url: https://pypi.python.org/packages/source/t/txaio/txaio-2.2.2.tar.gz
+  fn: txaio-2.2.2.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - six
+  run:
+    - python
+    - six
+
+test:
+  imports:
+    - six
+    - txaio
+
+about:
+  home: https://pypi.python.org/pypi/txaio
+  license: BSD
+  summary: Compatibility API between asyncio/Twisted/Trollius.

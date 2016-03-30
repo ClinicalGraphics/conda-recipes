@@ -1,0 +1,27 @@
+package:
+  name: autobahn
+  version: 0.13.0
+
+source:
+  url: https://pypi.python.org/packages/source/a/autobahn/autobahn-0.13.0.tar.gz
+  fn: autobahn-0.13.0.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - txaio >=2.2.2
+  run:
+    - python
+    - txaio >=2.2.2
+
+test:
+  imports:
+    - autobahn
+
+about:
+  home: https://pypi.python.org/pypi/autobahn/
+  license: BSD
+  summary: WebSocket client & server library, WAMP real-time framework

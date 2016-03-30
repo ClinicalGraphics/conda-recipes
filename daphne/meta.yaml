@@ -1,0 +1,31 @@
+package:
+  name: daphne
+  version: 0.10.1
+
+source:
+  url: https://github.com/andrewgodwin/daphne/archive/e0e27ff9ebd050ba8ecd2d6bc61fb1457ac77d09.zip
+  fn: e0e27ff9ebd050ba8ecd2d6bc61fb1457ac77d09.zip
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - asgiref >=0.10
+    - twisted >=15.5
+    - autobahn >=0.13
+  run:
+    - python
+    - asgiref >=0.10
+    - twisted >=15.5
+    - autobahn >=0.13
+
+test:
+  imports:
+    - daphne
+
+about:
+  home: https://github.com/andrewgodwin/daphne
+  license: BSD
+  summary: Django ASGI (HTTP/WebSocket) server.

@@ -1,0 +1,26 @@
+package:
+  name: asgiref
+  version: 0.11.2
+
+source:
+  url: https://github.com/andrewgodwin/asgiref/archive/dc5ea724eaf22e4745fda21c57db9903067e9717.zip
+  fn: dc5ea724eaf22e4745fda21c57db9903067e9717.zip
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - six
+  run:
+    - python
+
+test:
+  imports:
+    - asgiref
+
+about:
+  home: https://github.com/andrewgodwin/asgiref
+  license: BSD
+  summary: Reference ASGI adapters and channel layers.
