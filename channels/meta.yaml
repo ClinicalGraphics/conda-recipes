@@ -14,10 +14,12 @@ requirements:
     - python
     - daphne >=0.10.1
     - autobahn >=0.12
+    - django >=1.8
   run:
     - python
     - daphne >=0.10.1
     - autobahn >=0.12
+    - django >=1.8
 
 test:
   imports:
