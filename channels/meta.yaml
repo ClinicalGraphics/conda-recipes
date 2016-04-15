@@ -1,13 +1,13 @@
 package:
   name: channels
-  version: 0.10.3
+  version: 0.11.0
 
 source:
-  url: https://github.com/andrewgodwin/channels/archive/e710ac02df4661672f95164440c1105a204b927b.zip
-  fn: e710ac02df4661672f95164440c1105a204b927b.zip
+  url: https://github.com/andrewgodwin/channels/archive/2ef0baa5c2e78dcc6c7c1ae4738a977a53fd837f.zip
+  fn: 2ef0baa5c2e78dcc6c7c1ae4738a977a53fd837f.zip
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
