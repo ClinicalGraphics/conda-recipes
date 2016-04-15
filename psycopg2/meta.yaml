@@ -1,11 +1,11 @@
 package:
   name: psycopg2
-  version: 2.5.2
+  version: 2.6.1
 
 source:
-  fn: psycopg2-2.5.2.tar.gz
-  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.5.2.tar.gz
-  md5: 53d81793fbab8fee6e732a0425d50047
+  fn: psycopg2-2.6.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz
+  md5: 842b44f8c95517ed5b792081a2370da1
 
 requirements:
   build:
@@ -21,6 +21,6 @@ test:
     - psycopg2.tests
 
 about:
-  home: http://initd.org/psycopg/
-  license: GNU Library or Lesser General Public License (LGPL) or Zope Public License
+  home: https://pypi.python.org/pypi/psycopg2
+  license: LGPL with exceptions or ZPL
 
