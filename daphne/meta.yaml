@@ -1,10 +1,10 @@
 package:
   name: daphne
-  version: 0.10.1
+  version: 0.10.3
 
 source:
-  url: https://github.com/andrewgodwin/daphne/archive/e0e27ff9ebd050ba8ecd2d6bc61fb1457ac77d09.zip
-  fn: e0e27ff9ebd050ba8ecd2d6bc61fb1457ac77d09.zip
+  url: https://github.com/andrewgodwin/daphne/archive/7b13995deeec03517b072c6461c829a87ef7036e.zip
+  fn: 7b13995deeec03517b072c6461c829a87ef7036e.zip
 
 build:
   number: 0
