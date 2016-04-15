@@ -7,7 +7,8 @@ source:
   fn: 7b13995deeec03517b072c6461c829a87ef7036e.zip
 
 build:
-  number: 0
+  number: 1
+  noarch_python: True
 
 requirements:
   build:
