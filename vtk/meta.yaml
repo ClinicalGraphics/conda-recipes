@@ -7,7 +7,11 @@ source:
   fn:  VTK-7.0.0.tar.gz
 
 build:
-  number: 4
+  number: 5
+  features:
+    - vc9                [win and py27]
+    - vc10               [win and py34]
+    - vc14               [win and py35]
 
 requirements:
   build:
@@ -19,7 +23,6 @@ requirements:
     - mesa # [linux and (py27 or py34 or py35)]
     - libgcc # [linux and (py27 or py34 or py35)]
     - python
-    - msvc_runtime  # [win and (py27 or py34 or py35)]
 
 test:
   imports:
