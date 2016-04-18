@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 mkdir build
@@ -29,17 +28,13 @@ if [ `uname` == Linux ]; then
         -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
         -DCMAKE_INSTALL_RPATH:STRING="${PREFIX}/lib" \
         -DBUILD_DOCUMENTATION=OFF \
-        -DVTK_HAS_FEENABLEEXCEPT=OFF \
         -DBUILD_TESTING=OFF \
         -DBUILD_EXAMPLES=OFF \
         -DBUILD_SHARED_LIBS=ON \
         -DVTK_WRAP_PYTHON=ON \
         -DPYTHON_EXECUTABLE=${PYTHON} \
         -DPYTHON_INCLUDE_PATH:PATH=$include_path \
-        -DPYTHON_LIBRARY:FILEPATH=$library_file_path \
-        -DVTK_INSTALL_PYTHON_MODULE_DIR=${SP_DIR} \
-        -DModule_vtkRenderingMatplotlib=ON \
-        -DVTK_USE_X=OFF
+        -DPYTHON_LIBRARY:FILEPATH=$library_file_path
 fi
 
 make -j${CPU_COUNT}

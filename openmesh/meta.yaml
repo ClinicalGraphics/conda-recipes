@@ -1,11 +1,10 @@
-about:
-  home: http://www.openmesh.org/
-  summary: openmesh conda package
 package:
   name: openmesh
+  version: 5.1
+
 source:
-  path: ..
-#  url: https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh.git 
+  url: http://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz
+  fn:  OpenMesh-5.1.tar.gz
 
 build:
   number: 0
@@ -16,13 +15,18 @@ build:
 
 requirements:
   build:
-#    - gcc # [linux and (py27 or py34 or py35)]
+    - gcc # [linux and (py27 or py34 or py35)]
+    - cmake
     - python
     - numpy
     - boost
-    - cmake
+
   run:
-#    - libgcc # [linux and (py27 or py34 or py35)]
+    - libgcc # [linux and (py27 or py34 or py35)]
     - python
     - numpy 1.10*
-	
+
+about:
+  home: http://www.openmesh.org/
+  license: BSD 3 - Copyright (c) 2001-2015, RWTH-Aachen University
+  summary: openmesh conda package
