@@ -5,10 +5,7 @@
 :: http://docs.continuum.io/conda/build.html
 :: for a list of environment variables that are set during the build process.
 
-@echo off
-
-mkdir build
-cd build
+:: @echo off
 
 set BUILD_CONFIG=Release
 
@@ -40,15 +37,19 @@ cmake . -G"%GENERATOR_NAME%" ^
     -DPYTHON_INCLUDE_DIR=%PREFIX%\include ^
     -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
     -DCMAKE_INSTALL_RPATH:STRING=%LIBRARY_LIB% ^
-    
+
+
 if errorlevel 1 exit 1
 
-REM build
-cmake --build . --target ALL_BUILD --config %BUILD_CONFIG%
-cmake --build . --target INSTALL --config %BUILD_CONFIG%
-if errorlevel 1 exit 1
+mkdir build
+cd build
+
 cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
 cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
+
 if errorlevel 1 exit 1
+
+cd ..
+
 make
 exit /b 0
