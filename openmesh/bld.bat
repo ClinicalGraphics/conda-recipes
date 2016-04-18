@@ -31,19 +31,16 @@ set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
 REM generate visual studio solution
 cmake . -G"%GENERATOR_NAME%" ^
     -Wno-dev ^
-    -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
-    -DPYTHON_EXECUTABLE=%PYTHON% ^
-    -DPYTHON_LIBRARY=%PYTHON_LIBRARY% ^
-    -DPYTHON_INCLUDE_DIR=%PREFIX%\include ^
-    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
-    -DCMAKE_INSTALL_RPATH:STRING=%LIBRARY_LIB% ^
+    -DCMAKE_BUILD_TYPE=%BUILD_CONFIG%
 
 
 if errorlevel 1 exit 1
 
+REM move folder
 mkdir build
 cd build
 
+REM move folder
 cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
 cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
 
