@@ -29,7 +29,7 @@ REM tell cmake where Python is
 set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
 
 REM generate visual studio solution
-cmake . -G"%GENERATOR_NAME%" ^
+cmake %SRC_DIR% -G"%GENERATOR_NAME%" ^
     -Wno-dev ^
     -DCMAKE_BUILD_TYPE=%BUILD_CONFIG%
 
