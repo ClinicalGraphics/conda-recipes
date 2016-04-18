@@ -7,6 +7,9 @@
 
 @echo off
 
+mkdir build
+cd build
+
 set BUILD_CONFIG=Release
 
 REM pick generator based on python version
