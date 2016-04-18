@@ -3,11 +3,12 @@ package:
   version: 2.6.1
 
 source:
-  url: https://github.com/psycopg/psycopg2/archive/732ea90a4ff85f6d0cca8df6e3dc9d18bfd1c8b4.zip
-  fn: 732ea90a4ff85f6d0cca8df6e3dc9d18bfd1c8b4.zip
+  fn: psycopg2-2.6.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz
+  md5: 842b44f8c95517ed5b792081a2370da1
 
 build:
-  number: 1
+  number: 2
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
@@ -21,12 +22,11 @@ requirements:
     - python
 
 test:
-  # Python imports
   imports:
     - psycopg2
     - psycopg2.tests
 
 about:
-  home: https://pypi.python.org/pypi/psycopg2
-  license: LGPL with exceptions or ZPL
-
+  home: http://initd.org/psycopg/
+  license: GNU Library or Lesser General Public License (LGPL) or Zope Public License
+  summary: 'psycopg2 - Python-PostgreSQL Database Adapter'
