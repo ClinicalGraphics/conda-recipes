@@ -22,6 +22,7 @@ requirements:
 
   run:
     - libgcc # [linux and (py27 or py34 or py35)]
+    - boost
     - python
 
 test:
