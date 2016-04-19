@@ -28,14 +28,8 @@ if [ `uname` == Linux ]; then
         -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
         -DPYTHON_INCLUDE_PATH:PATH=$include_path \
         -DPYTHON_LIBRARY:FILEPATH=$library_file_path \
-        -DPYTHON_INCLUDE_DIR="${PREFIX}/include" \
+        -DPYTHON_INCLUDE_DIR=$include_path \
         -DPYTHONLIBS_VERSION_STRING="${PY_VER}"
-        #\
-#        -DBOOST_ROOT="${PREFIX}" \
-#        -DBOOST_INCLUDEDIR="${PREFIX}/include" \
-#        -DBOOST_LIBRARYDIR="${PREFIX}/lib" \
-#        -DBoost_USE_STATIC_RUNTIME=0 \
-#        -DBoost_USE_STATIC_LIBS=0
 fi
 
 make -j${CPU_COUNT}

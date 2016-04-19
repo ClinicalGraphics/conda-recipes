@@ -28,9 +28,9 @@ requirements:
     - boost
     - python
 
-test:
-  imports:
-    - openmesh
+#test:
+#  imports:
+#    - openmesh
 
 about:
   home: http://www.openmesh.org/
