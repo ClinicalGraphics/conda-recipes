@@ -13,6 +13,10 @@ build:
     - vc10               [win and py34]
     - vc14               [win and py35]
 
+requirements:
+  build:
+    - gcc [linux and (py27 or py34 or py35)]
+    - cmake
     - boost
     - python
 
