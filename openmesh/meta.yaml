@@ -7,7 +7,7 @@ source:
   fn:  OpenMesh-5.1.tar.gz
 
 build:
-  number: 0
+  number: 1
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
@@ -17,14 +17,16 @@ requirements:
   build:
     - gcc # [linux and (py27 or py34 or py35)]
     - cmake
-    - python
-    - numpy
     - boost
+    - python
 
   run:
     - libgcc # [linux and (py27 or py34 or py35)]
     - python
-    - numpy 1.10*
+
+test:
+  imports:
+    - openmesh
 
 about:
   home: http://www.openmesh.org/
