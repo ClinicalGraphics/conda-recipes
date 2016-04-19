@@ -39,14 +39,14 @@ cmake .. -G"%GENERATOR_NAME%" ^
     -DCMAKE_INSTALL_PREFIX="%PREFIX%" ^
     -DPYTHON_INCLUDE_DIR:PATH="%PREFIX%/include" ^
     -DPYTHON_LIBRARY:FILEPATH="%PYTHON_LIBRARY%" ^
-    -DPYTHONLIBS_VERSION_STRING=%PY_VER%
+    -DPYTHONLIBS_VERSION_STRING=%PY_VER% ^
+	-DBOOST_ROOT="%PREFIX%"
 
 cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
 cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
 
 if errorlevel 1 exit 1
 
-:: Copy openmesh.so back to \lib\python from \lib\python3.5
-move "%PREFIX%\lib\python\openmesh.pyd" "%PREFIX%\lib\python%PY_VER%\openmesh.pyd"
+move "%PREFIX%\lib\python\openmesh.pyd" "%PREFIX%\lib\openmesh.pyd"
 
 exit /b 0
