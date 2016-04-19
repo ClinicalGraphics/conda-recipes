@@ -25,6 +25,9 @@ if %ARCH%==64 (
 	set GENERATOR_NAME=%GENERATOR_NAME% Win64
 )
 
+set CXX="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe"
+set CC="C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\cl.exe"
+
 REM tell cmake where Python is
 set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
 
@@ -34,16 +37,17 @@ cd build
 
 
 REM generate visual studio solution
+	
 cmake %SRC_DIR% -G"%GENERATOR_NAME%" ^
     -Wno-dev ^
-    -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
 	-DCMAKE_C_COMPILER=%CC% ^
 	-DCMAKE_CXX_COMPILER=%CXX% ^
-	-DCMAKE_BUILD_TYPE=Release ^
-	-DCMAKE_INSTALL_PREFIX=%PREFIX% ^
-	-DPYTHON_INCLUDE_DIR=%PREFIX%\include ^
-	-DPYTHONLIBS_VERSION_STRING=%PY_VER% ^
-    -DBOOST_ROOT=%PREFIX%
+    -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
+    -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+    -DCMAKE_INSTALL_RPATH:STRING=%LIBRARY_LIB% ^
+    -DPYTHON_EXECUTABLE=%PYTHON% ^
+    -DPYTHON_LIBRARY=%PYTHON_LIBRARY% ^
+    -DPYTHON_INCLUDE_DIR=%PREFIX%\include
 
 if errorlevel 1 exit 1
 
@@ -54,6 +58,8 @@ if errorlevel 1 exit 1
 
 cd ..
 
-make .
-make install
+cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
+cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
+
+
 exit /b 0
