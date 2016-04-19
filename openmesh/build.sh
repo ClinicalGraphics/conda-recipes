@@ -12,6 +12,7 @@ if [ `uname` == Linux ]; then
     include_path=${PREFIX}/include/python${PY_VER}
     if [ ! -d $include_path ]; then
       # Control will enter here if $DIRECTORY doesn't exist.
+              #-DCMAKE_INSTALL_PREFIX="${PREFIX}/lib/python{PY_VER}" \
       include_path=${PREFIX}/include/python${PY_VER}m
     fi
 
@@ -22,9 +23,10 @@ if [ `uname` == Linux ]; then
     fi
 
     cmake .. \
+        -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_C_COMPILER=$CC \
         -DCMAKE_CXX_COMPILER=$CXX \
-        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_APPS=OFF \
         -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
         -DPYTHON_INCLUDE_PATH:PATH=$include_path \
         -DPYTHON_LIBRARY:FILEPATH=$library_file_path \
@@ -34,3 +36,6 @@ fi
 
 make -j${CPU_COUNT}
 make install
+
+# Copy openmesh.so back to \lib\python from \lib\python3.5
+mv "${PREFIX}/lib/python/openmesh.so" "${PREFIX}/lib/python${PY_VER}/openmesh.so"

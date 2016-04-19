@@ -32,26 +32,20 @@ REM move folder
 mkdir build
 cd build
 
+	-DPYTHON_INCLUDE_DIR=%PREFIX%\include\python%PY_VER% ^
 
-REM generate visual studio solution
-cmake %SRC_DIR% -G"%GENERATOR_NAME%" ^
+cmake .. -G"%GENERATOR_NAME%" ^
     -Wno-dev ^
     -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
-	-DCMAKE_INSTALL_PREFIX=%PREFIX% ^
-	-DPYTHON_INCLUDE_DIR=%PREFIX%\include\python%PY_VER% ^
-	-DPYTHONLIBS_VERSION_STRING=%PY_VER% ^
-
-if errorlevel 1 exit 1
-
-
-REM move folder
-
-if errorlevel 1 exit 1
-
-cd ..
+    -DBUILD_APPS=OFF ^
+    -DCMAKE_INSTALL_PREFIX="%PREFIX%" ^
+    -DPYTHON_INCLUDE_DIR:PATH="%PREFIX%/include" ^
+    -DPYTHON_LIBRARY:FILEPATH="%PYTHON_LIBRARY%" ^
+    -DPYTHONLIBS_VERSION_STRING=%PY_VER%
 
 cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
 cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
 
+if errorlevel 1 exit 1
 
 exit /b 0
