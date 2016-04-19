@@ -37,13 +37,9 @@ REM generate visual studio solution
 cmake %SRC_DIR% -G"%GENERATOR_NAME%" ^
     -Wno-dev ^
     -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
-	-DCMAKE_C_COMPILER=%CC% ^
-	-DCMAKE_CXX_COMPILER=%CXX% ^
-	-DCMAKE_BUILD_TYPE=Release ^
 	-DCMAKE_INSTALL_PREFIX=%PREFIX% ^
 	-DPYTHON_INCLUDE_DIR=%PREFIX%\include\python%PY_VER% ^
 	-DPYTHONLIBS_VERSION_STRING=%PY_VER% ^
-    -DBOOST_ROOT=%PREFIX%
 
 if errorlevel 1 exit 1
 
@@ -54,6 +50,8 @@ if errorlevel 1 exit 1
 
 cd ..
 
-make .
-make install
+cmake --build . --clean-first --target ALL_BUILD --config %BUILD_CONFIG%
+cmake --build . --clean-first --target INSTALL --config %BUILD_CONFIG%
+
+
 exit /b 0
