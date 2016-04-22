@@ -6,67 +6,27 @@ source:
   fn: pytest-django-2.9.1.tar.gz
   url: https://pypi.python.org/packages/source/p/pytest-django/pytest-django-2.9.1.tar.gz
   md5: 3c9dde85e99ec409df209a62b4715e1a
-#  patches:
-   # List any patch files here
-   # - fix.patch
 
 build:
-  # noarch_python: True
-  preserve_egg_dir: True
-  entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pytest-django = pytest-django:main
-    #
-    # Would create an entry point called pytest-django that calls pytest-django.main()
-    - django = pytest_django.plugin
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  noarch_python: True
+  number: 1
 
 requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.5
-    - colorama
     - setuptools_scm ==1.8.0
+    - pytest
 
   run:
     - python
-    - setuptools
-    - pytest >=2.5
-    - colorama
-    - setuptools_scm ==1.8.0
+    - pytest
 
 test:
-  # Python imports
   imports:
     - pytest_django
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  requires:
-    # Put any additional test requirements here.  For example
-    - pytest >=2.5
-    - django
-    - py >=1.4
-    - colorama  >=0.3
 
 about:
   home: http://pytest-django.readthedocs.org/
   license: BSD License
   summary: 'A Django plugin for py.test.'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
