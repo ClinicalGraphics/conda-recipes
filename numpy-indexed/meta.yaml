@@ -1,0 +1,36 @@
+package:
+  name: numpy-indexed
+  version: 0.2.14
+
+source:
+  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.2.14.tar.gz
+  fn: 0.2.14.tar.gz
+
+build:
+  noarch_python: False
+  number: 2
+
+requirements:
+  build:
+  - python
+  - numpy
+  - pyyaml 3.11*
+  - future 0.15*
+  - pypandoc
+  run:
+  - python
+  - numpy
+  - future 0.15*
+
+test:
+  commands:
+  - py.test --pyargs numpy_indexed
+  imports:
+  - numpy_indexed
+  requires:
+  - pytest >=2.8.4,<2.9
+
+about:
+  home: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP
+  license: Freely Distributable
+  summary: Numpy extensions for set operations on nd-arrays, group_by operations and related functionality

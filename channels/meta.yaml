@@ -1,14 +1,14 @@
 package:
   name: channels
-  version: 0.11.0
+  version: 0.12.0
 
 source:
-  url: https://github.com/andrewgodwin/channels/archive/2ef0baa5c2e78dcc6c7c1ae4738a977a53fd837f.zip
-  fn: 2ef0baa5c2e78dcc6c7c1ae4738a977a53fd837f.zip
+  url: https://github.com/andrewgodwin/channels/archive/0.12.0.tar.gz
+  fn: 0.12.0.tar.gz
 
 build:
   number: 2
-  noarch_python: True
+  noarch_python: False
 
 requirements:
   build:

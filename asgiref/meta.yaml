@@ -7,8 +7,8 @@ source:
   fn: 0.11.2.tar.gz
 
 build:
-  number: 2
-  noarch_python: True
+  number: 3
+  noarch_python: False  # issue with readthedocs
 
 requirements:
   build:
