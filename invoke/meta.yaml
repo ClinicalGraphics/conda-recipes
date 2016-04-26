@@ -1,45 +1,22 @@
 package:
   name: invoke
-  version: "0.11.1"
+  version: 0.12.2
 
 source:
-  fn: invoke-0.11.1.tar.gz
-  url: https://pypi.python.org/packages/source/i/invoke/invoke-0.11.1.tar.gz
-  md5: 3d4ecbe26779ceef1046ecf702c9c4a8
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: 0.12.2.tar.gz
+  url: https://github.com/pyinvoke/invoke/archive/0.12.2.tar.gz
 
 build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  exclude_compilation:
-   - invoke.vendor.yaml3
-  entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - invoke = invoke:main
-    #
-    # Would create an entry point called invoke that calls invoke.main()
-
-    - invoke = invoke.cli:main
-    - inv = invoke.cli:main
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  number: 4
+  number: 0
 
 requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
 
 test:
-  # Python imports
   imports:
     - invoke
     - invoke.parser
@@ -48,26 +25,11 @@ test:
     - invoke.vendor.lexicon
     - invoke.vendor.yaml2    # [not py3k]
     - invoke.vendor.yaml3    # [py3k]
-
   commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
     - invoke --help
     - inv --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://docs.pyinvoke.org
   license: BSD License
   summary: 'Pythonic task execution'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
