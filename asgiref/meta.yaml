@@ -3,11 +3,11 @@ package:
   version: 0.11.2
 
 source:
-  url: https://github.com/andrewgodwin/asgiref/archive/dc5ea724eaf22e4745fda21c57db9903067e9717.zip
-  fn: dc5ea724eaf22e4745fda21c57db9903067e9717.zip
+  url: https://github.com/andrewgodwin/asgiref/archive/0.11.2.tar.gz
+  fn: 0.11.2.tar.gz
 
 build:
-  number: 1
+  number: 2
   noarch_python: True
 
 requirements:
