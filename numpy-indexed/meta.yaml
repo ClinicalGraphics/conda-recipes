@@ -1,10 +1,10 @@
 package:
   name: numpy-indexed
-  version: 0.2.14
+  version: 0.2.16
 
 source:
-  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.2.14.tar.gz
-  fn: 0.2.14.tar.gz
+  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.2.16.tar.gz
+  fn: 0.2.16.tar.gz
 
 build:
   noarch_python: False
@@ -16,7 +16,7 @@ requirements:
   - numpy
   - pyyaml 3.11*
   - future 0.15*
-  - pypandoc
+
   run:
   - python
   - numpy
