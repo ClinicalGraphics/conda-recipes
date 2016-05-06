@@ -1,4 +1,4 @@
-# this package is from a PR to jsonpickle. It is expected to be merge in for a new minor version.
+# this package is from a PR to jsonpickle. It is expected to be merged in for a new minor version.
 # please take this into consideration when building this package.
 
 package:
@@ -6,11 +6,11 @@ package:
   version: 0.9.3
 
 source:
-  fn: d54bc6f2bc10a34bf777937abe1713c74ba92292.zip
-  url: https://github.com/jsonpickle/jsonpickle/archive/d54bc6f2bc10a34bf777937abe1713c74ba92292.zip
+  fn: a13efd830e1feca5d3cb7111bdd5b111e9100c19.zip
+  url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/a13efd830e1feca5d3cb7111bdd5b111e9100c19.zip
 
 build:
-  number: 1
+  number: 2
   noarch_python: True
 
 requirements:
