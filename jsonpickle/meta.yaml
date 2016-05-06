@@ -1,13 +1,16 @@
+# this package is from a PR to jsonpickle. It is expected to be merge in for a new minor version.
+# please take this into consideration when building this package.
+
 package:
   name: jsonpickle
   version: 0.9.3
 
 source:
-  fn: v0.9.3.tar.gz
-  url: https://github.com/jsonpickle/jsonpickle/archive/v0.9.3.tar.gz
+  fn: d54bc6f2bc10a34bf777937abe1713c74ba92292.zip
+  url: https://github.com/jsonpickle/jsonpickle/archive/d54bc6f2bc10a34bf777937abe1713c74ba92292.zip
 
 build:
-  number: 0
+  number: 1
   noarch_python: True
 
 requirements:
