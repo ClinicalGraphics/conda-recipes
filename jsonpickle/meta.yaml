@@ -10,7 +10,7 @@ source:
   url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/a13efd830e1feca5d3cb7111bdd5b111e9100c19.zip
 
 build:
-  number: 2
+  number: 3
   noarch_python: True
 
 requirements:
