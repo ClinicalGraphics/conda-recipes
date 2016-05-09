@@ -6,8 +6,8 @@ package:
   version: 0.9.3
 
 source:
-  fn: f312be30b485e55c6ec1efa4b2bfc8928745ee6f.zip
-  url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/f312be30b485e55c6ec1efa4b2bfc8928745ee6f.zip
+  fn: fed03d61bac350924629f3642adabe14c76e485e.zip
+  url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/fed03d61bac350924629f3642adabe14c76e485e.zip
 
 build:
   number: 4
