@@ -6,11 +6,11 @@ package:
   version: 0.9.3
 
 source:
-  fn: a13efd830e1feca5d3cb7111bdd5b111e9100c19.zip
-  url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/a13efd830e1feca5d3cb7111bdd5b111e9100c19.zip
+  fn: f312be30b485e55c6ec1efa4b2bfc8928745ee6f.zip
+  url: https://github.com/EelcoHoogendoorn/jsonpickle/archive/f312be30b485e55c6ec1efa4b2bfc8928745ee6f.zip
 
 build:
-  number: 3
+  number: 4
   noarch_python: True
 
 requirements:
