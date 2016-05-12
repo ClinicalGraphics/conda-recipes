@@ -27,7 +27,7 @@ test:
     - flexx.app
     - flexx.lui
     - flexx.pyscript
-    - flexx.event
+    - flexx.react
     - flexx.ui
     - flexx.ui.layouts
     - flexx.ui.widgets
