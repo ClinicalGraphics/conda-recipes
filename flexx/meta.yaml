@@ -1,25 +1,13 @@
 package:
   name: flexx
-  version: "0.3"
+  version: 0.3.1
 
 source:
-  git_url: https://github.com/zoofIO/flexx.git
-  git_tag: master
+  fn:  422029991b6ef195c9200858b6920ddd9a0e30a4.zip
+  url: https://github.com/zoofIO/flexx/archive/422029991b6ef195c9200858b6920ddd9a0e30a4.zip
 
 build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - flexx = flexx:main
-    #
-    # Would create an entry point called flexx that calls flexx.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
+  noarch_python: True
   number: 0
 
 requirements:
@@ -34,36 +22,19 @@ requirements:
 test:
   requires:
     - tornado
-  # Python imports
   imports:
     - flexx
     - flexx.app
     - flexx.lui
     - flexx.pyscript
-    - flexx.react
+    - flexx.event
     - flexx.ui
     - flexx.ui.layouts
     - flexx.ui.widgets
     - flexx.util
     - flexx.webruntime
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://flexx.readthedocs.org
   license: BSD License
-  summary: "Pure Python toolkit for creating GUI's using web technology."
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: Pure Python toolkit for creating GUI's using web technology
