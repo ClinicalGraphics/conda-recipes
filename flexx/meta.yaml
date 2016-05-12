@@ -3,12 +3,12 @@ package:
   version: 0.3.1
 
 source:
-  fn:  422029991b6ef195c9200858b6920ddd9a0e30a4.zip
-  url: https://github.com/zoofIO/flexx/archive/422029991b6ef195c9200858b6920ddd9a0e30a4.zip
+  fn:  v0.3.1.tar.gz
+  url: https://github.com/zoofIO/flexx/archive/v0.3.1.tar.gz
 
 build:
   noarch_python: True
-  number: 0
+  number: 1
 
 requirements:
   build:
