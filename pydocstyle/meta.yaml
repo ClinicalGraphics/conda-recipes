@@ -1,0 +1,64 @@
+package:
+  name: pydocstyle
+  version: "1.0.0"
+
+source:
+  fn: pydocstyle-1.0.0.zip
+  url: https://files.pythonhosted.org/packages/3a/ae/e00f314bdf4654329aab3f0443cb5b213c79cc25002e49a2f8cbf8a09936/pydocstyle-1.0.0.zip
+  md5: 74a42c1c8148f80c8f2931b615b54a24
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  noarch_python: True
+  # preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pydocstyle = pydocstyle:main
+    #
+    # Would create an entry point called pydocstyle that calls pydocstyle.main()
+
+    - pydocstyle = pydocstyle:main
+    - pep257 = pydocstyle:main_pep257
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  # Python imports
+  # imports:
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - pydocstyle --help
+    - pep257 --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/PyCQA/pydocstyle/
+  license: MIT License
+  summary: 'Python docstring style checker'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
