@@ -1,5 +1,5 @@
 package:
-  name: redis-py
+  name: redis
   version: 2.10.5
 
 source:
