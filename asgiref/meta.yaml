@@ -1,14 +1,14 @@
 package:
   name: asgiref
-  version: 0.11.2
+  version: 0.13.0
 
 source:
-  url: https://github.com/andrewgodwin/asgiref/archive/0.11.2.tar.gz
-  fn: 0.11.2.tar.gz
+  url: https://github.com/andrewgodwin/asgiref/archive/0.13.0.tar.gz
+  fn: 0.13.0.tar.gz
 
 build:
-  number: 3
-  noarch_python: False  # issue with readthedocs
+  number: 0
+  noarch_python: True
 
 requirements:
   build:

@@ -1,14 +1,14 @@
 package:
   name: fakeredis
-  version: 0.7.0
+  version: 0.6.1 # fork with support for decode_response=true
 
 source:
-  fn: 0.7.0.tar.gz
-  url: https://github.com/jamesls/fakeredis/archive/0.7.0.tar.gz
+  fn: afd851467b7902f81bd1dc8e062d9dc0442f59b6.zip
+  url: https://github.com/jjackson26/fakeredis/archive/afd851467b7902f81bd1dc8e062d9dc0442f59b6.zip
 
 build:
   noarch_python: True
-  number: 0
+  number: 1
 
 requirements:
   build:
