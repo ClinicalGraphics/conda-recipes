@@ -1,0 +1,25 @@
+package:
+  name: extras
+  version: 1.0.0
+
+source:
+  fn: extras-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/be/18/0b7283f0ebf6ad4bb6b9937538495eadf05ef097b102946b9445c4242636/extras-1.0.0.tar.gz
+
+build:
+  noarch_python: True
+  number: 0
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  imports:
+    - extras
+
+about:
+  home: https://pypi.python.org/pypi/extras
+  license: MIT

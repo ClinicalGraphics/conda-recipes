@@ -1,0 +1,28 @@
+package:
+  name: testtools
+  version: 2.20.0
+
+source:
+  fn: testtools-2.2.0.tar.gz
+  url: https://pypi.python.org/packages/0d/72/3212c1723d49f5b58fca736dabdd2e74f38435076d943f4a642117f04d65/testtools-2.2.0.tar.gz
+
+build:
+  number: 0
+  noarch_python: True
+
+requirements:
+  build:
+    - python
+    - pbr
+    - setuptools
+  run:
+    - python
+    - pbr
+
+test:
+  imports:
+    - testtools
+
+about:
+  home: https://pypi.python.org/pypi/testtools
+  license: MIT

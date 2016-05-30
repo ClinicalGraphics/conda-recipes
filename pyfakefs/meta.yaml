@@ -1,0 +1,35 @@
+package:
+  name: pyfakefs
+  version: 2.8
+
+source:
+  fn: 4ca1314b87bb0cab52fa8504c995a92f6d15acad.zip
+  url: https://github.com/jmcgeheeiv/pyfakefs/archive/4ca1314b87bb0cab52fa8504c995a92f6d15acad.zip
+
+build:
+  number: 0
+  noarch_python: True
+  preserve_egg_dir: True
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - wheel
+    - fixtures
+    - pbr
+    - pip
+    - mox3
+
+  run:
+    - python
+    - fixtures
+
+test:
+  imports:
+    - pyfakefs.fake_filesystem
+
+about:
+  home: https://pypi.python.org/pypi/pyfakefs/
+  license: Apache Software License
+  summary: Fakes file system modules for automated developer testing.
