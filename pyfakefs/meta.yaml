@@ -16,14 +16,16 @@ requirements:
     - python
     - setuptools
     - wheel
-    - fixtures
+    - traceback2
+    - unittest2
+    - python-mimeparse
+    - fixtures ==1.4.0
     - pbr
     - pip
     - mox3
 
   run:
     - python
-    - fixtures
 
 test:
   imports:

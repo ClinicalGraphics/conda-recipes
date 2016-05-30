@@ -1,0 +1,27 @@
+package:
+  name: python-mimeparse
+  version: 1.5.2
+
+source:
+  fn: python-mimeparse-1.5.2.tar.gz
+  url: https://pypi.python.org/packages/9c/ea/148511af6f5a6889f4d3b90b00e817b4380658fd0def82a85ee83eddfa45/python-mimeparse-1.5.2.tar.gz
+
+build:
+  number: 0
+  noarch_python: True
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+test:
+  imports:
+    - mimeparse
+
+about:
+  home: https://pypi.python.org/pypi/python-mimeparse
+  license: MIT License
+  summary: Provides basic functions for parsing mime-type names and matching them against a list of media-ranges
