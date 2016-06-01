@@ -8,6 +8,7 @@ source:
 
 build:
   preserve_egg_dir: True
+  noarch_python: True
 
 requirements:
   build:
