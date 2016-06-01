@@ -1,10 +1,10 @@
 package:
   name: flake8-import-order
-  version: !!str 0.7
+  version: 0.8
 
 source:
   git_url: https://github.com/public/flake8-import-order.git
-  git_rev: 61ca64d9468ba649d39514ea6b8b2a3e6623c6e3
+  git_rev: b81eefa4d6b338261d56531bff1c44dd35118852
 
 build:
   preserve_egg_dir: True
