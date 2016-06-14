@@ -7,8 +7,9 @@ source:
   url: https://github.com/Azure/azure-storage-python/archive/v0.32.0.tar.gz
 
 build:
-  noarch_python: True
-  number: 0
+  # since there are python 2 specific dependencies, we cant use noarch_python
+  # noarch_python: True
+  number: 3
 
 requirements:
   build:
@@ -18,7 +19,7 @@ requirements:
     - azure-common
     - python-dateutil
     - requests
-    - futures
+    - futures  # [py2k]
 
   run:
     - python
@@ -26,7 +27,7 @@ requirements:
     - azure-common
     - python-dateutil
     - requests
-    - futures
+    - futures  # [py2k]
 
 test:
   imports:
