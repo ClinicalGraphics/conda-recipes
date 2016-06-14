@@ -1,0 +1,27 @@
+package:
+  name: pytest-tornado
+  version: 0.4.5
+
+source:
+  fn: v0.4.5.tar.gz
+  url: https://github.com/eugeniy/pytest-tornado/archive/v0.4.5.tar.gz
+
+build:
+  noarch_python: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - pytest
+    - tornado
+
+  run:
+    - python
+    - pytest
+    - tornado
+
+about:
+  home: https://github.com/eugeniy/pytest-tornado
+  license:  Apache License, Version 2.0
+  summary: A py.test plugin providing fixtures and markers to simplify testing of asynchronous tornado applications.
