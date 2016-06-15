@@ -11,8 +11,6 @@ if [ `uname` == Linux ]; then
     # FIXME detect any kind of suffix (m, or d)
     include_path=${PREFIX}/include/python${PY_VER}
     if [ ! -d $include_path ]; then
-      # Control will enter here if $DIRECTORY doesn't exist.
-              #-DCMAKE_INSTALL_PREFIX="${PREFIX}/lib/python{PY_VER}" \
       include_path=${PREFIX}/include/python${PY_VER}m
     fi
 

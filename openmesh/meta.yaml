@@ -1,13 +1,13 @@
 package:
   name: openmesh
-  version: 5.1
+  version: 6.2
 
 source:
-  url: http://www.openmesh.org/media/Releases/5.1/OpenMesh-5.1.tar.gz
-  fn:  OpenMesh-5.1.tar.gz
+  url: https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/repository/archive.tar.gz?ref=46aed2c4f43fedef526cd1d3a581047468e5708c
+  fn:  archive.tar.gz
 
 build:
-  number: 2
+  number: 0
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
