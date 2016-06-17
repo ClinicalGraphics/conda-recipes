@@ -3,11 +3,11 @@ package:
   version: 6.2
 
 source:
-  url: https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/repository/archive.tar.gz?ref=46aed2c4f43fedef526cd1d3a581047468e5708c
+  url: https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/repository/archive.tar.gz?ref=5ed8f3c05351a1a2c780498661fe91497be076df
   fn:  archive.tar.gz
 
 build:
-  number: 0
+  number: 1
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
