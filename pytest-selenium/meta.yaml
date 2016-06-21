@@ -14,26 +14,25 @@ requirements:
   build:
     - python
     - setuptools
-    - pytest >=2.7.3
-    - pytest-html >=1.7
+    - pytest >=2.9.2
+    - pytest-html >=1.8.1
     - pytest-variables
-    - selenium >=2.26.0
+    - selenium >=2.53.5
     - requests
 
   run:
     - python
     - setuptools
-    - pytest >=2.7.3
-    - pytest-html >=1.7
+    - pytest >=2.9.2
+    - pytest-html >=1.8.1
     - pytest-variables
-    - selenium >=2.26.0
+    - selenium >=2.53.5
     - requests
 
 test:
   imports:
     - pytest_selenium
     - pytest_selenium.drivers
-    - pytest_selenium.cloud
 
 about:
   home: https://pypi.python.org/pypi/pytest-selenium
