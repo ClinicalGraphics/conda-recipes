@@ -1,5 +1,3 @@
-
-mkdir %SCRIPTS%
-copy phantomjs.exe %SCRIPTS%\
-
-rem vim:set ts=8 sw=4 sts=4 tw=78 et:
+mkdir "%PREFIX%\Scripts"
+copy "%SRC_DIR%\bin\phantomjs.exe" "%PREFIX%\Scripts\phantomjs.exe"
+if errorlevel 1 exit 1
