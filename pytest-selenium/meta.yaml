@@ -1,0 +1,41 @@
+package:
+  name: pytest-selenium
+  version: 1.2.1
+
+source:
+  fn: pytest-timeout-1.0.0.tar.gz
+  url: https://github.com/pytest-dev/pytest-selenium/archive/v1.2.1.tar.gz
+
+build:
+  noarch_python: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest >=2.7.3
+    - pytest-html >=1.7
+    - pytest-variables
+    - selenium >=2.26.0
+    - requests
+
+  run:
+    - python
+    - setuptools
+    - pytest >=2.7.3
+    - pytest-html >=1.7
+    - pytest-variables
+    - selenium >=2.26.0
+    - requests
+
+test:
+  imports:
+    - pytest_selenium
+    - pytest_selenium.drivers
+    - pytest_selenium.cloud
+
+about:
+  home: https://pypi.python.org/pypi/pytest-selenium
+  license: Mozilla Public License 2.0 (MPL 2.0)
+  summary: pytest-selenium is a plugin for py.test that provides support for running Selenium based tests.
