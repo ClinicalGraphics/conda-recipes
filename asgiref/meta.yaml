@@ -1,10 +1,10 @@
 package:
   name: asgiref
-  version: 0.13.0
+  version: 0.13.2
 
 source:
-  url: https://github.com/andrewgodwin/asgiref/archive/0.13.0.tar.gz
-  fn: 0.13.0.tar.gz
+  url: https://github.com/andrewgodwin/asgiref/archive/0.13.2.tar.gz
+  fn: 0.13.2.tar.gz
 
 build:
   number: 0

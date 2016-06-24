@@ -1,10 +1,10 @@
 package:
   name: asgi_redis
-  version: 0.12.0
+  version: 0.13.1
 
 source:
-  url: https://github.com/andrewgodwin/asgi_redis/archive/0.12.0.tar.gz
-  fn: 0.12.0.tar.gz
+  url: https://github.com/andrewgodwin/asgi_redis/archive/0.13.1.tar.gz
+  fn: 0.13.1.tar.gz
 
 build:
   number: 0
@@ -16,13 +16,13 @@ requirements:
     - six
     - redis >=2.10
     - msgpack-python
-    - asgiref >=0.13.0
+    - asgiref >=0.13.2
   run:
     - python
     - six
     - redis >=2.10
     - msgpack-python
-    - asgiref >=0.13.0
+    - asgiref >=0.13.2
 
 test:
   imports:

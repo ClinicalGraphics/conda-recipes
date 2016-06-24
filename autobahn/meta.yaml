@@ -1,21 +1,22 @@
 package:
   name: autobahn
-  version: 0.13.0
+  version: 0.14.1
 
 source:
-  url: https://pypi.python.org/packages/source/a/autobahn/autobahn-0.13.0.tar.gz
-  fn: autobahn-0.13.0.tar.gz
+  url: https://github.com/crossbario/autobahn-python/archive/v0.14.1.tar.gz
+  fn: v0.14.1.tar.gz
 
 build:
   number: 0
+  noarch_python: True
 
 requirements:
   build:
     - python
-    - txaio >=2.2.2
+    - txaio >=2.5.1
   run:
     - python
-    - txaio >=2.2.2
+    - txaio >=2.5.1
 
 test:
   imports:

@@ -1,10 +1,10 @@
 package:
   name: daphne
-  version: 0.12.1
+  version: 0.12.2
 
 source:
-  url: https://github.com/andrewgodwin/daphne/archive/0.12.1.tar.gz
-  fn: 0.12.1.tar.gz
+  url: https://github.com/andrewgodwin/daphne/archive/0.12.2.tar.gz
+  fn: 0.12.2.tar.gz
 
 build:
   number: 0
@@ -13,14 +13,14 @@ build:
 requirements:
   build:
     - python
-    - asgiref >=0.13.0
-    - twisted >=15.5
-    - autobahn >=0.13
+    - asgiref >=0.13.2
+    - twisted >=16.2.0
+    - autobahn >=0.14.1
   run:
     - python
-    - asgiref >=0.13.0
-    - twisted >=15.5
-    - autobahn >=0.13
+    - asgiref >=0.13.2
+    - twisted >=16.2.0
+    - autobahn >=0.14.1
 
 test:
   imports:

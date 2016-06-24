@@ -1,49 +1,30 @@
 package:
   name: jsonschema
-  version: !!str 2.4.0
+  version: 2.5.1
 
 source:
-  fn: jsonschema-2.4.0.tar.gz
-  url: https://pypi.python.org/packages/source/j/jsonschema/jsonschema-2.4.0.tar.gz
-  md5: 661f85c3d23094afbb9ac3c0673840bf
+  fn: jsonschema-2.5.1.tar.gz
+  url: https://pypi.python.org/packages/58/0d/c816f5ea5adaf1293a1d81d32e4cdfdaf8496973aa5049786d7fdb14e7e7/jsonschema-2.5.1.tar.gz
 
 build:
-  entry_points:
-    - jsonschema = jsonschema.cli:main
+  number: 0
+  noarch_python: True
+  script: pip install .
 
 requirements:
   build:
     - python
-    - setuptools
-    - argparse # [py26]
-
+    - pip
+    - vcversioner
   run:
     - python
-    - argparse # [py26]
+    - functools32  # [py27]
 
 test:
   imports:
     - jsonschema
-    - jsonschema.tests
-
-  commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-    - jsonschema --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
 
 about:
   home: http://github.com/Julian/jsonschema
   license:  MIT License
-  summary: 'An implementation of JSON Schema validation for Python'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: An implementation of JSON Schema validation for Python
