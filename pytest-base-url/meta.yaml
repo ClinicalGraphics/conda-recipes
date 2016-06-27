@@ -1,0 +1,33 @@
+package:
+  name: pytest-base-url
+  version: 1.0.0
+
+source:
+  fn: pytest-base-url-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/44/a2/3bbeff1137c4791f11247e39d4ff1b7f54735d76eddc3f20f0cb93f145c6/pytest-base-url-1.0.0.tar.gz
+
+build:
+  noarch_python: True
+  number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest
+    - requests
+
+  run:
+    - python
+    - pytest
+    - requests
+
+test:
+  imports:
+    - pytest
+    - pytest_base_url
+
+about:
+  home: https://pypi.python.org/pypi/pytest-base-url/
+  license:  Mozilla Public License 2.0 (MPL 2.0)
+  summary: pytest-base-url is a simple plugin for pytest that provides an optional base URL via the command line or configuration file

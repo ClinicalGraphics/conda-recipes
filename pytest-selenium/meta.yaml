@@ -3,12 +3,12 @@ package:
   version: 1.2.1
 
 source:
-  fn: pytest-timeout-1.0.0.tar.gz
-  url: https://github.com/pytest-dev/pytest-selenium/archive/v1.2.1.tar.gz
+  fn: bed6666b934f2aa63bb2a3a35ea95ad0a86a3eea.zip
+  url: https://github.com/pytest-dev/pytest-selenium/archive/bed6666b934f2aa63bb2a3a35ea95ad0a86a3eea.zip
 
 build:
   noarch_python: True
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -17,6 +17,7 @@ requirements:
     - pytest >=2.9.2
     - pytest-html >=1.8.1
     - pytest-variables
+    - pytest-base-url
     - selenium >=2.53.5
     - requests
 
@@ -26,6 +27,7 @@ requirements:
     - pytest >=2.9.2
     - pytest-html >=1.8.1
     - pytest-variables
+    - pytest-base-url
     - selenium >=2.53.5
     - requests
 
