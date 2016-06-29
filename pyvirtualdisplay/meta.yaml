@@ -1,0 +1,30 @@
+package:
+    name: pyvirtualdisplay
+    version: 0.2
+
+source:
+    fn: PyVirtualDisplay-0.2.tar.gz
+    url: https://pypi.python.org/packages/ce/df/9ab299661784d36e1da9f025d904e96a9a223813be97970277cbb1ca1a04/PyVirtualDisplay-0.2.tar.gz
+    md5: e3960707a33f3029a5b9c80249d8aad7
+
+build:
+    number: 0
+    script: pip install PyVirtualDisplay
+    noarch_python: True
+
+requirements:
+    build:
+      - python
+      - pip
+
+    run:
+      - python
+
+test:
+    imports:
+        - pyvirtualdisplay
+
+about:
+    home: https://pypi.python.org/pypi/PyVirtualDisplay
+    license: BSD
+
