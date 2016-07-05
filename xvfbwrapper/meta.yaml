@@ -1,0 +1,26 @@
+package:
+    name: xvfbwrapper
+    version: 0.2.8
+
+build:
+    number: 1
+    script: pip install xvfbwrapper==0.2.8
+    noarch_python: True
+
+requirements:
+    build:
+      - python
+      - pip
+    run:
+      - python
+
+test:
+    imports:
+        - xvfbwrapper
+
+about:
+    home: https://pypi.python.org/pypi/xvfbwrapper/0.2.8
+    license: BSD License
+    summary: run headless display inside X virtual framebuffer (Xvfb)
+
+
