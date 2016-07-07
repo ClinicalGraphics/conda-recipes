@@ -9,17 +9,15 @@ source:
     fn: chromedriver_linux32.zip                                                        # [linux32]
     url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux32.zip       # [linux32]
     md5: c498db13c92abf0d504c784d2191e9b1                                               # [linux32]
-    fn: chromedriver_win32.zip                                                          # [win32]
-    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_win32.zip         # [win32]
-    md5: c5962f884bd58987b1ef0fa04c6a3ce5                                               # [win32]
+    fn: chromedriver_win32.zip                                                          # [win]
+    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_win32.zip         # [win]
+    md5: c5962f884bd58987b1ef0fa04c6a3ce5                                               # [win]
     fn: chromedriver_mac32.zip                                                          # [osx]
     url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_mac32.zip         # [osx]
     md5: eed98b5a2895b9cd2432fa52f7091a71                                               # [osx]
 
 build:
-    number: 1
-    script_env:
-        - PYTHONPATH
+    number: 2
 
 test:
     commands:
