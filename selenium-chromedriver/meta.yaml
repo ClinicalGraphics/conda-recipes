@@ -17,7 +17,7 @@ source:
     md5: eed98b5a2895b9cd2432fa52f7091a71                                               # [osx]
 
 build:
-    number: 0
+    number: 1
     script_env:
         - PYTHONPATH
 
