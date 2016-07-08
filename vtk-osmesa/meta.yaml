@@ -1,0 +1,63 @@
+package:
+  name: vtk-osmesa
+  version: 7.0.0
+
+source:
+  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz
+  fn:  VTK-7.0.0.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - osmesa
+    - toolchain
+    - cmake
+    - ninja
+    - python
+    # VTK Third Party dependencies
+    - zlib
+    - freetype
+    - hdf5
+    - libxml2
+    - libpng
+    - jpeg
+    - libtiff
+    - expat
+  run:
+    - osmesa-mangled
+    - python
+    - future  # used in the generated python wrappers
+    # VTK Third Party dependencies
+    - zlib
+    - freetype
+    - hdf5
+    - libxml2
+    - libpng
+    - jpeg
+    - libtiff
+    - expat
+
+
+test:
+  imports:
+    - vtk
+    - vtk.vtkChartsCore
+    - vtk.vtkCommonCore
+    - vtk.vtkFiltersCore
+    - vtk.vtkFiltersGeneric
+    - vtk.vtkGeovisCore
+    - vtk.vtkFiltersHybrid
+    - vtk.vtkIOCore
+    - vtk.vtkImagingCore
+    - vtk.vtkInfovisCore
+    - vtk.vtkRenderingCore
+    - vtk.vtkViewsCore
+    - vtk.vtkRenderingVolume
+    - vtk.vtkInteractionWidgets
+
+about:
+  home: http://www.vtk.org/
+  license: BSD
+  summary: VTK is an open-source, freely available software system for 3D computer graphics
