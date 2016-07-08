@@ -26,7 +26,7 @@ requirements:
     - libtiff
     - expat
   run:
-    - osmesa-mangled
+    - osmesa
     - python
     - future  # used in the generated python wrappers
     # VTK Third Party dependencies
@@ -38,7 +38,6 @@ requirements:
     - jpeg
     - libtiff
     - expat
-
 
 test:
   imports:
