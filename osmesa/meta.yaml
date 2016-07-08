@@ -3,28 +3,32 @@ package:
   version: 11.2.2
 
 source:
-  url: https://github.com/mesa3d/mesa/archive/mesa-11.2.2.tar.gz [linux]
-  fn: mesa-11.2.2.tar.gz [linux]
-  sha256: a2edf7ad2589f0c3b5cd3d8f8866193c03bf871a38d5dc27423a03f352abe2de [linux]
+  url: https://github.com/mesa3d/mesa/archive/mesa-11.2.2.tar.gz
+  fn: mesa-11.2.2.tar.gz
+  sha256: a2edf7ad2589f0c3b5cd3d8f8866193c03bf871a38d5dc27423a03f352abe2de
 
 build:
   number: 0
+  msvc_compiler: 14.0
 
 requirements:
   build:
+    - scons # [win]
+    - mingw # [win]
+    - pywin32 # [win]
+    - mingwpy  # [win]
     - python 2.7.*
     - mako
-    - toolchain
-    - pkg-config
-    - autoconf
-    - automake
-    - libtool
+    - llvm
+    - toolchain # [unix]
+    - pkg-config # [unix]
+    - autoconf # [unix]
+    - automake # [unix]
+    - libtool # [unix]
     - m4 # [unix]
     - flex  # [unix]
     - bison  # [unix]
-    - mingwpy  # [win]
-    - llvm
-    - glproto
+    - glproto # [unix]
 
   run:
     - llvm
