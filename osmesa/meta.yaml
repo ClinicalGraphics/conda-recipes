@@ -1,11 +1,10 @@
 package:
   name: osmesa
-  version: 11.2.2
+  version: 12.0.1
 
 source:
-  url: https://github.com/mesa3d/mesa/archive/mesa-11.2.2.tar.gz
-  fn: mesa-11.2.2.tar.gz
-  sha256: a2edf7ad2589f0c3b5cd3d8f8866193c03bf871a38d5dc27423a03f352abe2de
+  url: https://mesa.freedesktop.org/archive/12.0.1/mesa-12.0.1.tar.gz
+  fn: mesa-12.0.1.tar.gz
 
 build:
   number: 0
@@ -13,16 +12,17 @@ build:
 
 requirements:
   build:
+    - python
+    - mako
+    - llvm
     - scons # [win]
     - mingw # [win]
     - pywin32 # [win]
     - mingwpy  # [win]
-    - python 2.7.*
-    - mako
-    - llvm
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
+    - pthread-stubs # [unix] # for version 12.0.1
     - automake # [unix]
     - libtool # [unix]
     - m4 # [unix]
@@ -33,6 +33,12 @@ requirements:
   run:
     - llvm
 
+test:
+  commands:
+    - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
+    - test -f $PREFIX/lib/libOSMesa.so     # [linux]
+    - test -f $PREFIX/lib/libOSMesa.dll    # [win]
+
 about:
-    home: http://www.mesa3d.org/
+    home: https://github.com/mesa3d/mesa
     license: MIT

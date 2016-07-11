@@ -1,27 +1,58 @@
+""" VTK to screenshot python example """
 import vtk
+from vtk.util import numpy_support
 
-sphere_source = vtk.vtkArrowSource()
+# create a rendering window and renderer
+ren = vtk.vtkRenderer()
+render_window = vtk.vtkRenderWindow()
+render_window.AddRenderer(ren)
 
+# create source
+source = vtk.vtkSphereSource()
+source.SetCenter(0,0,0)
+source.SetRadius(2.0)
+source.Update()
+
+# mapper
 mapper = vtk.vtkPolyDataMapper()
-mapper.SetInputData(sphere_source.GetOutput())
+mapper.SetInputData(source.GetOutput())
 
+# actor
 actor = vtk.vtkActor()
 actor.SetMapper(mapper)
 
-renderer = vtk.vtkRenderer()
-renderer.AddActor(actor)
-renderer.SetBackground(.1, .2, .3)
+# color the actor
+actor.GetProperty().SetColor(1,0,0) # (R,G,B)
 
-render_window = vtk.vtkRenderWindow()
-render_window.SetOffScreenRendering(True)
-render_window.AddRenderer(renderer)
+# assign actor to the renderer
+ren.AddActor(actor)
+ren.SetBackground(1, 1, 1)
+
+# render internally
 render_window.Render()
 
-window_to_image_filter = vtk.vtkWindowToImageFilter()
-window_to_image_filter.SetInput(render_window)
-window_to_image_filter.Update()
+# screenshot code:
+w2if = vtk.vtkWindowToImageFilter()
+w2if.SetInput(render_window)
+w2if.Update()
+image_data = w2if.GetOutput()
 
+# write to png
 writer = vtk.vtkPNGWriter()
-writer.SetFileName("render.png")
-writer.SetInputData(window_to_image_filter.GetOutput())
+writer.SetFileName("screenshot.png")
+writer.SetInputData(image_data)
 writer.Write()
+
+# read image:
+reader = vtk.vtkPNGReader()
+reader.SetFileName("screenshot.png")
+reader.Update()
+screenshot_data = reader.GetOutput()
+
+# compare vtkimagedata from Filter to vtkimagedata from reader
+reader.Update()
+screenshot_data = reader.GetOutput()
+
+np_array_1 = numpy_support.vtk_to_numpy(image_data.GetPointData().GetArray(0))
+np_array_2 = numpy_support.vtk_to_numpy(screenshot_data.GetPointData().GetArray(0))
+assert (np_array_1 == np_array_2).all()

@@ -18,6 +18,7 @@ elif [[ ${CONDA_LST}'y' == *'osmesa'* ]]; then
         "-DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include"
         "-DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
     )
+#"-DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
 else
     # onscreen X build for Linux
     SCREEN_ARGS=(
@@ -72,7 +73,7 @@ cmake .. -G "Ninja" \
     -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
-    -DVTK_RENDERING_BACKEND=OpenGL \
+    -DVTK_RENDERING_BACKEND=OpenGL2 \
     -DModule_vtkRenderingMatplotlib=ON \
     -DVTK_USE_SYSTEM_ZLIB:BOOL=ON \
     -DVTK_USE_SYSTEM_FREETYPE:BOOL=ON \

@@ -7,7 +7,7 @@ source:
   fn:  VTK-7.0.0.tar.gz
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -48,6 +48,7 @@ test:
     - vtk.vtkFiltersGeneric
     - vtk.vtkGeovisCore
     - vtk.vtkFiltersHybrid
+    - vtk.vtkUtil
     - vtk.vtkIOCore
     - vtk.vtkImagingCore
     - vtk.vtkInfovisCore
