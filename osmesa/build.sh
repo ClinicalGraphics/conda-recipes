@@ -24,7 +24,8 @@ autoreconf -fi
 	--enable-gallium-llvm=yes                           \
 	--disable-gles1                                     \
 	--disable-gles2                                     \
-    --prefix=$PREFIX
+	--prefix=$PREFIX                                    \
+	--disable-llvm-shared-libs
 
 make -j2
 make -j4 install

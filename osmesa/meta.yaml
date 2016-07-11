@@ -1,24 +1,16 @@
 package:
   name: osmesa
-  version: 12.0.1
+  version: 12.2.2.dev
 
 source:
-  url: https://mesa.freedesktop.org/archive/12.0.1/mesa-12.0.1.tar.gz
-  fn: mesa-12.0.1.tar.gz
-
-build:
-  number: 0
-  msvc_compiler: 14.0
+  fn: mesa-12.2.2.dev.zip
+  url: https://github.com/menpo/mesa/archive/expose_attrib.zip
 
 requirements:
   build:
-    - python
+    - python 2.7*
     - mako
     - llvm
-    - scons # [win]
-    - mingw # [win]
-    - pywin32 # [win]
-    - mingwpy  # [win]
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
@@ -30,15 +22,11 @@ requirements:
     - bison  # [unix]
     - glproto # [unix]
 
-  run:
-    - llvm
-
 test:
   commands:
     - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
     - test -f $PREFIX/lib/libOSMesa.so     # [linux]
-    - test -f $PREFIX/lib/libOSMesa.dll    # [win]
 
 about:
-    home: https://github.com/mesa3d/mesa
-    license: MIT
+  home: http://www.mesa3d.org/
+  license: MIT + Others

@@ -1,6 +1,5 @@
 """ VTK to screenshot python example """
 import vtk
-from vtk.util import numpy_support
 
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
@@ -50,9 +49,13 @@ reader.Update()
 screenshot_data = reader.GetOutput()
 
 # compare vtkimagedata from Filter to vtkimagedata from reader
-reader.Update()
-screenshot_data = reader.GetOutput()
+image_diff = vtk.vtkImageDifference()
+image_diff.SetInputData(image_data)
+image_diff.SetImageData(screenshot_data)
+image_diff.Update()
+error = image_diff.GetError()
 
-np_array_1 = numpy_support.vtk_to_numpy(image_data.GetPointData().GetArray(0))
-np_array_2 = numpy_support.vtk_to_numpy(screenshot_data.GetPointData().GetArray(0))
-assert (np_array_1 == np_array_2).all()
+print("Image from rendered screenshot differs from reference by {}".format(error))
+
+if error > 0.01:
+    raise ValueError("Didn't render correctly, build probably failed")
