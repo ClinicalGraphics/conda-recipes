@@ -7,7 +7,7 @@ package:
 source:
     fn: channels-{{ version }}.tar.gz
     url: https://pypi.io/packages/source/c/channels/channels-{{ version }}.tar.gz
-    sha256: 2b29e81c8c32b3c0d9a0119217416887c480d927ae2630bada2da83078c93bf6
+    sha256: 1aa96f746c638f0c7271818577ce51d2f04f8d7e5205934e9f4a10420735d4d3
 
 build:
     number: 0
