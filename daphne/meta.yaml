@@ -1,30 +1,38 @@
+{% set version = "0.14.2" %}
+
 package:
   name: daphne
-  version: 0.12.2
+  version: {{ version }}
 
 source:
-  url: https://github.com/andrewgodwin/daphne/archive/0.12.2.tar.gz
-  fn: 0.12.2.tar.gz
+  fn: daphne-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/d/daphne/daphne-{{ version }}.tar.gz
+  sha256: ddc982eaa31d058ca4ab39dc1fa43e5b2ac141aca8f0a182429a4ed9f2287cbe
 
 build:
-  number: 0
-  noarch_python: True
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+    entry_points:
+      - daphne = daphne.cli:CommandLineInterface.entrypoint
 
 requirements:
   build:
     - python
-    - asgiref >=0.13.2
-    - twisted >=16.2.0
-    - autobahn >=0.14.1
+    - setuptools
+    - asgiref >=0.13
+    - twisted >=15.5,<16.3
+    - autobahn >=0.12
   run:
     - python
-    - asgiref >=0.13.2
-    - twisted >=16.2.0
-    - autobahn >=0.14.1
+    - asgiref >=0.13
+    - twisted >=15.5,<16.3
+    - autobahn >=0.12
 
 test:
   imports:
     - daphne
+  commands:
+    - daphne --help
 
 about:
   home: https://github.com/andrewgodwin/daphne
