@@ -8,9 +8,9 @@ source:
 
 requirements:
   build:
-    - python 2.7*
+    - python
     - mako
-    - llvm
+    - llvmdev
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]

@@ -7,7 +7,7 @@ source:
   fn: 0.13.1.tar.gz
 
 build:
-  number: 0
+  number: 1
   noarch_python: True
 
 requirements:
@@ -16,12 +16,14 @@ requirements:
     - six
     - redis >=2.10
     - msgpack-python
+    - cryptography
     - asgiref >=0.13.2
   run:
     - python
     - six
     - redis >=2.10
     - msgpack-python
+    - cryptography
     - asgiref >=0.13.2
 
 test:
