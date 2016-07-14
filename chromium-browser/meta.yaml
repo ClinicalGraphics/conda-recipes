@@ -1,0 +1,84 @@
+package:
+  name: chromium-browser
+  version: 53.0.2784.0
+
+source:
+  fn: psycopg2-2.6.1.tar.gz
+  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz
+  md5: 842b44f8c95517ed5b792081a2370da1
+
+build:
+  number: 2
+  features:
+    - vc9                [win and py27]
+    - vc10               [win and py34]
+    - vc14               [win and py35]
+
+requirements:
+  build:
+    - python
+
+  run:
+    - python
+
+test:
+  imports:
+    - psycopg2
+    - psycopg2.tests
+
+#package:
+#  name: psycopg2
+#  version: 2.6.1
+#
+#source:
+#  fn: psycopg2-2.6.1.tar.gz
+#  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz
+#  md5: 842b44f8c95517ed5b792081a2370da1
+#
+#build:
+#  number: 2
+#  features:
+#    - vc9                [win and py27]
+#    - vc10               [win and py34]
+#    - vc14               [win and py35]
+#
+#requirements:
+#  build:
+#    - python
+#
+#  run:
+#    - python
+#
+#test:
+#  imports:
+#    - psycopg2
+#    - psycopg2.tests
+
+
+#about:
+#  home: http://initd.org/psycopg/
+#  license: GNU Library or Lesser General Public License (LGPL) or Zope Public License
+#  summary: 'psycopg2 - Python-PostgreSQL Database Adapter'
+#
+#package:
+#  name: rust
+#  version: "1.8.0"
+#
+#build:
+#  number: 0
+#
+#source:
+#  fn: rust-1.8.0-x86_64-unknown-linux-gnu.tar.gz # [linux64]
+#  url: https://static.rust-lang.org/dist/rust-1.8.0-x86_64-unknown-linux-gnu.tar.gz # [linux64]
+#  fn: rust-1.8.0-x86_64-apple-darwin.tar.gz # [osx]
+#  url: http://static.rust-lang.org/dist/rust-1.8.0-x86_64-apple-darwin.tar.gz # [osx]
+#
+#test:
+#  commands:
+#    - rustc --help
+#    - cargo --help
+#
+#about:
+#  home: https://www.rust-lang.org
+#  license: MIT
+#  summary: Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.
