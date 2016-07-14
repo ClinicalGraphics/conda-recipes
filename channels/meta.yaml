@@ -1,25 +1,29 @@
+{% set version = "0.16.0" %}
+
 package:
-  name: channels
-  version: 0.14.3
+    name: channels
+    version: {{ version }}
 
 source:
-  url: https://github.com/andrewgodwin/channels/archive/0.14.3.tar.gz
-  fn: 0.14.3.tar.gz
+    fn: channels-{{ version }}.tar.gz
+    url: https://pypi.io/packages/source/c/channels/channels-{{ version }}.tar.gz
+    sha256: 1aa96f746c638f0c7271818577ce51d2f04f8d7e5205934e9f4a10420735d4d3
 
 build:
-  number: 0
-  noarch_python: True
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
-    - daphne >=0.12.2
-    - autobahn >=0.13
+    - setuptools
+    - asgiref >=0.13
+    - daphne >=0.14.1
     - django >=1.8
   run:
     - python
-    - daphne >=0.12.1
-    - autobahn >=0.13
+    - asgiref >=0.13
+    - daphne >=0.14.1
     - django >=1.8
 
 test:

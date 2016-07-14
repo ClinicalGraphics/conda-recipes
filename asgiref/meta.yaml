@@ -1,21 +1,26 @@
+{% set version = "0.13.3" %}
+
 package:
   name: asgiref
-  version: 0.13.3
+  version: {{ version }}
 
 source:
-  url: https://github.com/andrewgodwin/asgiref/archive/master.zip
-  fn: master.zip
+  url: https://pypi.io/packages/source/a/asgiref/asgiref-{{ version }}.tar.gz
+  fn: asgiref-{{ version }}.tar.gz
+  sha256: 6afc1a2807d5e106762aee44c46fc8ec1e6f8c4dd0487645b1710e9ec58bb686
 
 build:
   number: 0
-  noarch_python: True
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
+    - setuptools
     - six
   run:
     - python
+    - six
 
 test:
   imports:
