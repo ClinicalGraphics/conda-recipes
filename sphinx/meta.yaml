@@ -1,20 +1,20 @@
 package:
   name: sphinx
-  version: 1.4.1
+  version: 1.4.5
 
 source:
-  fn: 1.4.1.tar.gz
-  url: https://github.com/sphinx-doc/sphinx/archive/1.4.1.tar.gz
+  fn: 1.4.5.tar.gz
+  url: https://github.com/sphinx-doc/sphinx/archive/1.4.5.tar.gz
 
 build:
   noarch_python: True
-  preserve_egg_dir: True
   entry_points:
     - sphinx-build = sphinx:main
     - sphinx-quickstart = sphinx.quickstart:main
     - sphinx-apidoc = sphinx.apidoc:main
     - sphinx-autogen = sphinx.ext.autosummary.generate:main
   number: 0
+  script: python setup.py install
 
 requirements:
   build:
@@ -53,8 +53,7 @@ test:
     - sphinx
     - sphinx.pycode
 
-
 about:
   home: http://sphinx-doc.org/
   license: BSD License
-  summary: 'Python documentation generator'
+  summary: Python documentation generator
