@@ -1,0 +1,25 @@
+package:
+  name: pylint-plugin-utils
+  version: 0.2.4
+
+source:
+  url: https://github.com/landscapeio/pylint-plugin-utils/archive/0.2.4.tar.gz
+  fn: 0.2.4.tar.gz
+
+build:
+  number: 0
+  noarch_python: True
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+    - pylint
+
+  run:
+    - python
+
+about:
+  home: https://github.com/landscapeio/pylint-plugin-utils
+  license: GPLv2
+  summary: Utilities and helpers for writing Pylint plugins.
