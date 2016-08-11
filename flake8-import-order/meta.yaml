@@ -7,7 +7,8 @@ source:
   git_rev: b81eefa4d6b338261d56531bff1c44dd35118852
 
 build:
-  preserve_egg_dir: True
+  number: 0
+  script: python setup.py install
   noarch_python: True
 
 requirements:
