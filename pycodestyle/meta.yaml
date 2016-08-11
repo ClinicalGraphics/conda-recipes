@@ -12,7 +12,7 @@ source:
 build:
   entry_points:
     - pycodestyle = pycodestyle:_main
-
+  noarch_python: True
   number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
@@ -32,4 +32,4 @@ test:
 about:
   home: https://pycodestyle.readthedocs.io/
   license: MIT License
-  summary: 'Python style guide checker'
+  summary: Python style guide checker

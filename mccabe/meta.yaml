@@ -1,7 +1,5 @@
 {%set name = "mccabe" %}
-{%set version = "0.5.0" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "379358498f58f69157b53f59f46aefda0e9a3eb81365238f69fbedf7014e21ab" %}
+{%set version = "0.5.2" %}
 
 package:
   name: {{ name }}
@@ -9,11 +7,11 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  {{ hash_type }}: {{ hash_val }}
+  url: https://pypi.python.org/packages/f1/b7/ff36d1a163079688633a776e1717b5459caccbb68973afab2aa8345ac40f/{{ name }}-{{ version }}.tar.gz
 
 build:
   number: 0
+  noarch_python: True
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -32,4 +30,5 @@ test:
 about:
   home: https://github.com/PyCQA/mccabe
   license: MIT
-  summary: 'McCabe complexity checker for Python'
+  summary: McCabe complexity checker for Python
+
