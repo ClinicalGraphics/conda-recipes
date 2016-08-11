@@ -1,15 +1,33 @@
+{% set version = "0.4.1" %}
+
 package:
   name: pep8-naming
-  version: 0.4.1
+  version: {{ version }}
 
 source:
-  fn: pep8-naming-0.4.1.tar.gz
-  url: https://pypi.python.org/packages/c8/c9/d16bea3e5f888f430b73f44eb9be8ba3cd7a22f08ed05363c8614b131e21/pep8-naming-0.4.1.tar.gz
+  fn: pep8-naming-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/pep8-naming/pep8-naming-{{ version }}.tar.gz
+  sha256: 4eedfd4c4b05e48796f74f5d8628c068ff788b9c2b08471ad408007fc6450e5a
+#  patches:
+   # List any patch files here
+   # - fix.patch
 
 build:
-  number: 1
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record record.txt
   noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pep8-naming = pep8-naming:main
+    #
+    # Would create an entry point called pep8-naming that calls pep8-naming.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
 
 requirements:
   build:
@@ -18,12 +36,14 @@ requirements:
 
   run:
     - python
+    - setuptools
     - flake8
-test:
-  commands:
-    - 'flake8 --version | grep naming:'
 
 about:
   home: https://github.com/flintwork/pep8-naming
   license: MIT License
-  summary: Check PEP-8 naming conventions, plugin for flake8
+  summary: 'Check PEP-8 naming conventions, plugin for flake8'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
