@@ -1,14 +1,18 @@
+{%set name = "flake8-future-import" %}
+{%set version = "0.4.3" %}
+
 package:
   name: flake8-future-import
-  version: 0.4.1
+  version: {{ version }}
 
 source:
-  fn: 0.4.1.tar.gz
-  url: https://github.com/xZise/flake8-future-import/archive/0.4.1.tar.gz
+  fn: {{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  md5: ff1413dd65788bd5ed6daa1dc964c8e0
 
 build:
   number: 0
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record=record.txt
   noarch_python: True
 
 requirements:
