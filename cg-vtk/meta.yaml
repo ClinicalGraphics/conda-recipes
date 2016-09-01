@@ -8,10 +8,6 @@ build:
   number: 0  
 
 requirements:
-  build:
-    - vtk  # [win]
-    - vtk-osmesa  # [linux]
-
   run:    
     - vtk  # [win]
     - vtk-osmesa  # [linux]
