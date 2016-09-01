@@ -1,30 +1,40 @@
+{% set version = "2.6.3" %}
+
 package:
     name: freetype
-    version: 2.5.2
+    version: {{ version }}
 
 source:
-  fn: freetype-2.5.2.tar.bz2
-  url: http://download.savannah.gnu.org/releases/freetype/freetype-2.5.2.tar.bz2
-  md5: 10e8f4d6a019b124088d18bc26123a25
-  patches:
-    - update_msvc_sln.patch           [win]
-    - subpixel.patch
-    - multi-thread-violations.patch
-    - double-free.patch
-    - CVE-2014-2240.patch
-    - CVE-2014-2241.patch
+    fn: freetype-{{ version }}.tar.bz2
+    url: http://download.savannah.gnu.org/releases/freetype/freetype-{{ version }}.tar.bz2
+    sha256: 371e707aa522acf5b15ce93f11183c725b8ed1ee8546d7b3af549863045863a2
+    patches:
+        # Build shared libs with msvc.
+        - winshared.patch  # [win]
 
 build:
-  number: 1
+    number: 1
+    features:
+        - vc9  # [win and py27]
+        - vc10  # [win and py34]
+        - vc14  # [win and py35]
 
 requirements:
     build:
-        - zlib
-        - libpng
+        - python  # [win]
+        - cmake  # [win]
+        - zlib 1.2.*
+        - libpng >=1.6.21,<1.7
     run:
-        - zlib
-        - libpng
+        - zlib 1.2.*
+        - libpng >=1.6.21,<1.7
+
+test:
+    commands:
+        - freetype-config --version  # [not win]
+        - conda inspect linkages -n _test freetype  # [linux]
 
 about:
-  home: http://freetype.sourceforge.net/index2.html
-  license: FreeType License (http://freetype.sourceforge.net/FTL.TXT)
+    home: http://freetype.sourceforge.net/index2.html
+    license: GPL-2.0 and FreeType (http://freetype.sourceforge.net/FTL.TXT)
+    summary: A TrueType Font Library

@@ -8,20 +8,18 @@ export CFLAGS="-I$PREFIX/include -L$PREFIX/lib"
 # default.
 export XWIN_ARGS=""
 if [ `uname` == Darwin ]; then
-   export XWIN_ARGS="--disable-xlib -disable-xcb --disable-glitz"
+    export XWIN_ARGS="--disable-xlib -disable-xcb --disable-glitz"
 fi
 
-
-./configure                 \
-    --prefix=$PREFIX        \
-    --disable-static        \
-    --disable-gobject       \
-    --enable-warnings       \
-    --enable-ft             \
-    --enable-ps             \
-    --enable-pdf            \
-    --enable-svg            \
-    --disable-gtk-doc       \
+./configure                                  \
+    --prefix="${PREFIX}"                     \
+    --disable-gobject                        \
+    --enable-warnings                        \
+    --enable-ft                              \
+    --enable-ps                              \
+    --enable-pdf                             \
+    --enable-svg                             \
+    --disable-gtk-doc                        \
     $XWIN_ARGS
 
 make

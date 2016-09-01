@@ -1,21 +1,28 @@
-set SLN_FILE=builds\win32\vc2008\freetype.sln
-set SLN_CFG=LIB Release
-if "%ARCH%"=="32" (set SLN_PLAT=Win32) else (set SLN_PLAT=x64)
+mkdir build
+cd build
 
-REM The shipped .sln file is accompanied by documentation saying to do this.
-C:\cygwin\bin\unix2dos %SLN_FILE%
-
-REM Build step
-devenv "%SLN_FILE%" /Build "%SLN_CFG%|%SLN_PLAT%"
+:: Configure.
+cmake -G "NMake Makefiles" ^
+      -D CMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% ^
+      -D CMAKE_BUILD_TYPE=Release ^
+      -D CMAKE_PREFIX_PATH="%LIBRARY_PREFIX%" ^
+      -D CMAKE_SYSTEM_PREFIX_PATH="%LIBRARY_PREFIX%" ^
+      -D BUILD_SHARED_LIBS:BOOL=true ^
+      %SRC_DIR%
 if errorlevel 1 exit 1
 
-REM Install step
-mkdir %LIBRARY_INC%\freetype
-copy objs\win32\vc2008\freetype2410.lib %LIBRARY_LIB%\
+:: Build.
+nmake
 if errorlevel 1 exit 1
-copy objs\win32\vc2008\freetype2410.lib %LIBRARY_LIB%\freetype.lib
+
+:: Test.
+ctest
 if errorlevel 1 exit 1
-copy include\ft2build.h %LIBRARY_INC%\
+
+:: Install.
+nmake install
 if errorlevel 1 exit 1
-xcopy /S include\freetype\*.* %LIBRARY_INC%\freetype\
-if errorlevel 1 exit 1
+
+:: Move everything 1-level down.
+move %LIBRARY_INC%\freetype2\freetype %LIBRARY_INC% || exit 1
+move %LIBRARY_INC%\freetype2\ft2build.h %LIBRARY_INC% || exit 1
