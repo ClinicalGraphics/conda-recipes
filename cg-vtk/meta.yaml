@@ -8,11 +8,8 @@ build:
   number: 0  
 
 requirements:
-  build:
-    - vtk  # [win]
-    - vtk-osmesa  # [linux]
-
   run:    
+    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
     

@@ -8,10 +8,6 @@ build:
   number: 0  
 
 requirements:
-  build:
-    - miktex  # [win]
-    - texlive-core  # [linux]
-
   run:    
     - miktex  # [win]
     - texlive-core  # [linux]
