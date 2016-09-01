@@ -6,15 +6,14 @@ package:
 
 build:
   number: 0  
+  noarch: True
 
 requirements:
   build:
-    - python
     - miktex  # [win]
     - texlive-core  # [linux]
 
   run:    
-    - python
     - miktex  # [win]
     - texlive-core  # [linux]
     
