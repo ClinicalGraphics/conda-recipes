@@ -9,12 +9,10 @@ build:
 
 requirements:
   build:
-    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
 
   run:    
-    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
     
