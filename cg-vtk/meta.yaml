@@ -6,14 +6,15 @@ package:
 
 build:
   number: 0  
-  noarch: True
 
 requirements:
   build:
+    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
 
   run:    
+    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
     
