@@ -19,7 +19,7 @@ requirements:
     - texlive-core  # [linux]
     
 test:
-  imports:
+  commands:
     - pdflatex --help  # [win]
     - pdftex --help  # [linux]
     - bibtex --help
