@@ -9,6 +9,7 @@ build:
 
 requirements:
   run:    
+    - python
     - vtk  # [win]
     - vtk-osmesa  # [linux]
     
