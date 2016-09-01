@@ -1,0 +1,33 @@
+{% set version = "1.0.0" %}
+
+package:
+  name: cg-latex
+  version: {{ version }}
+
+build:
+  number: 0  
+
+requirements:
+  build:
+    - python
+    - miktex  # [win]
+    - texlive-core  # [linux]
+
+  run:    
+    - python
+    - miktex  # [win]
+    - texlive-core  # [linux]
+    
+test:
+  imports:
+    - pdflatex --help  # [win]
+    - pdftex --help  # [linux]
+    - bibtex --help
+
+about:
+  home: http://miktex.org/  # [win]
+  license: various, see http://miktex.org/copying  # [win]
+  summary: Implementation of TeX/LaTeX for Windows (repackaged binaries)  # [win]
+  home: https://www.tug.org/texlive/  # [linux]
+  license: GPL-2.0+ and GPL-2.0 and GPL-3.0 and LPPL-1.3c and LPPL-1.0 and Artistic-1.0 and Apache-2.0 and MIT and BSD-3-Clause  # [linux]
+  summary: An easy way to get up and running with the TeX document production system  # [linux]
