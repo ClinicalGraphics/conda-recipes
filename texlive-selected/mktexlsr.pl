@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 #
 # Copyright 2015 Norbert Preining
 #
@@ -9,6 +8,7 @@
 # Original shell script (C) 1994 Thomas Esser (as texhash), Public domain.
 #
 
+#!/usr/bin/env perl
 
 =pod
 

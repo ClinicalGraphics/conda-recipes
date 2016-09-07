@@ -5,16 +5,16 @@ package:
   version: {{ version }}
 
 build:
-  number: 0  
+  number: 1
 
 requirements:
   run:    
     - miktex  # [win]
-    - texlive-core  # [linux]
+    - texlive-selected  # [linux]
     
 test:
   commands:
-    - pdflatex --help  # [win]
+    - pdflatex --help
     - pdftex --help  # [linux]
     - bibtex --help
 

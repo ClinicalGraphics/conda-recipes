@@ -1,4 +1,4 @@
-""" VTK to screenshot python example """
+"""Compiles a pdf with the required packages and checks that a valid pdf was generated"""
 import vtk
 
 # create a rendering window and renderer

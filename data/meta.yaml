@@ -1,0 +1,31 @@
+package:
+    name: data
+    version: 0.4
+
+source:
+    fn: 0.4.tar.gz
+    url: https://github.com/mbr/data/archive/0.4.tar.gz
+
+build:
+    number: 0
+    noarch_python: True
+    script: python setup.py install
+
+requirements:
+    build:
+        - python
+        - funcsigs
+        - decorator
+        - six
+    run:
+        - python
+        - six
+
+test:
+    imports:
+        - data
+
+about:
+    home: https://github.com/mbr/data
+    license: MIT
+    summary: Work with unicode/non-unicode data from files or strings uniformly.
