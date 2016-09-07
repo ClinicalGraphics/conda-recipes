@@ -1,54 +1,265 @@
-rem I want to see my commands when they go wrong...
-echo on
+/*
+Change these to the *relative* paths your real executable is in
+In the end this is used as
+   <path env><RELATIVE_PATH><wrapper name><EXEC_EXTENSION>
+Slashes are need to be included here!
+<path env> really means one dir below the dir where the wrapper is. Which is
+true for <env>\Scripts and <env>\bin
+*/
 
-rem first compile, so errors are seen early...
-rem build the wrapper: pandoc expects commands like pdflatex to be exe files,
-rem batch files do not work
+/*
+    Wrapper for Windows to avoid using bat files
 
-rem compile using the MS compilers
-cl -DGUI=0 -DDEBUG=0 "%RECIPE_DIR%\wrapper.c"
-if errorlevel 1 exit 1
+    To build/rebuild with mingw32, do this in the setuptools project directory:
 
-dumpbin /IMPORTS wrapper.exe
+       gcc -DGUI=0           -mno-cygwin -O -s -o setuptools/cli.exe launcher.c
+       gcc -DGUI=1 -mwindows -mno-cygwin -O -s -o setuptools/gui.exe launcher.c
+*/
 
-rem extract the beast...
-7za x miktex-portable-%PKG_VERSION%.exe -o%LIBRARY_PREFIX%\miktex
-if errorlevel 1 exit 1
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#include <tchar.h>
+#include <fcntl.h>
+#include <process.h>
 
-rem SCRIPTS dir should already be created by 7za install
-if not exist %SCRIPTS% mkdir %SCRIPTS% || exit 1
 
-rem add exe versions for all commands...
-for %%f in ("%LIBRARY_PREFIX%\miktex\texmfs\install\miktex\bin\*.exe") do (
-	echo copy "wrapper.exe" "%SCRIPTS%\%%~nf.exe"
-	copy "wrapper.exe" "%SCRIPTS%\%%~nf.exe"
-	if errorlevel 1 exit 1
-)
+// http://www.catch22.net/tuts/reducing-executable-size
+// Favour small code
+#ifdef _MSC_VER
+#pragma optimize("gsy", on)
+#endif
 
-del wrapper.exe
-del wrapper.obj
 
-rem DO NOT INSTALL PACKAGES AS ADMIN: it adds a lot of cache files which have
-rem the path hardcoded to the current locations, so let that happen in the user
-rem install and on the users machine:
+/*if you need it: here is a way to get specific path for different arch... */
+#if __SIZEOF_POINTER__ == 8
+# define ARCH "x64"
+#else
+# define ARCH "i386"
+#endif
 
-rem Change the install variant to a regular one, so that latex packages
-rem installed by the user go into the users home directory...
-(
-echo ;;; MiKTeX startup information
-echo.
-echo ;;; The effect of this file is that the main install location in the conda env
-echo ;;; is not touched by the latex package installer and all packages are installed
-echo ;;; into a location under USERPROFILE.
-echo.
-echo [Auto]
-echo Config=Regular
-echo.
-echo [PATHS]
-echo CommonInstall=..\..\install
-echo CommonData=..\..\data
-echo CommonConfig=..\..\config
-) > "%PREFIX%\Library\miktex\texmfs\install\miktex\config\miktexstartup.ini"
+/*
+Change these to the *relative* paths your real executable is in
+In the end this is used as
+   <path env><RELATIVE_PATH><wrapper name><EXEC_EXTENSION>
+Slashes are need to be included here!
+<path env> really means one dir below the dir where the wrapper is. Which is
+true for <env>\Scripts and <env>\bin
+*/
+#define RELATIVE_PATH   "\\Library\\miktex\\texmfs\\install\\miktex\\bin\\"
+#define EXEC_EXTENSION  ".exe"
+#if !defined(DEBUG)
+    #define DEBUG 0
+#endif
 
-rem Also make miktex install packages automatically *without* asking
-sed -i "s/AutoInstall=2/AutoInstall=1/" "%PREFIX%\Library\miktex\texmfs\config\miktex\config\miktex.ini"
+
+/* Only change soemthing below where the path is set in the end.. */
+
+int child_pid=0;
+
+
+int fail(const char *format, const char *data) {
+    /* Print error message to stderr and return 2 */
+    fprintf(stderr, format, data);
+    return 2;
+}
+
+
+char *quoted(const char *data) {
+    size_t i, ln = strlen(data);
+    int nb; /* we check this for negative values */
+
+    /* We allocate twice as much space as needed to deal with worse-case
+       of having to escape everything. */
+    char *result = calloc(ln * 2 + 3, sizeof(char));
+    char *presult = result;
+
+    *presult++ = '"';
+    for (nb=0, i=0; i < ln; i++) {
+        if (data[i] == '\\') {
+            nb += 1;
+        } else if (data[i] == '"') {
+            for (; nb > 0; nb--)
+                *presult++ = '\\';
+            *presult++ = '\\';
+        } else {
+            nb = 0;
+        }
+        *presult++ = data[i];
+    }
+
+    for (; nb > 0; nb--) {       /* Deal w trailing slashes */
+        *presult++ = '\\';
+    }
+
+    *presult++ = '"';
+    *presult++ = 0;
+    return result;
+}
+
+
+
+void pass_control_to_child(DWORD control_type) {
+    /*
+     * distribute-issue207
+     * passes the control event to child process (Python)
+     */
+    if (!child_pid) {
+        return;
+    }
+    GenerateConsoleCtrlEvent(child_pid, 0);
+}
+
+
+BOOL control_handler(DWORD control_type) {
+    /*
+     * distribute-issue207
+     * control event handler callback function
+     */
+    switch (control_type) {
+        case CTRL_C_EVENT:
+            pass_control_to_child(0);
+            break;
+    }
+    return TRUE;
+}
+
+
+int create_and_wait_for_subprocess(char* command) {
+    /*
+     * distribute-issue207
+     * launches child process (Python)
+     */
+    DWORD return_value = 0;
+    LPSTR commandline = command;
+    STARTUPINFOA s_info;
+    PROCESS_INFORMATION p_info;
+    ZeroMemory(&p_info, sizeof(p_info));
+    ZeroMemory(&s_info, sizeof(s_info));
+    s_info.cb = sizeof(STARTUPINFO);
+    // set-up control handler callback funciotn
+    SetConsoleCtrlHandler((PHANDLER_ROUTINE) control_handler, TRUE);
+    if (!CreateProcessA(NULL, commandline, NULL, NULL, TRUE, 0, NULL,
+                        NULL, &s_info, &p_info)) {
+        fprintf(stderr, "failed to create process.\n");
+        return 1;
+    }
+    child_pid = p_info.dwProcessId;
+    // wait for Python to exit
+    WaitForSingleObject(p_info.hProcess, INFINITE);
+    if (!GetExitCodeProcess(p_info.hProcess, &return_value)) {
+        fprintf(stderr, "failed to get exit code from process.\n");
+        return 1;
+    }
+    return (int) return_value;
+}
+
+
+char* join_executable_and_args(char *executable, char **args, int argc) {
+    /*
+     * distribute-issue207
+     * CreateProcess needs a long string of the executable and command-line arguments,
+     * so we need to convert it from the args that was built
+     */
+    size_t len;
+    int counter;
+    char* cmdline;
+
+    len = strlen(executable) + 2;
+    for (counter=1; counter<argc; counter++) {
+        len += strlen(args[counter]) + 1;
+    }
+
+    cmdline = (char *) calloc(len, sizeof(char));
+    sprintf(cmdline, "%s", executable);
+    len=strlen(executable);
+    for (counter=1; counter<argc; counter++) {
+        sprintf(cmdline+len, " %s", args[counter]);
+        len += strlen(args[counter]) + 1;
+    }
+    return cmdline;
+}
+
+
+int run(int argc, char **argv, int is_gui)
+{
+    char path[MAX_PATH], newpath[MAX_PATH];
+    char **newargs, **newargsp; /* argument array for exec */
+    char *fn, *end, *ext;     /* working pointers for string manipulation */
+    char *cmdline;
+    int i;              /* loop counter */
+
+    /* compute script name from our .exe name*/
+    GetModuleFileNameA(NULL, path, sizeof(path));
+
+
+    fn = path + strlen(path);
+    /*
+    walk from the end to the last slash -> fn is the name of this wrapper.
+    including the extension
+    */
+    while (fn > path && *fn != '\\') {
+        fn--;
+    }
+    fn++;
+    end = fn - 2;
+    while (end > path && *end != '\\') {
+        end--;
+    }
+    *end = '\0';
+
+    ext = fn + strlen(fn);
+    while (ext > path && *ext != '.') {
+        ext--;
+    }
+    if (ext > fn) {
+        *ext = '\0';
+    }
+
+    sprintf(newpath, "%s%s%s%s", path, RELATIVE_PATH, fn, EXEC_EXTENSION);
+
+#if DEBUG
+    printf("fn ==%s==\n", fn);
+    printf("==%s==\n", newpath);
+#endif
+    /* Argument array needs to be argc, plus 1 for null sentinel */
+    newargs = (char **) calloc(argc + 1, sizeof(char *));
+    newargsp = newargs;
+
+    *newargsp++ = quoted(newpath);
+    for (i = 1; i < argc; i++){
+        *newargsp++ = quoted(argv[i]);
+    }
+
+    *newargsp++ = NULL;
+
+#if DEBUG
+    for (i = 0; i <= argc; i++){
+        printf("- %s\n", newargs[i]);
+    }
+    printf("argc=%d\n", argc);
+#endif
+
+    if (is_gui) {
+        /* Use exec, we don't need to wait for the GUI to finish */
+        execv(newpath, (char * const *) (newargs));
+        return fail("Could not exec %s", newpath); /* shouldn't get here! */
+    }
+
+    /*
+     * distribute-issue207: using CreateProcessA instead of spawnv
+     */
+    cmdline = join_executable_and_args(newpath, newargs, argc);
+    return create_and_wait_for_subprocess(cmdline);
+}
+
+
+int WINAPI WinMain(HINSTANCE hI, HINSTANCE hP, LPSTR lpCmd, int nShow) {
+    return run(__argc, __argv, GUI);
+}
+
+
+int main(int argc, char** argv) {
+    return run(argc, argv, GUI);
+}
