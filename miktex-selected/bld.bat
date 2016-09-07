@@ -49,6 +49,3 @@ echo CommonInstall=..\..\install
 echo CommonData=..\..\data
 echo CommonConfig=..\..\config
 ) > "%PREFIX%\Library\miktex\texmfs\install\miktex\config\miktexstartup.ini"
-
-rem Also make miktex install packages automatically *without* asking
-sed -i "s/AutoInstall=2/AutoInstall=1/" "%PREFIX%\Library\miktex\texmfs\config\miktex\config\miktex.ini"
