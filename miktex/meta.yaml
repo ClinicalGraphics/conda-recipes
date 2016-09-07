@@ -1,44 +1,38 @@
+{% set version = "2.9.5987" %}
+
 package:
   name: miktex
-  version: 2.9.5987
+  version: {{ version }}
 
 source:
-  fn: miktex-2.9-2016-08-17.tar.xz
-  url: http://ctan.cs.uu.nl/systems/win32/miktex/source/miktex-2.9-2016-08-17.tar.xz
+  fn: miktex-portable-{{ version }}.exe
+  url: http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-{{ version }}.exe
+  sha1: 28232135d6a1a583a31c91676314719a1577c9c0
 
 build:
+  skip: True  # [not win]
   number: 0
   binary_relocation: false
 
 requirements:
   build:
-    - python 2.7.*
-    - pkg-config
-    - ninja
-    - cmake
-    - bison
-    - flex
-    - qt
-    - curl
-    - expat
-    - bzip2 1.0.*
-    - zlib 1.2.*
-    - dos2unix
-    - libpng >=1.6.23,<1.7
-    # For liblzma
-    - xz
-    - mpfr
+    - 7za
 
 test:
   commands:
-    - pdflatex --help
+    - pdflatex.exe --help
     - mpm --help
-    - initexmf --report
-    # This is from the problem in matplotlib: it needs to find that font file.
+    - initexmf.exe --report
+    # this is from the problem in matplotlib: it needs to find that font file
     - kpsewhich cmss10.tfm | findstr cmss10
-    - miktex-pdftex --undump=pdflatex miktex-test.tex  # [not win]
 
 about:
   home: http://miktex.org/
   license: various, see http://miktex.org/copying
-  summary: Implementation of TeX/LaTeX
+  summary: Implementation of TeX/LaTeX for Windows (repackaged binaries)
+
+extra:
+  recipe-maintainers:
+    - ivoflipse
+    - Korijn
+    - janschulz
