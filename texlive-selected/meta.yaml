@@ -9,13 +9,18 @@ source:
   url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-20160907.tar.bz2
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - texlive-core
   run:
     - texlive-core
+
+test:
+  commands:
+    - pdflatex --version
+    - pdftex --version
 
 about:
   home: https://www.tug.org/texlive/

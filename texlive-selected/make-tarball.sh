@@ -88,7 +88,6 @@ ae none
 amscls none
 amsfonts none
 amsmath none
-arabi none
 avantgar none
 babel none
 babel-english none
@@ -126,7 +125,6 @@ graphics none
 graphics-cfg none
 graphics-def none
 gsftopk none
-helvetic none
 hyperref none
 hyph-utf8 none
 hyphen-dutch none
@@ -146,7 +144,6 @@ latex none
 latex-fonts none
 latexconfig none
 lineno none
-lm none
 makeindex updir
 media9 none
 metafont updir
@@ -171,13 +168,10 @@ symbol none
 tds none
 threeparttable none
 tetex updir
-tex-gyre none
-tex-gyre-math none
 tex-ini-files none
 texlive.infra updir
 textcase none
 times none
-tipa none
 titlesec none
 tools none
 ucharcat none
@@ -187,7 +181,6 @@ ulem none
 unicode-data none
 unicode-math none
 updmap-map none
-upquote none
 url none
 wallpaper none
 xcolor none

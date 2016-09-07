@@ -1,6 +1,5 @@
 # Copyright 2016 Peter Williams and collaborators.
 # This file is licensed under a 3-clause BSD license; see LICENSE.txt.
-
 #! /bin/bash
 
 [ "$NJOBS" = '<UNDEFINED>' -o -z "$NJOBS" ] && NJOBS=1
@@ -9,11 +8,6 @@ set -e -x
 dist=$PREFIX/share/texlive/
 mkdir -p $dist
 cp -a . $dist
-
-# make the tarball and extract
-#cp "$RECIPE_DIR"/make-tarball.sh $dist/texmf-dist/scripts/texlive/
-#sh $dist/texmf-dist/scripts/texlive/make-tarball.sh now
-#tar xvjf $dist/texmf-dist/scripts/texlive/texlive-packages-now.tar.bz2 -C $dist/
 
 # One annoying script not distributed in any useful source tarball.
 cp "$RECIPE_DIR"/mktexlsr.pl $dist/texmf-dist/scripts/texlive/
