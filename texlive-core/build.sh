@@ -2,7 +2,6 @@
 # Copyright 2016 Peter Williams and collaborators.
 # This file is licensed under a 3-clause BSD license; see LICENSE.txt.
 
-[ "$NJOBS" = '<UNDEFINED>' -o -z "$NJOBS" ] && NJOBS=1
 set -e
 
 configure_args=(
@@ -86,7 +85,7 @@ rm -f tmp.cnf
 mkdir conda
 cd conda
 ../configure "${configure_args[@]}"
-make -j$NJOBS
+make -j4
 make install
 
 cd $PREFIX

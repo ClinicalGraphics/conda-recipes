@@ -1,42 +1,42 @@
 package:
   name: texlive-core
-  version: '20160523b'
+  version: 20160523b
+
 source:
   fn: texlive-20160523b-source.tar.xz
   url: ftp://tug.org/texlive/historic/2016/texlive-20160523b-source.tar.xz
 
 build:
-  detect_binary_files_with_prefix: true
-  number: 0
-  script_env:
-      - NJOBS
+    detect_binary_files_with_prefix: True
+    number: 0
 
 requirements:
-  build:
-    - cairo
-    - freetype
-    - gmp
-    - icu
-    - libpng
-    - modern-xorg-stack
-    - mpfr
-    - pixman
-    - zlib
-  run:
-    - cairo
-    - freetype
-    - gmp
-    - icu
-    - libpng
-    - modern-xorg-stack
-    - mpfr
-    - pixman
-    - zlib
+    build:
+        - cairo
+        - freetype
+        - gmp
+        - icu
+        - libpng
+        - modern-xorg-stack
+        - mpfr
+        - pixman
+        - zlib
+    run:
+        - cairo
+        - freetype
+        - gmp
+        - icu
+        - libpng
+        - modern-xorg-stack
+        - mpfr
+        - pixman
+        - zlib
 
 test:
-  commands:
-    - pdflatex --version
-    - pdftex --version
+    commands:
+        - pdftex --version
+        - bibtex --version
+        - pdflatex --version
 
 about:
     home: https://www.tug.org/texlive/
