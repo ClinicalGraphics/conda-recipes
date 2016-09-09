@@ -1,7 +1,6 @@
+#! /bin/bash
 # Copyright 2016 Peter Williams and collaborators.
 # This file is licensed under a 3-clause BSD license; see LICENSE.txt.
-
-#! /bin/bash
 
 # Generate the .fmt files, some of which embed absolute paths in a way that
 # can't be patched up using Conda's standard methods. We don't want to annoy
@@ -40,11 +39,6 @@ pfx="$PREFIX/share/texlive/texmf-dist/web2c"
 cp $pfx/updmap-hdr.cfg $pfx/updmap.cfg
 $PREFIX/bin/updmap-sys --listavailablemaps 2>/dev/null |grep "Map$tab" |awk '{print $1 " " $2}' >>$pfx/updmap.cfg
 $PREFIX/bin/updmap-sys >$temp 2>&1
-
-# Update for new fonts
-$PREFIX/bin/updmap-sys --quiet --syncwithtrees
-$PREFIX/bin/updmap
-
 rc=$?
 if [ $rc -ne 0 ] ; then
     # Definite error
@@ -52,6 +46,12 @@ if [ $rc -ne 0 ] ; then
     rm -f $temp
     exit 1
 fi
+
+# Add kurier font to updmap.cfg and run updmap again -- this needs to be done for codeship ci.
+echo "Map kurier.Map" >>$pfx/updmap.cfg
+yes | $PREFIX/bin/updmap-sys --syncwithtrees
+$PREFIX/bin/updmap-sys --enable Map=kurier.map
+$PREFIX/bin/updmap
 
 # All done.
 
