@@ -1,0 +1,31 @@
+package:
+    name: vtku3dexporter
+    version: 0.3.1
+
+source:
+    fn: vtku3dexporter-v0.3.1.tar.gz
+    url: https://github.com/ClinicalGraphics/u3d/archive/0.3.1.tar.gz
+
+build:
+    number: 1
+
+requirements:
+    build:
+        - python
+        - cmake 3.5.*
+        - u3d 0.2.*
+        - cg-vtk
+    run:
+        - python
+        - u3d 0.2.*
+        - cg-vtk
+        - future
+
+test:
+    imports:
+        - vtku3dexporter
+
+about:
+    home: https://github.com/ClinicalGraphics/u3d
+    license: Apache-2.0
+    summary: vtkU3DExporter with Python bindings
