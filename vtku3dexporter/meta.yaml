@@ -3,11 +3,11 @@ package:
     version: 0.3.3
 
 source:
-    fn: a7bbfda8d1317fecf03fba5a594e94f23faae7e5.zip
-    url: https://github.com/ClinicalGraphics/u3d/archive/a7bbfda8d1317fecf03fba5a594e94f23faae7e5.zip
+    fn: 4403216ad387de6f1ad52708073ad0994c69ce33.zip
+    url: https://github.com/ClinicalGraphics/u3d/archive/4403216ad387de6f1ad52708073ad0994c69ce33.zip
 
 build:
-    number: 0
+    number: 1
 
 requirements:
     build:
