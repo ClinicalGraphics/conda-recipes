@@ -3,8 +3,8 @@ package:
     version: 0.3.1
 
 source:
-    fn: bf5cb6a8963c5ac7d1a06b2fe64d4160c9704ec6.zip
-    url: https://github.com/ClinicalGraphics/u3d/archive/bf5cb6a8963c5ac7d1a06b2fe64d4160c9704ec6.zip
+    fn: d1a9d31b3ab97ed77807f10e0ae73b75b091f93a.zip
+    url: https://github.com/ClinicalGraphics/u3d/archive/d1a9d31b3ab97ed77807f10e0ae73b75b091f93a.zip
 
 build:
     number: 3
