@@ -13,7 +13,7 @@ def write_u3d(destination_folder, filename, actor):
     renderer.ResetCamera()
     u3d_exporter = vtku3dexporter.vtkU3DExporter()
     file_path = os.path.join(destination_folder, filename)
-    #u3d_exporter.SetFileName(file_path)
+    u3d_exporter.SetFileName(file_path)
     u3d_exporter.SetInput(render_window)
     print("writing file to {}.u3d".format(file_path))
     u3d_exporter.Write()
@@ -37,5 +37,4 @@ cubeActor.SetMapper(cubeMapper)
 
 # Write u3d
 dir_path = tempfile.gettempdir()
-os.chdir(dir_path)
 write_u3d(dir_path, "test_report", cubeActor)

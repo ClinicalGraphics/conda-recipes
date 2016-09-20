@@ -1,13 +1,13 @@
 package:
     name: vtku3dexporter
-    version: 0.3.1
+    version: 0.3.2
 
 source:
-    fn: 172fcce9a12b89e50ec3877bb0b5ddf3a0da6086.zip
-    url: https://github.com/ClinicalGraphics/u3d/archive/172fcce9a12b89e50ec3877bb0b5ddf3a0da6086.zip
+    fn: 52efdc266f4059c8301bf3ed8483e0d74c6f847a.zip
+    url: https://github.com/ClinicalGraphics/u3d/archive/52efdc266f4059c8301bf3ed8483e0d74c6f847a.zip
 
 build:
-    number: 3
+    number: 0
 
 requirements:
     build:
