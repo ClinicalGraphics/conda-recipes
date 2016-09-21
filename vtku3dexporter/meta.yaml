@@ -3,9 +3,10 @@ package:
     version: 0.3.3
 
 source:
-    fn: 7560a375f9e73ab0cb945ff6d4bd3cb43371200a.zip
-    url: https://github.com/ClinicalGraphics/u3d/archive/7560a375f9e73ab0cb945ff6d4bd3cb43371200a.zip
-
+    #fn: 7560a375f9e73ab0cb945ff6d4bd3cb43371200a.zip
+    #url: https://github.com/ClinicalGraphics/u3d/archive/7560a375f9e73ab0cb945ff6d4bd3cb43371200a.zip
+    path: ../../u3d/
+    
 build:
     number: 1
 
