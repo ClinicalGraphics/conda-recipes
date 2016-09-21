@@ -42,7 +42,7 @@ write_u3d(file_path, cubeActor)
 
 print("testing that u3d was generated...")
 # Check that we have successfully created a U3D file
-if not os.path.exists("{}.u3d".format(file_path)):  # The extension get's added by the Exporter itself
+if not os.path.exists("{}.u3d".format(file_path)):
     raise Exception("Failed to create the U3D file")
 
 print("test successful")
