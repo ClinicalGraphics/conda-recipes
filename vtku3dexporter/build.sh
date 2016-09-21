@@ -2,6 +2,7 @@
 BUILD_CONFIG=Release
 
 cd Samples/SampleCode
+#cd Samples/vtkU3DExporter
 
 # sometimes python is suffixed, these are quick fixes
 # in a future PR we should probably switch to cmake find python scripting
@@ -22,6 +23,7 @@ if [ ! -f $PYTHON_LIBRARY ]; then
 fi
 
 # end of quick fixes
+export CXXFLAGS="$CXXFLAGS -fPIC"
 
 cmake . -G "Unix Makefiles" \
     -DCMAKE_BUILD_TYPE=$BUILD_CONFIG \
@@ -31,5 +33,6 @@ cmake . -G "Unix Makefiles" \
     -DINSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DPYTHON_INCLUDE_DIR:PATH=$PYTHON_INCLUDE \
     -DPYTHON_LIBRARY:FILEPATH=$PYTHON_LIBRARY
+    #-DVTK_USE_RENDERING:BOOL=ON
 
 make install
