@@ -29,7 +29,7 @@ cubeActor.SetMapper(cubeMapper)
 
 # Get the file_path and delete if it already exists
 dir_path = tempfile.gettempdir()
-filename = "test_report"
+filename = "Exported"
 file_path = os.path.join(dir_path, filename)
 
 if os.path.exists("{}.u3d".format(file_path)):
