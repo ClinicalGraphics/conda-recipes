@@ -1,10 +1,10 @@
 package:
   name: tornado
-  version: 4.4.1
+  version: 4.4.2
 
 source:
-  fn: v4.4.1.tar.gz
-  url: https://github.com/tornadoweb/tornado/archive/v4.4.1.tar.gz
+  fn: v4.4.2.tar.gz
+  url: https://github.com/tornadoweb/tornado/archive/v4.4.2.tar.gz
 
 build:
   number: 0
