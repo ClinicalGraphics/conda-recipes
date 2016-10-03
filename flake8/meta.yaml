@@ -3,11 +3,11 @@ package:
   version: 3.0.4
 
 source:
-  fn: 3.0.4.tar.gz
-  url: https://github.com/PyCQA/flake8/archive/3.0.4.tar.gz
+  fn: archive.tar.bz2
+  url: https://gitlab.com/pycqa/flake8/repository/archive.tar.bz2?ref=master
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install
   noarch_python: True
 
