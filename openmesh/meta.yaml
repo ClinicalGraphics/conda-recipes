@@ -1,13 +1,13 @@
 package:
   name: openmesh
-  version: 6.2
+  version: 6.3
 
 source:
-  url: https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/repository/archive.tar.gz?ref=5ed8f3c05351a1a2c780498661fe91497be076df
+  url: https://graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/repository/archive.tar.bz2?ref=OpenMesh-6.3
   fn:  archive.tar.gz
 
 build:
-  number: 1
+  number: 0
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
