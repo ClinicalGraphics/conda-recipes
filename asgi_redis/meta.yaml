@@ -1,14 +1,15 @@
 package:
   name: asgi_redis
-  version: 0.13.1
+  version: 0.14.1
 
 source:
-  url: https://github.com/andrewgodwin/asgi_redis/archive/0.13.1.tar.gz
-  fn: 0.13.1.tar.gz
+  fn: 0.14.1.tar.gz
+  url: https://github.com/django/asgi_redis/archive/0.14.1.tar.gz
 
 build:
-  number: 1
+  number: 0
   noarch_python: True
+  script: python setup.py
 
 requirements:
   build:
@@ -17,20 +18,20 @@ requirements:
     - redis >=2.10
     - msgpack-python
     - cryptography
-    - asgiref >=0.13.2
+    - asgiref >=0.14.0
   run:
     - python
     - six
     - redis >=2.10
     - msgpack-python
     - cryptography
-    - asgiref >=0.13.2
+    - asgiref >=0.14.0
 
 test:
   imports:
     - asgi_redis
 
 about:
-  home: https://github.com/andrewgodwin/asgi_redis
+  home: hhttps://github.com/django/asgi_redis
   license: BSD
   summary: Redis-backed ASGI channel layer implementation
