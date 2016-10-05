@@ -1,6 +1,4 @@
-{% set version = "3.0.1" %}
-{% set hash_type = "md5" %}
-{% set hash = "6e736a6d7bc854b25d44a60bcba5f2f9" %}
+{% set version = "3.0.3" %}
 
 package:
   name: pytest
@@ -9,7 +7,6 @@ package:
 source:
   fn: pytest-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/p/pytest/pytest-{{ version }}.tar.gz
-  {{ hash_type }}: {{ hash }}
 
 build:
   entry_points:
