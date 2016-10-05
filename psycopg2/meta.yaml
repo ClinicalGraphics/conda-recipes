@@ -1,14 +1,13 @@
 package:
   name: psycopg2
-  version: 2.6.1
+  version: 2.6.2
 
 source:
-  fn: psycopg2-2.6.1.tar.gz
-  url: https://pypi.python.org/packages/source/p/psycopg2/psycopg2-2.6.1.tar.gz
-  md5: 842b44f8c95517ed5b792081a2370da1
+  fn: ppsycopg2-2.6.2.tar.gz
+  url: http://initd.org/psycopg/tarballs/PSYCOPG-2-6/psycopg2-2.6.2.tar.gz
 
 build:
-  number: 2
+  number: 0
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
@@ -29,4 +28,4 @@ test:
 about:
   home: http://initd.org/psycopg/
   license: GNU Library or Lesser General Public License (LGPL) or Zope Public License
-  summary: 'psycopg2 - Python-PostgreSQL Database Adapter'
+  summary: psycopg2 - Python-PostgreSQL Database Adapter
