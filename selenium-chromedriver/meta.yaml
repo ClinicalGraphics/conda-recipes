@@ -1,23 +1,17 @@
 package:
     name: selenium-chromedriver
-    version: 2.22
+    version: 2.25
 
 source:
     fn: chromedriver_linux64.zip                                                        # [linux64]
-    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip       # [linux64]
-    md5: 2a5e6ccbceb9f498788dc257334dfaa3                                               # [linux64]
+    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip       # [linux64]
     fn: chromedriver_linux32.zip                                                        # [linux32]
-    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux32.zip       # [linux32]
-    md5: c498db13c92abf0d504c784d2191e9b1                                               # [linux32]
+    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux32.zip       # [linux32]
     fn: chromedriver_win32.zip                                                          # [win]
-    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_win32.zip         # [win]
-    md5: c5962f884bd58987b1ef0fa04c6a3ce5                                               # [win]
-    fn: chromedriver_mac32.zip                                                          # [osx]
-    url: http://chromedriver.storage.googleapis.com/2.22/chromedriver_mac32.zip         # [osx]
-    md5: eed98b5a2895b9cd2432fa52f7091a71                                               # [osx]
+    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_win32.zip         # [win]
 
 build:
-    number: 2
+    number: 0
 
 test:
     commands:
