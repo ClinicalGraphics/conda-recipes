@@ -1,5 +1,5 @@
 {% set name = "pytest-mock" %}
-{% set version = "1.2" %}
+{% set version = "1.4" %}
 {% set hash_type = "md5" %}
 {% set hash = "a7fa820f7bc71698660945836ff93c73" %}
 
