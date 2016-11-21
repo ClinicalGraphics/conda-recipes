@@ -1,10 +1,10 @@
 package:
   name: flake8-import-order
-  version: 0.9.2
+  version: 0.11
 
 source:
-  fn: 0.9.2.tar.gz
-  url: https://github.com/PyCQA/flake8-import-order/archive/0.9.2.tar.gz
+  fn: 0.11.tar.gz
+  url: https://github.com/PyCQA/flake8-import-order/archive/0.11.tar.gz
 
 build:
   number: 0
