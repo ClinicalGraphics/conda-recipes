@@ -1,26 +1,22 @@
-{% set name = "pytest-mock" %}
-{% set version = "1.4" %}
-{% set hash_type = "md5" %}
-{% set hash = "a7fa820f7bc71698660945836ff93c73" %}
-
 package:
-  name: {{ name }}
-  version: {{ version }}
+  name: pytest-mock
+  version: 1.4.0
 
 source:
-  fn: {{ name }}-{{ version }}.zip
-  url: https://pypi.io/packages/source/p/pytest-mock/pytest-mock-{{ version }}.zip
-  {{ hash_type }}: {{ hash }}
+  fn: pytest-mock-1.4.0.tar.gz
+  url: https://pypi.python.org/packages/c0/e8/011caf48c359c76aae667d2192ab4853ecc8dc9d1ea5833f0b0893c48b85/pytest-mock-1.4.0.tar.gz
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1
+  noarch_python: True
+  script: python setup.py install
 
 requirements:
   build:
     - python
     - pytest
     - setuptools
+    - setuptools_scm
   run:
     - python
     - pytest
