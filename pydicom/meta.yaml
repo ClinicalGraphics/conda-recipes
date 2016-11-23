@@ -1,16 +1,16 @@
 package:
   name: pydicom
-  version: 0.9.8
+  version: 0.9.9
 
 source:
-  fn: pydicom-0.9.8.tar.gz
-  url: http://pydicom.googlecode.com/files/pydicom-0.9.8.tar.gz
-  md5: e344ab5b38abeaa462ee79fa04c1c25f
+  fn: pydicom-0.9.9.tar.gz
+  url: https://github.com/darcymason/pydicom/archive/v0.9.9.tar.gz
+  md5: 2248b21c63d220d16d32dd98a79f352c
 
 build:
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -27,7 +27,7 @@ test:
     - dicom
 
 about:
-  home: http://code.google.com/p/pydicom/
+  home: http://www.pydicom.org
   license: MIT License
 
 # See
