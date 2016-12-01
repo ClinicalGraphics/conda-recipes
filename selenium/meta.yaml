@@ -1,23 +1,21 @@
-
 package:
-    name: selenium
-    version: 2.53.5
+  name: selenium
+  version: 3.0.1
 
 source:
-    fn: selenium-2.53.5.tar.gz
-    url: https://pypi.python.org/packages/41/ff/d77fd45739a2290da74ba314182fcfbe98b4e617e89b973bc5c667444334/selenium-2.53.5.tar.gz
-    md5: c7e40c360d73e267234e166f252f574c
+  fn: selenium-3.0.1.tar.gz
+  url: https://pypi.io/packages/source/s/selenium/selenium-3.0.1.tar.gz
 
 build:
-    preserve_egg_dir: True
-    number: 0
+  number: 0
+  script: python setup.py install
 
 requirements:
-    build:
-        - python
-        - setuptools
-    run:
-        - python
+  build:
+    - python
+    - setuptools
+  run:
+    - python
 
 test:
   imports:
@@ -37,6 +35,6 @@ test:
     - selenium.webdriver.support
 
 about:
-    home: http://www.seleniumhq.org/
-    license: Apache License 2.0
-
+  home: https://github.com/SeleniumHQ/selenium/
+  license: Apache Software License Version 2.0
+  summary: Python bindings for the Selenium WebDriver for automating web browser interaction

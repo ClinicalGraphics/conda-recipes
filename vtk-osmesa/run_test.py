@@ -8,7 +8,7 @@ render_window.AddRenderer(ren)
 
 # create source
 source = vtk.vtkSphereSource()
-source.SetCenter(0,0,0)
+source.SetCenter(0, 0, 0)
 source.SetRadius(2.0)
 source.Update()
 
@@ -21,7 +21,7 @@ actor = vtk.vtkActor()
 actor.SetMapper(mapper)
 
 # color the actor
-actor.GetProperty().SetColor(1,0,0) # (R,G,B)
+actor.GetProperty().SetColor(1, 0, 0)  # (R,G,B)
 
 # assign actor to the renderer
 ren.AddActor(actor)

@@ -1,17 +1,14 @@
-{% set version = "0.14.2" %}
-
 package:
   name: daphne
-  version: {{ version }}
+  version: 0.15.0
 
 source:
-  fn: daphne-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/d/daphne/daphne-{{ version }}.tar.gz
-  sha256: ddc982eaa31d058ca4ab39dc1fa43e5b2ac141aca8f0a182429a4ed9f2287cbe
+  fn: 0.15.0.tar.gz
+  url: https://github.com/django/daphne/archive/0.15.0.tar.gz
 
 build:
     number: 0
-    script: python setup.py install --single-version-externally-managed --record=record.txt
+    script: python setup.py install
     entry_points:
       - daphne = daphne.cli:CommandLineInterface.entrypoint
 
@@ -19,12 +16,12 @@ requirements:
   build:
     - python
     - setuptools
-    - asgiref >=0.13
+    - asgiref >=0.14.0
     - twisted >=15.5,<16.3
     - autobahn >=0.12
   run:
     - python
-    - asgiref >=0.13
+    - asgiref >=0.14.0
     - twisted >=15.5,<16.3
     - autobahn >=0.12
 

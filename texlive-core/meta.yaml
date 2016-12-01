@@ -1,0 +1,44 @@
+package:
+  name: texlive-core
+  version: 20160523b
+
+source:
+  fn: texlive-20160523b-source.tar.xz
+  url: ftp://tug.org/texlive/historic/2016/texlive-20160523b-source.tar.xz
+
+build:
+    detect_binary_files_with_prefix: True
+    number: 0
+
+requirements:
+    build:
+        - cairo
+        - freetype
+        - gmp
+        - icu
+        - libpng
+        - modern-xorg-stack
+        - mpfr
+        - pixman
+        - zlib
+    run:
+        - cairo
+        - freetype
+        - gmp
+        - icu
+        - libpng
+        - modern-xorg-stack
+        - mpfr
+        - pixman
+        - zlib
+
+test:
+    commands:
+        - pdftex --version
+        - bibtex --version
+        - pdflatex --version
+
+about:
+    home: https://www.tug.org/texlive/
+    license: LPPL
+    summary: Core binaries of the TeXLive distribution.

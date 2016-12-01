@@ -1,30 +1,16 @@
 package:
   name: pytest-xdist
-  version: "1.14"
+  version: 1.15.0
 
 source:
-  fn: pytest-xdist-1.14.zip
-  url: https://pypi.python.org/packages/source/p/pytest-xdist/pytest-xdist-1.14.zip#md5=958699a0487226505470e984f1843329
-  md5: 958699a0487226505470e984f1843329
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: pytest-xdist-1.15.0.tar.gz
+  url: https://pypi.io/packages/source/p/pytest-xdist/pytest-xdist-1.15.0.tar.gz
+
 
 build:
-  # noarch_python: True
-  preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pytest-xdist = pytest-xdist:main
-    #
-    # Would create an entry point called pytest-xdist that calls pytest-xdist.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  noarch_python: True
+  script: python setup.py install
+  number: 0
 
 requirements:
   build:
@@ -32,7 +18,7 @@ requirements:
     - setuptools
     - setuptools_scm
     - execnet >=1.1
-    - pytest >=2.4.2
+    - pytest >=3.0
     - py >=1.4.22
     - colorama
 
@@ -41,38 +27,22 @@ requirements:
     - setuptools
     - setuptools_scm
     - execnet >=1.1
-    - pytest >=2.4.2
+    - pytest >=3.0
     - py >=1.4.22
 
 test:
-  # Python imports
   imports:
     - xdist
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
   requires:
     - setuptools
     - setuptools_scm
     - execnet >=1.1
-    - pytest >=2.4.2
+    - pytest >=3.0
     - py >=1.4.22
     - colorama
 
 about:
   home: http://bitbucket.org/hpk42/pytest-xdist
   license: MIT License
-  summary: 'py.test xdist plugin for distributed testing and loop-on-failing modes'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: py.test xdist plugin for distributed testing and loop-on-failing modes

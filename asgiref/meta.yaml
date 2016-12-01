@@ -1,14 +1,15 @@
 package:
   name: asgiref
-  version: 0.13.3
+  version: 0.14.0
 
 source:
-  url: https://github.com/andrewgodwin/asgiref/archive/master.zip
-  fn: master.zip
+  fn: 0.14.0.tar.gz
+  url: https://github.com/django/asgiref/archive/0.14.0.tar.gz
 
 build:
-  number: 1
+  number: 0
   noarch_python: True
+  script: python setup.py install
 
 requirements:
   build:
