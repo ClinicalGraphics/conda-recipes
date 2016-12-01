@@ -1,0 +1,50 @@
+{% set name = "defusedxml" %}
+{% set version = "0.4.1" %}
+{% set sha256 = "cd551d5a518b745407635bb85116eb813818ecaf182e773c35b36239fc3f2478" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: python setup.py install
+  noarch_python: True
+
+requirements:
+  build:
+    - python
+  run:
+    - python
+
+test:
+  source_files:
+    - tests.py
+    - xmltestdata/*.xml
+  commands:
+    - python tests.py
+  imports:
+    - defusedxml
+  requires:
+    - pytest
+
+about:
+  home: https://bitbucket.org/tiran/defusedxml
+  license: PSF
+  license_family: PSF
+  license_file: LICENSE
+  summary: 'defusing XML bombs and other exploits'
+
+  description: |
+    defusing XML bombs and other exploits
+  doc_url: https://bitbucket.org/tiran/defusedxml
+  dev_url: https://bitbucket.org/tiran/defusedxml
+
+extra:
+  recipe-maintainers:    
+    - ivoflipse
