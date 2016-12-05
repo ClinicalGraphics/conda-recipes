@@ -1,19 +1,20 @@
 package:
   name: osmesa
-  version: 12.2.2.dev
-  #version: 12.0.2
+  version: 13.0.2
 
 source:
-  fn: mesa-12.2.2.dev.zip
-  url: https://github.com/menpo/mesa/archive/expose_attrib.zip
-  #fn: mesa-12.0.2.tar.xz
-  #url: https://mesa.freedesktop.org/archive/12.0.2/mesa-12.0.2.tar.xz
+  fn: mesa-13.0.2.tar.gz
+  url: https://mesa.freedesktop.org/archive/13.0.2/mesa-13.0.2.tar.gz
+
+build:
+  number: 1
 
 requirements:
   build:
-    - python 2.7
+    - python
     - mako
     - llvmdev
+    - gcc 4.8*
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
@@ -24,6 +25,9 @@ requirements:
     - flex  # [unix]
     - bison  # [unix]
     - glproto # [unix]
+
+  run:
+    - llvmdev
 
 test:
   commands:

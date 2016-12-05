@@ -1,17 +1,17 @@
 package:
   name: vtk-osmesa
-  version: 7.0.0
+  version: 7.1.0
 
 source:
-  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz
-  fn:  VTK-7.0.0.tar.gz
+  fn:  archive.tar.gz
+  url: https://gitlab.kitware.com/vtk/vtk/repository/archive.tar.gz?ref=2b53ee5afd41b62f17ef836d6b7391efe0765d6b
 
 build:
-  number: 3
+  number: 5
 
 requirements:
   build:
-    - osmesa 12.2.2.dev
+    - osmesa 13.0*
     - toolchain
     - cmake
     - ninja
@@ -29,7 +29,7 @@ requirements:
     - libgcrypt11
     - libgcc
   run:
-    - osmesa 12.2.2.dev
+    - osmesa 13.0*
     - python
     - future  # used in the generated python wrappers
     # VTK Third Party dependencies

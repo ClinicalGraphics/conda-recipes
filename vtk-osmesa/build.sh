@@ -17,8 +17,9 @@ elif [[ ${CONDA_LST}'y' == *'osmesa'* ]]; then
         "-DVTK_OPENGL_HAS_OSMESA:BOOL=ON"
         "-DOSMESA_INCLUDE_DIR:PATH=${PREFIX}/include"
         "-DOSMESA_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
+        #"-DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
     )
-#"-DOPENGL_gl_LIBRARY:FILEPATH=${PREFIX}/lib/libOSMesa.so"
+
 else
     # onscreen X build for Linux
     SCREEN_ARGS=(
