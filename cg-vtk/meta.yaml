@@ -5,13 +5,13 @@ package:
   version: {{ version }}
 
 build:
-  number: 0  
+  number: 1
 
 requirements:
   run:    
     - python
-    - vtk  # [win]
-    - vtk-osmesa  # [linux]
+    - vtk {{ version }}  # [win]
+    - vtk-osmesa {{ version }}  # [linux]
     
 test:
   imports:
