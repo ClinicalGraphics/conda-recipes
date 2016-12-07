@@ -1,10 +1,14 @@
 rem  @echo off
 
 @rem See https://github.com/wjakob/tbb
-cp "%RECIPE_DIR%\CMakeLists.txt" .
+copy "%RECIPE_DIR%\CMakeLists.txt" .
 if errorlevel 1 exit 1
-cp "%RECIPE_DIR%\version_string.ver.in" build
+mkdir build
+cd build
+copy "%RECIPE_DIR%\version_string.ver.in" .
 if errorlevel 1 exit 1
+
+cd ..
 
 mkdir build_win
 cd build_win

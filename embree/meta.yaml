@@ -3,8 +3,10 @@ package:
     version: 2.13.0
 
 source:
-    fn: embree-2.13.0.x86_64.linux.tar.gz
-    url: https://github.com/embree/embree/releases/download/v2.13.0/embree-2.13.0.x86_64.linux.tar.gz
+    fn: embree-2.13.0.x86_64.linux.tar.gz # [linux]
+    url: https://github.com/embree/embree/releases/download/v2.13.0/embree-2.13.0.x86_64.linux.tar.gz # [linux]
+    fn: embree-2.13.0.x64.windows.zip # [win]
+    url: https://github.com/embree/embree/releases/download/v2.13.0/embree-2.13.0.x64.windows.zip # [win]
 
 build:
     detect_binary_files_with_prefix: true
@@ -12,7 +14,7 @@ build:
 
 test:
     commands:
-        - test -f "${PREFIX}/lib/libembree.so"
+        - test -f "${PREFIX}/lib/libembree.so" # [linux]
 
 about:
     home: https://embree.github.io/

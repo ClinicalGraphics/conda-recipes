@@ -5,12 +5,13 @@ package:
 source:
   fn: 2017_U3.tar.gz
   url: https://github.com/01org/tbb/archive/2017_U3.tar.gz
+  fn: tbb2017_20161128oss_src.tgz
+  url: https://www.threadingbuildingblocks.org/sites/default/files/software_releases/source/tbb2017_20161128oss_src.tgz
+
 
 build:
   number: 0
   features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
     - vc14  # [win and py35]
 
 requirements:
@@ -18,12 +19,6 @@ requirements:
     - toolchain
     - python  # [win]
     - cmake  # [win]
-
-test:
-  requires:
-    - python 2.7.*  # [win and py27]
-    - python 3.4.*  # [win and py34]
-    - python 3.5.*  # [win and py35]
 
   commands:
     - test -f ${PREFIX}/include/tbb/tbb.h  # [unix]

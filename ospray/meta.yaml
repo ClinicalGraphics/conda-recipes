@@ -5,14 +5,13 @@ package:
 source:
   fn: ospray-1.1.2.x86_64.linux.tar.gz
   url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.x86_64.linux.tar.gz
+  fn: ospray-1.1.2.windows.zip
+  url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.windows.zip
 
 build:
   number: 1
 
 requirements:
-  build:
-   - embree
-   - tbb
   run:
    - embree
    - tbb
