@@ -3,7 +3,7 @@ import vtk
 
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
-ren.SetPass(vtk.vtkOSPRayPass())
+# ren.SetPass(vtk.vtkOSPRayPass())
 render_window = vtk.vtkRenderWindow()
 render_window.AddRenderer(ren)
 
