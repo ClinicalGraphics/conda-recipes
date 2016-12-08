@@ -32,7 +32,7 @@ cylinderActor.RotateY(-45.0)
 # perform appropriate camera or actor manipulation depending on the
 # nature of the events.
 ren = vtk.vtkRenderer()
-ren.SetPass(vtk.vtkOSPRayPass())
+# ren.SetPass(vtk.vtkOSPRayPass())
 renWin = vtk.vtkRenderWindow()
 renWin.AddRenderer(ren)
 iren = vtk.vtkRenderWindowInteractor()

@@ -20,7 +20,7 @@ build:
 
 requirements:
   build:
-    - ospray
+    - ospray # [unix]
     - toolchain
     - cmake
     - ninja
@@ -32,13 +32,13 @@ requirements:
     - libxml2
     - libpng >=1.6.21,<1.7
     - jpeg 9*
-    - libjpeg-turbo
+    - libjpeg-turbo # [unix]
     - libtiff 4.0.*
     - jsoncpp  # [unix]
     - expat
   run:
     - python
-    - ospray
+    - ospray # [unix]
     - future  # used in the generated python wrappers
     # VTK Third Party dependencies
     - zlib 1.2.*
@@ -47,7 +47,7 @@ requirements:
     - libxml2
     - libpng >=1.6.21,<1.7
     - jpeg 9*
-    - libjpeg-turbo
+    - libjpeg-turbo # [unix]
     - libtiff 4.0.*
     - jsoncpp  # [unix]
     - expat
