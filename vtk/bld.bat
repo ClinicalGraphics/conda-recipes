@@ -6,6 +6,8 @@ set BUILD_CONFIG=Release
 :: tell cmake where Python is
 set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
 
+SET TBB_ROOT=%PREFIX%\bin\
+
 cmake .. -G "Ninja" ^
     -Wno-dev ^
     -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
@@ -23,6 +25,7 @@ cmake .. -G "Ninja" ^
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="%SP_DIR%" ^
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF ^
     -DVTK_RENDERING_BACKEND=OpenGL2 ^
+    -DModule_vtkRenderingOSPRay=ON ^
     -DModule_vtkRenderingMatplotlib=ON ^
     -DVTK_USE_SYSTEM_ZLIB:BOOL=ON ^
     -DVTK_USE_SYSTEM_FREETYPE:BOOL=ON ^

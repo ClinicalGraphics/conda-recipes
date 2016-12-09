@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# FIXME: This is a hack to make sure the environment is activated.
-# The reason this is required is due to the conda-build issue
-# mentioned below.
-#
-# https://github.com/conda/conda-build/issues/910
-#
 source activate "${CONDA_DEFAULT_ENV}"
 
 mkdir build
@@ -30,19 +24,6 @@ if [ ! -f $PYTHON_LIBRARY ]; then
     PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}m.${PYTHON_LIBRARY_EXT}"
 fi
 
-# choose different screen settings for OS X and Linux
-if [ `uname` = "Darwin" ]; then
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=OFF"
-        "-DVTK_USE_COCOA:BOOL=ON"
-        "-DVTK_USE_CARBON:BOOL=OFF"
-    )
-else
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=ON"
-    )
-fi
-
 cmake .. -G "Ninja" \
     -Wno-dev \
     -DCMAKE_BUILD_TYPE=$BUILD_CONFIG \
@@ -60,6 +41,10 @@ cmake .. -G "Ninja" \
     -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
+    -DVTK_USE_X:BOOL=ON \
+    -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+    -DOSMESA_INCLUDE_DIR:PATH="${PREFIX}/include" \
+    -DOSMESA_LIBRARY:FILEPATH="${PREFIX}/lib/libOSMesa.so" \
     -DVTK_RENDERING_BACKEND=OpenGL2 \
     -DModule_vtkRenderingMatplotlib=ON \
     -DModule_vtkRenderingOSPRay=ON \
