@@ -7,32 +7,38 @@ source:
   url: https://mesa.freedesktop.org/archive/13.0.2/mesa-13.0.2.tar.gz
 
 build:
-  number: 1
+  number: 3
 
 requirements:
   build:
     - python
     - mako
-    - llvmdev
-    - gcc 4.8*
+    - omxil-bellagio
+    - llvm >3.6
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
-    - pthread-stubs # [unix] # for version 12.0.1
+    - pthread-stubs # [unix]
     - automake # [unix]
     - libtool # [unix]
     - m4 # [unix]
     - flex  # [unix]
     - bison  # [unix]
     - glproto # [unix]
+    - libx11 # [unix]
+    - kbproto # [unix]
+    - libxau # [unix]
+    - libxdmcp # [unix]
+    - libxext # [unix]
 
   run:
-    - llvmdev
+    - llvm >3.6
 
 test:
   commands:
     - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
     - test -f $PREFIX/lib/libOSMesa.so     # [linux]
+    - test -f $PREFIX/lib/libGL.so         # [linux]
 
 about:
   home: http://www.mesa3d.org/

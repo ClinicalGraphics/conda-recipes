@@ -42,9 +42,13 @@ cmake .. -G "Ninja" \
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
     -DVTK_USE_X:BOOL=ON \
+    -DVTK_USE_OFFSCREEN:BOOL=OFF \
     -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
     -DOSMESA_INCLUDE_DIR:PATH="${PREFIX}/include" \
     -DOSMESA_LIBRARY:FILEPATH="${PREFIX}/lib/libOSMesa.so" \
+    -DOPENGL_INCLUDE_DIR="${PREFIX}/include" \
+    -DOPENGL_gl_LIBRARY="${PREFIX}/lib/libGL.so" \
+    -DOPENGL_glu_LIBRARY="${PREFIX}/lib/libGLU.so" \
     -DVTK_RENDERING_BACKEND=OpenGL2 \
     -DModule_vtkRenderingMatplotlib=ON \
     -DModule_vtkRenderingOSPRay=ON \

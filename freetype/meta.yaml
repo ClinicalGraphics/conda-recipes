@@ -1,40 +1,27 @@
-{% set version = "2.6.3" %}
-
 package:
     name: freetype
-    version: {{ version }}
+    version: 2.7
 
 source:
-    fn: freetype-{{ version }}.tar.bz2
-    url: http://download.savannah.gnu.org/releases/freetype/freetype-{{ version }}.tar.bz2
-    sha256: 371e707aa522acf5b15ce93f11183c725b8ed1ee8546d7b3af549863045863a2
-    patches:
-        # Build shared libs with msvc.
-        - winshared.patch  # [win]
+    fn: freetype-2.7.tar.bz2
+    url: http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.bz2
 
 build:
-    number: 1
-    features:
-        - vc9  # [win and py27]
-        - vc10  # [win and py34]
-        - vc14  # [win and py35]
+    number: 0
 
 requirements:
     build:
-        - python  # [win]
-        - cmake  # [win]
-        - zlib 1.2.*
-        - libpng >=1.6.21,<1.7
+        - zlib
+        - libpng
     run:
-        - zlib 1.2.*
-        - libpng >=1.6.21,<1.7
+        - zlib
+        - libpng
 
 test:
     commands:
-        - freetype-config --version  # [not win]
-        - conda inspect linkages -n _test freetype  # [linux]
+        - freetype-config --version
 
 about:
-    home: http://freetype.sourceforge.net/index2.html
+    home: https://www.freetype.org/
     license: GPL-2.0 and FreeType (http://freetype.sourceforge.net/FTL.TXT)
     summary: A TrueType Font Library

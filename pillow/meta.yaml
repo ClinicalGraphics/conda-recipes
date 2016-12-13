@@ -1,61 +1,36 @@
 package:
-  name: pillow
-  version: "3.0.0"
+    name: pillow
+    version: 3.4.2
 
 source:
-  fn: Pillow-3.0.0.tar.gz
-  url: https://pypi.python.org/packages/source/P/Pillow/Pillow-3.0.0.tar.gz
-  md5: fc8ac44e93da09678eac7e30c9b7377d
-#  patches:
-   # List any patch files here
-   # - fix.patch
+    fn: Pillow-3.4.2.tar.gz
+    url: https://github.com/python-pillow/Pillow/archive/3.4.2.tar.gz
 
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pillow = pillow:main
-    #
-    # Would create an entry point called pillow that calls pillow.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+    number: 1
 
 requirements:
-  build:
-    - python
-    - setuptools
-
-  run:
-    - python
+    build:
+        - python
+        - setuptools
+        - zlib >=1.2.*
+        - libtiff >=4.0.*
+        - jpeg
+        - freetype >=2.6.*
+        - tk 8.5.*
+    run:
+        - python
+        - jpeg
+        - zlib >=1.2.*
+        - freetype >=2.6.*
+        - libtiff >=4.0.*
 
 test:
-  # Python imports
-  imports:
-    - PIL
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+    imports:
+        - PIL
+        - PIL.Image
 
 about:
-  home: http://python-pillow.github.io/
-  license: Standard PIL License
-  summary: 'Python Imaging Library (Fork)'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+    home: http://python-imaging.github.io/
+    license: Standard PIL license
+    summary: Pillow is the friendly PIL fork by Alex Clark and Contributors.

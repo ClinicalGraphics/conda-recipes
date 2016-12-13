@@ -1,22 +1,20 @@
 package:
   name: libtiff
-  version: 4.0.6
+  version: 4.0.7
 
 source:
-  fn: tiff-4.0.6.tar.gz
-  url: ftp://ftp.remotesensing.org/pub/libtiff/tiff-4.0.6.tar.gz
-  md5: d1d2e940dea0b5ad435f21f03d96dd72
+  fn: tiff-4.0.7.tar.gz
+  url: http://download.osgeo.org/libtiff/tiff-4.0.7.tar.gz
+
   patches:
     - def_snprintf.patch  [win]
 
 build:
+  number: 0
   features:
     - vc9     [win and py27]
     - vc10    [win and py34]
     - vc14    [win and py35]
-
-build:
-  number: 1
 
 requirements:
   build:
@@ -29,6 +27,10 @@ requirements:
     - jpeg
     - xz   # provides liblzma
     - jbig # [not win]
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libtiff.so     # [linux]
 
 about:
   home: http://www.libtiff.org/

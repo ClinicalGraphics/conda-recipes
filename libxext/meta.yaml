@@ -22,6 +22,11 @@ requirements:
     - xproto
     - libx11
     - xextproto
+    - kbproto
+    - pthread-stubs
+    - libxau
+    - libxdmcp
+
   run:
     - xproto
     - libx11

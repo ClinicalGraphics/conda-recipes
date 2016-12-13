@@ -1,0 +1,28 @@
+package:
+    name: buck
+    version: 2016.09.26.01
+
+source:
+    fn: v2016.09.26.01.tar.gz
+    url: https://github.com/facebook/buck/archive/v2016.09.26.01.tar.gz
+
+build:
+    number: 0
+
+requirements:
+    build:
+      - python
+      - brew
+      - java-jdk
+    run:
+      - python
+
+test:
+  commands:
+      - buck --version
+      - buck --help
+
+about:
+    home: https://buckbuild.com/
+    license: Apache License 2.0
+

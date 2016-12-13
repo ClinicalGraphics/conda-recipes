@@ -1,7 +1,8 @@
-mingw-get install win_flex win-bison
+#mingw-get install win_flex win-bison
 #msys-flex msys-bison
 
-scons llvm=yes build=release openmp=true osmesa
+#scons llvm=yes build=release openmp=true osmesa
+scons platform=windows toolchain=crossmingw machine=x86 libgl-gdi
 
 # move the driver
 move "%PREFIX%\lib\python\libOSMesa.dll" "%PREFIX%\lib\"

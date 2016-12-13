@@ -20,8 +20,8 @@ build:
 
 requirements:
   build:
-    - python 3*
-    - osmesa 13.0*
+    - python
+    - osmesa
     - ospray
     - toolchain
     - cmake
@@ -37,9 +37,12 @@ requirements:
     - libtiff 4.0.*
     - jsoncpp  # [unix]
     - expat
+    - libgcc-6  # [unix]
+    - libglu
+
   run:
-    - python 3*
-    - osmesa 13.0*
+    - python
+    - osmesa
     - ospray
     - future  # used in the generated python wrappers
     # VTK Third Party dependencies
@@ -53,6 +56,7 @@ requirements:
     - libtiff 4.0.*
     - jsoncpp  # [unix]
     - expat
+    - libgcc-6  # [unix]
 
 test:
   imports:

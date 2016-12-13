@@ -1,11 +1,11 @@
 #!/bin/bash
 
-export TIFF_ROOT=$PREFIX
 export JPEG_ROOT=$PREFIX
+# export JPEG2K_ROOT=None
 export ZLIB_ROOT=$PREFIX
-export FREETYPE2_ROOT=$PREFIX
+# export IMAGEQUANT_ROOT=None
+export TIFF_ROOT=$PREFIX
+export FREETYPE_ROOT=$PREFIX
+# export LCMS_ROOT=None
 
-$PYTHON setup.py install
-
-rm -rf $PREFIX/bin
-rm -rf $SP_DIR/__pycache__
+$PYTHON setup.py install --single-version-externally-managed --record=record.txt
