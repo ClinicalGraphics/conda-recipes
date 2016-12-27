@@ -1,0 +1,29 @@
+package:
+  name: jsoncpp
+  version: 1.7.7
+
+source:
+  fn: 1.7.7.tar.gz
+  url: https://github.com/open-source-parsers/jsoncpp/archive/1.7.7.tar.gz
+
+build:
+  number: 0
+  detect_binary_files_with_prefix: true
+
+requirements:
+  build:
+    - gcc 4.8.5 # [linux]
+    - gcc 4.8.5 # [osx]
+    - python
+
+  run:
+    - libgcc
+
+test:
+  requires:
+    - python
+
+about:
+  home: https://github.com/open-source-parsers/jsoncpp
+  license: MIT
+  summary: A C++ library for interacting with JSON.

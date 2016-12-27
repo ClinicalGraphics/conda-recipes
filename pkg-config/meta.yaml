@@ -1,29 +1,33 @@
+{% set version = "0.28" %}
+
 package:
   name: pkg-config
-  version: 0.28
+  version: {{ version }}
 
 source:
-  fn: pkg-config-0.28.zip
-  url: https://github.com/tpn/pkg-config/archive/pkg-config-0.28.zip
+  fn: pkg-config-{{ version }}.zip
+  url: https://github.com/tpn/pkg-config/archive/pkg-config-{{ version }}.zip
+  sha256: 81ec7beea5856664ecfe0f80c9ab3a87b1baf8a9b90cdf166a3d506c172a332e
 
 build:
-  number: 2
-  detect_binary_files_with_prefix: 1
+  skip: True  # [win]
+  number: 1
+  detect_binary_files_with_prefix: true
 
 requirements:
   build:
-    - zlib
+    - zlib 1.2*
     - autoconf
     - python
     - automake
     - libtool
   run:
-    - zlib
+    - zlib 1.2*
 
 test:
   commands:
     - pkg-config --help
-    - !!str [ "$(pkg-config freetype2 --cflags)" == "-I$PREFIX/include/freetype2 -I$PREFIX/include" ]
+    - '[ "$(pkg-config freetype2 --cflags)" == "-I$PREFIX/include/freetype2 " ]'
 
   requires:
     - freetype
@@ -31,5 +35,4 @@ test:
 about:
   home: http://www.freedesktop.org/wiki/Software/pkg-config/
   license: GPL 2
-
-# vim:set ts=8 sw=2 sts=2 tw=78 et:
+  summary: Interface for querying installed libraries for use during compilation.

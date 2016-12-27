@@ -1,0 +1,10 @@
+package:
+  name: libgcrypt11
+  version: 1
+
+build:
+  number: 1
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libgcrypt.so.11

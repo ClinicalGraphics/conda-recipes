@@ -1,13 +1,13 @@
 package:
   name: gdcm
-  version: 2.6.3
+  version: 2.6.6
 
 source:
-  url: https://github.com/malaterre/GDCM/archive/7c72a07e48c81e364a654e192515adc1e30a23f6.zip
-  fn: 7c72a07e48c81e364a654e192515adc1e30a23f6.zip
+  fn: v2.6.6.tar.gz
+  url: https://github.com/malaterre/GDCM/archive/v2.6.6.tar.gz
 
 build:
-  number: 3
+  number: 0
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]

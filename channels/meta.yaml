@@ -1,25 +1,27 @@
 package:
-  name: channels
-  version: 0.14.3
+    name: channels
+    version: 0.17.2
 
 source:
-  url: https://github.com/andrewgodwin/channels/archive/0.14.3.tar.gz
-  fn: 0.14.3.tar.gz
+    fn: 0.17.2.tar.gz
+    url: https://github.com/django/channels/archive/0.17.2.tar.gz
 
 build:
-  number: 0
-  noarch_python: True
+    number: 0
+    noarch_python: True
+    script: python setup.py install
 
 requirements:
   build:
     - python
-    - daphne >=0.12.2
-    - autobahn >=0.13
+    - setuptools
+    - asgiref >=0.13
+    - daphne >=0.14.1
     - django >=1.8
   run:
     - python
-    - daphne >=0.12.1
-    - autobahn >=0.13
+    - asgiref >=0.13
+    - daphne >=0.14.1
     - django >=1.8
 
 test:

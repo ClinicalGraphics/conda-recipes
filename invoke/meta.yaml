@@ -1,12 +1,14 @@
 package:
   name: invoke
-  version: 0.12.2
+  version: 0.14.0
 
 source:
-  fn: 0.12.2.tar.gz
-  url: https://github.com/pyinvoke/invoke/archive/0.12.2.tar.gz
+  fn: 0.14.0.tar.gz
+  url: https://github.com/pyinvoke/invoke/archive/0.14.0.tar.gz
 
 build:
+  noarch_python: True
+  script: python setup.py install
   number: 0
 
 requirements:
@@ -32,4 +34,4 @@ test:
 about:
   home: http://docs.pyinvoke.org
   license: BSD License
-  summary: 'Pythonic task execution'
+  summary: Pythonic task execution

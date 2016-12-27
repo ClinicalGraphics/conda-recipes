@@ -1,65 +1,32 @@
 package:
   name: pytest-mock
-  version: "0.10.1"
+  version: 1.4.0
 
 source:
-  fn: pytest-mock-0.10.1.zip
-  url: https://pypi.python.org/packages/source/p/pytest-mock/pytest-mock-0.10.1.zip
-  md5: 68bfb83ed24acb4e16c0e5f816a4b181
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: pytest-mock-1.4.0.tar.gz
+  url: https://pypi.python.org/packages/c0/e8/011caf48c359c76aae667d2192ab4853ecc8dc9d1ea5833f0b0893c48b85/pytest-mock-1.4.0.tar.gz
 
 build:
-  # noarch_python: True
-  preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pytest-mock = pytest-mock:main
-    #
-    # Would create an entry point called pytest-mock that calls pytest-mock.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 1
+  noarch_python: True
+  script: python setup.py install
 
 requirements:
   build:
     - python
+    - pytest
     - setuptools
-    - pytest >=2.7
-    - mock [py27]
-
+    - setuptools_scm
   run:
     - python
-    - setuptools
-    - pytest >=2.7
-    - mock [py27]
+    - pytest
+    - mock  # [py26 or py27]
 
-# test:
-  # Python imports
-  # imports:
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+test:
+  imports:
+    - pytest_mock
 
 about:
-  home: https://github.com/pytest-dev/pytest-mock/
-  license: GNU Lesser General Public License v3 (LGPLv3)
-  summary: 'Thin-wrapper around the mock package for easier use with py.test'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  home: https://github.com/pytest-dev/pytest-mock
+  license: MIT
+  summary: Thin-wrapper around the mock package for easier use with py.test

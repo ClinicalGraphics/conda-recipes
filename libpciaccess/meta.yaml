@@ -1,0 +1,17 @@
+package:
+  name: libpciaccess
+  version: 0.13.4
+
+source:
+  fn: libpciaccess-0.13.4.tar.bz2 # [linux]
+  url: http://ftp.x.org/pub/individual/lib/libpciaccess-0.13.4.tar.bz2 # [linux]
+
+about:
+    home: http://xorg.freedesktop.org/
+    license: MIT
+
+requirements:
+  build:
+    - libx11 # [linux]
+  run:
+    - libx11 # [linux]

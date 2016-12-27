@@ -1,0 +1,44 @@
+package:
+    name: libjpeg-turbo
+    version: 1.5.1
+
+source:
+    fn: libjpeg-turbo-1.5.1.tar.gz [unix]
+    url: https://sourceforge.net/projects/libjpeg-turbo/files/1.5.1/libjpeg-turbo-1.5.1.tar.gz [unix]
+    fn: libjpeg-turbo-1.5.1.tar.gz [win]
+    url: https://sourceforge.net/projects/libjpeg-turbo/files/1.5.1/libjpeg-turbo-1.5.1.tar.gz [win]
+
+build:
+    number: 0
+
+requirements:
+    build:	
+      - cmake
+      - yasm
+      - autoconf [unix]
+      - automake [unix]
+      - libtool [unix]
+      - zlib
+      - bzip2
+      - glib [unix]
+      
+    run:
+      - cmake
+      - yasm
+      - autoconf [unix]
+      - automake [unix]
+      - libtool [unix]
+      - zlib
+      - bzip2
+      - glib [unix]
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libjpeg.so.62
+
+about:
+    home: http://www.libjpeg-turbo.org/
+    license: https://github.com/libjpeg-turbo/libjpeg-turbo/blob/master/LICENSE.md
+    summary: SIMD-accelerated libjpeg-compatible JPEG codec library
+    comments: libjpeg-turbo is a C/C++ library for fast compressing/decompressing .jpeg files
+    comments: A libjpeg-turbo package for conda based on the current release 1.5.1

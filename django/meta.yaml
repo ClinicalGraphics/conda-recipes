@@ -1,144 +1,34 @@
+{% set version = "1.10" %}
+
 package:
-  name: django
-  version: "1.9"
+    name: django
+    version: {{ version }}
 
 source:
-  fn: Django-1.9.tar.gz
-  url: https://pypi.python.org/packages/source/D/Django/Django-1.9.tar.gz
-  md5: 110389cf89196334182295165852e082
-#  patches:
-   # List any patch files here
-   # - fix.patch
+    fn: Django-{{ version }}.tar.gz
+    url: https://pypi.python.org/packages/18/5c/3cd8989b2226c55a1faf66f1a110e76cba6e6ca5d9dd15fb469fb636f378/Django-{{ version }}.tar.gz
+    md5: 939e4d989b93a4e12e4ec5d98fcdb4f5
 
 build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - django = django:main
-    #
-    # Would create an entry point called django that calls django.main()
-
-    - django-admin = django.core.management:execute_from_command_line
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+    entry_points:
+        - django-admin = django.core.management:execute_from_command_line
 
 requirements:
-  build:
-    - python
-    - setuptools
-
-  run:
-    - python
+    build:
+        - python
+        - setuptools
+    run:
+        - python
 
 test:
-  # Python imports
-  imports:
-    - django
-    - django.conf
-    - django.conf.app_template.migrations
-    - django.conf.locale
-    - django.conf.urls
-    - django.contrib
-    - django.contrib.admin
-    - django.contrib.admin.migrations
-    - django.contrib.admin.templatetags
-    - django.contrib.admin.views
-    - django.contrib.admindocs
-    - django.contrib.admindocs.tests
-    - django.contrib.auth
-    - django.contrib.auth.handlers
-    - django.contrib.auth.management
-    - django.contrib.auth.management.commands
-    - django.contrib.auth.migrations
-    - django.contrib.auth.tests
-    - django.contrib.contenttypes
-    - django.contrib.contenttypes.migrations
-    - django.contrib.flatpages
-    - django.contrib.flatpages.migrations
-    - django.contrib.flatpages.templatetags
-    - django.contrib.humanize
-    - django.contrib.humanize.templatetags
-    - django.contrib.messages
-    - django.contrib.messages.storage
-    - django.contrib.redirects
-    - django.contrib.redirects.migrations
-    - django.contrib.sessions
-    - django.contrib.sessions.backends
-    - django.contrib.sessions.management
-    - django.contrib.sessions.management.commands
-    - django.contrib.sessions.migrations
-    - django.contrib.sitemaps
-    - django.contrib.sitemaps.management
-    - django.contrib.sitemaps.management.commands
-    - django.contrib.sites
-    - django.contrib.sites.migrations
-    - django.contrib.staticfiles
-    - django.contrib.staticfiles.management
-    - django.contrib.staticfiles.management.commands
-    - django.contrib.staticfiles.templatetags
-    - django.contrib.syndication
-    - django.contrib.webdesign
-    - django.contrib.webdesign.templatetags
-    - django.core
-    - django.core.cache
-    - django.core.cache.backends
-    - django.core.checks
-    - django.core.checks.compatibility
-    - django.core.checks.security
-    - django.core.files
-    - django.core.handlers
-    - django.core.mail
-    - django.core.mail.backends
-    - django.core.management
-    - django.core.management.commands
-    - django.core.serializers
-    - django.core.servers
-    - django.db
-    - django.db.backends
-    - django.db.migrations
-    - django.db.migrations.operations
-    - django.db.models
-    - django.db.models.fields
-    - django.db.models.sql
-    - django.dispatch
-    - django.forms
-    - django.forms.extras
-    - django.http
-    - django.middleware
-    - django.template
-    - django.template.backends
-    - django.template.loaders
-    - django.templatetags
-    - django.test
-    - django.utils
-    - django.utils.translation
-    - django.views
-    - django.views.decorators
-    - django.views.generic
-
-  commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-    - django-admin --help
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+    imports:
+        - django
+    commands:
+        - django-admin --help
 
 about:
-  home: http://www.djangoproject.com/
-  license: BSD License
-  summary: 'A high-level Python Web framework that encourages rapid development and clean, pragmatic design.'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+    home: http://www.djangoproject.com/
+    license: BSD 3-Clause
+    summary: A high-level Python Web framework that encourages rapid development and clean, pragmatic design.

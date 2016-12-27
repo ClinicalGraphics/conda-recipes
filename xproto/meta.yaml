@@ -1,0 +1,14 @@
+package:
+  name: xproto
+  version: 7.0.29
+
+source:
+  fn: xproto-7.0.29.tar.gz # [linux]
+  url: https://www.x.org/archive/individual/proto/xproto-7.0.29.tar.gz # [linux]
+
+build:
+  number: 0
+
+about:
+    home: http://xorg.freedesktop.org/
+    license: MIT

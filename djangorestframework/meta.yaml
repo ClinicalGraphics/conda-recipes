@@ -1,30 +1,16 @@
 package:
   name: djangorestframework
-  version: "3.3.2"
+  version: 3.4.0
 
 source:
-  fn: djangorestframework-3.3.2.tar.gz
-  url: https://pypi.python.org/packages/source/d/djangorestframework/djangorestframework-3.3.2.tar.gz
-  md5: f45b14a65e95b85216018bd009341683
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: djangorestframework-3.4.0.tar.gz
+  url: https://pypi.python.org/packages/8d/d4/e697b2d47efc8876c60fb3486dc6673ce86d746b92116028c3e91c208a22/djangorestframework-3.4.0.tar.gz
+  md5: da13b5f54e812a732fe5a0955dd4c165
 
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - djangorestframework = djangorestframework:main
-    #
-    # Would create an entry point called djangorestframework that calls djangorestframework.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  number: 0
+  noarch_python: True
+  script: python setup.py install
 
 requirements:
   build:
@@ -35,7 +21,6 @@ requirements:
     - python
 
 test:
-  # Python imports
   imports:
     - rest_framework
     - rest_framework.authtoken
@@ -43,23 +28,7 @@ test:
     - rest_framework.templatetags
     - rest_framework.utils
 
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
 about:
   home: http://www.django-rest-framework.org
-  license: BSD License
-  summary: 'Web APIs for Django, made easy.'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  license: BSD-2-Clause
+  summary: Web APIs for Django, made easy.

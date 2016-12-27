@@ -1,0 +1,32 @@
+package:
+    name: u3d
+    version: 0.3.1
+
+source:
+#    fn: u3d-v0.2.0.tar.gz
+#    url: https://github.com/ClinicalGraphics/u3d/archive/0.2.0.tar.gz
+    path: ../../u3d/
+
+build:
+    number: 0
+
+requirements:
+    build:
+        - cmake
+        - jpeg
+        - libpng
+        - zlib
+    run:
+        - jpeg
+        - libpng
+        - zlib
+
+test:
+    commands:
+        - IDTFGen || true
+        - IDTFConverter -input test.idtf -output test.u3d -debuglevel 0
+
+about:
+    home: https://github.com/ClinicalGraphics/u3d
+    license: Apache-2.0
+    summary: Universal 3D Sample Software

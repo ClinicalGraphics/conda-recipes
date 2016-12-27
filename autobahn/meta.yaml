@@ -1,14 +1,15 @@
 package:
   name: autobahn
-  version: 0.14.1
+  version: 0.16.0
 
 source:
-  url: https://github.com/crossbario/autobahn-python/archive/v0.14.1.tar.gz
-  fn: v0.14.1.tar.gz
+  fn: v0.16.0.tar.gz
+  url: https://github.com/crossbario/autobahn-python/archive/v0.16.0.tar.gz
 
 build:
   number: 0
   noarch_python: True
+  script: python setup.py install
 
 requirements:
   build:

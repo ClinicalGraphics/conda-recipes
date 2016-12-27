@@ -1,29 +1,18 @@
+{%set name = "mccabe" %}
+{%set version = "0.5.2" %}
+
 package:
-  name: mccabe
-  version: "0.4.0"
+  name: {{ name }}
+  version: {{ version }}
 
 source:
-  fn: mccabe-0.4.0.tar.gz
-  url: https://github.com/PyCQA/mccabe/archive/0.4.0.tar.gz
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.python.org/packages/f1/b7/ff36d1a163079688633a776e1717b5459caccbb68973afab2aa8345ac40f/{{ name }}-{{ version }}.tar.gz
 
 build:
-  # noarch_python: True
-  preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - mccabe = mccabe:main
-    #
-    # Would create an entry point called mccabe that calls mccabe.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 0
+  noarch_python: True
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
@@ -33,29 +22,13 @@ requirements:
 
   run:
     - python
-    - setuptools
 
-# test:
-  # Python imports
-  # imports:
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+test:
+  imports:
+    - {{ name }}
 
 about:
-  home: https://github.com/flintwork/mccabe
-  license: MIT License
-  summary: 'McCabe checker, plugin for flake8'
+  home: https://github.com/PyCQA/mccabe
+  license: MIT
+  summary: McCabe complexity checker for Python
 
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml

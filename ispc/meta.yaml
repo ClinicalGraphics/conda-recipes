@@ -1,0 +1,20 @@
+package:
+    name: ispc
+    version: 1.9.1
+
+source:
+    fn: ispc-v1.9.1-linux.tar.gz
+    url: http://downloads.sourceforge.net/project/ispcmirror/v1.9.1/ispc-v1.9.1-linux.tar.gz?r=&ts=1481035691&use_mirror=freefr
+
+build:
+    #detect_binary_files_with_prefix: true
+    number: 0
+
+test:
+    commands:
+        - ispc --version
+
+about:
+    home: https://ispc.github.io/
+    license: Apache 2.0
+    summary: An open-source compiler for high-performance SIMD programming on the CPU

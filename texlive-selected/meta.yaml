@@ -1,0 +1,31 @@
+# Run sh make-tarball.sh before conda build texlive-selected
+
+{% set version = "20160909" %}
+
+package:
+  name: texlive-selected
+  version: {{ version }}
+
+source:
+  fn: texlive-packages-{{ version }}.tar.bz2
+  url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-{{ version }}.tar.bz2
+
+build:
+  number: 4
+  detect_binary_files_with_prefix: True
+
+requirements:
+  build:
+    - texlive-core
+  run:
+    - texlive-core
+
+test:
+  commands:
+    - pdflatex --version
+    - pdftex --version
+
+about:
+  home: https://www.tug.org/texlive/
+  license: LPPL
+  summary: Selected TeXLive packages needed for compiling scientific documents.

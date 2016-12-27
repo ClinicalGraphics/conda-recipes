@@ -1,49 +1,45 @@
+{% set version = "3.0.4" %}
+
 package:
   name: pytest
-  version: 2.9.2
+  version: {{ version }}
 
 source:
-  fn: pytest-2.9.2.tar.gz
-  url: https://pypi.python.org/packages/f0/ee/6e2522c968339dca7d9abfd5e71312abeeb5ee902e09b4daf44f07b2f907/pytest-2.9.2.tar.gz
-  md5: b65c2944dfaa0efb62c0239afb424f5b
+  fn: pytest-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/p/pytest/pytest-{{ version }}.tar.gz
 
 build:
+  entry_points:
+    - py.test = py.test:main
+  script: python setup.py install --single-version-externally-managed --record=record.txt
   number: 0
 
 requirements:
   build:
     - python
+    - py
     - setuptools
-    - py >=1.4.29
-    - argparse  # [py27]
+    - argparse  # [py26]
     - colorama  # [win]
-
   run:
     - python
-    - setuptools
     - py >=1.4.29
-    - argparse  # [py27]
+    - argparse  # [py26]
     - colorama  # [win]
 
 test:
-  imports:
-    - _pytest
-    - _pytest.assertion
-    - _pytest.vendored_packages
-
   commands:
-    - py.test --help
-    - py.test-2.6 --help [py26]
-    - py.test-2.7 --help [py27]
-    - py.test-3.3 --help [py33]
-    - py.test-3.4 --help [py34]
-    - py.test-3.5 --help [py35]
-
-  requires:
-    - setuptools
-    - argparse [py26]
+    - py.test -h
+  imports:
+    - pytest
 
 about:
-  home: http://pytest.org
-  license: MIT License
-  summary: 'pytest: simple powerful testing with Python'
+  home: http://pytest.org/
+  license: MIT
+  license_file: LICENSE
+  summary: Simple and powerful testing with Python
+  description: |
+    The pytest framework makes it easy to write small tests, yet scales to
+    support complex functional testing for applications and libraries.
+  doc_url: http://pytest.org/latest/contents.html
+  dev_url: https://github.com/pytest-dev/pytest/

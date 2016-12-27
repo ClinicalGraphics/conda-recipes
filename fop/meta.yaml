@@ -1,0 +1,27 @@
+package:
+  name: fop
+  version: 2.1
+
+source:
+  fn: fop-2.1-bin.tar.gz
+  url: http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.1-bin.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - jdk
+    - ant ==1.9.6
+
+  run:
+    - jdk
+
+test:
+  commands:
+     - fop -version
+
+about:
+  home: https://xmlgraphics.apache.org/fop/
+  license: Apache Software License
+  summary: Apache™ FOP (Formatting Objects Processor) is a print formatter driven by XSL formatting objects (XSL-FO) and an output independent formatter.

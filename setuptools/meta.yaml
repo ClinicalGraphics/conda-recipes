@@ -1,0 +1,39 @@
+package:
+  name: setuptools
+  version: 28.2.0b1
+
+source:
+  fn: v28.2.0b1.tar.gz
+  url: https://github.com/pypa/setuptools/archive/v28.2.0b1.tar.gz
+  patches:
+    # Modify setuptools to fail if used in conda build (encourage people to add all deps in meta.yaml).
+    - nodownload.patch
+
+build:
+  number: 1
+  entry_points:
+    - easy_install = setuptools.command.easy_install:main
+
+requirements:
+  build:
+    - python
+    - certifi
+    - wincertstore  # [win]
+  run:
+    - python
+    - certifi
+    - wincertstore  # [win]
+
+test:
+  commands:
+    - easy_install --help
+  imports:
+    - setuptools
+    - easy_install
+    - pkg_resources
+
+about:
+  home: https://github.com/pypa/setuptools
+  license: MIT
+  summary: Download, build, install, upgrade, and uninstall Python packages
+  description: Setuptools is a fully-featured, actively-maintained, and stable librarydesigned to facilitate packaging Python projects.

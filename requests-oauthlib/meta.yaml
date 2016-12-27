@@ -1,65 +1,53 @@
+{% set name = "requests-oauthlib" %}
+{% set version = "0.7.0" %}
+{% set sha256 = "198807c592b75438485c890f0403b1a8e363c86be1a87da687be18991a6850b0" %}
+
 package:
-  name: requests-oauthlib
-  version: !!str 0.4.2
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: requests-oauthlib-0.4.2.tar.gz
-  url: https://pypi.python.org/packages/source/r/requests-oauthlib/requests-oauthlib-0.4.2.tar.gz
-  md5: df930abe3971fb418c67a8545de54661
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
-# build:
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - requests-oauthlib = requests-oauthlib:main
-    #
-    # Would create an entry point called requests-oauthlib that calls requests-oauthlib.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  noarch_python: True
 
 requirements:
   build:
-    - python
+    - python    
     - setuptools
-    - oauthlib >=0.6.2
-    - requests >=2.0.0
-
   run:
     - python
+    - requests >=2.10.0
     - oauthlib >=0.6.2
-    - requests >=2.0.0
 
 test:
-  # Python imports
+  commands:
+    - nosetests
+  source_files:
+    - tests/*
   imports:
     - requests_oauthlib
-    - requests_oauthlib.compliance_fixes
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+  requires:
+    - nose
+    - mock
+    - requests-mock
 
 about:
   home: https://github.com/requests/requests-oauthlib
-  license: BSD License
-  summary: 'OAuthlib authentication support for Requests.'
+  license: ISC
+  license_family: OTHER
+  license_file: LICENSE
+  summary: 'OAuthlib support for Python-Requests'
+  description: |
+    OAuthlib support for Python-Requests
+  doc_url: https://github.com/requests/requests-oauthlib
+  dev_url: https://github.com/requests/requests-oauthlib
 
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+extra:
+  recipe-maintainers:    
+    - ivoflipse

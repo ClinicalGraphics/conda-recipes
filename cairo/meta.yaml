@@ -1,39 +1,59 @@
+{% set version = "1.12.18" %}
+
 package:
   name: cairo
-  version: 1.12.18
+  version: {{ version }}
 
 source:
-  fn: cairo-1.12.18.tar.xz
-  url: http://cairographics.org/releases/cairo-1.12.18.tar.xz
+  fn: cairo-{{ version }}.tar.xz
+  url: http://cairographics.org/releases/cairo-{{ version }}.tar.xz
   md5: 8e4ff32b82c3b39387eb6f5c59ef848e
 
 build:
-  number: 0              [win or osx]
-  number: 3              [linux]
+  number: 8
+  skip: true             # [win]
   features:
-    - vc9                [win and py27]
-    - vc10               [win and py34]
-    - vc14               [win and py35]
+    - vc9                # [win and py27]
+    - vc10               # [win and py34]
+    - vc14               # [win and py35]
 
 requirements:
   build:
-    # HACK: The python dep is here to get vc features to work
-    - python                  [win]
-    - pkg-config              [osx]
-    - xz                      [unix]
-    - freetype      2.5.*     [unix]
-    - fontconfig    2.11.*    [linux]
-    - pixman        0.32.*
-    - libpng        1.6.*
-    - zlib          1.2.*
+    - python                  # [win]
+    - pkg-config              # [unix]
+    - libtool                 # [unix]
+    - xz 5.2.*                # [unix]
+    - freetype 2.6.*           # [unix]
+    - fontconfig 2.11.*       # [unix]
+    - pixman                  # [unix]
+    - libpng >=1.6.21,<1.7
+    - zlib 1.2.*
+    - icu 56.*
   run:
-    - freetype      2.5.*     [unix]
-    - fontconfig    2.11.*    [linux]
-    - libpng        1.6.*
-    - pixman        0.32.*
-    - zlib          1.2.*
+    - freetype 2.6.*           # [unix]
+    - fontconfig 2.11.*       # [unix]
+    - libpng >=1.6.21,<1.7
+    - pixman                  # [unix]
+    - zlib 1.2.*
+    - icu 56.*
+
+test:
+  commands:
+    # Check commands.
+    - cairo-trace --help
+
+    # Verify libraries.
+    {% set cairo_libs = [
+            "libcairo",
+            "libcairo-script-interpreter",
+    ] %}
+    {% for each_cairo_lib in cairo_libs %}
+    - test -f $PREFIX/lib/{{ each_cairo_lib }}.a                                                 # [unix]
+    - test -f $PREFIX/lib/{{ each_cairo_lib }}.dylib                                             # [osx]
+    - test -f $PREFIX/lib/{{ each_cairo_lib }}.so                                                # [linux]
+    {% endfor %}
 
 about:
   home: http://cairographics.org/
-  license: LGPL 2.1, MPL 1.1
+  license: LGPL 2.1 or MPL 1.1
   summary: Cairo is a 2D graphics library with support for multiple output devices.

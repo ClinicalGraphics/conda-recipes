@@ -1,0 +1,30 @@
+package:
+  name: miktex-selected
+  version: 2.9.5987
+
+source:
+  fn: miktex-portable-{{ version }}.exe
+  url: http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-2.9.5987.exe
+  sha1: 28232135d6a1a583a31c91676314719a1577c9c0
+
+build:
+  skip: True  # [not win]
+  number: 0
+  binary_relocation: false
+
+requirements:
+  build:
+    - 7za
+
+test:
+  commands:
+    - pdflatex.exe --help
+    - mpm --help
+    - initexmf.exe --report
+    # this is from the problem in matplotlib: it needs to find that font file
+    - kpsewhich cmss10.tfm | findstr cmss10
+
+about:
+  home: http://miktex.org/
+  license: various, see http://miktex.org/copying
+  summary: Implementation of TeX/LaTeX for Windows (repackaged binaries)

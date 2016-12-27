@@ -1,15 +1,15 @@
 package:
   name: pyfakefs
-  version: 2.8
+  version: 2.9
 
 source:
-  fn: 4ca1314b87bb0cab52fa8504c995a92f6d15acad.zip
-  url: https://github.com/jmcgeheeiv/pyfakefs/archive/4ca1314b87bb0cab52fa8504c995a92f6d15acad.zip
+  fn: v2.9.tar.gz
+  url: https://github.com/jmcgeheeiv/pyfakefs/archive/v2.9.tar.gz
 
 build:
   number: 0
   noarch_python: True
-  preserve_egg_dir: True
+  script: python setup.py install
 
 requirements:
   build:

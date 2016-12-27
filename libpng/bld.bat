@@ -1,21 +1,32 @@
 mkdir build
 cd build
 
-REM Configure step
-set CMAKE_CUSTOM=
-cmake -G "%CMAKE_GENERATOR%" -DCMAKE_BUILD_TYPE=Release -DCMAKE_PREFIX_PATH=%LIBRARY_PREFIX% -DCMAKE_INSTALL_PREFIX:PATH=%LIBRARY_PREFIX% %CMAKE_CUSTOM% %SRC_DIR%
+:: Configure.
+cmake -G "NMake Makefiles" ^
+      -D CMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
+      -D ZLIB_LIBRARY=%LIBRARY_LIB%\zlib.lib ^
+      -D ZLIB_INCLUDE_DIR=%LIBRARY_INC% ^
+      -D CMAKE_BUILD_TYPE=Release ^
+      %SRC_DIR%
 if errorlevel 1 exit 1
 
-REM Build step
-devenv %PKG_NAME%.sln /Build "%RELEASE_TARGET%"
+:: Build.
+nmake
 if errorlevel 1 exit 1
 
-REM Install step
-devenv %PKG_NAME%.sln /Build "%RELEASE_TARGET%" /Project INSTALL
+:: Test.
+ctest
 if errorlevel 1 exit 1
 
-REM Make copies of the .lib files without the embedded version number
-copy %LIBRARY_LIB%\libpng15.lib %LIBRARY_LIB%\libpng.lib
+:: Install.
+nmake install
 if errorlevel 1 exit 1
-copy %LIBRARY_LIB%\libpng15_static.lib %LIBRARY_LIB%\libpng_static.lib
+
+:: Make copies of the .lib files without the embedded version number.
+copy %LIBRARY_LIB%\libpng16.lib %LIBRARY_LIB%\libpng.lib
 if errorlevel 1 exit 1
+
+copy %LIBRARY_LIB%\libpng16_static.lib %LIBRARY_LIB%\libpng_static.lib
+if errorlevel 1 exit 1
+
+copy %RECIPE_DIR%\libpng-LICENSE.txt %SRC_DIR%\libpng-LICENSE.txt
