@@ -1,15 +1,17 @@
 package:
   name: azure-storage
-  version: 0.32.0
+  version: 0.33.0
 
 source:
-  fn: v0.32.0.tar.gz
-  url: https://github.com/Azure/azure-storage-python/archive/v0.32.0.tar.gz
+  fn: v0.33.0.tar.gz
+  url: https://github.com/Azure/azure-storage-python/archive/v0.33.0.tar.gz
 
 build:
   # since there are python 2 specific dependencies, we cant use noarch_python
   # noarch_python: True
-  number: 3
+  number: 0
+  preserve_egg_dir: True
+  script: python setup.py install
 
 requirements:
   build:
@@ -19,6 +21,7 @@ requirements:
     - azure-common
     - python-dateutil
     - requests
+    - cryptography
     - futures  # [py2k]
 
   run:
@@ -27,6 +30,7 @@ requirements:
     - azure-common
     - python-dateutil
     - requests
+    - cryptography
     - futures  # [py2k]
 
 test:
