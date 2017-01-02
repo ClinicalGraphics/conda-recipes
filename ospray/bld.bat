@@ -1,1 +1,1 @@
- xcopy . "%PREFIX%" /O /X /E /H /K
+xcopy . "%PREFIX%" /O /X /E /H /K
