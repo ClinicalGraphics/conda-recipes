@@ -11,10 +11,13 @@ build:
 
 requirements:
   build:
-    - python
+    - python # [unix]
+    - llvm >3.6  # [unix]
+    - scons # [win]
     - mako
-    - omxil-bellagio
-    - llvm >3.6
+    - win_flex_bison  # [win]
+    - flex  # [unix]
+    - bison  # [unix]
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
@@ -22,23 +25,23 @@ requirements:
     - automake # [unix]
     - libtool # [unix]
     - m4 # [unix]
-    - flex  # [unix]
-    - bison  # [unix]
     - glproto # [unix]
     - libx11 # [unix]
     - kbproto # [unix]
     - libxau # [unix]
     - libxdmcp # [unix]
     - libxext # [unix]
+    - omxil-bellagio # [unix]
 
   run:
-    - llvm >3.6
+    - llvm >3.6  # [unix]
 
 test:
   commands:
     - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
     - test -f $PREFIX/lib/libOSMesa.so     # [linux]
     - test -f $PREFIX/lib/libGL.so         # [linux]
+    - if not exist %LIBRARY_BIN%\\osmesa.dll exit 1 # [win]
 
 about:
   home: http://www.mesa3d.org/
