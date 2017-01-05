@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 mkdir build
 cd build
@@ -14,6 +15,5 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DLLVM_BUILD_LLVM_DYLIB=ON \
       ..
 
-#-DBUILD_SHARED_LIBS=ON \
 make -j8
 make install
