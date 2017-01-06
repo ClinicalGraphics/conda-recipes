@@ -1,21 +1,23 @@
 package:
   name: osmesa
-  version: 13.0.2
+  version: 13.0.3
 
 source:
-  fn: mesa-13.0.2.tar.gz
-  url: https://mesa.freedesktop.org/archive/13.0.2/mesa-13.0.2.tar.gz
+  fn: mesa-13.0.3.tar.gz
+  url: https://mesa.freedesktop.org/archive/13.0.3/mesa-13.0.3.tar.gz
 
 build:
-  number: 3
+  number: 0
 
 requirements:
   build:
     - python # [unix]
-    - llvm >3.6  # [unix]
+    - llvm >3.9 # [unix]
+    - llvm 3.7.1  # [win]
     - scons # [win]
     - mako
-    - win_flex_bison  # [win]
+    - pywin32 # [win]
+    - win_flex_bison # [win]
     - flex  # [unix]
     - bison  # [unix]
     - toolchain # [unix]
@@ -34,7 +36,8 @@ requirements:
     - omxil-bellagio # [unix]
 
   run:
-    - llvm >3.6  # [unix]
+    - llvm >3.9 # [unix]
+    - llvm 3.7.1  # [win]
 
 test:
   commands:
