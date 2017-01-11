@@ -11,6 +11,7 @@ rem don't check for errors so that this succeeds even if offline, etc...
 for %%x in (
 	acrotex
 	adjustbox
+	animate
 	babel-dutch
 	babel-english
 	caption
@@ -19,7 +20,9 @@ for %%x in (
 	enumitem
 	eso-pic
 	fancyhdr
+	fontawesome
 	ifoddpage
+	insdljs
 	l3kernel
 	l3experimental
 	l3packages
