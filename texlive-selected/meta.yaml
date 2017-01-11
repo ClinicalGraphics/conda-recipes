@@ -1,17 +1,16 @@
 # Run sh make-tarball.sh before conda build texlive-selected
 
-{% set version = "20160909" %}
+{% set version = "20170111" %}
 
 package:
   name: texlive-selected
   version: {{ version }}
 
 source:
-  fn: texlive-packages-{{ version }}.tar.bz2
-  url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-{{ version }}.tar.bz2
+  path: texlive-packages-{{ version }}.tar.bz2  # make sure to run make-tarball.sh first!
 
 build:
-  number: 4
+  number: 0
   detect_binary_files_with_prefix: True
 
 requirements:
