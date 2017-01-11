@@ -1,0 +1,27 @@
+package:
+  name: omxil-bellagio
+  version: 0.9.3
+
+source:
+  fn: libomxil-bellagio-0.9.3.tar.gz
+  url: http://downloads.sourceforge.net/project/omxil/omxil/Bellagio%200.9.3/libomxil-bellagio-0.9.3.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fomxil%2F%3Fsource%3Dtyp_redirect&ts=1481621745&use_mirror=kent
+  patches:
+    - 0001-configure.ac-remove-Werror-from-CFLAGS.patch
+    - dynamicloader-linking.patch
+    - makefile-docdir-fix.patch
+    - parallel-make.patch
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - gcc 4*
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libomxil-bellagio.so     # [linux]
+
+about:
+  home: https://sourceforge.net/projects/omxil/
+  license: GNU

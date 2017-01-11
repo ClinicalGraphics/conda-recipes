@@ -1,4 +1,4 @@
-{% set version = "2.9.5987" %}
+{% set version = "2.9.6161" %}
 
 package:
   name: miktex
@@ -7,7 +7,6 @@ package:
 source:
   fn: miktex-portable-{{ version }}.exe
   url: http://mirrors.ctan.org/systems/win32/miktex/setup/miktex-portable-{{ version }}.exe
-  sha1: 28232135d6a1a583a31c91676314719a1577c9c0
 
 build:
   skip: True  # [not win]

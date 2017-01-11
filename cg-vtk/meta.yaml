@@ -1,17 +1,15 @@
-{% set version = "7.0.0" %}
-
 package:
   name: cg-vtk
-  version: {{ version }}
+  version: 7.0.0
 
 build:
-  number: 0  
+  number: 2
 
 requirements:
   run:    
     - python
-    - vtk  # [win]
-    - vtk-osmesa  # [linux]
+    - vtk 7.0.0  # [win]
+    - vtk 7.1.0  # [linux]
     
 test:
   imports:

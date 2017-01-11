@@ -1,15 +1,13 @@
 package:
   name: libx11
-  version: 1.6.3
+  version: 1.6.4
 
 source:
-  fn: libX11-1.6.3.tar.gz # [linux]
-  url: http://xorg.freedesktop.org/releases/individual/lib/libX11-1.6.3.tar.gz # [linux]
-  md5: 7d16653fe7c36209799175bb3dc1ae46 # [linux]
+  fn: libX11-1.6.4.tar.gz # [linux]
+  url: https://www.x.org/releases/individual/lib/libX11-1.6.4.tar.gz # [linux]
 
-about:
-    home: http://xorg.freedesktop.org/
-    license: MIT
+build:
+  number: 0
 
 requirements:
   build:
@@ -22,3 +20,7 @@ requirements:
     - libxcb # [linux]
     - xproto # [linux]
     - xtrans # [linux]
+
+about:
+    home: http://xorg.freedesktop.org/
+    license: MIT

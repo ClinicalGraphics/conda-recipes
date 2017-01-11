@@ -1,52 +1,45 @@
+{% set version = "0.12.3" %}
+
 package:
   name: scikit-image
-  version: 0.12dev
+  version: {{ version }}
 
 source:
-  git_url: git@github.com:ivoflipse/scikit-image.git
-  git_tag: fix_hog
-  patches:
-    - buffer_mismatch.patch
-    - strip_interactive_tests.patch [win]
+  fn: scikit-image-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/scikit-image/scikit-image-{{ version }}.tar.gz
+  md5: 04ea833383e0b6ad5f65da21292c25e1
 
 build:
-  number: 7
-  features:
-    - vc9  # [win and (py26 or py27)]
-    - vc10  # [win and (py33 or py34)]
-    - vc14  # [win and py35]
+  number: 1
+  script: python setup.py install
 
 requirements:
   build:
-    - python
-    - distribute
+    - setuptools
     - cython
-    - numpy >=1.6.1
-    - scipy >=0.9.0
-    - dask >=0.5.0
-    - matplotlib >=1.1.0
-    - six >=1.4
-    - networkx >=1.8
-    - pillow >=1.7.8
+    - python
+    - six
+    - numpy
+    - scipy
+    - matplotlib
+    - networkx
+    - pillow
+    - dask
   run:
     - python
-    - numpy >=1.6.1
-    - scipy >=0.9.0
-    - dask >=0.5.0
-    - matplotlib >=1.1.0
-    - six >=1.4
-    - networkx >=1.8
-    - pillow >=1.7.8
+    - six
+    - numpy
+    - scipy
+    - matplotlib
+    - networkx
+    - pillow
+    - dask
 
 test:
-  requires:
-    - nose
   imports:
     - skimage
-  commands:
-    - python -c "import nose; nose.main()" -v -s skimage
 
 about:
   home: http://scikit-image.org/
-  license: Modified BSD (http://scikit-image.org/docs/dev/license.html)
-  summary: image processing in python
+  license: BSD 3-Clause
+  summary: Image processing routines for SciPy

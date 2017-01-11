@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
-# tested on OSX 10.8.5, ubuntu 12.04
+make -j${CPU_COUNT}
 
-# compilation fails when enabling rtm intrinsics with gcc 4.8.1
-sed -i "s|RTM_KEY = -mrtm||g" build/linux.gcc.inc
-
-make -j$CPU_COUNT
-
+install -d ${PREFIX}/lib
 # filter libtbb.dylib ( or .so ), libtbbmalloc.dylib ( or .so )
-cp `find . -name "*lib*" | grep tbb | grep release` $PREFIX/lib
+cp `find . -name "*lib*" | grep tbb | grep release` ${PREFIX}/lib
 
+install -d ${PREFIX}/include
 # copy the include files
-cp -r ./include/tbb $PREFIX/include/tbb
+cp -r ./include/tbb ${PREFIX}/include
+
+# simple test instead of "make test" to avoid timeout
+${CXX} ${RECIPE_DIR}/tbb_example.c -I${PREFIX}/include -L${PREFIX}/lib -ltbb -o tbb_example
+DYLD_LIBRARY_PATH=${PREFIX}/lib ./tbb_example

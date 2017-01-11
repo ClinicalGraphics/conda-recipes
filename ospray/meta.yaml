@@ -1,0 +1,25 @@
+package:
+  name: ospray
+  version: 1.1.2
+
+source:
+  fn: ospray-1.1.2.x86_64.linux.tar.gz  # [linux]
+  url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.x86_64.linux.tar.gz  # [linux]
+  fn: ospray-1.1.2.windows.zip  # [win]
+  url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.windows.zip  # [win]
+
+build:
+  number: 1
+
+requirements:
+  run:
+   - embree  # [linux]
+   - tbb  # [linux]
+
+test:
+  commands:
+    - test -f $PREFIX/lib/libospray.so     # [linux]
+
+about:
+  home: http://www.ospray.org
+  license: MIT + Others

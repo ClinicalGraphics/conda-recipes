@@ -14,10 +14,16 @@ requirements:
         - python
         - cmake 3.5.*
         - cg-vtk
+        - jpeg
+        - libpng
+        - zlib
     run:
         - python
         - cg-vtk
         - future
+        - jpeg
+        - libpng
+        - zlib
 
 test:
     imports:

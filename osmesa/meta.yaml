@@ -1,34 +1,50 @@
 package:
   name: osmesa
-  version: 12.2.2.dev
-  #version: 12.0.2
+  version: 13.0.3
 
 source:
-  fn: mesa-12.2.2.dev.zip
-  url: https://github.com/menpo/mesa/archive/expose_attrib.zip
-  #fn: mesa-12.0.2.tar.xz
-  #url: https://mesa.freedesktop.org/archive/12.0.2/mesa-12.0.2.tar.xz
+  fn: mesa-13.0.3.tar.gz
+  url: https://mesa.freedesktop.org/archive/13.0.3/mesa-13.0.3.tar.gz
+
+build:
+  number: 0
 
 requirements:
   build:
-    - python 2.7
+    - python # [unix]
+    - llvm >3.9 # [unix]
+    - llvm 3.7.1  # [win]
+    - scons # [win]
     - mako
-    - llvmdev
+    - pywin32 # [win]
+    - win_flex_bison # [win]
+    - flex  # [unix]
+    - bison  # [unix]
     - toolchain # [unix]
     - pkg-config # [unix]
     - autoconf # [unix]
-    - pthread-stubs # [unix] # for version 12.0.1
+    - pthread-stubs # [unix]
     - automake # [unix]
     - libtool # [unix]
     - m4 # [unix]
-    - flex  # [unix]
-    - bison  # [unix]
     - glproto # [unix]
+    - libx11 # [unix]
+    - kbproto # [unix]
+    - libxau # [unix]
+    - libxdmcp # [unix]
+    - libxext # [unix]
+    - omxil-bellagio # [unix]
+
+  run:
+    - llvm >3.9 # [unix]
+    - llvm 3.7.1  # [win]
 
 test:
   commands:
     - test -f $PREFIX/lib/libOSMesa.dylib  # [osx]
     - test -f $PREFIX/lib/libOSMesa.so     # [linux]
+    - test -f $PREFIX/lib/libGL.so         # [linux]
+    - if not exist %LIBRARY_BIN%\\osmesa.dll exit 1 # [win]
 
 about:
   home: http://www.mesa3d.org/

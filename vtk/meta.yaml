@@ -1,28 +1,62 @@
+{% set version = "7.1.0" %}
+{% set minor_version = ".".join(version.split(".")[:2]) %}
+
 package:
   name: vtk
-  version: "7.0.0"
+  version: {{ version }}
 
 source:
-  url: http://www.vtk.org/files/release/7.0/VTK-7.0.0.tar.gz
-  fn:  VTK-7.0.0.tar.gz
+  url: http://www.vtk.org/files/release/{{ minor_version }}/VTK-{{ version }}.tar.gz
+  fn:  VTK-{{ version }}.tar.gz
+  sha256: 5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a
 
 build:
-  number: 5
+  number: 2
   features:
-    - vc9                [win and py27]
-    - vc10               [win and py34]
-    - vc14               [win and py35]
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py35]
+  skip: True  # [osx or (linux and py34)]
 
 requirements:
   build:
-    - gcc # [linux and (py27 or py34 or py35)]
-    - mesa # [linux and (py27 or py34 or py35)]
+    - python
+    - osmesa
+    - ospray
+    - toolchain
     - cmake
-    - python
+    - ninja
+    # VTK Third Party dependencies
+    - zlib 1.2.*
+    - freetype 2.6.*
+    - hdf5 1.8.17|1.8.17.*  # [unix]
+    - libxml2
+    - libpng >=1.6.21,<1.7
+    - jpeg 9*
+    - libjpeg-turbo # [unix]
+    - libtiff 4.0.*
+    - jsoncpp  # [unix]
+    - expat
+    - libgcc-6  # [unix]
+    - libglu
+
   run:
-    - mesa # [linux and (py27 or py34 or py35)]
-    - libgcc # [linux and (py27 or py34 or py35)]
     - python
+    - osmesa
+    - ospray
+    - future  # used in the generated python wrappers
+    # VTK Third Party dependencies
+    - zlib 1.2.*
+    - freetype 2.6.*
+    - hdf5 1.8.17|1.8.17.*  # [unix]
+    - libxml2
+    - libpng >=1.6.21,<1.7
+    - jpeg 9*
+    - libjpeg-turbo # [unix]
+    - libtiff 4.0.*
+    - jsoncpp  # [unix]
+    - expat
+    - libgcc-6  # [unix]
 
 test:
   imports:
@@ -43,5 +77,8 @@ test:
 
 about:
   home: http://www.vtk.org/
-  license: BSD
-  summary: VTK is an open-source, freely available software system for 3D computer graphics
+  license: BSD 3-Clause
+  summary: >
+    The Visualization Toolkit (VTK) is an open-source, freely available software
+    system for 3D computer graphics, modeling, image processing, volume
+    rendering, scientific visualization, and information visualization.
