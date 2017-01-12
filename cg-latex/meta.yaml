@@ -8,7 +8,7 @@ build:
 requirements:
   run:    
     - miktex-selected 2.9.6161 # [win]
-    - texlive-selected 20170111  # [linux]
+    - texlive-selected 20170112  # [linux]
     
 test:
   commands:
