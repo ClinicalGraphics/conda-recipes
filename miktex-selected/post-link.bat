@@ -16,6 +16,7 @@ for %%x in (
 	babel-english
 	caption
 	collectbox
+	conv-xkv
 	elsearticle
 	enumitem
 	eso-pic
@@ -31,7 +32,7 @@ for %%x in (
 	media9
 	mptopdf
 	ms
-	nat-bib
+	natbib
 	ocgx2
 	pgf
 	rotating
