@@ -1,53 +1,33 @@
-{% set name = "requests-oauthlib" %}
-{% set version = "0.7.0" %}
-{% set sha256 = "198807c592b75438485c890f0403b1a8e363c86be1a87da687be18991a6850b0" %}
-
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+    name: requests-oauthlib
+    version: 0.6.1
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+    fn: requests-oauthlib-0.6.1.tar.gz
+    url: https://pypi.io/packages/source/r/requests-oauthlib/requests-oauthlib-0.6.1.tar.gz
 
 build:
-  number: 0
-  script: python setup.py install --single-version-externally-managed --record record.txt
-  noarch_python: True
+    number: 0
+    noarch_python: True
+    script: python setup.py install
 
 requirements:
-  build:
-    - python    
-    - setuptools
-  run:
-    - python
-    - requests >=2.10.0
-    - oauthlib >=0.6.2
+    build:
+        - python
+        - setuptools
+        - oauthlib >=0.6.2
+        - requests >=2.0.0
+    run:
+        - python
+        - oauthlib >=0.6.2
+        - requests >=2.0.0
 
 test:
-  commands:
-    - nosetests
-  source_files:
-    - tests/*
-  imports:
-    - requests_oauthlib
-  requires:
-    - nose
-    - mock
-    - requests-mock
+    imports:
+        - requests_oauthlib
+        - requests_oauthlib.compliance_fixes
 
 about:
-  home: https://github.com/requests/requests-oauthlib
-  license: ISC
-  license_family: OTHER
-  license_file: LICENSE
-  summary: 'OAuthlib support for Python-Requests'
-  description: |
-    OAuthlib support for Python-Requests
-  doc_url: https://github.com/requests/requests-oauthlib
-  dev_url: https://github.com/requests/requests-oauthlib
-
-extra:
-  recipe-maintainers:    
-    - ivoflipse
+    home: https://github.com/requests/requests-oauthlib
+    license: ISC
+    summary: OAuthlib authentication support for Requests
