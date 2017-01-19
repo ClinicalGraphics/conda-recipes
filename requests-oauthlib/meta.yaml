@@ -1,10 +1,10 @@
 package:
     name: requests-oauthlib
-    version: 0.6.1
+    version: 0.7.0
 
 source:
-    fn: requests-oauthlib-0.6.1.tar.gz
-    url: https://pypi.io/packages/source/r/requests-oauthlib/requests-oauthlib-0.6.1.tar.gz
+    fn: requests-oauthlib-0.7.0.tar.gz
+    url: https://pypi.python.org/packages/46/9b/c28061cc63298bc29ff7d668e18c5293bb522e946aaeb98e4c552d2c0f7b/requests-oauthlib-0.7.0.tar.gz
 
 build:
     number: 0
