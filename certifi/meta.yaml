@@ -1,57 +1,25 @@
 package:
-  name: certifi
-  version: 0.0.8
+    name: certifi
+    version: 2016.9.26
 
 source:
-  fn: certifi-0.0.8.tar.gz
-  url: https://pypi.python.org/packages/source/c/certifi/certifi-0.0.8.tar.gz
-  md5: dc5f5e7f0b5fc08d27654b17daa6ecec
-#  patches:
-   # List any patch files here
-   # - fix.patch
+    fn: certifi-2016.9.26.tar.gz
+    url: https://pypi.io/packages/source/c/certifi/certifi-2016.9.26.tar.gz
 
-# build:
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - certifi = certifi:main
-    #
-    # Would create an entry point called certifi that calls certifi.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+    number: 0
+    script: python setup.py install
 
 requirements:
-  build:
-    - python
-
-  run:
-    - python
-
+    build:
+        - python
+    run:
+        - python
 test:
-  # Python imports
-  imports:
-    - certifi
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
-
+    imports:
+        - certifi
 about:
-  home: http://python-requests.org
-  license: ISC
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+    home: http://certifi.io/
+    license: ISC
+    license_file: LICENSE
+    summary: Python package for providing Mozilla's CA Bundle.
