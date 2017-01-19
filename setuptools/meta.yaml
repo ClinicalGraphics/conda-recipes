@@ -1,16 +1,19 @@
+{% set version = "32.3.1" %}
+
 package:
   name: setuptools
-  version: 28.2.0b1
+  version: {{ version }}
 
 source:
-  fn: v28.2.0b1.tar.gz
-  url: https://github.com/pypa/setuptools/archive/v28.2.0b1.tar.gz
+  fn: setuptools-{{ version }}.tar.gz
+  url: https://github.com/pypa/setuptools/archive/v{{ version }}.tar.gz
+  sha256: ba56f64ee8d01adb69be6f89bde69ba724fbf4c08670126e40d879677f4f350b
   patches:
     # Modify setuptools to fail if used in conda build (encourage people to add all deps in meta.yaml).
     - nodownload.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - easy_install = setuptools.command.easy_install:main
 
@@ -35,5 +38,11 @@ test:
 about:
   home: https://github.com/pypa/setuptools
   license: MIT
+  license_file: LICENSE
+  license_family: MIT
   summary: Download, build, install, upgrade, and uninstall Python packages
-  description: Setuptools is a fully-featured, actively-maintained, and stable librarydesigned to facilitate packaging Python projects.
+  description: |
+    Setuptools is a fully-featured, actively-maintained, and stable library
+    designed to facilitate packaging Python projects.
+  doc_url: http://pythonhosted.org/setuptools/
+  dev_url: https://github.com/pypa/setuptools
