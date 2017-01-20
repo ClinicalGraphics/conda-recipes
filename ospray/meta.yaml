@@ -7,18 +7,21 @@ source:
   url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.x86_64.linux.tar.gz  # [linux]
   fn: ospray-1.1.2.windows.zip  # [win]
   url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.windows.zip  # [win]
+  fn: ospray-1.1.2.x86_64.macosx.tar.gz  # [osx]
+  url: https://github.com/ospray/OSPRay/releases/download/v1.1.2/ospray-1.1.2.x86_64.macosx.tar.gz  # [osx]
 
 build:
   number: 1
 
 requirements:
   run:
-   - embree  # [linux]
-   - tbb  # [linux]
+   - embree  # [unix]
+   - tbb  # [unix]
 
 test:
   commands:
-    - test -f $PREFIX/lib/libospray.so     # [linux]
+    - test -f ${PREFIX}/lib/libospray.so     # [linux]
+    - test -f ${PREFIX}/lib/libospray.dylib  # [osx]
 
 about:
   home: http://www.ospray.org

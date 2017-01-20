@@ -7,48 +7,34 @@ cd build
 
 BUILD_CONFIG=Release
 
-# sometimes python is suffixed, these are quick fixes to find some variables
-# in a future PR we should probably switch to cmake find python scripting
-PYTHON_INCLUDE="${PREFIX}/include/python${PY_VER}"
-if [ ! -d $PYTHON_INCLUDE ]; then
-    PYTHON_INCLUDE="${PREFIX}/include/python${PY_VER}m"
-fi
+# use globs to take into account various possble suffixes: m, u, d
+PYTHON_LIBRARY=`ls -d ${PREFIX}/lib/libpython* | head -n 1`
+PYTHON_INCLUDE=`ls -d ${PREFIX}/include/python* | head -n 1`
 
-PYTHON_LIBRARY_EXT="so"
-if [ `uname` = "Darwin" ] ; then
-    PYTHON_LIBRARY_EXT="dylib"
-fi
-
-PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}.${PYTHON_LIBRARY_EXT}"
-if [ ! -f $PYTHON_LIBRARY ]; then
-    PYTHON_LIBRARY="${PREFIX}/lib/libpython${PY_VER}m.${PYTHON_LIBRARY_EXT}"
+if [ `uname` = "Linux" ]; then
+    LINUX=true
+elif [ `uname` = "Darwin" ]; then
+    DARWIN=true
 fi
 
 cmake .. -G "Ninja" \
     -Wno-dev \
-    -DCMAKE_BUILD_TYPE=$BUILD_CONFIG \
+    -DCMAKE_BUILD_TYPE=${BUILD_CONFIG} \
     -DCMAKE_INSTALL_PREFIX:PATH="${PREFIX}" \
     -DCMAKE_INSTALL_RPATH:PATH="${PREFIX}/lib" \
     -DBUILD_DOCUMENTATION:BOOL=OFF \
     -DBUILD_TESTING:BOOL=OFF \
     -DBUILD_EXAMPLES:BOOL=OFF \
     -DBUILD_SHARED_LIBS:BOOL=ON \
-    -DPYTHON_EXECUTABLE:FILEPATH=$PYTHON \
-    -DPYTHON_INCLUDE_DIR:PATH=$PYTHON_INCLUDE \
-    -DPYTHON_LIBRARY:FILEPATH=$PYTHON_LIBRARY \
+    -DPYTHON_EXECUTABLE:FILEPATH=${PYTHON} \
+    -DPYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE} \
+    -DPYTHON_LIBRARY:FILEPATH=${PYTHON_LIBRARY} \
     -DVTK_ENABLE_VTKPYTHON:BOOL=OFF \
     -DVTK_WRAP_PYTHON:BOOL=ON \
     -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
-    -DVTK_USE_X:BOOL=ON \
     -DVTK_USE_OFFSCREEN:BOOL=OFF \
-    -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
-    -DOSMESA_INCLUDE_DIR:PATH="${PREFIX}/include" \
-    -DOSMESA_LIBRARY:FILEPATH="${PREFIX}/lib/libOSMesa.so" \
-    -DOPENGL_INCLUDE_DIR="${PREFIX}/include" \
-    -DOPENGL_gl_LIBRARY="${PREFIX}/lib/libGL.so" \
-    -DOPENGL_glu_LIBRARY="${PREFIX}/lib/libGLU.so" \
     -DVTK_RENDERING_BACKEND=OpenGL2 \
     -DModule_vtkRenderingMatplotlib=ON \
     -DModule_vtkRenderingOSPRay=ON \
@@ -62,7 +48,17 @@ cmake .. -G "Ninja" \
     -DVTK_USE_SYSTEM_TIFF:BOOL=ON \
     -DVTK_USE_SYSTEM_EXPAT:BOOL=ON \
     -DVTK_USE_SYSTEM_HDF5:BOOL=ON \
-    -DVTK_USE_SYSTEM_JSONCPP:BOOL=OFF \
+    ${DARWIN:+-DCMAKE_CXX_STANDARD=11} \
+    ${DARWIN:+-DVTK_USE_COCOA=ON} \
+    ${DARWIN:+-DVTK_USE_TK=OFF} \
+    ${LINUX:+-DVTK_USE_SYSTEM_JSONCPP:BOOL=OFF} \
+    ${LINUX:+-DVTK_OPENGL_HAS_OSMESA:BOOL=ON} \
+    ${LINUX:+-DOPENGL_INCLUDE_DIR="$PREFIX/include"} \
+    ${LINUX:+-DOPENGL_gl_LIBRARY="$PREFIX/lib/libGL.so"} \
+    ${LINUX:+-DOPENGL_glu_LIBRARY="$PREFIX/lib/libGLU.so"} \
+    ${LINUX:+-DOSMESA_INCLUDE_DIR:PATH="$PREFIX/include"} \
+    ${LINUX:+-DOSMESA_LIBRARY:FILEPATH="$PREFIX/lib/libOSMesa.so"} \
+    ${LINUX:+-DVTK_USE_X:BOOL=ON} \
     ${SCREEN_ARGS[@]}
 
 ninja install
