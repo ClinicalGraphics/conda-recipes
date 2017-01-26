@@ -3,12 +3,8 @@ import vtk
 
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
-#ren.SetPass(vtk.vtkOSPRayPass())
-
 render_window = vtk.vtkRenderWindow()
-render_window.SetOffScreenRendering(True)
 render_window.AddRenderer(ren)
-render_window.SetSize(3000, 3000)
 
 # create source
 source = vtk.vtkSphereSource()
