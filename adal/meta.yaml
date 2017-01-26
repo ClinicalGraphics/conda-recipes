@@ -1,0 +1,36 @@
+package:
+  name: adal
+  version: 0.4.4
+
+source:
+  fn: adal-0.4.4.tar.gz
+  url: https://github.com/AzureAD/azure-activedirectory-library-for-python/releases/download/0.4.4/adal-0.4.4.tar.gz
+
+build:
+  number: 0
+  #noarch_python: True
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+    - pyjwt >=1.4.2
+    - cryptography >=1.1.0
+    - python-dateutil >=2.4.1
+    - requests >=2.0.0
+
+  run:
+    - python
+    - pyjwt >=1.4.2
+    - cryptography >=1.1.0
+    - python-dateutil >=2.4.1
+    - requests >=2.0.0
+
+test:
+  imports:
+    - adal
+
+about:
+  home: https://github.com/AzureAD/azure-activedirectory-library-for-python
+  license: MIT license
+  summary: ADAL for Python

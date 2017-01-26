@@ -1,0 +1,32 @@
+package:
+  name: azure-cli
+  version: 0.1.1b1
+
+#source:
+#  fn: azure-cli-0.1.1b1.tar.gz
+#  url: https://pypi.python.org/packages/c0/d9/335f50396dbfcc60e97c17c043a5d96f210c083384c3800885a30d7e5d01/azure-cli-0.1.1b1.tar.gz
+
+build:
+  # since there are python 2 specific dependencies, we cant use noarch_python
+  noarch_python: True
+  number: 0
+  script: pip install --user azure-cli
+
+requirements:
+  build:
+    - python
+    - pip
+    - cryptography
+    - cffi
+
+  run:
+    - python
+
+test:
+  commands:
+    - az --version
+
+about:
+  home: https://github.com/Azure/azure-cli
+  license: Apache Software License
+  summary: Command-line tools for Azure

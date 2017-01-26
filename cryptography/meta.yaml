@@ -1,0 +1,38 @@
+package:
+  name: cryptography
+  version: 1.7.1
+
+source:
+  fn: 1.7.1.tar.gz
+  url: https://github.com/pyca/cryptography/archive/1.7.1.tar.gz
+
+build:
+  number: 0
+  #noarch_python: True
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+    - cffi >=1.9.1
+    - six >=1.4.1
+    - pyasn1 >=0.1.8
+    - idna >=2.0
+    - setuptools >=11.3
+
+  run:
+    - python
+    - cffi >=1.9.1
+    - six >=1.4.1
+    - pyasn1 >=0.1.8
+    - idna >=2.0
+    #- certifi 2016.9.26
+
+test:
+  imports:
+    - cryptography
+
+about:
+  home: https://pypi.python.org/pypi/cryptography
+  license: BSD
+  summary: cryptography is a package which provides cryptographic recipes and primitives to Python developers.
