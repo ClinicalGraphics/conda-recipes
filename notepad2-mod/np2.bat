@@ -1,1 +1,0 @@
-@Notepad2.exe %*
