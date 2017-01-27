@@ -1,7 +1,0 @@
-package:
-  name: console_shortcut
-  version: 0.1.0
-
-about:
-  license: BSD
-  summary: Shortcut creator for Windows (using menuinst)
