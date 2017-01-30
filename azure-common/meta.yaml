@@ -1,64 +1,30 @@
 package:
   name: azure-common
-  version: "1.0.0"
+  version: 1.1.4
 
 source:
-  fn: azure-common-1.0.0.zip
-  url: https://pypi.python.org/packages/source/a/azure-common/azure-common-1.0.0.zip
-  md5: 936f523f8f0e11780fc0b8a87d56d390
-#  patches:
-   # List any patch files here
-   # - fix.patch
+  fn: azure-common-1.1.4.zip
+  url: https://pypi.python.org/packages/00/39/7b915a03e1a64415c81a8b8f317556182592327d2b62812ef2b19e71b378/azure-common-1.1.4.zip
+  md5: 290a03b3a74417ad2f8c58c2e20ae233
 
-# build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - azure-common = azure-common:main
-    #
-    # Would create an entry point called azure-common that calls azure-common.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  # number: 1
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - azure-nspkg
 
   run:
     - python
-    - azure-nspkg
 
 test:
-  # Python imports
   imports:
-    - azure
-    - azure.common
-
-  # commands:
-    # You can put test commands to be run here.  Use this to test that the
-    # entry points work.
-
-
-  # You can also put a file called run_test.py in the recipe that will be run
-  # at test time.
-
-  # requires:
-    # Put any additional test requirements here.  For example
-    # - nose
+      - azure
+      - azure.common
 
 about:
   home: https://github.com/Azure/azure-sdk-for-python
   license: Apache Software License
-  summary: 'Microsoft Azure Client Library for Python (Common)'
-
-# See
-# http://docs.continuum.io/conda/build.html for
-# more information about meta.yaml
+  summary: Microsoft Azure Client Library for Python (Common)

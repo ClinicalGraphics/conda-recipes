@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-storage
+  version: 0.31.0
+
+source:
+  fn: azure-mgmt-storage-0.31.0.zip
+  url: https://pypi.python.org/packages/8c/de/d7a93798f607e87ee0c6464eb480d48d3e90bb8d66f52c943b80ff795270/azure-mgmt-storage-0.31.0.zip
+  md5: 9e0b49e157a603413804b9b22206ca4a
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+      - azure
+      - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-storage/0.31.0
+  license: MIT
+  summary: Microsoft Azure Storage Resource Management Client Library for Python
