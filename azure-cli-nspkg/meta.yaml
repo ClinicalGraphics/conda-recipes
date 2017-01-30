@@ -1,0 +1,31 @@
+package:
+  name: azure-cli-nspkg
+  version: 0.1.1
+
+source:
+  fn: azure-cli-nspkg-0.1.1.tar.gz
+  url: https://pypi.python.org/packages/1e/3a/24eb2d206b77c7d05cf23f748bec236d84bca1ffbd2953b8a1f1629a85de/azure-cli-nspkg-0.1.1.tar.gz
+  md5: b0578dd28283fc85539cdf6818f1ad67
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-nspkg
+  license: MIT
+  summary: Microsoft Azure CLI Namespace Package

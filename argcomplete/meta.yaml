@@ -1,6 +1,6 @@
 package:
   name: argcomplete
-  version: 0.4.7
+  version: 1.8.2
 
 source:
   fn: argcomplete-1.8.2.tar.gz
