@@ -1,0 +1,32 @@
+package:
+    name: requests-oauthlib
+    version: 0.7.0
+
+source:
+    fn: requests-oauthlib-0.7.0.tar.gz
+    url: https://pypi.python.org/packages/46/9b/c28061cc63298bc29ff7d668e18c5293bb522e946aaeb98e4c552d2c0f7b/requests-oauthlib-0.7.0.tar.gz
+
+build:
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - oauthlib >=0.6.2
+        - requests >=2.0.0
+    run:
+        - python
+        - oauthlib >=0.6.2
+        - requests >=2.0.0
+
+test:
+    imports:
+        - requests_oauthlib
+        - requests_oauthlib.compliance_fixes
+
+about:
+    home: https://github.com/requests/requests-oauthlib
+    license: ISC
+    summary: OAuthlib authentication support for Requests
