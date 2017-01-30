@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-trafficmanager
+  version: 0.30.0rc6
+
+source:
+  fn: azure-mgmt-trafficmanager-0.30.0rc6.zip
+  url: https://pypi.python.org/packages/03/02/790947bb7afb317b058c647e87fc7da890ceec93f99aba70306b6a058e7b/azure-mgmt-trafficmanager-0.30.0rc6.zip
+  md5: 2560c5863ec492dfc3441e2184e9b73b
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-trafficmanager
+  license: MIT
+  summary: Microsoft Azure Network Traffic Management Client Library for Python

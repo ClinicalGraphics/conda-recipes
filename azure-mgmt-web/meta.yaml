@@ -1,0 +1,34 @@
+package:
+  name: azure-mgmt-web
+  version: 0.30.1
+
+source:
+  fn: azure-mgmt-web-0.30.1.zip
+  url: https://pypi.python.org/packages/51/d9/5e7bbd36569a721991bb3343885954fe70261da66cff2c4a6e48da97d462/azure-mgmt-web-0.30.1.zip
+  md5: 5c8a8fb5f9f1224f0f2acec49d7ae354
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+    - azure.mgmt.web
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-web
+  license: MIT
+  summary: Microsoft Azure Web Apps Resource Management Client Library for Python

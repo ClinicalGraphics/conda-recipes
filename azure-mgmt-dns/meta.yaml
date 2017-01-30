@@ -1,0 +1,34 @@
+package:
+  name: azure-mgmt-dns
+  version: 1.0.0
+
+source:
+  fn: azure-mgmt-dns-1.0.0.zip
+  url: https://pypi.python.org/packages/3f/e6/6a2e7e9c633b318ed4f2bd4c7cb9de7c64f1f87dcdce30610e75d13caf12/azure-mgmt-dns-1.0.0.zip
+  md5: 94ef6217359f20fd2df56aca95cd2ea0
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+    - azure.mgmt.dns
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-dns
+  license: MIT
+  summary: Microsoft Azure Network DNS Library for Python

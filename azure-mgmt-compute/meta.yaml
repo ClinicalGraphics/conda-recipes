@@ -1,0 +1,36 @@
+package:
+  name: azure-mgmt-compute
+  version: 0.32.1
+
+source:
+  fn: azure-mgmt-compute-0.32.1.zip
+  url: https://pypi.python.org/packages/b2/1a/b462a7a6616ae51c8a1dcd99578a3f19631731bab5e72b17b508406ad5c2/azure-mgmt-compute-0.32.1.zip
+  md5: 9bb3aa759a7e2309b0d94c4cd0d6d6a6
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+    - azure.mgmt.compute
+    - azure.mgmt.compute.models
+    - azure.mgmt.compute.operations
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-compute/0.32.1
+  license: MIT
+  summary: Microsoft Azure Compute Resource Management Client Library for Python

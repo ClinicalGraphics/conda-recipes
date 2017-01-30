@@ -1,0 +1,34 @@
+package:
+  name: azure-mgmt-network
+  version: 0.30.0
+
+source:
+  fn: azure-mgmt-network-0.30.0.zip
+  url: https://pypi.python.org/packages/21/cb/5d8652db8dc137e4aecfc2a11ed121df9d858df510faa0b851ebde9110db/azure-mgmt-network-0.30.0.zip
+  md5: 29efd98dd3d956879367e9428bf13215
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+    - azure.mgmt.network
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-network
+  license: MIT
+  summary: Microsoft Azure Network Resource Management Client Library for Python
