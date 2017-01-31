@@ -1,0 +1,36 @@
+package:
+  name: azure-cli-keyvault
+  version: 0.1.1b3
+
+source:
+  fn: azure-cli-keyvault-0.1.1b3.tar.gz
+  url: https://pypi.python.org/packages/89/a2/c2f49c05dcf388e2998b8231d9d8a4dc48059182c466403917d4ae8f9db2/azure-cli-keyvault-0.1.1b3.tar.gz
+  md5: 2c17b903429289859c764a1e62005199
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - pyopenssl
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-keyvault >=0.30.0
+    - azure-keyvault >=0.1.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.keyvault
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-keyvault
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Keyvault Command Module

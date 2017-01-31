@@ -1,0 +1,31 @@
+package:
+  name: azure-keyvault
+  version: 0.1.0
+
+source:
+  fn: azure-keyvault-0.1.0.zip
+  url: https://pypi.python.org/packages/09/a2/6ed8bf226277144ee276c455ca00e74c4b2dc5d0435eb087de0265b5761e/azure-keyvault-0.1.0.zip
+  md5: 25b29569b5f034e02825bff02dac027b
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+
+about:
+  home: https://pypi.python.org/pypi/azure-keyvault
+  license: MIT
+  summary: Microsoft Azure KeyVault Client Library for Python

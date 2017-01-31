@@ -1,0 +1,33 @@
+package:
+  name: azure-cli-taskhelp
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-taskhelp-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/9e/e0/ad1050c302053fc24adb65ab116d82d8e5b16fda09a086a05df061459275/azure-cli-taskhelp-0.1.1b2.tar.gz
+  md5: aff359b67b0b556357b1815d249b5fde
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.taskhelp
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-taskhelp
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Taskhelp Command Module

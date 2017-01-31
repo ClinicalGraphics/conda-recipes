@@ -1,0 +1,35 @@
+package:
+  name: azure-cli-iot
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-iot-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/1d/3a/3e38611c10001b386782b1106c4b3eb50699acd5d2b14e589c1575f92f9a/azure-cli-iot-0.1.1b2.tar.gz
+  md5: 76c7ad00c9a243c661bf70072f2e0b08
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - pyopenssl
+    - azure-mgmt-iothub >=0.2.1
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.iot
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-iot
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools IoT Command Module

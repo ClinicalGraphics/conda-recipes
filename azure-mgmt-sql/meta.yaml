@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-sql
+  version: 0.2.0
+
+source:
+  fn: azure-mgmt-sql-0.2.0.zip
+  url: https://pypi.python.org/packages/22/c9/27c9d6f94980584ab61d620447bd118df7bd940086fea9fd3953d59ef655/azure-mgmt-sql-0.2.0.zip
+  md5: 617901e32bf66bc570e8f86aef08c881
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-sql
+  license: MIT
+  summary: Microsoft Azure SQL Management Client Library for Python

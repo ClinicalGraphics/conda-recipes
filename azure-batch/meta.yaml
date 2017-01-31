@@ -1,0 +1,31 @@
+package:
+  name: azure-batch
+  version: 1.1.0
+
+source:
+  fn: azure-batch-1.1.0.zip
+  url: https://pypi.python.org/packages/b9/8d/be868b867eec417ab2650d5d27f35a3c76f525922e297cdd34a67d62cbaf/azure-batch-1.1.0.zip
+  md5: 14706f8cd85edb4bf9ee5d0463fceced
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+
+about:
+  home: https://pypi.python.org/pypi/azure-batch
+  license: MIT
+  summary: Microsoft Azure Batch Client Library for Python

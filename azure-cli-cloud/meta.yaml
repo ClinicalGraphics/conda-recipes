@@ -1,0 +1,33 @@
+package:
+  name: azure-cli-cloud
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-cloud-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/0f/80/4421a74191a9a74f434f5077b5fc8c30af74ac02f10cd7415ea36ce05b91/azure-cli-cloud-0.1.1b2.tar.gz
+  md5: be481bd8d562fd13930d1f809af95fea
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.cloud
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-cloud
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Cloud Command Module

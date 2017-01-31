@@ -1,0 +1,32 @@
+package:
+  name: azure-mgmt-keyvault
+  version: 0.30.1
+
+source:
+  fn: azure-mgmt-keyvault-0.30.1.zip
+  url: https://pypi.python.org/packages/dc/20/8ab2b6f03ec00fe124e831be89647deae5e0efab7b353d29bd6fc02b9d17/azure-mgmt-keyvault-0.30.1.zip
+  md5: 6585f98c4e582dacb2d2a94581530e63
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-keyvault
+  license: MIT
+  summary: Microsoft Azure KeyVault Apps Resource Management Client Library for Python

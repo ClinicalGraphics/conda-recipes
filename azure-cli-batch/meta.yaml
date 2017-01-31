@@ -1,0 +1,35 @@
+package:
+  name: azure-cli-batch
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-batch-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/95/38/3b19036d8062a5bc02986d3423f5cdf61d36e151ce87f887d9813acea8c9/azure-cli-batch-0.1.1b2.tar.gz
+  md5: db7812248ea24621b419a8c5f9b92e14
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-batch >=2.0.0
+    - azure-batch >=1.1.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.batch
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-batch
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Batch Command Module
