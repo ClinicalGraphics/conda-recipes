@@ -18,11 +18,11 @@ requirements:
 
   run:
     - python
-    - azure-nspkg
-    - azure-common
-    - python-dateutil
-    - requests
-    - cryptography
+    - azure-nspkg >=1.0.0
+    - azure-common >=1.1.4
+    - python-dateutil >=2.6.0
+    - requests >=2.12.4
+    - cryptography >=1.7.1
     - futures  # [py2k]
 
 test:

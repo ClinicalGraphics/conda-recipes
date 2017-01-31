@@ -20,7 +20,7 @@ requirements:
     - python
     - azure-common >=1.1.4
     - msrestazure >=0.4.6
-    - azure-mgmt-nspkg
+    - azure-mgmt-nspkg >=1.0.0
 
 test:
   imports:

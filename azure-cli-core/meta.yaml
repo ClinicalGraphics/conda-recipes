@@ -21,11 +21,11 @@ requirements:
     - adal >=0.4.3
     - applicationinsights >=0.10.0
     - argcomplete >=1.8.0
-    - azure-cli-nspkg
+    - azure-cli-nspkg >=0.1.2
     - azure-mgmt-trafficmanager >=0.30.0rc6
     - azure-mgmt-dns >=0.30.0rc6
-    - colorama
-    - jmespath
+    - colorama >=0.3.7
+    - jmespath >=0.9.0
     - msrest >=0.4.0
     - msrestazure >=0.4.0
     - pip >=9.0.1

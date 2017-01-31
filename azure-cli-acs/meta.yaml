@@ -20,11 +20,11 @@ requirements:
     - python
     - azure-cli-core >=0.1.1b3
     - azure-mgmt-compute >=0.32.1
-    - paramiko
-    - pyyaml
-    - six
-    - scp
-    - sshtunnel
+    - paramiko >=1.15.2
+    - pyyaml >=3.11
+    - six >=1.10.0
+    - scp >=0.10.2
+    - sshtunnel >=0.1.2
 
 test:
   imports:
