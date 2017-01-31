@@ -1,0 +1,34 @@
+package:
+  name: azure-cli-profile
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-profile-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/cb/90/dd2d8168d0bd40e7ad72751414f05c22a9f24a304e2ba2d3a63778971740/azure-cli-profile-0.1.1b2.tar.gz
+  md5: 450b7c63c5d3b97f11a62e9d3bd998a9
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - adal >=0.4.3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.profile
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-profile
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Profile Command Module

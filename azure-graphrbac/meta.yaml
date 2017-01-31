@@ -29,6 +29,6 @@ test:
     - azure.graphrbac.operations
 
 about:
-  home: https://pypi.python.org/pypi/azure-graphrbac/0.30.0rc6
+  home: https://pypi.python.org/pypi/azure-graphrbac
   license: MIT
   summary: Microsoft Azure Graph RBAC Resource Management Client Library for Python

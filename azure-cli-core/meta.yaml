@@ -1,11 +1,11 @@
 package:
   name: azure-cli-core
-  version: 0.1.1b2
+  version: 0.1.1b3
 
 source:
-  fn: azure-cli-core-0.1.1b2.tar.gz
-  url: https://pypi.python.org/packages/53/83/510339143c278b79ac8f180ef24efde2dc19893bfc2f460f910d36b6d488/azure-cli-core-0.1.1b2.tar.gz
-  md5: 249100c3ba7b260ec14825b11b27df0c
+  fn: azure-cli-core-0.1.1b3.tar.gz
+  url: https://pypi.python.org/packages/83/44/3a7cf810c91177ae4134a96e55c9228d112a8ed88368e7ebc1525209f061/azure-cli-core-0.1.1b3.tar.gz
+  md5: d8a1e0106e3a2508f25780ea6aa674b3
 
 build:
   number: 0

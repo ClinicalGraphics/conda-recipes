@@ -19,7 +19,7 @@ requirements:
   run:
     - python
     - azure-common >=1.1.4
-    - azure-mgmt-nspkg
+    - azure-mgmt-nspkg >=1.0.0
     - msrestazure >=0.4.6
 
 test:
@@ -31,6 +31,6 @@ test:
     - azure.mgmt.authorization.operations
 
 about:
-  home: https://pypi.python.org/pypi/azure-mgmt-storage/0.31.0
+  home: https://pypi.python.org/pypi/azure-mgmt-authorization
   license: MIT
   summary: Microsoft Azure Authorization Resource Management Client Library for Python

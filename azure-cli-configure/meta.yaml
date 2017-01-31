@@ -1,0 +1,33 @@
+package:
+  name: azure-cli-configure
+  version: 0.1.1b3
+
+source:
+  fn: azure-cli-configure-0.1.1b3.tar.gz
+  url: https://pypi.python.org/packages/f8/f4/dacee4a1b4f4101cdb057f5f0da129d2468fda88ae32c39a5bab10cc6a7f/azure-cli-configure-0.1.1b3.tar.gz
+  md5: 0cae923360290983178fb21f5efa06f3
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.configure
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-configure
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Configure Command Module

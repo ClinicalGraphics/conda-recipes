@@ -1,0 +1,34 @@
+package:
+  name: azure-cli-component
+  version: 0.1.0rc2
+
+source:
+  fn: azure-cli-component-0.1.0rc2.tar.gz
+  url: https://pypi.python.org/packages/12/2e/0e3293b14ee9415a05ea663de3cbe2ce956c33f8df477c209ced2b260607/azure-cli-component-0.1.0rc2.tar.gz
+  md5: cc71063dbf1f9cb1dd32932b3d5f7baf
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - pip
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.component
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-component
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Component Command Module

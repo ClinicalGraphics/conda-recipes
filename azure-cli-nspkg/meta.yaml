@@ -1,11 +1,11 @@
 package:
   name: azure-cli-nspkg
-  version: 0.1.1
+  version: 0.1.2
 
 source:
-  fn: azure-cli-nspkg-0.1.1.tar.gz
-  url: https://pypi.python.org/packages/1e/3a/24eb2d206b77c7d05cf23f748bec236d84bca1ffbd2953b8a1f1629a85de/azure-cli-nspkg-0.1.1.tar.gz
-  md5: b0578dd28283fc85539cdf6818f1ad67
+  fn: azure-cli-nspkg-0.1.2.tar.gz
+  url: https://pypi.python.org/packages/b0/6e/856da1535eef68c10c74cb7072f40730d72a0ab4ef9dc49abe7be4e5bea4/azure-cli-nspkg-0.1.2.tar.gz
+  md5: 98c062f3ed174969ac99d2aaae915b23
 
 build:
   number: 0

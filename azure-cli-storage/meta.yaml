@@ -1,0 +1,35 @@
+package:
+  name: azure-cli-storage
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-storage-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/28/d3/bee2863b5a40aa0388a91b13cad1d662f29fbb18d670bf069a1c81195b85/azure-cli-storage-0.1.1b2.tar.gz
+  md5: 45b9c7c8e647fcc52e0e2275206cb465
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-storage >=0.33.0
+    - azure-mgmt-storage >=0.31.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.storage
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-storage
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Storage Command Module
