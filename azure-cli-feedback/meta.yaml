@@ -1,0 +1,34 @@
+package:
+  name: azure-cli-feedback
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-feedback-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/54/a6/e279d8e92311f02686a3117747e35ee077f6c66a693e7d7f20835472c8b8/azure-cli-feedback-0.1.1b2.tar.gz
+  md5: aa0df6c014d0fc8f79936fd25074965e
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - applicationinsights >=0.10.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.feedback
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-feedback
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Feedback Command Module

@@ -1,0 +1,34 @@
+package:
+  name: azure-graphrbac
+  version: 0.30.0rc6
+
+source:
+  fn: azure-graphrbac-0.30.0rc6.zip
+  url: https://pypi.python.org/packages/e0/f4/0a804a5e99e46a4894b35ad190b231ed33fb26adf421872300f217f3c7a1/azure-graphrbac-0.30.0rc6.zip
+  md5: 4c372db638f0a94153672f2f632d9164
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.graphrbac
+    - azure.graphrbac.models
+    - azure.graphrbac.operations
+
+about:
+  home: https://pypi.python.org/pypi/azure-graphrbac
+  license: MIT
+  summary: Microsoft Azure Graph RBAC Resource Management Client Library for Python

@@ -1,0 +1,39 @@
+package:
+  name: azure-cli-acs
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-acs-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/05/39/a18f4099067b2653148eeb776a58a9292b2c9337f3a3188a804b6996fbe7/azure-cli-acs-0.1.1b2.tar.gz
+  md5: b8d190bc96fa852ef83b55fc7ab132d3
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-compute >=0.32.1
+    - paramiko >=1.15.2
+    - pyyaml >=3.11
+    - six >=1.10.0
+    - scp >=0.10.2
+    - sshtunnel >=0.1.2
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.acs
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-acs
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools ACS Command Module

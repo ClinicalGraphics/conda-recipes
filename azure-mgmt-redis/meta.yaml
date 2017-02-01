@@ -1,0 +1,36 @@
+package:
+  name: azure-mgmt-redis
+  version: 4.0.0
+
+source:
+  fn: azure-mgmt-redis-4.0.0.zip
+  url: https://pypi.python.org/packages/f4/6f/693d96be0fc389facee271309427b50eefeef1dab58acb943073f4160985/azure-mgmt-redis-4.0.0.zip
+  md5: 91469c44f4fad6d71ba8dfdf2459198d
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - msrestazure >=0.4.6
+    - azure-mgmt-nspkg >=1.0.0
+
+test:
+  imports:
+      - azure
+      - azure.mgmt
+      - azure.mgmt.redis
+      - azure.mgmt.redis.models
+      - azure.mgmt.redis.operations
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-redis
+  license: MIT
+  summary: Microsoft Azure Redis Cache Resource Management Client Library for Python

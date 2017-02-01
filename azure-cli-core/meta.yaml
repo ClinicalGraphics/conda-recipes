@@ -1,0 +1,48 @@
+package:
+  name: azure-cli-core
+  version: 0.1.1b3
+
+source:
+  fn: azure-cli-core-0.1.1b3.tar.gz
+  url: https://pypi.python.org/packages/83/44/3a7cf810c91177ae4134a96e55c9228d112a8ed88368e7ebc1525209f061/azure-cli-core-0.1.1b3.tar.gz
+  md5: d8a1e0106e3a2508f25780ea6aa674b3
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - adal >=0.4.3
+    - applicationinsights >=0.10.0
+    - argcomplete >=1.8.0
+    - azure-cli-nspkg >=0.1.2
+    - azure-mgmt-trafficmanager >=0.30.0rc6
+    - azure-mgmt-dns >=0.30.0rc6
+    - colorama >=0.3.7
+    - jmespath >=0.9.0
+    - msrest >=0.4.0
+    - msrestazure >=0.4.0
+    - pygments >=2.1.3
+    - pyyaml >=3.11
+    - requests >=2.9.1
+    - six >=1.10.0
+    - tabulate >=0.7.5
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.core
+    - azure.cli.core.commands
+    - azure.cli.core.extensions
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-core
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Core Module

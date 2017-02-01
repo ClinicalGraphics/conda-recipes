@@ -1,0 +1,38 @@
+package:
+  name: azure-cli-vm
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-vm-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/c7/dd/264e1b1dd87954786cecac741e5ead3fa16d3bf3ad013a0e5ba80312ec22/azure-cli-vm-0.1.1b2.tar.gz
+  md5: 48966b02f1d2205f8c659c1994269d9b
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - paramiko >=1.15.2
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-compute >=0.32.1
+    - azure-mgmt-network >=0.30.0
+    - azure-mgmt-resource >=0.30.2
+    - azure-storage >=0.33.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.vm
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-vm
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools VM Command Module

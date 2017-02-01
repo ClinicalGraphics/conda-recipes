@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-batch
+  version: 2.0.0
+
+source:
+  fn: azure-mgmt-batch-2.0.0.zip
+  url: https://pypi.python.org/packages/c3/2a/92bd60023d318f187da118317625e4176dc3fd0e60651125d02ef30fdc5a/azure-mgmt-batch-2.0.0.zip
+  md5: bb277d1cd8717882dd5f0abdcce49682
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg >=1.0.0
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-batch
+  license: MIT
+  summary: Microsoft Azure Batch Management Client Library for Python

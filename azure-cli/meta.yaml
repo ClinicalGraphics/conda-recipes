@@ -1,0 +1,80 @@
+package:
+  name: azure-cli
+  version: 0.1.1b3
+
+source:
+  fn: azure-cli-0.1.1b3.tar.gz
+  url: https://pypi.python.org/packages/3c/80/eef12f5b91f172add55e77e4e2d2b67281f83573535fc39e464f88dc5648/azure-cli-0.1.1b3.tar.gz
+  md5: 243a58244d27837d729c973492eb1c54
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-cli-acr >=0.1.1b2
+    - azure-cli-acs >=0.1.1b2
+    - azure-cli-appservice >=0.1.1b2
+    - azure-cli-batch >=0.1.1b2
+    - azure-cli-core >=0.1.1b3
+    - azure-cli-component >=0.1.0rc2
+    - azure-cli-container >=0.1.1b2
+    - azure-cli-cloud >=0.1.1b2
+    - azure-cli-context >=0.1.1b2
+    - azure-cli-configure >=0.1.1b3
+    - azure-cli-feedback >=0.1.1b2
+    - azure-cli-iot >=0.1.1b2
+    - azure-cli-keyvault >=0.1.1b3
+    - azure-cli-network >=0.1.1b2
+    - azure-cli-nspkg >=0.1.2
+    - azure-cli-profile >=0.1.1b2
+    - azure-cli-resource >=0.1.1b2
+    - azure-cli-redis >=0.1.1b2
+    - azure-cli-role >=0.1.1b2
+    - azure-cli-sql >=0.1.1b3
+    - azure-cli-storage >=0.1.1b2
+    - azure-cli-taskhelp >=0.1.1b2
+    - azure-cli-vm >=0.1.1b2
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.core
+    - azure.cli.command_modules
+    - azure.cli.command_modules.acr
+    - azure.cli.command_modules.acs
+    - azure.cli.command_modules.appservice
+    - azure.cli.command_modules.batch
+    - azure.cli.command_modules.cloud
+    - azure.cli.command_modules.component
+    - azure.cli.command_modules.container
+    - azure.cli.command_modules.configure
+    - azure.cli.command_modules.context
+    - azure.cli.command_modules.feedback
+    - azure.cli.command_modules.iot
+    - azure.cli.command_modules.keyvault
+    - azure.cli.command_modules.network
+    - azure.cli.command_modules.profile
+    - azure.cli.command_modules.redis
+    - azure.cli.command_modules.resource
+    - azure.cli.command_modules.role
+    - azure.cli.command_modules.sql
+    - azure.cli.command_modules.storage
+    - azure.cli.command_modules.taskhelp
+    - azure.cli.command_modules.vm
+  commands:
+    - az --version
+    - az component list
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools

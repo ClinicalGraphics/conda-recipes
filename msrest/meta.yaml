@@ -1,0 +1,38 @@
+package:
+  name: msrest
+  version: 0.4.4
+
+source:
+  fn: msrest-0.4.4.zip
+  url: https://pypi.python.org/packages/86/6f/be0fdcd61133b9a7b77175c3690b5691170174b8876664063618e3e5847a/msrest-0.4.4.zip
+  md5: d3cfd6516a08ed361228e3fbb9aa74a0
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - certifi >=2015.9.6.2
+    - chardet >=2.3.0
+    - isodate >=0.5.4
+    - keyring >=5.6
+    - requests >=2.7.0
+    - requests-oauthlib >=0.5.0
+
+test:
+  imports:
+    - msrest
+    - msrest.authentication
+    - msrest.pipeline
+    - msrest.exceptions
+    - msrest.serialization
+
+about:
+  home: https://github.com/Azure/msrest-for-python
+  license: MIT
+  summary: AutoRest swagger generator Python client runtime.

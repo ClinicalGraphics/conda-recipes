@@ -1,0 +1,35 @@
+package:
+  name: azure-cli-appservice
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-appservice-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/95/e0/1f9f1cab45390479a2fc8eab003fa56e7f9f00073cba4c18ca7f7521611f/azure-cli-appservice-0.1.1b2.tar.gz
+  md5: c77f932f35130f60d9c0606549be9763
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-web >=0.30.1
+    - urlib3 >=1.18
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.appservice
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-appservice
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools AppService Command Module

@@ -1,0 +1,36 @@
+package:
+  name: azure-mgmt-authorization
+  version: 0.30.0rc6
+
+source:
+  fn: azure-mgmt-authorization-0.30.0rc6.zip
+  url: https://pypi.python.org/packages/f2/ed/30ebbf4e38b9147a991d8793dd7e1470ebfb71dac3712c7515ed96678da6/azure-mgmt-authorization-0.30.0rc6.zip
+  md5: ebde9911da99e4e90161bdb018173417
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg >=1.0.0
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+    - azure.mgmt.authorization
+    - azure.mgmt.authorization.models
+    - azure.mgmt.authorization.operations
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-authorization
+  license: MIT
+  summary: Microsoft Azure Authorization Resource Management Client Library for Python

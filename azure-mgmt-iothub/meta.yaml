@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-iothub
+  version: 0.2.1
+
+source:
+  fn: azure-mgmt-iothub-0.2.1.zip
+  url: https://pypi.python.org/packages/62/67/3b98afcb4d0a5d9c611a78a56121101695c5d9ee40f615d6580d5d890a7e/azure-mgmt-iothub-0.2.1.zip
+  md5: ae65bb8b68b05a6ca209fd94637a33ce
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg >=1.0.0
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-iothub
+  license: MIT
+  summary: Microsoft Azure IoTHub Management Client Library for Python

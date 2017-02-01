@@ -1,0 +1,30 @@
+package:
+  name: sshtunnel
+  version: 0.1.2
+
+source:
+  fn: sshtunnel-0.1.2.tar.gz
+  url: https://pypi.python.org/packages/dc/06/1d9969bbe7ad6895983016666699af2ab0b24d270c0abdecf51797d126cc/sshtunnel-0.1.2.tar.gz
+  md5: e99dbebe0b643f6d68b26ed434f3acd9
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+      - python
+      - setuptools
+
+  run:
+      - python
+      - paramiko >=1.15.2
+
+test:
+  imports:
+      - sshtunnel
+
+about:
+  home: https://pypi.python.org/pypi/sshtunnel
+  license: MIT
+  summary: Pure python SSH tunnels

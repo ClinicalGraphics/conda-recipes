@@ -1,0 +1,34 @@
+package:
+  name: azure-cli-redis
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-redis-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/49/be/ee6fc4d0d0b7cf2ef5aaecc005e9c406dbc5488f4a0cae4f529b4b3bfb98/azure-cli-redis-0.1.1b2.tar.gz
+  md5: 0f540262035c3af3c08d2d89d9b15260
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-redis >=1.0.0
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.redis
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-redis
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools VM Command Module

@@ -1,0 +1,32 @@
+package:
+  name: applicationinsights
+  version: 0.10.0
+
+source:
+  fn: applicationinsights-0.10.0.tar.gz
+  url: https://pypi.python.org/packages/c2/55/17d9ea7b770bfadbba35c037b6bebd37cffe5b5df939f71e4bc74b93839e/applicationinsights-0.10.0.tar.gz
+  md5: 37e852ef3c8022e53afb4fa5e0d42718
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  imports:
+      - applicationinsights.TelemetryClient
+      - applicationinsights.logging
+      - applicationinsights.exceptions
+      - applicationinsights.requests
+
+about:
+  home: https://pypi.python.org/pypi/applicationinsights
+  license:  MIT
+  summary: This project extends the Application Insights API surface to support Python. Application Insights is a service that allows developers to keep their application available, performing and succeeding.

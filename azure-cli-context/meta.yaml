@@ -1,0 +1,33 @@
+package:
+  name: azure-cli-context
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-context-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/01/21/be6d8629f9cfa92a20d821882f4d79ec4a66af44e0e92c547ba6906f5673/azure-cli-context-0.1.1b2.tar.gz
+  md5: abc3361a390d3747bc5256e21c53d005
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.context
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-context
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Context Command Module

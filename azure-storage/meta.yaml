@@ -3,34 +3,26 @@ package:
   version: 0.33.0
 
 source:
-  fn: v0.33.0.tar.gz
-  url: https://github.com/Azure/azure-storage-python/archive/v0.33.0.tar.gz
+  fn: azure-storage-0.33.0.zip
+  url: https://pypi.python.org/packages/94/fd/301d5d72126125b59731ad64bcfcc9bc75fcddb9bb8370a917559a693433/azure-storage-0.33.0.zip
+  md5: a250359db1d57d8560e26299dc0934ea
 
 build:
-  # since there are python 2 specific dependencies, we cant use noarch_python
-  # noarch_python: True
   number: 0
-  preserve_egg_dir: True
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - azure-nspkg
-    - azure-common
-    - python-dateutil
-    - requests
-    - cryptography
-    - futures  # [py2k]
 
   run:
     - python
-    - azure-nspkg
-    - azure-common
-    - python-dateutil
-    - requests
-    - cryptography
+    - azure-nspkg >=1.0.0
+    - azure-common >=1.1.4
+    - python-dateutil >=2.6.0
+    - requests >=2.12.4
+    - cryptography >=1.7.1
     - futures  # [py2k]
 
 test:

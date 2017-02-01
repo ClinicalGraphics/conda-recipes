@@ -1,0 +1,37 @@
+package:
+  name: azure-cli-network
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-network-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/27/d2/bcac66d461b2ea19776395be529e3eb467e4fe231ae12bae18e1ff400d22/azure-cli-network-0.1.1b2.tar.gz
+  md5: 5c171cdf90f6e840abd58d2cc2b6c7f7
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-network >=0.30.0
+    - azure-mgmt-trafficmanager >=0.30.0rc6
+    - azure-mgmt-dns >=0.30.0rc6
+    - azure-mgmt-resource >=0.30.2
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.network
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-network
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Network Command Module

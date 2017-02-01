@@ -1,0 +1,34 @@
+package:
+  name: azure-cli-container
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-container-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/cf/71/902f45924ead9e82cd16b8ffe13115d8beb45539d8a2d79d912155938afc/azure-cli-container-0.1.1b2.tar.gz
+  md5: 8c07803e4c9867ddf73c9c266b5d96b2
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - pyyaml >=3.12
+    - azure-cli-core >=0.1.1b3
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.container
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-container
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools container Command Module

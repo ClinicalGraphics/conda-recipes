@@ -1,0 +1,35 @@
+package:
+  name: azure-cli-role
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-role-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/71/79/ec3d09e3412a30f982193ab7a109b4983f715ec7e58145bfe59d3daa5e56/azure-cli-role-0.1.1b2.tar.gz
+  md5: 6153f9354434ac1efc812d2dfbf1cb7d
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-authorization >=0.30.0rc6
+    - azure-graphrbac >=0.30.0rc6
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.role
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-role
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools Role Command Module

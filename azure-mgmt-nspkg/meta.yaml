@@ -1,0 +1,30 @@
+package:
+  name: azure-mgmt-nspkg
+  version: 1.0.0
+
+source:
+  fn: azure-mgmt-nspkg-1.0.0.zip
+  url: https://pypi.python.org/packages/08/19/7de3fced806761f4f1c09899c008cae4979e3bd598105e089edeea7a502a/azure-mgmt-nspkg-1.0.0.zip
+  md5: 4605b225a393b34292e6fb1bdc77a92c
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+
+test:
+  imports:
+      - azure
+      - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-storage/0.31.0
+  license: MIT
+  summary: Microsoft Azure Storage Resource Management Client Library for Python

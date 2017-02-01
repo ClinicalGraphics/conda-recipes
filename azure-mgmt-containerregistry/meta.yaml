@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-containerregistry
+  version: 0.1.1
+
+source:
+  fn: azure-mgmt-containerregistry-0.1.1.zip
+  url: https://pypi.python.org/packages/b8/c2/2d466d74dc72cc5c4d8feccc46b05f8d5f4909dff5fb186fe027f80664c6/azure-mgmt-containerregistry-0.1.1.zip
+  md5: d23179463ca99a0aa021b61f0c1896b5
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg >=1.0.0
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-containerregistry
+  license: MIT
+  summary: Microsoft Azure Container Registry Client Library for Python

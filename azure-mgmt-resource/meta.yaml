@@ -1,0 +1,33 @@
+package:
+  name: azure-mgmt-resource
+  version: 0.31.0
+
+source:
+  fn: azure-mgmt-resource-0.31.0.zip
+  url: https://pypi.python.org/packages/0d/b9/ab21249c03cc2274c31fa57373a915c7ac56025efe96d3a2b38220416273/azure-mgmt-resource-0.31.0.zip
+  md5: 7c90afb442eb4ccb7d022a6b391b00f5
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-common >=1.1.4
+    - azure-mgmt-nspkg >=1.0.0
+    - msrestazure >=0.4.6
+
+test:
+  imports:
+    - azure
+    - azure.mgmt
+
+about:
+  home: https://pypi.python.org/pypi/azure-mgmt-resource
+  license: MIT
+  summary: Microsoft Azure Resource Management Client Library for Python

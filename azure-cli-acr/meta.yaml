@@ -1,0 +1,36 @@
+package:
+  name: azure-cli-acr
+  version: 0.1.1b2
+
+source:
+  fn: azure-cli-acr-0.1.1b2.tar.gz
+  url: https://pypi.python.org/packages/55/8b/f20a9c047d55af1e1f91a32016d5d64b81628f0c095bec4024bf4c748f00/azure-cli-acr-0.1.1b2.tar.gz
+  md5: e14fdebb05bdd72de5a52959fa2c302d
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - azure-cli-core >=0.1.1b3
+    - azure-mgmt-resource >=0.30.2
+    - azure-mgmt-storage >=0.31.0
+    - azure-mgmt-containerregistry >=0.1.1
+
+test:
+  imports:
+    - azure
+    - azure.cli
+    - azure.cli.command_modules
+    - azure.cli.command_modules.acr
+
+about:
+  home: https://pypi.python.org/pypi/azure-cli-acr
+  license: MIT
+  summary: Microsoft Azure Command-Line Tools ACR Command Module
