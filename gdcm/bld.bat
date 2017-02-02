@@ -1,6 +1,23 @@
 mkdir build
 cd build
 
+::Remove dll files if they exists since they need to be copied
+if exist "%LIBRARY_BIN%\vccorlib140.dll" (
+  del /f "%LIBRARY_BIN%\vccorlib140.dll"
+)
+if exist "%LIBRARY_BIN%\vcomp140.dll" (
+  del /f "%LIBRARY_BIN%\vcomp140.dll"
+)
+if exist "%LIBRARY_BIN%\msvcp140.dll" (
+  del /f "%LIBRARY_BIN%\msvcp140.dll"
+)
+if exist "%LIBRARY_BIN%\concrt140.dll" (
+  del /f "%LIBRARY_BIN%\concrt140.dll"
+)
+if exist "%LIBRARY_BIN%\vcruntime140.dll" (
+  del /f "%LIBRARY_BIN%\vcruntime140.dll"
+)
+
 set BUILD_CONFIG=Release
 
 set PYTHON_LIBRARY=%PREFIX%\libs\python%PY_VER:~0,1%%PY_VER:~2,1%.lib
