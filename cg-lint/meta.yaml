@@ -3,8 +3,8 @@ package:
   version: 0.1.1
 
 source:
-  hg_url: ssh://hg@bitbucket.org/clinicalgraphics/cglint
-  hg_tag: 0.1.1
+  fn: clinicalgraphics-cglint-c281d94b8eb6.tar.gz
+  url: https://bitbucket.org/clinicalgraphics/cglint/get/0.1.1.tar.gz
 
 build:
   number: 0
