@@ -1,0 +1,25 @@
+package:
+  name: cg-lint
+  version: 0.1.1
+
+source:
+  hg_url: ssh://hg@bitbucket.org/clinicalgraphics/cglint
+  hg_tag: 0.1.1
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - flake8 >=2.5.1
+
+about:
+  home: https://bitbucket.org/clinicalgraphics/cglint
+  license: Proprietary
+  summary: Clinical Graphics linting plugin for flake8
