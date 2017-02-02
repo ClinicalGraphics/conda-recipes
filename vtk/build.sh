@@ -7,7 +7,7 @@ cd build
 
 BUILD_CONFIG=Release
 
-# use globs to take into account various possble suffixes: m, u, d
+# use globs to take into account various possible suffixes: m, u, d
 PYTHON_LIBRARY=`ls -d ${PREFIX}/lib/libpython* | head -n 1`
 PYTHON_INCLUDE=`ls -d ${PREFIX}/include/python* | head -n 1`
 
@@ -55,7 +55,6 @@ cmake .. -G "Ninja" \
     ${LINUX:+-DVTK_OPENGL_HAS_OSMESA:BOOL=ON} \
     ${LINUX:+-DOPENGL_INCLUDE_DIR="$PREFIX/include"} \
     ${LINUX:+-DOPENGL_gl_LIBRARY="$PREFIX/lib/libGL.so"} \
-    ${LINUX:+-DOPENGL_glu_LIBRARY="$PREFIX/lib/libGLU.so"} \
     ${LINUX:+-DOSMESA_INCLUDE_DIR:PATH="$PREFIX/include"} \
     ${LINUX:+-DOSMESA_LIBRARY:FILEPATH="$PREFIX/lib/libOSMesa.so"} \
     ${LINUX:+-DVTK_USE_X:BOOL=ON} \

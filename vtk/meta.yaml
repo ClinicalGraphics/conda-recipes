@@ -15,50 +15,36 @@ build:
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
-    - vc14  # [win and py35]
-  skip: True  # [(linux and py34)]
+    - vc14  # [win and (py35 or py36)]
 
 requirements:
   build:
     - python
-    - osmesa  # [linux]
-    - ospray # [unix]
-    - toolchain
     - cmake
     - ninja
-    # VTK Third Party dependencies
-    - zlib 1.2.*
-    - freetype 2.6.*
-    - hdf5 1.8.17|1.8.17.*  # [unix]
-    - libxml2
-    - libpng >=1.6.21,<1.7
-    - jpeg 9*
-    - libjpeg-turbo # [linux]
-    - libtiff 4.0.*
-    - jsoncpp  # [linux]
+    - osmesa  # [linux]
+    - ospray # [unix]
+    - zlib >=1.2
+    - freetype >=2.5
+    - hdf5 >=1.8.17  # [unix]
+    - libxml2 >=2.9
+    - libpng >=1.6.21
+    - jpeg >=9b
+    - libtiff >=4.0
     - expat
-    - libgcc-6  # [unix]
-    - libglu # [linux]
-    - embree # [osx]
 
   run:
     - python
     - osmesa # [linux]
     - ospray # [unix]
-    - future  # used in the generated python wrappers
-    # VTK Third Party dependencies
-    - zlib 1.2.*
-    - freetype 2.6.*
-    - hdf5 1.8.17|1.8.17.*  # [unix]
+    - zlib >=1.2
+    - freetype >=2.5
+    - hdf5 >=1.8.17  # [unix]
     - libxml2
-    - libpng >=1.6.21,<1.7
-    - jpeg 9*
-    - libjpeg-turbo # [linux]
-    - libtiff 4.0.*
-    - jsoncpp  # [linux]
+    - libpng >=1.6.21
+    - jpeg >=9b
+    - libtiff >=4.0
     - expat
-    - libgcc-6  # [unix]
-    - embree # [osx]
 
 test:
   imports:

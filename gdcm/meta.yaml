@@ -7,16 +7,15 @@ source:
   url: https://github.com/malaterre/GDCM/archive/v2.6.6.tar.gz
 
 build:
-  number: 1
+  number: 2
   features:
     - vc9                [win and py27]
     - vc10               [win and py34]
-    - vc14               [win and py35]
+    - vc14               [win and (py35 or py36)]
 
 requirements:
   build:
     - python
-    - toolchain
     - cmake
     - ninja
     - swig >=3.0.11
@@ -30,4 +29,4 @@ test:
 about:
   home: https://sourceforge.net/p/gdcm/gdcm/
   license: BSD-2-Clause
-summary: Grassroots DICOM, cross-platform DICOM implementation.
+  summary: Grassroots DICOM, cross-platform DICOM implementation
