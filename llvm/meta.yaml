@@ -14,15 +14,12 @@ source:
     - llvm-lto-static.patch  # [win]
 
 build:
-  number: 1
-  skip: true  # [win and py<35]
+  number: 0
   features:
-    - vc14    # [win and py35]
+    - vc14    # [win and (py35 or py36)]
 
 requirements:
   build:
-    - python
-    - toolchain
     - cmake
     # Needed to unpack the source tarball
     - m2-xz  # [py27 and win32]
@@ -40,7 +37,6 @@ test:
     - $PREFIX/bin/llvm-config --libs                         # [not win]
     - $PREFIX/bin/llc -version                               # [not win]
     - if not exist %LIBRARY_INC%\\llvm\\Pass.h exit 1        # [win]
-
     - test -f $PREFIX/include/llvm/Pass.h                    # [unix]
     - test -f $PREFIX/lib/libLLVMCore.a                      # [not win]
 

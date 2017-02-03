@@ -3,8 +3,8 @@ package:
   version: 0.3.4
 
 source:
-  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.3.4.tar.gz
   fn: 0.3.4.tar.gz
+  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.3.4.tar.gz
 
 build:
   number: 0

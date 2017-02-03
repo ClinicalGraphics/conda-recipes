@@ -20,10 +20,10 @@ build:
 requirements:
   build:
     - python
-    - cmake
-    - ninja
-    - osmesa  # [linux]
-    - ospray # [unix]
+    - cmake >=3.6
+    - ninja >=1.7
+    - osmesa >=13.0  # [linux]
+    - ospray >=1.1 # [unix]
     - zlib >=1.2
     - freetype >=2.5
     - hdf5 >=1.8.17  # [unix]
@@ -31,20 +31,20 @@ requirements:
     - libpng >=1.6.21
     - jpeg >=9b
     - libtiff >=4.0
-    - expat
+    - expat >=2.1
 
   run:
     - python
-    - osmesa # [linux]
-    - ospray # [unix]
+    - osmesa >=13.0 # [linux]
+    - ospray >=1.1 # [unix]
     - zlib >=1.2
     - freetype >=2.5
     - hdf5 >=1.8.17  # [unix]
-    - libxml2
+    - libxml2 >=2.9
     - libpng >=1.6.21
     - jpeg >=9b
     - libtiff >=4.0
-    - expat
+    - expat >=2.1
 
 test:
   imports:

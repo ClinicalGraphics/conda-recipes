@@ -1,12 +1,18 @@
 """ VTK to screenshot python example """
 import vtk
-
+from sys import platform
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
-ren.SetPass(vtk.vtkOSPRayPass())
+
+# Uncheck to test with osPray
+#ren.SetPass(vtk.vtkOSPRayPass())
 
 render_window = vtk.vtkRenderWindow()
-render_window.SetOffScreenRendering(True)
+
+# Test offscreen rendering on linux only
+if platform == "linux" or platform == "linux2":
+    render_window.SetOffScreenRendering(True)
+
 render_window.AddRenderer(ren)
 render_window.SetSize(3000, 3000)
 
