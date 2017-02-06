@@ -1,14 +1,11 @@
-{% set version = "7.1.0" %}
-{% set minor_version = ".".join(version.split(".")[:2]) %}
-
 package:
   name: vtk
-  version: {{ version }}
+  version: 7.1.0
 
 source:
-  url: http://www.vtk.org/files/release/{{ minor_version }}/VTK-{{ version }}.tar.gz
-  fn:  VTK-{{ version }}.tar.gz
-  sha256: 5f3ea001204d4f714be972a810a62c0f2277fbb9d8d2f8df39562988ca37497a
+  fn:  VTK-7.1.0.tar.gz
+  url: http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz
+
 
 build:
   number: 2
@@ -22,29 +19,13 @@ requirements:
     - python
     - cmake >=3.6
     - ninja >=1.7
-    - osmesa >=13.0  # [linux]
+    - osmesa ==13.0.2  # [linux]
     - ospray >=1.1 # [unix]
-    - zlib >=1.2
-    - freetype >=2.5
-    - hdf5 >=1.8.17  # [unix]
-    - libxml2 >=2.9
-    - libpng >=1.6.21
-    - jpeg >=9b
-    - libtiff >=4.0
-    - expat >=2.1
 
   run:
     - python
-    - osmesa >=13.0 # [linux]
+    - osmesa ==13.0.2 # [linux]
     - ospray >=1.1 # [unix]
-    - zlib >=1.2
-    - freetype >=2.5
-    - hdf5 >=1.8.17  # [unix]
-    - libxml2 >=2.9
-    - libpng >=1.6.21
-    - jpeg >=9b
-    - libtiff >=4.0
-    - expat >=2.1
 
 test:
   imports:

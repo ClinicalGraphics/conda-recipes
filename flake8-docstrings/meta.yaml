@@ -1,30 +1,39 @@
+{% set name = "flake8-docstrings" %}
+{% set version = "1.0.3" %}
+{% set sha256 = "5783a90476e4521b2f9815b5ce734adfd1046071e0238d1df2670354ae3153ae" %}
+
 package:
-  name: flake8-docstrings
-  version: 1.0.2
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: 1.0.2.tar.gz
-  url: https://github.com/PyCQA/flake8-docstrings/archive/1.0.2.tar.gz
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
   number: 0
-  script: python setup.py install
-  noarch_python: True
+  script: anaconda upload /home/maxcg/miniconda3/conda-bld/linux-64/pytest-mock-1.5.0-py36_0.tar.bz2
 
 requirements:
   build:
     - python
-    - pydocstyle
-    - flake8
-    - pep257
+    - setuptools
 
   run:
     - python
-    - pydocstyle
-    - flake8
-    - pep257
+    - pydocstyle >=1.0.0
+    - flake8 >=2.5.1
+    - flake8-polyfill >=1.0.1
+
+test:
+  commands:
+    - "flake8 --version | grep flake8-docstrings:"
 
 about:
   home: https://gitlab.com/pycqa/flake8-docstrings
   license: MIT
-  summary: Extension for flake8 which uses pep257 to check docstrings
+  license_family: MIT
+  license_file: LICENSE
+  summary: 'Extension for flake8 which uses pydocstyle to check docstrings'
+  dev_url: https://gitlab.com/pycqa/flake8-docstrings

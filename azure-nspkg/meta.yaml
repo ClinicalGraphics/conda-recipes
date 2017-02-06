@@ -26,4 +26,4 @@ test:
 about:
   home: https://github.com/Azure/azure-sdk-for-python
   license: Apache Software License
-  summary: 'Microsoft Azure Namespace Package [Internal]
+  summary: Microsoft Azure Namespace Package

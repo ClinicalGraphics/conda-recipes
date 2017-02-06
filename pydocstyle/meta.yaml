@@ -1,15 +1,15 @@
 package:
   name: pydocstyle
-  version: 1.0.0
+  version: 1.1.1
 
 source:
-  fn: 1.0.0.tar.gz
-  url: https://github.com/PyCQA/pydocstyle/archive/1.0.0.tar.gz
+  fn: pydocstyle-1.1.1.zip
+  url: https://pypi.python.org/packages/c1/08/14df5ee08a1bce1598de4e1cdedb7e55e09060971a7241d40d15a1d7a14a/pydocstyle-1.1.1.zip
+  md5: 4e2c692743e34adcce507479c8e76ebb
 
 build:
-  number: 2
+  number: 0
   script: python setup.py install
-  noarch_python: True
 
 requirements:
   build:
@@ -20,9 +20,8 @@ requirements:
     - python
 
 test:
-  commands:
-    - pydocstyle --help
-    - pep257 --help
+  imports:
+    - pydocstyle
 
 about:
   home: https://github.com/PyCQA/pydocstyle/

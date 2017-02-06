@@ -1,0 +1,32 @@
+package:
+  name: flake8-polyfill
+  version: 1.0.1
+
+source:
+  fn: flake8-polyfill-1.0.1.tar.gz
+  url: https://pypi.python.org/packages/71/6e/dd7e0f0ddf146213d0cc0b963b3d4c6434823ebe3992c29b523182bbf785/flake8-polyfill-1.0.1.tar.gz
+  md5: 92aa008899021c8c7c3a9db2578164da
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - flake8 >=2.5.1
+
+test:
+  imports:
+    - flake8_polyfill
+
+about:
+  home: https://gitlab.com/pycqa/flake8-polyfill
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  summary: Provides some compatibility helpers for Flake8 plugins that intend to support Flake8 2.x and 3.x simultaneously
+  dev_url: https://gitlab.com/pycqa/flake8-polyfill
