@@ -13,7 +13,7 @@ source:
 
 build:
   number: 0
-  script: anaconda upload /home/maxcg/miniconda3/conda-bld/linux-64/pytest-mock-1.5.0-py36_0.tar.bz2
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -35,5 +35,5 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: 'Extension for flake8 which uses pydocstyle to check docstrings'
+  summary: Extension for flake8 which uses pydocstyle to check docstrings
   dev_url: https://gitlab.com/pycqa/flake8-docstrings
