@@ -8,20 +8,23 @@ source:
 
 build:
   number: 0
-  script: python setup.py install
-  noarch_python: True
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - flake8
-    - pycodestyle
+    - flake8 >=2.5.1
+    - pycodestyle >=1.0.0
 
   run:
     - python
-    - flake8
-    - pycodestyle
+    - flake8 >=2.5.1
+    - pycodestyle >=1.0.0
+
+test:
+  imports:
+    - flake8_import_order
 
 about:
   home: https://github.com/public/flake8-import-order

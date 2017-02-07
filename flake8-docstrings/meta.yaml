@@ -27,8 +27,8 @@ requirements:
     - flake8-polyfill >=1.0.1
 
 test:
-  commands:
-    - "flake8 --version | grep flake8-docstrings:"
+  imports:
+    - flake8_docstrings
 
 about:
   home: https://gitlab.com/pycqa/flake8-docstrings
