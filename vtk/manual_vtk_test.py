@@ -32,13 +32,14 @@ cylinderActor.RotateY(-45.0)
 # perform appropriate camera or actor manipulation depending on the
 # nature of the events.
 ren = vtk.vtkRenderer()
+
+# Uncheck to test with osPray
 #ren.SetPass(vtk.vtkOSPRayPass())
+
 renWin = vtk.vtkRenderWindow()
 renWin.AddRenderer(ren)
 iren = vtk.vtkRenderWindowInteractor()
 iren.SetRenderWindow(renWin)
-
-#renWin.SetOffScreenRendering(True)
 
 # Add the actors to the renderer, set the background and size
 ren.AddActor(cylinderActor)

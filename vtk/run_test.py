@@ -5,7 +5,7 @@ from sys import platform
 ren = vtk.vtkRenderer()
 
 # Uncheck to test with osPray
-# ren.SetPass(vtk.vtkOSPRayPass())
+#ren.SetPass(vtk.vtkOSPRayPass())
 
 render_window = vtk.vtkRenderWindow()
 
