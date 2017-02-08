@@ -14,7 +14,7 @@ source:
     - llvm-lto-static.patch  # [win]
 
 build:
-  number: 0
+  number: 2
   features:
     - vc14    # [win and (py35 or py36)]
 
@@ -28,6 +28,7 @@ requirements:
     - system  # [linux and not armv7l]
   run:
     - system  # [linux and not armv7l]
+    - libgcc # [unix]
 
 test:
   requires:                                                  # [win]

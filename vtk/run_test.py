@@ -1,6 +1,12 @@
 """ VTK to screenshot python example """
 import vtk
+import sys
 from sys import platform
+
+# Test rendering on linux only (offscreen not supported yet on windows):
+if platform != "linux" or platform != "linux2":
+    sys.exit(0)
+
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
 
@@ -8,10 +14,7 @@ ren = vtk.vtkRenderer()
 #ren.SetPass(vtk.vtkOSPRayPass())
 
 render_window = vtk.vtkRenderWindow()
-
-# Test offscreen rendering on linux only
-if platform == "linux" or platform == "linux2":
-    render_window.SetOffScreenRendering(True)
+render_window.SetOffScreenRendering(True)  # This will render offscreen
 
 render_window.AddRenderer(ren)
 render_window.SetSize(3000, 3000)
