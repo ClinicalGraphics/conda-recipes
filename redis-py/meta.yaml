@@ -21,8 +21,6 @@ requirements:
 test:
   imports:
     - redis
-  requires:
-    - pytest
 
 about:
   home: http://github.com/andymccurdy/redis-py
