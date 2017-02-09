@@ -1,20 +1,20 @@
 package:
   name: autobahn
-  version: 0.16.0
+  version: 0.17.1
 
 source:
-  fn: v0.16.0.tar.gz
-  url: https://github.com/crossbario/autobahn-python/archive/v0.16.0.tar.gz
+  fn: autobahn-0.17.1.tar.gz
+  url: https://pypi.python.org/packages/28/36/c146415f70f62ae678c4b6dae64872eb7d55661dbb8830a5fa594143478c/autobahn-0.17.1.tar.gz
+  md5: f6b3c2684b873ae29111385b695b28fb
 
 build:
   number: 0
-  noarch_python: True
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
-    - txaio >=2.5.1
+    - setuptools
   run:
     - python
     - txaio >=2.5.1

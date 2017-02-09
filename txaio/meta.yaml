@@ -8,7 +8,7 @@ source:
   md5: e4b57e0512d2f439200c6040da7fd1a0
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -17,7 +17,7 @@ requirements:
     - setuptools
   run:
     - python
-    - six
+    - six >=1.10.0
 
 test:
   imports:

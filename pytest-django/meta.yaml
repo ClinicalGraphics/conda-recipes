@@ -1,35 +1,30 @@
-{% set version = "3.0.0" %}
-
 package:
-    name: pytest-django
-    version: {{ version }}
+  name: pytest-django
+  version: 3.1.2
 
 source:
-    fn: pytest-django-{{ version }}.tar.gz
-    url:  https://pypi.io/packages/source/p/pytest-django/pytest-django-{{ version }}.tar.gz
-    sha256: 7898731205fa245926c800273dcffcd9b25e0b660a363ecb6cc2901ffe4aa1cc
+  fn: pytest-django-3.1.2.tar.gz
+  url:  https://pypi.python.org/packages/78/8b/aeab19b727411f3ec5f68dc8c05b2dba949b27ed592d68217e72e7d4ce65/pytest-django-3.1.2.tar.gz
+  md5: ca83f58d4884bcfbad42c72292dffc4b
 
 build:
-    number: 0
-    preserve_egg_dir: True
-    script: python setup.py install --single-version-externally-managed --record record.txt
-    entry_points:
-        - pytest11 = django:pytest_django.plugin
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
-    build:
-        - python
-        - setuptools
-        - setuptools_scm 1.11.1
-    run:
-        - python
-        - pytest >=2.9
+  build:
+      - python
+      - setuptools
+      - setuptools_scm ==1.11.1
+  run:
+      - python
+      - pytest >=2.9
 
 test:
-    imports:
-        - pytest_django
+  imports:
+    - pytest_django
 
 about:
-    home: http://pytest-django.readthedocs.org/
-    license: BSD 3-Clause
-    summary: A Django plugin for py.test.
+  home: http://pytest-django.readthedocs.org/
+  license: BSD 3-Clause
+  summary: A Django plugin for py.test.
