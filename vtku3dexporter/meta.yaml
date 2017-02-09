@@ -14,6 +14,8 @@ requirements:
     - python
     - cmake >=3.6.0
     - vtk >=7.1.0
+    - jpeg >=9b  # [win]
+    - libpng >=1.6.27  # [win]
   run:
     - python
     - vtk >=7.1.0
