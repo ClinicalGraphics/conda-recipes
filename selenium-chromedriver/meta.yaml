@@ -1,14 +1,12 @@
 package:
     name: selenium-chromedriver
-    version: 2.25
+    version: 2.27
 
 source:
     fn: chromedriver_linux64.zip                                                        # [linux64]
-    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip       # [linux64]
-    fn: chromedriver_linux32.zip                                                        # [linux32]
-    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux32.zip       # [linux32]
+    url: https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip      # [linux64]
     fn: chromedriver_win32.zip                                                          # [win]
-    url: http://chromedriver.storage.googleapis.com/2.25/chromedriver_win32.zip         # [win]
+    url: https://chromedriver.storage.googleapis.com/2.27/chromedriver_win32.zip        # [win]
 
 build:
     number: 0
