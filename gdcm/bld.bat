@@ -1,7 +1,7 @@
 mkdir build
 cd build
 
-::Remove dll files if they exists since they need to be copied
+::Remove dll files if they exists since they need to be copied and the cmake script will crash instead of overwriting them.
 if exist "%LIBRARY_BIN%\vccorlib140.dll" (
   del /f "%LIBRARY_BIN%\vccorlib140.dll"
 )
