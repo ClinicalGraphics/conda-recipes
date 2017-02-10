@@ -14,10 +14,9 @@ build:
 requirements:
   build:
     - python
-    - pytest
+    - pytest >=3.0.5
     - setuptools
-    - setuptools_scm
-
+    - setuptools_scm >=1.11.1
   run:
     - python
     - pytest >=3.0.5
