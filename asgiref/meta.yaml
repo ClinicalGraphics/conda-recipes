@@ -1,22 +1,23 @@
 package:
   name: asgiref
-  version: 0.14.0
+  version: 1.0.0
 
 source:
-  fn: 0.14.0.tar.gz
-  url: https://github.com/django/asgiref/archive/0.14.0.tar.gz
+  fn: asgiref-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/51/e9/2cf275a4145e7feef53d5370e7e7fe738f7120d61cc0a5f9b11f606f34e4/asgiref-1.0.0.tar.gz
+  md5: 82a269dba15c1a95383b249abcfe4822
 
 build:
   number: 0
-  noarch_python: True
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
-    - six
+    - setuptools
   run:
     - python
+    - six >=1.10.0
 
 test:
   imports:
@@ -25,4 +26,4 @@ test:
 about:
   home: https://github.com/andrewgodwin/asgiref
   license: BSD
-  summary: Reference ASGI adapters and channel layers.
+  summary: Reference ASGI adapters and channel layers

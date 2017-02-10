@@ -3,7 +3,7 @@
 autoreconf -fi
 
 ./configure                                         \
-  --prefix=$PREFIX                                  \
+  --prefix="$PREFIX"                                \
   --enable-opengl                                   \
   --disable-gles1                                   \
   --disable-gles2                                   \

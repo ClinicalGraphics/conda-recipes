@@ -1,26 +1,25 @@
 package:
   name: pytest-mock
-  version: 1.4.0
+  version: 1.5.0
 
 source:
-  fn: pytest-mock-1.4.0.tar.gz
-  url: https://pypi.python.org/packages/c0/e8/011caf48c359c76aae667d2192ab4853ecc8dc9d1ea5833f0b0893c48b85/pytest-mock-1.4.0.tar.gz
+  fn: pytest-mock-1.5.0.tar.gz
+  url: https://pypi.python.org/packages/00/ee/07a76dada65cbafa1f5c8802a0cdb07b21615be482e587743da6b2aa97a4/pytest-mock-1.5.0.tar.gz
+  md5: ffacb3febb9d0a14194a9d3a2c81fd2c
 
 build:
-  number: 1
-  noarch_python: True
-  script: python setup.py install
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
-    - pytest
+    - pytest >=3.0.5
     - setuptools
-    - setuptools_scm
+    - setuptools_scm >=1.11.1
   run:
     - python
-    - pytest
-    - mock  # [py26 or py27]
+    - pytest >=3.0.5
 
 test:
   imports:

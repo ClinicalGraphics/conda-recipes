@@ -1,37 +1,29 @@
 package:
   name: pyfakefs
-  version: 2.9
+  version: 3.0
 
 source:
-  fn: v2.9.tar.gz
-  url: https://github.com/jmcgeheeiv/pyfakefs/archive/v2.9.tar.gz
+  fn: pyfakefs-3.0.tar.gz
+  url: https://pypi.python.org/packages/54/92/dfb7c8368e6a4711d68eb4873fd115fd6ee0858e80f28006754cd5d3d5de/pyfakefs-3.0.tar.gz
+  md5: 3d4997e687917c018d0bc2030fe5c4e8
 
 build:
   number: 0
-  noarch_python: True
-  script: python setup.py install
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - wheel
-    - traceback2
-    - unittest2
-    - python-mimeparse
-    - fixtures ==1.4.0
-    - pbr
-    - pip
-    - mox3
 
   run:
     - python
 
 test:
   imports:
-    - pyfakefs.fake_filesystem
+    - pyfakefs
 
 about:
   home: https://pypi.python.org/pypi/pyfakefs/
   license: Apache Software License
-  summary: Fakes file system modules for automated developer testing.
+  summary: Fakes file system modules for automated developer testing

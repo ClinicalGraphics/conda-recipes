@@ -1,26 +1,23 @@
 package:
   name: numpy-indexed
-  version: 0.3.2
+  version: 0.3.4
 
 source:
-  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.3.2.tar.gz
-  fn: 0.3.2.tar.gz
+  fn: 0.3.4.tar.gz
+  url: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP/archive/0.3.4.tar.gz
 
 build:
-  noarch_python: False
-  number: 1
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
   - python
-  - numpy
-  - pyyaml 3.11*
-  - future 0.15*
+  - pyyaml >=3.11
 
   run:
   - python
-  - numpy
-  - future 0.15*
+  - numpy >=1.10
 
 test:
   commands:
@@ -28,7 +25,7 @@ test:
   imports:
   - numpy_indexed
   requires:
-  - pytest >=2.8.4,<2.9
+  - pytest >=3.0
 
 about:
   home: https://github.com/EelcoHoogendoorn/Numpy_arraysetops_EP

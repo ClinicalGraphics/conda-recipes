@@ -1,37 +1,31 @@
 package:
   name: daphne
-  version: 0.15.0
+  version: 1.0.2
 
 source:
-  fn: 0.15.0.tar.gz
-  url: https://github.com/django/daphne/archive/0.15.0.tar.gz
+  fn: daphne-1.0.2.tar.gz
+  url: https://pypi.python.org/packages/0f/89/0ddc7636ade9ea8d3272667c6a151b8d289e7f2845121a91061e92d5de2d/daphne-1.0.2.tar.gz
+  md5: 735a31fb18b69fbb8709570876cca899
 
 build:
-    number: 0
-    script: python setup.py install
-    entry_points:
-      - daphne = daphne.cli:CommandLineInterface.entrypoint
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - asgiref >=0.14.0
-    - twisted >=15.5,<16.3
-    - autobahn >=0.12
   run:
     - python
     - asgiref >=0.14.0
-    - twisted >=15.5,<16.3
+    - twisted >=16.0
     - autobahn >=0.12
 
 test:
   imports:
     - daphne
-  commands:
-    - daphne --help
 
 about:
   home: https://github.com/andrewgodwin/daphne
   license: BSD
-  summary: Django ASGI (HTTP/WebSocket) server.
+  summary: Django ASGI (HTTP/WebSocket) server
