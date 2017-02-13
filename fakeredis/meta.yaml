@@ -7,18 +7,15 @@ source:
   url: https://github.com/jamesls/fakeredis/archive/0.8.1.tar.gz
 
 build:
-  noarch_python: True
-  number: 0
-  script: python setup.py install
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
     - python
-    - pip
-    - redis
   run:
     - python
-    - redis
+    - redis-py >=2.10.5
 
 test:
   imports:

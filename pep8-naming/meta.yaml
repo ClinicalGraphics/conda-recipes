@@ -1,27 +1,27 @@
-{% set version = "0.4.1" %}
-
 package:
   name: pep8-naming
-  version: {{ version }}
+  version: 0.4.1
 
 source:
-  fn: pep8-naming-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/p/pep8-naming/pep8-naming-{{ version }}.tar.gz
-  sha256: 4eedfd4c4b05e48796f74f5d8628c068ff788b9c2b08471ad408007fc6450e5a
+  fn: pep8-naming-0.4.1.tar.gz
+  url: https://pypi.python.org/packages/c8/c9/d16bea3e5f888f430b73f44eb9be8ba3cd7a22f08ed05363c8614b131e21/pep8-naming-0.4.1.tar.gz
+  md5: d93fc0008bab144c9fd3a688eaec3e25
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
-    - setuptools
-    - flake8
+    - flake8 >=1.5.0
+
+test:
+  commands:
+    - "flake8 --version | grep naming:"
 
 about:
   home: https://github.com/flintwork/pep8-naming
