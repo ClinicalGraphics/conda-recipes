@@ -16,7 +16,7 @@ requirements:
     - python
   run:
     - python
-    - pytest >=3.0.0
+    - pytest >=3.0.5
     - tornado >=4.0.0
 
 test:
