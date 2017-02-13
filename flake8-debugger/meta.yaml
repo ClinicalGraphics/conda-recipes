@@ -20,8 +20,8 @@ requirements:
     - flake8 >=1.5.0
 
 test:
-  commands:
-    - "flake8 --version | grep debugger:"
+  imports:
+    - flake8_debugger
 
 about:
   home: https://github.com/jbkahn/flake8-debugger

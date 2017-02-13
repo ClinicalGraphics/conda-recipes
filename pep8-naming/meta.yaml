@@ -21,9 +21,9 @@ requirements:
 
 test:
   commands:
-    - "flake8 --version | grep naming:"
+    - flake8 --version
 
 about:
   home: https://github.com/flintwork/pep8-naming
   license: MIT License
-  summary: 'Check PEP-8 naming conventions, plugin for flake8'
+  summary: Check PEP-8 naming conventions, plugin for flake8
