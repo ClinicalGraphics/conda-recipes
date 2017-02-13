@@ -4,43 +4,28 @@ package:
 
 source:
   fn: pytest-xdist-1.15.0.tar.gz
-  url: https://pypi.io/packages/source/p/pytest-xdist/pytest-xdist-1.15.0.tar.gz
+  url: https://pypi.python.org/packages/dc/b2/a59db3ef996b93c3ef35dbbc33557a71ef67a6839d94a52c88eeb1086002/pytest-xdist-1.15.0.tar.gz
+  md5: 84fe5080fb0aa525b0c3ddd5e9b7eb56
 
 
 build:
-  noarch_python: True
-  script: python setup.py install
-  number: 0
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-    - setuptools_scm
-    - execnet >=1.1
-    - pytest >=3.0
-    - py >=1.4.22
-    - colorama
-
+    - setuptools_scm >=1.9.0
   run:
     - python
-    - setuptools
-    - setuptools_scm
-    - execnet >=1.1
-    - pytest >=3.0
+    - execnet >=1.1.0
+    - pytest >=2.7.0
     - py >=1.4.22
 
 test:
   imports:
     - xdist
-
-  requires:
-    - setuptools
-    - setuptools_scm
-    - execnet >=1.1
-    - pytest >=3.0
-    - py >=1.4.22
-    - colorama
 
 about:
   home: http://bitbucket.org/hpk42/pytest-xdist

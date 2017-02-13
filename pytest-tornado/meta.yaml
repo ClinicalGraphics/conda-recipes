@@ -3,23 +3,26 @@ package:
   version: 0.4.5
 
 source:
-  fn: v0.4.5.tar.gz
-  url: https://github.com/eugeniy/pytest-tornado/archive/v0.4.5.tar.gz
+  fn: pytest-tornado-0.4.5.tar.gz
+  url: https://pypi.python.org/packages/18/f4/54a40ea6b8c2a1ce803d3383294c1eaf7bd0546bff9d777d76bb824bd8c3/pytest-tornado-0.4.5.tar.gz
+  md5: b6ccf5c7f18a9d1a9e399612ef4b0c03
 
 build:
-  noarch_python: True
-  number: 0
+  number: 1
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
-    - pytest
-    - tornado
-
   run:
     - python
+    - pytest >=3.0.5
+    - tornado >=4.0.0
+
+test:
+  imports:
     - pytest
-    - tornado
+    - tornado.web
 
 about:
   home: https://github.com/eugeniy/pytest-tornado
