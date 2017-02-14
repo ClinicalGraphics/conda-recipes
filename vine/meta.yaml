@@ -1,0 +1,30 @@
+{% set version = "1.1.3" %}
+
+package:
+    name: vine
+    version: {{ version }}
+
+source:
+    fn: vine-{{ version }}.tar.gz
+    url: https://pypi.python.org/packages/35/21/308904b027636f13c3970ed7caf2c53fca77fa160122ae3ac392d9eb6307/vine-1.1.3.tar.gz
+    md5: 7e56d432c7ba15afcd23416a0ab7725b
+
+build:
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+    build:
+        - python
+        - setuptools
+    run:
+        - python
+
+test:
+    imports:
+        - vine
+
+about:
+    home: http://github.com/celery/vine
+    license: BSD-3-Clause
+    summary: Python promises

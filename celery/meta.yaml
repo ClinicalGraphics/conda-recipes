@@ -1,0 +1,53 @@
+package:
+    name: celery
+    version: 4.0.2
+
+source:
+    fn: celery-4.0.2.tar.gz
+    url: https://pypi.python.org/packages/b2/b7/888565f3e955473247aef86174db5121d16de6661b69bd8f3d10aff574f6/celery-4.0.2.tar.gz
+    md5: 364dbf014ad57a6aa60d823670642e5d
+
+build:
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+    entry_points:
+        - celery = celery.__main__:main
+        - celeryd = celery.__main__:_compat_worker
+        - celerybeat = celery.__main__:_compat_beat
+        - celeryd-multi = celery.__main__:_compat_multi
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - pytz
+        - billiard >=3.5.0.2,<3.6.0
+        - kombu >=4.0.2,<5.0
+    run:
+        - python
+        - pytz
+        - billiard >=3.5.0.2,<3.6.0
+        - kombu >=4.0.2,<5.0
+
+test:
+    imports:
+        - celery
+        - celery.app
+        - celery.apps
+        - celery.backends
+        - celery.bin
+        - celery.concurrency
+        - celery.contrib
+        - celery.events
+        - celery.fixups
+        - celery.loaders
+        - celery.security
+        - celery.task
+        - celery.utils
+        - celery.utils.dispatch
+        - celery.worker
+
+about:
+    home: http://celeryproject.org
+    license: BSD License
+    summary: Distributed Task Queue

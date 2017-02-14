@@ -1,0 +1,36 @@
+package:
+    name: kombu
+    version: 4.0.2
+
+source:
+    fn: kombu-4.0.2.tar.gz
+    url: https://pypi.python.org/packages/c7/76/58c655a80bf08b703478ce673ed4e3029297105951863b73030d45b06b42/kombu-4.0.2.tar.gz
+    md5: 1f24f3a8addf8f3eb0f463aad970f0fb
+
+build:
+    number: 0
+    script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+    build:
+        - python
+        - setuptools
+        - anyjson >=0.3.3
+        - amqp >=1.4.9,<2.0
+    run:
+        - python
+        - anyjson >=0.3.3
+        - amqp >=1.4.9,<2.0
+
+test:
+    imports:
+        - kombu
+        - kombu.async
+        - kombu.transport
+        - kombu.transport.virtual
+        - kombu.utils
+
+about:
+    home: http://kombu.readthedocs.org
+    license: BSD License
+    summary: Messaging library for Python
