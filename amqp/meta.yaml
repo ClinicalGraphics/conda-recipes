@@ -1,4 +1,4 @@
-{% set version = "1.4.9" %}
+{% set version = "2.1.4" %}
 
 package:
     name: amqp
@@ -7,10 +7,10 @@ package:
 source:
     fn: amqp-{{ version }}.tar.gz
     url: https://pypi.python.org/packages/source/a/amqp/amqp-{{ version }}.tar.gz
-    md5: df57dde763ba2dea25b3fa92dfe43c19
+    md5: 035a475e42ef4f431b4e0dca113434bd
 
 build:
-    number: 1
+    number: 0
     script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
