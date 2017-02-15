@@ -6,7 +6,7 @@ package:
 
 source:
     fn: amqp-{{ version }}.tar.gz
-    url: https://pypi.python.org/packages/source/a/amqp/amqp-{{ version }}.tar.gz
+    url: https://pypi.python.org/packages/23/39/06bb8bd31e78962675f696498f7821f5dbd11aa0919c5a811d83a0e02609/amqp-2.1.4.tar.gz
     md5: 035a475e42ef4f431b4e0dca113434bd
 
 build:
