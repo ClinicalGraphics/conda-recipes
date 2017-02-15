@@ -10,14 +10,13 @@ source:
     md5: df57dde763ba2dea25b3fa92dfe43c19
 
 build:
-    number: 0
+    number: 1
     script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
     build:
         - python
         - setuptools
-        - vine >=1.1.3
     run:
         - python
         - vine >=1.1.3

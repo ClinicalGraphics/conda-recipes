@@ -8,18 +8,15 @@ source:
     md5: 1f24f3a8addf8f3eb0f463aad970f0fb
 
 build:
-    number: 0
+    number: 1
     script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
     build:
         - python
         - setuptools
-        - anyjson >=0.3.3
-        - amqp >=1.4.9,<2.0
     run:
         - python
-        - anyjson >=0.3.3
         - amqp >=1.4.9,<2.0
 
 test:

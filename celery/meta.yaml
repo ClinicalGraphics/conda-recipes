@@ -8,7 +8,7 @@ source:
     md5: 364dbf014ad57a6aa60d823670642e5d
 
 build:
-    number: 0
+    number: 1
     script: python setup.py install --single-version-externally-managed --record=record.txt
     entry_points:
         - celery = celery.__main__:main
@@ -20,9 +20,6 @@ requirements:
     build:
         - python
         - setuptools
-        - pytz
-        - billiard >=3.5.0.2,<3.6.0
-        - kombu >=4.0.2,<5.0
     run:
         - python
         - pytz
