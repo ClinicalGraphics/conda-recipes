@@ -16,6 +16,9 @@ requirements:
   build:
     - pcre  # [unix]
     - boost  # [unix]
+  run:
+    - pcre  # [unix]
+    - boost  # [unix]
 
 test:
   commands:
