@@ -1,11 +1,11 @@
 package:
   name: azure-storage
-  version: 0.33.0
+  version: 0.34.0
 
 source:
-  fn: azure-storage-0.33.0.zip
-  url: https://pypi.python.org/packages/94/fd/301d5d72126125b59731ad64bcfcc9bc75fcddb9bb8370a917559a693433/azure-storage-0.33.0.zip
-  md5: a250359db1d57d8560e26299dc0934ea
+  fn: azure-storage-0.34.0.zip
+  url: https://pypi.python.org/packages/81/25/74229f47de6841fc5035ccb4c5947dcefb8a63727bac63b2f4c830a02227/azure-storage-0.34.0.zip
+  md5: 6342a92b968cf350193e460a6329f3f0
 
 build:
   number: 0
