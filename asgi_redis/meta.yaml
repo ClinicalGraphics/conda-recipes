@@ -8,7 +8,7 @@ source:
   md5: 79c5f3d9cb6f0d2ed8618f72e498597e
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -18,7 +18,7 @@ requirements:
   run:
     - python
     - six >=1.10.0
-    - redis >=2.10
+    - redis-py >=2.10
     - msgpack-python >=0.4.8
     - asgiref >=1.0.0
 

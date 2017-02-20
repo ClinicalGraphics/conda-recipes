@@ -1,0 +1,20 @@
+package:
+  name: gecko-driver
+  version: 0.14.0
+
+source:
+  fn: geckodriver-v0.14.0-linux64.tar.gz                                                      # [linux64]
+  url: https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-linux64.tar.gz      # [linux64]
+  fn: geckodriver-v0.14.0-win64.zip                                                          # [win]
+  url: https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-win64.zip        # [win]
+
+build:
+  number: 0
+
+test:
+  commands:
+    - geckodriver --help
+
+about:
+  home: https://github.com/mozilla/geckodriver
+  license: New BSD License
