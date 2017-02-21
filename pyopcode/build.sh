@@ -2,12 +2,6 @@
 
 BUILD_CONFIG=Release
 
-
-PYTHON_LIBRARY_EXT="so"
-if [ `uname` = "Darwin" ] ; then
-    PYTHON_LIBRARY_EXT="dylib"
-fi
-
 # use globs to take into account various possible suffixes: m, u, d
 PYTHON_LIBRARY=`ls -d ${PREFIX}/lib/libpython* | head -n 1`
 PYTHON_INCLUDE=`ls -d ${PREFIX}/include/python* | head -n 1`
