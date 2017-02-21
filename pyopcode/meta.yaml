@@ -21,13 +21,13 @@ requirements:
   - python
   - setuptools
   - cmake
-  - numpy >=1.11  # [win]
+  - numpy x.x
   - boost >=1.61
   - pyyaml >=3.10
 
   run:
   - python
-  - numpy >=1.11
+  - numpy x.x
   - boost >=1.61
 
 test:
