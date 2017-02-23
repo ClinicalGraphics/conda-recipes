@@ -3,23 +3,23 @@ package:
     version: 0.3.1
 
 source:
-#    fn: u3d-v0.2.0.tar.gz
-#    url: https://github.com/ClinicalGraphics/u3d/archive/0.2.0.tar.gz
-    path: ../../u3d/
+    fn: 0.3.1.tar.gz
+    url: https://github.com/ClinicalGraphics/u3d/archive/0.3.1.tar.gz
 
 build:
-    number: 0
+    number: 1
 
 requirements:
     build:
-        - cmake
-        - jpeg
-        - libpng
-        - zlib
+        - cmake >=3.6.0
+        - ninja >=1.7
+        - jpeg >=9b
+        - libpng >=1.6.27
+        - zlib >=1.2.8
     run:
-        - jpeg
-        - libpng
-        - zlib
+        - jpeg >=9b
+        - libpng >=1.6.27
+        - zlib >=1.2.8
 
 test:
     commands:
