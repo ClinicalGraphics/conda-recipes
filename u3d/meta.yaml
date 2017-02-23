@@ -1,32 +1,38 @@
 package:
-    name: u3d
-    version: 0.3.2
+  name: u3d
+  version: 0.3.2
 
 source:
-    fn: 0.3.2.tar.gz
-    url: https://github.com/ClinicalGraphics/u3d/archive/0.3.2.tar.gz
+  fn: 0.3.2.tar.gz
+  url: https://github.com/ClinicalGraphics/u3d/archive/0.3.2.tar.gz
 
 build:
-    number: 0
+  number: 0
+  features:
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and (py35 or py36)]
 
 requirements:
-    build:
-        - cmake >=3.6.0
-        - ninja >=1.7
-        - jpeg >=9b
-        - libpng >=1.6.27
-        - zlib >=1.2.8
-    run:
-        - jpeg >=9b
-        - libpng >=1.6.27
-        - zlib >=1.2.8
+  build:
+    - python  # [win]
+    - cmake >=3.6.0
+    - ninja >=1.7  # [unix]
+    - jpeg >=9b  # [win]
+    - libpng >=1.6.27  # [win]
+    - zlib >=1.2.8  # [win]
+  run:
+    - python  # [win]
+    - jpeg >=9b  # [win]
+    - libpng >=1.6.27  # [win]
+    - zlib >=1.2.8  # [win]
 
 test:
-    commands:
-        - IDTFGen || true
-        - IDTFConverter -input test.idtf -output test.u3d -debuglevel 0
+  commands:
+    - IDTFGen || true
+    - IDTFConverter -input test.idtf -output test.u3d -debuglevel 0
 
 about:
-    home: https://github.com/ClinicalGraphics/u3d
-    license: Apache-2.0
-    summary: Universal 3D Sample Software
+  home: https://github.com/ClinicalGraphics/u3d
+  license: Apache-2.0
+  summary: Universal 3D Sample Software
