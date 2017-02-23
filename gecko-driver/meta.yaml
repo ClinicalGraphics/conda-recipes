@@ -7,6 +7,8 @@ source:
   url: https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-linux64.tar.gz      # [linux64]
   fn: geckodriver-v0.14.0-win64.zip                                                          # [win]
   url: https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-win64.zip        # [win]
+  fn: geckodriver-v0.14.0-macos.tar.gz                                                          # [osx]
+  url: https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-macos.tar.gz        # [osx]
 
 build:
   number: 0
