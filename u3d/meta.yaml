@@ -8,24 +8,20 @@ source:
 
 build:
   number: 0
-  features:
-    - vc9  # [win and py27]
-    - vc10  # [win and py34]
-    - vc14  # [win and (py35 or py36)]
 
 requirements:
   build:
-    - python  # [win]
+    - python # [win]
     - cmake >=3.6.0
     - ninja >=1.7  # [unix]
-    - jpeg >=9b  # [win]
-    - libpng >=1.6.27  # [win]
-    - zlib >=1.2.8  # [win]
+    - jpeg >=9b
+    - libpng >=1.6.27
+    - zlib >=1.2.8
   run:
-    - python  # [win]
-    - jpeg >=9b  # [win]
-    - libpng >=1.6.27  # [win]
-    - zlib >=1.2.8  # [win]
+    - python # [win]
+    - jpeg >=9b
+    - libpng >=1.6.27
+    - zlib >=1.2.8
 
 test:
   commands:
