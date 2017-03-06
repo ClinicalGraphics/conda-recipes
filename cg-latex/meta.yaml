@@ -8,18 +8,18 @@ build:
 requirements:
   run:    
     - miktex-selected 2.9.6161 # [win]
-    - texlive-selected 20170112  # [linux]
+    - texlive-selected 20170112  # [unix]
     
 test:
   commands:
     - pdflatex --help
-    - pdftex --help  # [linux]
+    - pdftex --help  # [unix]
     - bibtex --help
 
 about:
   home: http://miktex.org/  # [win]
   license: various, see http://miktex.org/copying  # [win]
   summary: Implementation of TeX/LaTeX for Windows (repackaged binaries)  # [win]
-  home: https://www.tug.org/texlive/  # [linux]
-  license: GPL-2.0+ and GPL-2.0 and GPL-3.0 and LPPL-1.3c and LPPL-1.0 and Artistic-1.0 and Apache-2.0 and MIT and BSD-3-Clause  # [linux]
-  summary: An easy way to get up and running with the TeX document production system  # [linux]
+  home: https://www.tug.org/texlive/  # [unix]
+  license: GPL-2.0+ and GPL-2.0 and GPL-3.0 and LPPL-1.3c and LPPL-1.0 and Artistic-1.0 and Apache-2.0 and MIT and BSD-3-Clause  # [unix]
+  summary: An easy way to get up and running with the TeX document production system  # [unix]
