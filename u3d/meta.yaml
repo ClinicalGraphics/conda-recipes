@@ -12,16 +12,16 @@ build:
 requirements:
   build:
     - python # [win]
-    - cmake >=3.6.0
-    - ninja >=1.7  # [unix]
-    - jpeg >=9b
-    - libpng >=1.6.27
-    - zlib >=1.2.8
+    - cmake 3.6.3
+    - ninja 1.7.1  # [unix]
+    - jpeg 9b
+    - libpng 1.6.27
+    - zlib 1.2.8
   run:
     - python # [win]
-    - jpeg >=9b
-    - libpng >=1.6.27
-    - zlib >=1.2.8
+    - jpeg 9b
+    - libpng 1.6.27
+    - zlib 1.2.8
 
 test:
   commands:
