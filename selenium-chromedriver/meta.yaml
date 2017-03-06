@@ -7,6 +7,8 @@ source:
     url: https://chromedriver.storage.googleapis.com/2.27/chromedriver_linux64.zip      # [linux64]
     fn: chromedriver_win32.zip                                                          # [win]
     url: https://chromedriver.storage.googleapis.com/2.27/chromedriver_win32.zip        # [win]
+    fn: chromedriver_mac64.zip                                                          # [osx]
+    url: https://chromedriver.storage.googleapis.com/2.27/chromedriver_mac64.zip        # [osx]
 
 build:
     number: 0

@@ -1,4 +1,4 @@
-# Run sh make-tarball.sh before conda build texlive-selected
+# Run `sh make-tarball.sh <<version>>` before `conda build texlive-selected`
 
 {% set version = "20170112" %}
 
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: texlive-packages-{{ version }}.tar.bz2
-  url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-{{ version }}.tar.bz2
+  url: file://./texlive-packages-{{ version }}.tar.bz2
 
 build:
   number: 0

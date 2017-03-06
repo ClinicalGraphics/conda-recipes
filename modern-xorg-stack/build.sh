@@ -10,13 +10,6 @@ set -e -x
 
 export PKG_CONFIG_LIBDIR=$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig
 
-if [ -n "$OSX_ARCH" ] ; then
-    export MACOSX_DEPLOYMENT_TARGET=10.6
-    sdk=/
-    export CFLAGS="$CFLAGS -isysroot $sdk"
-    export LDFLAGS="$LDFLAGS -Wl,-syslibroot,$sdk"
-fi
-
 # Work around weird packaging bug? (See also how we weirdly need to give
 # xextproto --disable-specs.)
 cp xcb-proto-*/missing xextproto-*/

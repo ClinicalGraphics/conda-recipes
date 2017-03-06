@@ -56,7 +56,7 @@ configure_args=(
 )
 
 if [ -n "$OSX_ARCH" ] ; then
-    export MACOSX_DEPLOYMENT_TARGET=10.6
+    export MACOSX_DEPLOYMENT_TARGET=10.9
     sysroot=/
     configure_args+=(
 	--with-sysroot=$sysroot
