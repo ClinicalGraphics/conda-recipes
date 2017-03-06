@@ -15,11 +15,11 @@ requirements:
     - cmake >=3.6.0
     - ninja >=1.7  # [unix]
     - u3d 0.3.2
-    - vtk >=7.1.0
+    - vtk 7.1.0
   run:
     - python
     - u3d 0.3.2
-    - vtk >=7.1.0
+    - vtk 7.1.0
 
 test:
   imports:
