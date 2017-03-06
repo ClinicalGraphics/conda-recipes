@@ -81,7 +81,11 @@ while read pkg options ; do
 	    ;;
 	esac
     done
-    (cd $dir && tar xJf $src/$pkg.tar.xz --wildcards "$filter")
+    if [ `uname` = "Darwin" ]; then
+        (cd $dir && tar xJf $src/$pkg.tar.xz --include "$filter")
+    else
+        (cd $dir && tar xJf $src/$pkg.tar.xz --wildcards "$filter")
+    fi
 done <<EOF
 ae none
 amscls none
@@ -270,5 +274,9 @@ tar cjf ../"$tarbase".tar.bz2 *
 
 cd "$origpwd"
 mv "$work/$tarbase".tar.bz2 .
-sha256sum "$tarbase".tar.bz2
+if [ `uname` = "Darwin" ]; then
+    shasum -a 256 "$tarbase".tar.bz2
+else
+    sha256sum "$tarbase".tar.bz2
+fi
 rm -rf "$work"
