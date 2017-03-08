@@ -45,18 +45,18 @@ Where the recommended version is of the form YYYYMMDD, e.g., 20160121"
 fi
 
 tarbase="texlive-packages-$1"
-urlbase="http://mirrors.ctan.org/systems/texlive/tlnet/archive"
+urlbase="https://www.ctan.org/tex-archive/systems/win32/miktex/tm/packages"
 
 work="$(mktemp -d)"
 origpwd="$(pwd)"
 cd "$work"
-mkdir -p src unpacked/texmf-dist
+mkdir -p src unpacked/texmf
 cd src
 
 while read pkg options ; do
     echo $pkg
-    wget $urlbase/$pkg.tar.xz
-    dir=../unpacked/texmf-dist
+    wget $urlbase/$pkg.tar.lzma
+    dir=../unpacked/texmf
     src=../../src
     filter="*"
 
@@ -82,9 +82,9 @@ while read pkg options ; do
 	esac
     done
     if [ `uname` = "Darwin" ]; then
-        (cd $dir && tar xJf $src/$pkg.tar.xz --include "$filter")
+        (cd $dir && zip xJf $src/$pkg.zip --include "$filter")
     else
-        (cd $dir && tar xJf $src/$pkg.tar.xz --wildcards "$filter")
+        (cd $dir && tar xJf $src/$pkg.tar.lzma --wildcards "$filter")
     fi
 done <<EOF
 acrotex none
@@ -150,69 +150,8 @@ graphics-def none
 gsftopk none
 helvetic none
 hyperref none
-hyph-utf8 none
-hyphen-afrikaans none
-hyphen-ancientgreek none
-hyphen-arabic none
-hyphen-armenian none
-hyphen-base none
-hyphen-basque none
-hyphen-bulgarian none
-hyphen-catalan none
-hyphen-chinese none
-hyphen-churchslavonic none
-hyphen-coptic none
-hyphen-croatian none
-hyphen-czech none
-hyphen-danish none
-hyphen-dutch none
-hyphen-english none
-hyphen-esperanto none
-hyphen-estonian none
-hyphen-ethiopic none
-hyphen-farsi none
-hyphen-finnish none
-hyphen-french none
-hyphen-friulan none
-hyphen-galician none
-hyphen-georgian none
-hyphen-german none
-hyphen-greek none
-hyphen-hungarian none
-hyphen-icelandic none
-hyphen-indic none
-hyphen-indonesian none
-hyphen-interlingua none
-hyphen-irish none
-hyphen-italian none
-hyphen-kurmanji none
-hyphen-latin none
-hyphen-latvian none
-hyphen-lithuanian none
-hyphen-mongolian none
-hyphen-norwegian none
-hyphen-occitan none
-hyphen-piedmontese none
-hyphen-polish none
-hyphen-portuguese none
-hyphen-romanian none
-hyphen-romansh none
-hyphen-russian none
-hyphen-sanskrit none
-hyphen-serbian none
-hyphen-slovak none
-hyphen-slovenian none
-hyphen-spanish none
-hyphen-swedish none
-hyphen-thai none
-hyphen-turkish none
-hyphen-turkmen none
-hyphen-ukrainian none
-hyphen-uppersorbian none
-hyphen-welsh none
 ifluatex none
 ifxetex none
-insdljs none
 knuth-lib none
 knuth-local none
 kpathsea updir,kpathsea
@@ -261,15 +200,14 @@ xcolor none
 xetex updir
 xkeyval none
 xunicode none
-zapfding none
 EOF
 
 cd ../unpacked
 
 # unpack other required packages not found on repo
-echo "unpacking other required packages"
-tar xJf "$origpwd"/acrotex.tar.xz -C texmf-dist/
-tar xJf "$origpwd"/rotating.tar.xz -C texmf-dist/
+#echo "unpacking other required packages"
+#tar xJf "$origpwd"/acrotex.tar.xz -C texmf-dist/
+#tar xJf "$origpwd"/rotating.tar.xz -C texmf/
 
 rm -rf readme-html.dir readme-txt.dir
 rm -f index.html README README.usergroups

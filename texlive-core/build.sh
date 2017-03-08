@@ -18,14 +18,14 @@ configure_args=(
     # binaries:
     --disable-aleph
     --enable-tex
-    --enable-etex
+    --disable-etex
     --disable-eptex
     --disable-euptex
     --disable-luatex
     --disable-luajittex
     --disable-uptex
     --enable-pdftex
-    --enable-xetex
+    --disable-xetex
     --enable-mf
     --disable-pmp
     --disable-upmp

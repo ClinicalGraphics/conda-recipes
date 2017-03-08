@@ -7,9 +7,9 @@ package:
   version: {{ version }}
 
 source:
-  fn: texlive-packages-{{ version }}.tar.bz2
+  fn: texlive-packages-{{ version }}.tar.xz
   #url: file://texlive-packages-{{ version }}.tar.bz2
-  url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-{{ version }}.tar.bz2
+  url: file:///home/maxcg/Code Repository/conda-recipes/texlive-selected/texlive-packages-{{ version }}.tar.xz
 
 
 build:
@@ -18,9 +18,9 @@ build:
 
 requirements:
   build:
-    - texlive-core
+    - texlive-core >=20160523b
   run:
-    - texlive-core
+    - texlive-core >=20160523b
 
 test:
   commands:

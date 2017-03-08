@@ -8,29 +8,29 @@ source:
 
 build:
     detect_binary_files_with_prefix: True
-    number: 0
+    number: 1
 
 requirements:
     build:
-        - cairo
-        - freetype
-        - gmp
-        - icu
-        - libpng
-        - modern-xorg-stack
-        - mpfr
-        - pixman
-        - zlib
+        - cairo >=1.14.8
+        - freetype >=2.5.5
+        - gmp >=6.1.0
+        - icu >=57
+        - libpng >=1.6.27
+        - modern-xorg-stack >=2016.03
+        - mpfr >=3.1.5
+        - pixman >=0.34.0
+        - zlib >=1.2.8
     run:
-        - cairo
-        - freetype
-        - gmp
-        - icu
-        - libpng
-        - modern-xorg-stack
-        - mpfr
-        - pixman
-        - zlib
+        - cairo >=1.14.8
+        - freetype >=2.5.5
+        - gmp >=6.1.0
+        - icu >=57
+        - libpng >=1.6.27
+        - modern-xorg-stack >=2016.03
+        - mpfr >=3.1.5
+        - pixman >=0.34.0
+        - zlib >=1.2.8
 
 test:
     commands:
