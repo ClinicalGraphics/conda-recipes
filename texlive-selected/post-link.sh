@@ -53,6 +53,13 @@ yes | $PREFIX/bin/updmap-sys --syncwithtrees
 $PREFIX/bin/updmap-sys --enable Map=kurier.map
 $PREFIX/bin/updmap
 
+# Remove paranoid mode from texmf.cnf
+sed -i 's/openout_any = p/openout_any = a/g' "$PREFIX/share/texlive/texmf-dist/web2c/texmf.cnf"
+
+# Install files from insdljs.ins
+$PREFIX/bin/pdftex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
+$PREFIX/bin/pdflatex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
+
 # All done.
 
 rm -f $temp

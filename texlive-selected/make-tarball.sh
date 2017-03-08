@@ -87,6 +87,7 @@ while read pkg options ; do
         (cd $dir && tar xJf $src/$pkg.tar.xz --wildcards "$filter")
     fi
 done <<EOF
+acrotex none
 ae none
 amscls none
 avantgar none
@@ -120,6 +121,7 @@ caption none
 cm none
 cm-super none
 collectbox none
+conv-xkv none
 courier none
 dblfloatfix none
 dehyph-exptl none
@@ -235,6 +237,7 @@ plain none
 psnfss none
 revtex none
 revtex4 none
+rotating none
 ruhyphen none
 tetex updir
 tex-gyre none

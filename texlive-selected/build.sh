@@ -31,3 +31,62 @@ EOF
 find $dist/texmf-dist -name '*.otf' |xargs -n1 dirname |sort |uniq \
     |awk '{print "<dir>" $1 "</dir>"}' >>$conffile
 echo '</fontconfig>'>>$conffile
+
+temp=$(mktemp)
+for fmt in tex latex etex pdftex pdflatex; do
+    $PREFIX/bin/fmtutil-sys --byfmt $fmt >$temp 2>&1
+    rc=$?
+    if [ $rc -ne 0 ] ; then
+	# Definite error.
+	cat $temp >&2
+	rm -f $temp
+	exit 1
+    fi
+done
+
+# Just in case, dump things that look like warnings and errors,
+# specifically ignoring a few that we know we don't care about. We could
+# potentially signal failure if we see an ERROR in the log with a zero
+# exitcode, but that seems too fragile.
+#
+# Examples of types of messages we're choosing to ignore:
+#
+#   fmtutil [WARNING]: inifile eptex.ini for eptex/eptex not found.
+#   fmtutil [ERROR]: not building luajittex due to missing engine luajittex.
+# grep -iE '(warning|error)' $temp |grep -v 'inifile.*not found' |grep -v 'missing engine' >&2
+
+# Likewise, update the font mapping files. Very similar situation as above. Here we need
+# to munge the config file but that's not too tricky. (Famous last words.)
+
+tab="	" # <- embedded tab character
+pfx="$PREFIX/share/texlive/texmf-dist/web2c"
+cp $pfx/updmap-hdr.cfg $pfx/updmap.cfg
+$PREFIX/bin/updmap-sys --listavailablemaps 2>/dev/null |grep "Map$tab" |awk '{print $1 " " $2}' >>$pfx/updmap.cfg
+$PREFIX/bin/updmap-sys >$temp 2>&1
+rc=$?
+if [ $rc -ne 0 ] ; then
+    # Definite error
+    cat $temp >&2
+    rm -f $temp
+    exit 1
+fi
+
+# Add kurier font to updmap.cfg and run updmap again -- this needs to be done for codeship ci.
+echo "Map kurier.Map" >>$pfx/updmap.cfg
+yes | $PREFIX/bin/updmap-sys --syncwithtrees
+$PREFIX/bin/updmap-sys --enable Map=kurier.map
+$PREFIX/bin/updmap
+
+# Remove paranoid mode from texmf.cnf
+sed -i -e 's/openout_any = a/openout_any = b/g' "$PREFIX/share/texlive/texmf-dist/web2c/texmf.cnf"
+
+# Install files from insdljs.ins
+cd "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/"
+pdflatex insdljs.ins
+#$PREFIX/bin/pdftex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
+#$PREFIX/bin/pdflatex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
+
+# All done.
+
+rm -f $temp
+exit 0
