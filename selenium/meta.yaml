@@ -1,10 +1,11 @@
 package:
   name: selenium
-  version: 3.0.2
+  version: 3.3.0
 
 source:
-  fn: selenium-3.0.2.tar.gz
-  url: https://pypi.io/packages/source/s/selenium/selenium-3.0.2.tar.gz
+  fn: selenium-3.3.0.tar.gz
+  url: https://pypi.python.org/packages/6e/b6/a0881686c3e2eb09d7e5ba79b197325a88d786317a4e742dc6a9f5029c7a/selenium-3.3.0.tar.gz
+  md5: 0a940252deb42a62c54accb3ad6a35c8
 
 build:
   number: 0
