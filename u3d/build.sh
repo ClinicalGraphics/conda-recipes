@@ -8,12 +8,12 @@ if [ `uname` = 'Darwin' ]; then
     export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
 fi
 
-cmake .. -G "Ninja" \
+cmake .. \
     -DCMAKE_BUILD_TYPE=${BUILD_CONFIG} \
     -DCMAKE_INSTALL_PREFIX=${PREFIX} \
     -DCMAKE_INSTALL_RPATH:PATH="${PREFIX}/lib" \
     -DCMAKE_CXX_FLAGS="${CXXFLAGS}" \
-    ${MACOSX_DEPLOYMENT_TARGET:+-DCMAKE_OSX_DEPLOYMENT_TARGET='10.9'} \
-    -DU3D_SHARED:BOOL=ON
+    -DU3D_SHARED:BOOL=ON \
+    ${MACOSX_DEPLOYMENT_TARGET:+-D CMAKE_OSX_DEPLOYMENT_TARGET='10.9'}
 
-ninja install
+make -j4 install
