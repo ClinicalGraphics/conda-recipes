@@ -1,10 +1,12 @@
+{% set version = "3.3.1" %}
+
 package:
   name: selenium
-  version: 3.0.2
+  version: {{ version }}
 
 source:
-  fn: selenium-3.0.2.tar.gz
-  url: https://pypi.io/packages/source/s/selenium/selenium-3.0.2.tar.gz
+  fn: selenium-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/s/selenium/selenium-{{ version }}.tar.gz
 
 build:
   number: 0
