@@ -5,7 +5,7 @@
 [ "$NJOBS" = '<UNDEFINED>' -o -z "$NJOBS" ] && NJOBS=1
 set -e -x
 
-dist=$PREFIX/share/texlive
+dist=$PREFIX/share/texlive/
 mkdir -p $dist
 cp -a . $dist
 
