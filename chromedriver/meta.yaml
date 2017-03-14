@@ -1,7 +1,7 @@
 {% set version = "2.28" %}
 
 package:
-    name: selenium-chromedriver
+    name: chromedriver
     version: {{ version }}
 
 source:
