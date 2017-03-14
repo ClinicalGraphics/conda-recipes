@@ -24,5 +24,5 @@ file_path = os.path.join(cwd, 'test.u3d')
 
 if exit_code != '0' or not os.path.isfile(file_path):
     raise ValueError("U3d build failed - Failed to generate U3d file. "
-                     "Exit code = " + exit_code +
+                     "Exit code = " + exit_code + " " +
                      "File path = " + file_path)
