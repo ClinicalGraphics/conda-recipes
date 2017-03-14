@@ -7,6 +7,7 @@
 # the user with reams of output if everything is OK, but we need to be
 # debuggable if not, so we jump through some hoops. The logic below is based
 # on some brief trial-and-error and may need improvement.
+set -e -x
 
 temp=$(mktemp)
 for fmt in tex latex etex pdftex pdflatex pdfetex xetex xelatex ; do
@@ -48,10 +49,17 @@ if [ $rc -ne 0 ] ; then
 fi
 
 # Add kurier font to updmap.cfg and run updmap again -- this needs to be done for codeship ci.
-echo "Map kurier.Map" >>$pfx/updmap.cfg
-yes | $PREFIX/bin/updmap-sys --syncwithtrees
-$PREFIX/bin/updmap-sys --enable Map=kurier.map
-$PREFIX/bin/updmap
+#echo "Map kurier.Map" >>$pfx/updmap.cfg
+#yes | $PREFIX/bin/updmap-sys --syncwithtrees
+#$PREFIX/bin/updmap-sys --enable Map=kurier.map
+#$PREFIX/bin/updmap
+
+# Remove paranoid mode from texmf.cnf
+#sed -i 's/openout_any = p/openout_any = a/g' "$PREFIX/share/texlive/texmf-dist/web2c/texmf.cnf"
+
+# Install files from insdljs.ins
+#$PREFIX/bin/pdftex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
+#$PREFIX/bin/pdflatex "$PREFIX/share/texlive/texmf-dist/tex/latex/acrotex/insdljs.ins"
 
 # All done.
 
