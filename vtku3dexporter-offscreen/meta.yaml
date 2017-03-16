@@ -1,5 +1,5 @@
 package:
-  name: vtku3dexporter
+  name: vtku3dexporter-offscreen
   version: 0.3.3
 
 source:

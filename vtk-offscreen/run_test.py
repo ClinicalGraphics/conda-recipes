@@ -6,7 +6,6 @@ from sys import platform
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
 render_window = vtk.vtkRenderWindow()
-render_window.SetOffScreenRendering(True)  # This will render offscreen
 
 render_window.AddRenderer(ren)
 render_window.SetSize(3000, 3000)
