@@ -1,5 +1,5 @@
 package:
-  name: vtk
+  name: vtk-offscreen
   version: 7.1.0
 
 source:
@@ -8,7 +8,7 @@ source:
 
 
 build:
-  number: 2
+  number: 3
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -19,13 +19,11 @@ requirements:
     - python
     - cmake >=3.6
     - ninja >=1.7
-    - osmesa ==13.0.2  # [linux]
-    - ospray >=1.1 # [unix]
+    - osmesa >=17.0.1  # [linux]
 
   run:
     - python
-    - osmesa ==13.0.2 # [linux]
-    - ospray >=1.1 # [unix]
+    - osmesa >=17.0.1  # [linux]
 
 test:
   imports:

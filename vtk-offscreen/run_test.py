@@ -9,10 +9,6 @@ if platform != "linux" or platform != "linux2":
 
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
-
-# Uncheck to test with osPray
-#ren.SetPass(vtk.vtkOSPRayPass())
-
 render_window = vtk.vtkRenderWindow()
 render_window.SetOffScreenRendering(True)  # This will render offscreen
 
