@@ -16,11 +16,11 @@ requirements:
     - python
     - cmake >=3.6
     - ninja >=1.7
-    - osmesa >=17.0.1
+    - osmesa 17.0.1
 
   run:
     - python
-    - osmesa >=17.0.1
+    - osmesa 17.0.1
 
 test:
   imports:
