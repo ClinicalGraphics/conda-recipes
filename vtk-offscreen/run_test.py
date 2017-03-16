@@ -3,10 +3,6 @@ import vtk
 import sys
 from sys import platform
 
-# Test rendering on linux only (offscreen not supported yet on windows):
-if platform != "linux" or platform != "linux2":
-    sys.exit(0)
-
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
 render_window = vtk.vtkRenderWindow()
