@@ -1,30 +1,19 @@
 package:
   name: llvm
-  version: 3.9.1
+  version: 4.0.0
 
 source:
-  fn: llvm-3.9.1.src.tar.xz
-  url: http://releases.llvm.org/3.9.1/llvm-3.9.1.src.tar.xz
-  patches:
-    # https://llvm.org/bugs/show_bug.cgi?id=15356
-    - llvm-elf-relocation.patch
-    # https://llvm.org/bugs/show_bug.cgi?id=25565
-    - llvm-build-race-condition.patch
-    # http://lists.llvm.org/pipermail/llvm-dev/2016-January/094520.html
-    - llvm-lto-static.patch  # [win]
+  fn: llvm-4.0.0.src.tar.xz
+  url: http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz
 
 build:
-  number: 2
+  number: 0
   features:
     - vc14    # [win and (py35 or py36)]
 
 requirements:
   build:
-    - cmake
-    # Needed to unpack the source tarball
-    - m2-xz  # [py27 and win32]
-    - m2w64-xz  # [py27 and win64]
-    # Needed to build LLVM
+    - cmake >=3.6.3
     - system  # [linux and not armv7l]
   run:
     - system  # [linux and not armv7l]
