@@ -13,7 +13,7 @@ requirements:
   build:
     - scons >=2.3.0 # [win]
     - mako >=1.0.6
-    - llvmlite >=0.15
+    - llvm >=3.9.1
     - pywin32 >=220 # [win]
     - win_flex_bison >=2.5.6 # [win]
     - flex >=2.6.0 # [unix]
