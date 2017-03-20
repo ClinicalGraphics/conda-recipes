@@ -26,7 +26,13 @@ requirements:
 test:
   commands:
     - IDTFGen || true
-    - IDTFConverter -input test.idtf -output test.u3d -debuglevel 0
+    - test -f test.idtf  # [unix]
+    - if not exist test.idtf exit /B 1  # [win]
+    - if [ $(stat -c '%s' test.idtf) -ne 1721 ]; then exit 1; fi  # [unix]
+    - IDTFConverter -input test.idtf -output test.u3d
+    - test -f test.u3d  # [unix]
+    - if not exist test.u3d exit /B 1  # [win]
+    - if [ $(stat -c '%s' test.u3d) -ne 660 ]; then exit 1; fi  # [unix]
 
 about:
   home: https://github.com/ClinicalGraphics/u3d
