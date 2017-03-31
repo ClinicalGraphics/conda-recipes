@@ -1,14 +1,15 @@
 package:
   name: djangorestframework-jwt
-  version: 1.9.0
+  version: 1.10.0
 
 source:
-  fn: djangorestframework-jwt-1.9.0.tar.gz
-  url: https://pypi.python.org/packages/1c/c5/05dca683d90140f924f9b3fb16c2c3b623664e0846dc473579c9a262f834/djangorestframework-jwt-1.9.0.tar.gz
-  md5: e0aeba74106d5dc93701c593d0e5e94a
+  fn: djangorestframework-jwt-1.10.0.tar.gz
+  url: https://pypi.python.org/packages/36/86/f973252b30eda14b33d37929b48871f49bd3f1fbee5dd503697d770da7d9/djangorestframework-jwt-1.10.0.tar.gz
+  md5: aac23f5ef38cb7a3c25196994db8e78d
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
