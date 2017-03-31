@@ -5,18 +5,6 @@ cd build
 
 BUILD_CONFIG=Release
 
-# Different screen arguments for OS X and Linux
-if [ `uname` = "Darwin" ]; then
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=OFF"
-        "-DVTK_USE_COCOA:BOOL=ON"
-        "-DVTK_USE_CARBON:BOOL=OFF"
-    )
-else
-    SCREEN_ARGS=(
-        "-DVTK_USE_X:BOOL=ON"
-    )
-fi
 
 cmake .. -G "Ninja" \
     -Wno-dev \
@@ -33,7 +21,7 @@ cmake .. -G "Ninja" \
     -DVTK_PYTHON_VERSION:STRING="${PY_VER}" \
     -DVTK_INSTALL_PYTHON_MODULE_DIR:PATH="${SP_DIR}" \
     -DVTK_HAS_FEENABLEEXCEPT:BOOL=OFF \
-    -DVTK_RENDERING_BACKEND=OpenGL2 \
+    -DVTK_RENDERING_BACKEND=OpenGL \
     -DModule_vtkRenderingMatplotlib=ON \
     -DVTK_USE_SYSTEM_ZLIB:BOOL=OFF \
     -DVTK_USE_SYSTEM_FREETYPE:BOOL=OFF \
@@ -44,6 +32,11 @@ cmake .. -G "Ninja" \
     -DVTK_USE_SYSTEM_EXPAT:BOOL=OFF \
     -DVTK_USE_SYSTEM_HDF5:BOOL=OFF \
     -DVTK_USE_SYSTEM_JSONCPP:BOOL=OFF \
-    ${SCREEN_ARGS[@]}
+    -DVTK_USE_X:BOOL=OFF \
+    -DVTK_USE_OSMESA=ON \
+    -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
+    -DOSMESA_INCLUDE_DIR:PATH="$PREFIX/include" \
+    -DOSMESA_LIBRARY:FILEPATH="$PREFIX/lib/libOSMesa.so" \
+    -DVTK_USE_OFFSCREEN:BOOL=ON \
 
 ninja install

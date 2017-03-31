@@ -1,10 +1,10 @@
 package:
   name: u3d
-  version: 0.3.2
+  version: 0.3.3
 
 source:
-  fn: 0.3.2.tar.gz
-  url: https://github.com/ClinicalGraphics/u3d/archive/0.3.2.tar.gz
+  fn: 0.3.3.tar.gz
+  url: https://github.com/ClinicalGraphics/u3d/archive/0.3.3.tar.gz
 
 build:
   number: 0
@@ -26,7 +26,17 @@ requirements:
 test:
   commands:
     - IDTFGen || true
-    - IDTFConverter -input test.idtf -output test.u3d -debuglevel 0
+    - test -f test.idtf  # [unix]
+    - if not exist test.idtf exit /B 1  # [win]
+    - FILESIZE=$(stat -c '%s' test.idtf)  # [linux]
+    - FILESIZE=$(stat -f%z test.idtf)  # [osx]
+    - if [ $FILESIZE -ne 1721 ]; then exit 1; fi  # [unix]
+    - IDTFConverter -input test.idtf -output test.u3d
+    - test -f test.u3d  # [unix]
+    - if not exist test.u3d exit /B 1  # [win]
+    - FILESIZE=$(stat -c '%s' test.u3d)  # [linux]
+    - FILESIZE=$(stat -f%z test.u3d)  # [osx]
+    - if [ $FILESIZE -ne 660 ]; then exit 1; fi  # [unix]
 
 about:
   home: https://github.com/ClinicalGraphics/u3d

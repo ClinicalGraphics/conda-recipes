@@ -6,7 +6,7 @@ PYTHON_LIBRARY=`ls -d ${PREFIX}/lib/libpython* | head -n 1`
 PYTHON_INCLUDE=`ls -d ${PREFIX}/include/python* | head -n 1`
 
 if [ `uname` = 'Darwin' ]; then
-    export CXXFLAGS="${CXXFLAGS} -stdlib=libstdc++"
+    export CXXFLAGS="${CXXFLAGS} -stdlib=libc++"
 fi
 
 mkdir build

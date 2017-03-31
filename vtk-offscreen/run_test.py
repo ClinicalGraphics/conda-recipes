@@ -3,18 +3,9 @@ import vtk
 import sys
 from sys import platform
 
-# Test rendering on linux only (offscreen not supported yet on windows):
-if platform != "linux" or platform != "linux2":
-    sys.exit(0)
-
 # create a rendering window and renderer
 ren = vtk.vtkRenderer()
-
-# Uncheck to test with osPray
-#ren.SetPass(vtk.vtkOSPRayPass())
-
 render_window = vtk.vtkRenderWindow()
-render_window.SetOffScreenRendering(True)  # This will render offscreen
 
 render_window.AddRenderer(ren)
 render_window.SetSize(3000, 3000)
