@@ -1,14 +1,15 @@
 package:
   name: asgiref
-  version: 1.0.0
+  version: 1.1.1
 
 source:
-  fn: asgiref-1.0.0.tar.gz
-  url: https://pypi.python.org/packages/51/e9/2cf275a4145e7feef53d5370e7e7fe738f7120d61cc0a5f9b11f606f34e4/asgiref-1.0.0.tar.gz
-  md5: 82a269dba15c1a95383b249abcfe4822
+  fn: asgiref-1.1.1.tar.gz
+  url: https://pypi.python.org/packages/0d/e7/9fc51765849c89d1ddc7528ec06659dba460a7bf7de1e7b37d685b532fcd/asgiref-1.1.1.tar.gz
+  md5: 91560c23d3ee340d49ccfeff5ece27ac
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:

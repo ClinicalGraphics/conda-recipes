@@ -28,5 +28,5 @@ test:
 about:
   home: https://github.com/GetBlimp/django-rest-framework-jwt
   license: MIT License
-  summary: 'JSON Web Token based authentication for Django REST framework'
+  summary: JSON Web Token based authentication for Django REST framework
   license_family: MIT

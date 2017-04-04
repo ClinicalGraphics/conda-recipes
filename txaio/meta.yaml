@@ -1,14 +1,15 @@
 package:
   name: txaio
-  version: 2.6.0
+  version: 2.6.2
 
 source:
-  fn: txaio-2.6.0.tar.gz
-  url: https://pypi.python.org/packages/14/4b/a1673c39212f26271a0dd067cde6790114bb43340fec15edabe9f6a70078/txaio-2.6.0.tar.gz
-  md5: e4b57e0512d2f439200c6040da7fd1a0
+  fn: txaio-2.6.2.tar.gz
+  url: https://pypi.python.org/packages/b1/a1/3a55cf826a43dfec800971e16ecf5e7425874694c41f7d7ab631245cc646/channels-1.1.2.tar.gz
+  md5: c495f000541fbd02586bb1371203a2b5
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
