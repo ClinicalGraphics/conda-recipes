@@ -1,11 +1,11 @@
 package:
   name: autobahn
-  version: 0.17.1
+  version: 0.18.1
 
 source:
-  fn: autobahn-0.17.1.tar.gz
-  url: https://pypi.python.org/packages/28/36/c146415f70f62ae678c4b6dae64872eb7d55661dbb8830a5fa594143478c/autobahn-0.17.1.tar.gz
-  md5: f6b3c2684b873ae29111385b695b28fb
+  fn: autobahn-0.18.1.tar.gz
+  url: https://pypi.python.org/packages/c1/2c/bc117ed7b9add78307305a75eef35c7b4b27ae23bb80c571ec789b0ca247/autobahn-0.18.1.tar.gz
+  md5: b53539eb83b99c0b4a6357909991e5f7
 
 build:
   number: 0
@@ -17,7 +17,8 @@ requirements:
     - setuptools
   run:
     - python
-    - txaio >=2.5.1
+    - six >=1.10.0
+    - txaio >=2.6.1
 
 test:
   imports:

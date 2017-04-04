@@ -1,11 +1,11 @@
 package:
   name: djangorestframework
-  version: 3.5.3
+  version: 3.6.2
 
 source:
-  fn: djangorestframework-3.5.3.tar.gz
-  url: https://pypi.python.org/packages/91/48/ac0abccf578b61d17267981786698525174412103adb1291d5768c11121e/djangorestframework-3.5.3.tar.gz
-  md5: bdd6900d333555b81afc3f2307c9ebe5
+  fn: djangorestframework-3.6.2.tar.gz
+  url: https://pypi.python.org/packages/9d/53/031f391557b2b3e620744fefb3b92406f27a95b42867665da2369d48cece/djangorestframework-3.6.2.tar.gz
+  md5: e60453cfecc56117ed76e8835d9dd673
 
 build:
   number: 0

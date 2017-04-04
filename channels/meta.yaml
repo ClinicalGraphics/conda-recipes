@@ -1,11 +1,11 @@
 package:
   name: channels
-  version: 1.0.3
+  version: 1.1.2
 
 source:
-  fn: channels-1.0.3.tar.gz
-  url: https://pypi.python.org/packages/2f/3b/23f20b9f16a03086cc94088b1834fd2619cedb18c409d13fa9591e2fb71e/channels-1.0.3.tar.gz
-  md5: 8ca481311a126785f98f8407a15ed4e6
+  fn: channels-1.1.2.tar.gz
+  url: https://pypi.python.org/packages/b1/a1/3a55cf826a43dfec800971e16ecf5e7425874694c41f7d7ab631245cc646/channels-1.1.2.tar.gz
+  md5: c495f000541fbd02586bb1371203a2b5
 
 build:
   number: 0
@@ -17,9 +17,9 @@ requirements:
     - setuptools
   run:
     - python
-    - asgiref >=1.0.0
-    - daphne >=1.0.0
-    - django >=1.8
+    - asgiref >=1.1.1
+    - daphne >=1.2.0
+    - django >=1.10.5
 
 test:
   imports:
