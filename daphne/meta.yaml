@@ -8,7 +8,7 @@ source:
   md5: c07263cd57b46f8767dd63a7eb665913
 
 build:
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
     - python
     - asgiref >=1.1.1
     - twisted >=17.1.0
-    - autobahn >=0.12
+    - autobahn >=0.18.1
 
 test:
   imports:
