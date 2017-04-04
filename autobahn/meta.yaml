@@ -8,7 +8,7 @@ source:
   md5: b53539eb83b99c0b4a6357909991e5f7
 
 build:
-  number: 1
+  number: 0
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -18,7 +18,7 @@ requirements:
   run:
     - python
     - six >=1.10.0
-    - txaio >=2.6.2
+    - txaio >=2.6.1
 
 test:
   imports:

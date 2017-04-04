@@ -1,0 +1,25 @@
+package:
+  name: m2r
+  version: 0.1.5
+
+source:
+  fn: m2r-0.1.5.tar.gz
+  url: https://pypi.python.org/packages/9b/10/ed0ca851c44034167eabbecf2c23e33e57fe0c270e83339259ec52d682e7/m2r-0.1.5.tar.gz
+  md5: 9873ec4bab2c27580f3ffeb25d98a3db
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed  --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - docutils >=0.13.1
+    - mistune >=0.7.4
+
+test:
+  imports:
+    - m2r

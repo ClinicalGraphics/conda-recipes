@@ -1,11 +1,11 @@
 package:
   name: txaio
-  version: 2.6.2
+  version: 2.6.1
 
 source:
-  fn: txaio-2.6.2.tar.gz
-  url: https://pypi.python.org/packages/b1/a1/3a55cf826a43dfec800971e16ecf5e7425874694c41f7d7ab631245cc646/channels-1.1.2.tar.gz
-  md5: c495f000541fbd02586bb1371203a2b5
+  fn: txaio-2.6.1.tar.gz
+  url: https://pypi.python.org/packages/ef/8c/d7410b7509fe6510980c939453517567fa44f35357b8b23e6d346d08b7db/txaio-2.6.1.tar.gz
+  md5: a8ceba8d750e6c5fb63fc4e190854740
 
 build:
   number: 0
