@@ -9,7 +9,6 @@ source:
 
 build:
   number: 0
-  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -20,7 +19,7 @@ requirements:
     - python
     - asgiref >=1.1.1
     - daphne >=1.2.0
-    - django >=1.10.6
+    - django >=1.10.5
 
 test:
   imports:

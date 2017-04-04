@@ -1,0 +1,32 @@
+package:
+  name: asgi_redis
+  version: 1.2.1
+
+source:
+  fn: asgi_redis-1.2.1.tar.gz
+  url: https://pypi.python.org/packages/11/fe/56862eeee8b7879f785d92d2db858d2cb7261eec3046571655c8487bc9bb/asgi_redis-1.2.1.tar.gz
+  md5: 8c09100d68bdb4199cf45d5c4d215daf
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - six >=1.10.0
+    - redis-py >=2.10.5
+    - msgpack-python >=0.4.8
+    - asgiref >=1.1.1
+
+test:
+  imports:
+    - asgi_redis
+
+about:
+  home: hhttps://github.com/django/asgi_redis
+  license: BSD
+  summary: Redis-backed ASGI channel layer implementation
