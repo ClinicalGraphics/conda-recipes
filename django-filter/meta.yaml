@@ -1,6 +1,6 @@
 {% set name = "django-filter" %}
-{% set version = "0.15.3" %}
-{% set sha256 = "b90137c03034db1acf9dbfb336e2a0cb11c25b2e6874b4bc60e1fc9613d24644" %}
+{% set version = "1.0.3" %}
+{% set sha256 = "138bab9b2ae53853e885ef2e458a4d0bd952c09714b0d1ffe14901068a38b776" %}
 
 package:
   name: {{ name|lower }}
@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - django >=1.8
-    - djangorestframework >=3.5
+    - djangorestframework 3.5.*
 
 test:
   commands:
@@ -38,6 +38,3 @@ about:
   doc_url: https://django-filter.readthedocs.io/en/latest/
   dev_url: https://github.com/carltongibson/django-filter
 
-extra:
-  recipe-maintainers:
-    - kwilcox

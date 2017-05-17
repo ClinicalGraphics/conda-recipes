@@ -1,0 +1,42 @@
+{% set name = "djangorestframework-filters" %}
+{% set importname = "rest_framework_filters" %}
+{% set reponame = "django-rest-framework-filters" %}
+{% set version = "0.10.0" %}
+{% set sha256 = "c1fa0e44d6ad6049403add1db32eb9f6155f351400879547a2380e6d6b5a10ce" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://github.com/philipn/{{ reponame }}/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+
+  run:
+    - python
+    - django-filter >=1.0.0
+    - djangorestframework
+
+test:
+  commands:
+    - python -c "import django; from django.conf import settings; settings.configure(); django.setup(); import {{ importname }}"
+
+about:
+  home: https://github.com/philipn/{{ reponame }}
+  summary: 'Better filtering for Django REST Framework'
+  license: Other
+  license_file: README.rst
+  license_family: BSD
+  doc_url: https://github.com/philipn/{{ reponame }}
+  dev_url: https://github.com/philipn/{{ reponame }}
+
