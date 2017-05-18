@@ -1,14 +1,15 @@
 package:
   name: azure-common
-  version: 1.1.4
+  version: 1.1.6
 
 source:
-  fn: azure-common-1.1.4.zip
-  url: https://pypi.python.org/packages/00/39/7b915a03e1a64415c81a8b8f317556182592327d2b62812ef2b19e71b378/azure-common-1.1.4.zip
-  md5: 290a03b3a74417ad2f8c58c2e20ae233
+  fn: azure-common-1.1.6.zip
+  url: https://pypi.python.org/packages/85/86/43bbadd900853422d7b9276938d396d6ae29ca5eca6554fd6eabd5e7c98e/azure-common-1.1.6.zip
+  md5: 6f34c0cd493dd61340af9b4d271ea2a9
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
