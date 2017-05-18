@@ -16,8 +16,8 @@ requirements:
   build:
     - python
     - setuptools
-    - six
-    - snowballstemmer
+    - six >=1.10.0
+    - snowballstemmer >=1.2.1
 
   run:
     - python
