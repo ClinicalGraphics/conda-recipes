@@ -1,13 +1,15 @@
 package:
   name: flake8-import-order
-  version: 0.11
+  version: 0.12
 
 source:
-  fn: 0.11.tar.gz
-  url: https://github.com/PyCQA/flake8-import-order/archive/0.11.tar.gz
+  fn: 0.12.tar.gz
+  url: https://pypi.python.org/packages/75/02/4e83dd8502f18aaae88331f9a05a5c2ce034306a47bab59bf8205a1351e6/flake8-import-order-0.12.tar.gz
+  md5: 95321de1b6464b77d91e41519539420b
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:

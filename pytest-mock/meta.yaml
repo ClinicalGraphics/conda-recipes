@@ -1,14 +1,15 @@
 package:
   name: pytest-mock
-  version: 1.5.0
+  version: 1.6.0
 
 source:
-  fn: pytest-mock-1.5.0.tar.gz
-  url: https://pypi.python.org/packages/00/ee/07a76dada65cbafa1f5c8802a0cdb07b21615be482e587743da6b2aa97a4/pytest-mock-1.5.0.tar.gz
-  md5: ffacb3febb9d0a14194a9d3a2c81fd2c
+  fn: pytest-mock-1.6.0.tar.gz
+  url: https://pypi.python.org/packages/59/2a/18c5a08809b6383e6b1026d0307fa49f8eac1eaf9657bcd3446c7822cffd/pytest-mock-1.6.0.tar.gz
+  md5: eb08666c1b445b40495364e4cd10cdf4
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -17,6 +18,7 @@ requirements:
     - setuptools
     - setuptools_scm >=1.11.1
     - pytest >=3.0.5
+
   run:
     - python
     - pytest >=3.0.5
