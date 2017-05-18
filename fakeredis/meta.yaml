@@ -1,13 +1,15 @@
 package:
   name: fakeredis
-  version: 0.8.1
+  version: 0.8.2
 
 source:
-  fn: 0.8.1.tar.gz
-  url: https://github.com/jamesls/fakeredis/archive/0.8.1.tar.gz
+  fn: fakeredis-0.8.2.tar.gz
+  url: https://pypi.python.org/packages/81/46/2f4620c3067614276bd437b15b19db1042b57473e7c2776eef9cdec40546/fakeredis-0.8.2.tar.gz
+  md5: d169a6048fba89aaf9b49dd60c77284c
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
