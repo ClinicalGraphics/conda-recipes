@@ -8,7 +8,7 @@ source:
   md5: 481985b7c40a671a066f10aec74cde33
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
@@ -19,7 +19,7 @@ requirements:
 
   run:
     - python
-    - pydocstyle >=2.0.0
+    - pydocstyle ==2.0.0
     - flake8 >=2.5.1
     - flake8-polyfill >=1.0.1
 
