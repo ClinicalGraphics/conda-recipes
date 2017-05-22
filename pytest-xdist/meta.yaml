@@ -1,15 +1,15 @@
 package:
   name: pytest-xdist
-  version: 1.15.0
+  version: 1.16.0
 
 source:
-  fn: pytest-xdist-1.15.0.tar.gz
-  url: https://pypi.python.org/packages/dc/b2/a59db3ef996b93c3ef35dbbc33557a71ef67a6839d94a52c88eeb1086002/pytest-xdist-1.15.0.tar.gz
-  md5: 84fe5080fb0aa525b0c3ddd5e9b7eb56
-
+  fn: pytest-xdist-1.16.0.tar.gz
+  url: https://pypi.python.org/packages/0d/d0/58cacddb34f35dd3d447525061e431b00d842eef72d585cc1c9a97abec90/pytest-xdist-1.16.0.tar.gz
+  md5: 68dabf856981ad93b14960b098b05bff
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -17,6 +17,7 @@ requirements:
     - python
     - setuptools
     - setuptools_scm >=1.9.0
+
   run:
     - python
     - execnet >=1.1.0

@@ -1,4 +1,4 @@
-{% set version = "2.4.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: pytest-cov
@@ -7,11 +7,12 @@ package:
 source:
   fn: pytest-cov-{{version}}.tar.gz
   url: https://pypi.io/packages/source/p/pytest-cov/pytest-cov-{{version}}.tar.gz
+  md5: 5acf38d4909e19819eb5c1754fbfc0ac
 
 build:
-    script: python setup.py install --single-version-externally-managed --record record.txt
-    number: 0
-    noarch_python: True
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
@@ -21,8 +22,8 @@ requirements:
   run:
     - python
     - setuptools
-    - pytest
-    - coverage
+    - pytest >=2.6.0
+    - coverage >=3.7.1
 
 test:
   commands:
@@ -31,4 +32,4 @@ test:
 about:
   home: https://github.com/pytest-dev/pytest-cov
   license: MIT
-  summary: 'Pytest plugin for measuring coverage'
+  summary: Pytest plugin for measuring coverage

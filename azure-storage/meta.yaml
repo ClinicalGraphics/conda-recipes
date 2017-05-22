@@ -1,14 +1,15 @@
 package:
   name: azure-storage
-  version: 0.34.0
+  version: 0.34.2
 
 source:
-  fn: azure-storage-0.34.0.zip
-  url: https://pypi.python.org/packages/81/25/74229f47de6841fc5035ccb4c5947dcefb8a63727bac63b2f4c830a02227/azure-storage-0.34.0.zip
-  md5: 6342a92b968cf350193e460a6329f3f0
+  fn: azure-storage-0.34.2.zip
+  url: https://pypi.python.org/packages/5f/63/94f7c7f89a7d28b0141b3fda6ccaad75d4bc8341eabbaa6caa0602c953f8/azure-storage-0.34.2.zip
+  md5: 6d9a47d597182ef5d22015b2b63ff67b
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
@@ -18,8 +19,7 @@ requirements:
 
   run:
     - python
-    - azure-nspkg >=1.0.0
-    - azure-common >=1.1.4
+    - azure-common >=1.1.5
     - python-dateutil >=2.6.0
     - requests >=2.12.4
     - cryptography >=1.7.1
