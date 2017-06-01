@@ -1,14 +1,14 @@
 package:
   name: vtk-offscreen
-  version: 7.1.0
+  version: 7.1.1
 
 source:
-  fn:  VTK-7.1.0.tar.gz
-  url: http://www.vtk.org/files/release/7.1/VTK-7.1.0.tar.gz
+  fn:  VTK-7.1.1.tar.gz
+  url: http://www.vtk.org/files/release/7.1/VTK-7.1.1.tar.gz
 
 
 build:
-  number: 3
+  number: 0
   skip: True # [not linux]
 
 requirements:
@@ -16,11 +16,11 @@ requirements:
     - python
     - cmake >=3.6
     - ninja >=1.7
-    - osmesa 17.0.1
+    - osmesa 17.1.1
 
   run:
     - python
-    - osmesa 17.0.1
+    - osmesa 17.1.1
 
 test:
   imports:
