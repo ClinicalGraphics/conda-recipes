@@ -8,7 +8,7 @@ source:
 
 
 build:
-  number: 3
+  number: 4
   features:
     - vc9  # [win and py27]
     - vc10  # [win and py34]
@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - python
+    - sip >=4.18
     - cmake >=3.6
     - ninja >=1.7
 
@@ -39,6 +40,7 @@ test:
     - vtk.vtkViewsCore
     - vtk.vtkRenderingVolume
     - vtk.vtkInteractionWidgets
+    - vtk.QVTKWidget
 
 about:
   home: http://www.vtk.org/
