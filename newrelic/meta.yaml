@@ -18,7 +18,7 @@ requirements:
   build:
     - python
     - setuptools
-    - libtool >= 2.4.2  # [unix]
+    - libtool >=2.4.2  # [unix]
   run:
     - python
 
