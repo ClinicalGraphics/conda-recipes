@@ -11,22 +11,20 @@ source:
 
 build:
   number: 0
+  noarch: python
   script:
     - python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
   build:
-    - libtool  # [unix]
     - python
     - setuptools
+    - libtool >= 2.4.2  # [unix]
     - toolchain
   run:
     - python
-    - setuptools
 
 test:
-  requires:
-    - python
   imports:
     - newrelic
   commands:
