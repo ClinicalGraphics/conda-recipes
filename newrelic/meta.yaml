@@ -10,7 +10,7 @@ source:
   sha256: 437782a9446a4d3589d9b4568cd4848411988bbbf3dd46ec92f0624e8cdc8b93
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script:
     - python setup.py install --single-version-externally-managed --record=record.txt
@@ -20,7 +20,6 @@ requirements:
     - python
     - setuptools
     - libtool >= 2.4.2  # [unix]
-    - toolchain
   run:
     - python
 
