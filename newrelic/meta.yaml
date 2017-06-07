@@ -1,0 +1,37 @@
+{% set version = "2.86.3.70" %}
+
+package:
+  name: newrelic
+  version: {{ version }}
+
+source:
+  fn: newrelic-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/n/newrelic/newrelic-{{ version }}.tar.gz
+  sha256: 437782a9446a4d3589d9b4568cd4848411988bbbf3dd46ec92f0624e8cdc8b93
+
+build:
+  number: 1
+  noarch: python
+  script:
+    - python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - libtool >= 2.4.2  # [unix]
+  run:
+    - python
+
+test:
+  imports:
+    - newrelic
+  commands:
+    - newrelic-admin help  # [unix]
+
+about:
+  home: http://newrelic.com/docs/python/new-relic-for-python
+  license: New Relic License
+  license_file: newrelic/LICENSE  # [unix]
+  license_file: newrelic\LICENSE  # [win]
+  summary: New Relic Python Agent
