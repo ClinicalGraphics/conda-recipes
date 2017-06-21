@@ -1,30 +1,26 @@
-{% set version = "0.9.9" %}
-
 package:
   name: pydicom
-  version: {{ version }}
+  version: 1.0.0a1
 
 source:
-  fn: pydicom-{{ version }}.tar.gz
-  url: https://pypi.python.org/packages/source/p/pydicom/pydicom-{{ version }}.tar.gz
-  md5: a66ca6728e69ba565ab9c8a21740eee8
+  fn: 8af8f7aa4d7642b396f40ff89f6012aa095ee394.zip
+  url: https://github.com/pydicom/pydicom/archive/8af8f7aa4d7642b396f40ff89f6012aa095ee394.zip
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record record.txt
 
 requirements:
   build:
     - python
     - setuptools
-
   run:
     - python
-    - numpy >=1.11
 
 test:
   imports:
-    - dicom
+    - pydicom
 
 about:
   home: http://pydicom.readthedocs.org/
