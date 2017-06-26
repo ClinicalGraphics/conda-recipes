@@ -1,14 +1,15 @@
 package:
   name: daphne
-  version: 1.2.0
+  version: 1.3.0
 
 source:
-  fn: daphne-1.2.0.tar.gz
-  url: https://pypi.python.org/packages/c5/17/ceb2b30aeb406cae00ba4f3a573ad5f81cf15e374582a385c46f78640c37/daphne-1.2.0.tar.gz
-  md5: c07263cd57b46f8767dd63a7eb665913
+  fn: daphne-1.3.0.tar.gz
+  url: https://pypi.python.org/packages/36/d2/4bc1e3c77ce4e534c8d7d8695289ebd38c002c5c60604d50e351393d29b2/daphne-1.3.0.tar.gz
+  md5: 70f7f112d0a0047ed9db9ace42782caf
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -17,9 +18,9 @@ requirements:
     - setuptools
   run:
     - python
-    - asgiref >=1.1.1
-    - twisted >=17.1.0
-    - autobahn >=0.18.1
+    - asgiref >=1.1.2
+    - twisted >=17.5.0
+    - autobahn >=17.6.2
 
 test:
   imports:
