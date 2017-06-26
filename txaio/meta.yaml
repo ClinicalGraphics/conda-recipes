@@ -1,14 +1,15 @@
 package:
   name: txaio
-  version: 2.6.1
+  version: 2.8.0
 
 source:
-  fn: txaio-2.6.1.tar.gz
-  url: https://pypi.python.org/packages/ef/8c/d7410b7509fe6510980c939453517567fa44f35357b8b23e6d346d08b7db/txaio-2.6.1.tar.gz
-  md5: a8ceba8d750e6c5fb63fc4e190854740
+  fn: txaio-2.8.0.tar.gz
+  url: https://pypi.python.org/packages/03/86/2cb7ae81209cc3fc64f68a31d70c20ab4771b520d7e13a5219b1f5e16ee1/txaio-2.8.0.tar.gz
+  md5: 643ac20b895b878786cd6a46790367d0
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
