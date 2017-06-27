@@ -10,17 +10,16 @@ source:
 
 build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
-  number: 0
+  number: 1
   noarch: python
 
 requirements:
   build:
     - python
     - setuptools
-    - tornado
   run:
     - python
-    - tornado
+    - tornado >=4.5.1
 
 test:
   imports:
