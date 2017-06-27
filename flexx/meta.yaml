@@ -1,0 +1,45 @@
+{% set version = "0.4.1.dev0" %}
+
+package:
+  name: flexx
+  version: {{ version }}
+
+source:
+  git_url: https://github.com/zoofIO/flexx.git
+  git_rev: 5054c674201ccdb8668ccdca165b1a20f4c6c5c4
+
+build:
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 1
+  noarch: python
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - tornado >=4.5.1
+
+test:
+  imports:
+    - flexx.ui
+    - flexx.app
+    - flexx.event
+    - flexx.pyscript
+    - flexx.webruntime
+    - flexx.util
+
+about:
+  home: http://github.com/zoofIO/flexx
+  doc_url: http://flexx.readthedocs.io
+  dev_url: http://github.com/zoofIO/flexx
+  summary: Python UI tookit based on web technology
+  license: BSD 2-Clause
+
+extra:
+  recipe-maintainers:
+    - almarklein
+    - ivoflipse
+    - korijn 
+
