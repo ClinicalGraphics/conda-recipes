@@ -1,0 +1,4 @@
+libglu1-mesa-dev
+libxt-dev
+mesa-utils-extra
+mesa-common-dev
