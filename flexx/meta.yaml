@@ -1,4 +1,4 @@
-{% set version = "0.4.1.dev4" %}
+{% set version = "0.4.1.dev5" %}
 
 package:
   name: flexx
@@ -6,7 +6,7 @@ package:
 
 source:
   git_url: https://github.com/zoofIO/flexx.git
-  git_rev: 689afdf1f722c77ecc35af505226bd3da1f52670
+  git_rev: 433411b78226aa6273029bc810d871b32109861b
 
 build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
