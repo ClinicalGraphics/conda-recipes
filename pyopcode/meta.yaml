@@ -10,7 +10,7 @@ source:
   md5: 2aea781fec665c83fe292177b2cfcd2c
 
 build:
-  number: 3
+  number: 4
   features:
   - vc9  # [win and py27]
   - vc10  # [win and py34]
@@ -20,15 +20,15 @@ requirements:
   build:
   - python
   - setuptools
-  - cmake
-  - numpy 1.11.3
-  - boost 1.61.0
-  - pyyaml 3.12
+  - cmake >=3.6.3
+  - numpy x.x
+  - boost >=1.61.0
+  - pyyaml >=3.12
 
   run:
   - python
-  - numpy 1.11.3
-  - boost 1.61.0
+  - numpy x.x
+  - boost >=1.61.0
 
 test:
   commands:
@@ -36,7 +36,7 @@ test:
   imports:
     - pyopcode
   requires:
-    - pytest >=3.0
+    - pytest >=3.1.2
 
 about:
   home: https://github.com/ClinicalGraphics/pyopcode
