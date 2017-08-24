@@ -1,14 +1,15 @@
 package:
   name: billiard
-  version: 3.5.0.2
+  version: 3.5.0.3
 
 source:
-  fn: billiard-3.5.0.2.tar.gz
-  url: https://pypi.python.org/packages/e6/b8/6e6750f21309c21ea267834d5e76b89ce64a9ddf38fa4161fd6fb32ffc3b/billiard-3.5.0.2.tar.gz
-  md5: 301a16643bc51d73869df81c9aa1e082
+  fn: billiard-3.5.0.3.tar.gz
+  url: https://pypi.python.org/packages/39/ac/f5571210cca2e4f4532e38aaff242f26c8654c5e2436bee966c230647ccc/billiard-3.5.0.3.tar.gz
+  md5: 113ba481e48400adbf6fbbf59a2f8554
 
 build:
-  number: 1
+  number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -26,6 +27,4 @@ test:
 about:
   home: http://github.com/celery/billiard
   license: BSD 3-Clause
-  license_family: BSD
-  license_file: LICENSE.txt
   summary: Python multiprocessing fork with improvements and bugfixes
