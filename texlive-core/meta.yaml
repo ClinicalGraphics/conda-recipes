@@ -11,8 +11,8 @@ test:
     commands:
         - pdftex --version
         - bibtex --version
-        - pdflatex --version
         - tlmgr --version
+        - pdflatex --version
 
 about:
     home: https://www.tug.org/texlive/
