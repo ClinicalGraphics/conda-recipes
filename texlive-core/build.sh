@@ -5,7 +5,7 @@ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 tar -xf install-tl-unx.tar.gz
 cd install-tl-*
 
-echo "selected_scheme scheme-minimal
+echo "selected_scheme scheme-small
 TEXDIR $PREFIX
 TEXMFLOCAL $PREFIX/texmf-local
 TEXMFSYSVAR $PREFIX/texmf-var
@@ -35,6 +35,3 @@ cd $PREFIX/bin
 # have to be removed to be able to create a working conda package.
 echo "Will remove broken symlinks from the bin folder..."
 find $PREFIX/bin -type l ! -exec test -e {} \; -exec echo "Removing" {} \; -exec rm {} \;
-
-# Create a pdflatex symlink
-ln -s pdftex pdflatex
