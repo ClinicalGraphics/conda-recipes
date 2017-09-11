@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Download install script
-wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-tar -xf install-tl-unx.tar.gz
-cd install-tl-*
-
 echo "selected_scheme scheme-small
 TEXDIR $PREFIX
 TEXMFLOCAL $PREFIX/texmf-local

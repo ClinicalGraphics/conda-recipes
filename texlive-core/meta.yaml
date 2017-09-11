@@ -4,6 +4,11 @@ package:
   name: texlive-core
   version: {{ version }}
 
+source:
+  fn: install-tl-unx.tar.gz
+  url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+  md5: a72cbc37422fd54eb08aab21494dfecb
+
 build:
     number: 0
 
