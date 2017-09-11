@@ -23,6 +23,7 @@ build:
 requirements:
   build:
     - texlive-core 20170906
+    - python
   run:
     - texlive-core 20170906
 

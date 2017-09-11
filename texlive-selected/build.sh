@@ -4,7 +4,7 @@
 mkdir -p $PREFIX/texmf-local/tex/latex/local
 cd $PREFIX/texmf-local/tex/latex/local
 wget http://mirrors.ctan.org/macros/latex/contrib/acrotex.zip
-unzip acrotex.zip
+python -c "import zipfile; zipfile.ZipFile('acrotex.zip').extractall()"
 rm acrotex.zip
 
 # Install the Acrotex package
