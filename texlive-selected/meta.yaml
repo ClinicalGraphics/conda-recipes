@@ -19,6 +19,8 @@ build:
     - texmf-var/fonts/map/dvips/updmap/ps2pk.map
     - texmf-var/fonts/map/dvips/updmap/psfonts_pk.map
     - texmf-var/fonts/map/dvips/updmap/psfonts_t1.map
+    - texmf-var/fonts/map/pdftex/updmap/pdftex_ndl14.map  # [linux]
+    - texmf-var/fonts/map/pdftex/updmap/pdftex_dl14.map  # [linux]
 
 requirements:
   build:
