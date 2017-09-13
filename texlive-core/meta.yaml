@@ -13,11 +13,14 @@ build:
     number: 0
 
 test:
+    files:
+        - template.tex
     commands:
         - pdftex --version
         - bibtex --version
         - tlmgr --version
         - pdflatex --version
+        - pdflatex template.tex
 
 about:
     home: https://www.tug.org/texlive/
