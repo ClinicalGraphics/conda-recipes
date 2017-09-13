@@ -9,11 +9,13 @@
 # on some brief trial-and-error and may need improvement.
 
 temp=$(mktemp)
+
 $PREFIX/bin/fmtutil-sys --all >$temp 2>&1
 rc=$?
 if [ $rc -ne 0 ] ; then
-    # Definite error.
-	cat $temp >&2
-	rm -f $temp
-	exit 1
+    # Definite error, write output to .messages.txt so that the message will
+    # be displayed by conda
+    cat $temp >>$PREFIX/.messages.txt
+    rm -f $temp
+    exit 1
 fi
