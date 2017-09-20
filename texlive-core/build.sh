@@ -1,104 +1,32 @@
-#! /bin/bash
-# Copyright 2016 Peter Williams and collaborators.
-# This file is licensed under a 3-clause BSD license; see LICENSE.txt.
+#!/bin/bash
 
-set -e
+echo "selected_scheme scheme-small
+TEXDIR $PREFIX
+TEXMFLOCAL $PREFIX/texmf-local
+TEXMFSYSVAR $PREFIX/texmf-var
+TEXMFSYSCONFIG $PREFIX/texmf-config
+TEXMFVAR $PREFIX/texmf-var
+TEXMFCONFIG $PREFIX/texmf-config
+TEXMFHOME $PREFIX/texmf-local
+instopt_adjustpath 1
+instopt_adjustrepo 1
+instopt_write18_restricted 1
+tlpdbopt_create_formats 1
+tlpdbopt_desktop_integration 0
+tlpdbopt_file_assocs 1
+tlpdbopt_generate_updmap 0
+tlpdbopt_install_docfiles 0
+tlpdbopt_install_srcfiles 0
+tlpdbopt_post_code 1
+tlpdbopt_sys_bin $PREFIX/bin
+tlpdbopt_sys_info $PREFIX/info
+tlpdbopt_sys_man $PREFIX/man" > texlive-profile
 
-configure_args=(
-    --prefix="$PREFIX"
-    --datarootdir="$PREFIX/share/texlive"
-    --disable-all-pkgs
-    --disable-native-texlive-build
-    --enable-web2c
-    --disable-ipc
-    --disable-debug
-    --disable-dependency-tracking
-    --enable-silent-rules
-    --with-banner-add=" Conda"
-    # binaries:
-    --disable-aleph
-    --enable-tex
-    --enable-etex
-    --disable-eptex
-    --disable-euptex
-    --disable-luatex
-    --disable-luajittex
-    --disable-uptex
-    --enable-pdftex
-    --enable-xetex
-    --enable-mf
-    --disable-pmp
-    --disable-upmp
-    --enable-web-progs # includes bibtex
-    # other packages:
-    --enable-gsftopk
-    --enable-texlive
-    --enable-dvipdfm-x
-    # support libraries:
-    --x-includes=$PREFIX/include
-    --x-libraries=$PREFIX/lib
-    --without-system-harfbuzz # we've packaged this, but can't use it without native graphite2
-    --with-system-icu
-    --with-system-mpfr
-    --with-mpfr-includes=$PREFIX/include
-    --with-mprf-libdir=$PREFIX/lib
-    --with-system-gmp
-    --with-gmp-includes=$PREFIX/include
-    --with-gmp-libdir=$PREFIX/lib
-    --with-system-pixman
-    --with-system-freetype2
-    --without-system-graphite2
-    --with-system-libpng
-    --without-system-poppler
-    --with-system-zlib
-    --with-zlib-includes=$PREFIX/include
-    --with-zlib-libdir=$PREFIX/lib
-)
+./install-tl -profile texlive-profile
 
-if [ -n "$OSX_ARCH" ] ; then
-    export MACOSX_DEPLOYMENT_TARGET=10.9
-    sysroot=/
-    configure_args+=(
-	--with-sysroot=$sysroot
-    )
-else
-    configure_args+=(
-        --with-system-cairo
-    )
-fi
-
-export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig"
-
-# kpathsea scans the texmf.cnf file to set up its hardcoded paths, so set them
-# up before building. It doesn't seem to handle multivalued TEXMFCNF entries,
-# so we patch that up after install.
-
-mv texk/kpathsea/texmf.cnf tmp.cnf
-sed \
-    -e "s|TEXMFROOT =.*|TEXMFROOT = $PREFIX/share/texlive|" \
-    -e "s|TEXMFLOCAL =.*|TEXMFLOCAL = $PREFIX/share/texlive/texmf-local|" \
-    -e "/^TEXMFCNF/,/^}/d" \
-    -e "s|%TEXMFCNF =.*|TEXMFCNF = $PREFIX/share/texlive/texmf-dist/web2c|" \
-    <tmp.cnf >texk/kpathsea/texmf.cnf
-rm -f tmp.cnf
-
-mkdir conda
-cd conda
-../configure "${configure_args[@]}"
-make -j4
-make install
-
-cd $PREFIX
-ln -s pdftex bin/pdflatex # helpful; these look at argv[0]
-ln -s xetex bin/xelatex
-
-rm -f lib/*.a lib/*.la
-rm -rf share/texlive/info
-rm -rf share/man # clean this out so we can do the following mv:
-mv share/texlive/man/ share/
-
-mv share/texlive/texmf-dist/web2c/texmf.cnf tmp.cnf
-sed \
-    -e "s|TEXMFCNF =.*|TEXMFCNF = {$PREFIX/share/texlive/texmf-local/web2c, $PREFIX/share/texlive/texmf-dist/web2c}|" \
-    <tmp.cnf >share/texlive/texmf-dist/web2c/texmf.cnf
-rm -f tmp.cnf
+cd $PREFIX/bin
+# The installer places symlinks to binaries in the $PREFIX/bin folder
+# but also places symlinks for non-existing binaries. These broken symlinks
+# have to be removed to be able to create a working conda package.
+echo "Will remove broken symlinks from the bin folder..."
+find $PREFIX/bin -type l ! -exec test -e {} \; -exec echo "Removing" {} \; -exec rm {} \;

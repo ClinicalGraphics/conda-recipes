@@ -1,42 +1,26 @@
+{% set version = "20170906" %}
+
 package:
   name: texlive-core
-  version: 20160523b
+  version: {{ version }}
 
 source:
-  fn: texlive-20160523b-source.tar.xz
-  url: ftp://tug.org/texlive/historic/2016/texlive-20160523b-source.tar.xz
+  fn: install-tl-unx.tar.gz
+  url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+  md5: a72cbc37422fd54eb08aab21494dfecb
 
 build:
-    detect_binary_files_with_prefix: True
     number: 0
 
-requirements:
-    build:
-        - cairo
-        - freetype
-        - gmp
-        - icu
-        - libpng
-        - modern-xorg-stack
-        - mpfr
-        - pixman
-        - zlib
-    run:
-        - cairo
-        - freetype
-        - gmp
-        - icu
-        - libpng
-        - modern-xorg-stack
-        - mpfr
-        - pixman
-        - zlib
-
 test:
+    files:
+        - template.tex
     commands:
         - pdftex --version
         - bibtex --version
+        - tlmgr --version
         - pdflatex --version
+        - pdflatex template.tex
 
 about:
     home: https://www.tug.org/texlive/
