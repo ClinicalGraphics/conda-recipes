@@ -1,0 +1,49 @@
+{% set name = "jira" %}
+{% set version = "1.0.10" %}
+{% set hash_type = "sha256" %}
+{% set hash_value = "409a0a94800f05a1e8e078540eb5610e243586bd5ee9bc8cae8899cbbd061898" %}
+
+package:
+  name: '{{ name|lower }}'
+  version: '{{ version }}'
+
+source:
+  fn: '{{ name }}-{{ version }}.tar.gz'
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  '{{ hash_type }}': '{{ hash_value }}'
+
+build:
+  noarch_python: 'True'
+  number: 0
+  script: python setup.py install  --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest-runner
+    - pbr
+  run:
+    - python
+    - six >=1.10.0
+    - requests >=2.10.0
+    - requests-oauthlib >=0.6.1
+    - defusedxml
+    - pbr
+
+test:
+  imports:
+    - jira
+
+about:
+  description: 'This library eases the use of the JIRA REST API from Python'
+  summary: This library eases the use of the JIRA REST API from Python
+  dev_url: https://github.com/pycontribs/jira
+  doc_url: https://jira.readthedocs.io/en/master/
+  home: https://github.com/pycontribs/jira
+  license: BSD-3-Clause
+  license_family: BSD
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers: 'Berend Klein Haneveld'
