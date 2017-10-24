@@ -12,7 +12,7 @@ build:
 requirements:
   build:
     - python # [win]
-    - cmake >=3.9.3
+    - cmake >=3.9.1
     - ninja >=1.7.2 # [unix]
     - jpeg >=9b
     - libpng >=1.6.28
