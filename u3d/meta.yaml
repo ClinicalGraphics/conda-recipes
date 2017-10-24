@@ -12,8 +12,8 @@ build:
 requirements:
   build:
     - python # [win]
-    - cmake
-    - ninja  # [unix]
+    - cmake >=3.9.3
+    - ninja >=1.7.1 # [unix]
     - jpeg >=9b
     - libpng >=1.6.28
     - zlib >=1.2.11
