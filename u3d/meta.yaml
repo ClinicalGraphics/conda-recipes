@@ -7,21 +7,21 @@ source:
   url: https://github.com/ClinicalGraphics/u3d/archive/0.3.3.tar.gz
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - python # [win]
     - cmake
     - ninja  # [unix]
-    - jpeg 9b
-    - libpng 1.6.27
-    - zlib 1.2.8
+    - jpeg >=9b
+    - libpng >=1.6.28
+    - zlib >=1.2.8
   run:
     - python # [win]
-    - jpeg 9b
-    - libpng 1.6.27
-    - zlib 1.2.8
+    - jpeg >=9b
+    - libpng >=1.6.28
+    - zlib >=1.2.11
 
 test:
   commands:
