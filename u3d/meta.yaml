@@ -16,7 +16,7 @@ requirements:
     - ninja  # [unix]
     - jpeg >=9b
     - libpng >=1.6.28
-    - zlib >=1.2.8
+    - zlib >=1.2.11
   run:
     - python # [win]
     - jpeg >=9b
