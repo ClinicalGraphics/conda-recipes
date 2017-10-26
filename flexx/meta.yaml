@@ -1,12 +1,12 @@
-{% set version = "0.4.1.dev6" %}
+{% set version = "0.4.1.dev8" %}
 
 package:
   name: flexx
   version: {{ version }}
 
 source:
-  git_url: https://github.com/ivoflipse/flexx.git
-  git_rev: 13bcac5eaaee43e3d1a9a791b148bfcf04a1a89a
+  git_url: https://github.com/zoofIO/flexx.git
+  git_rev: aa00fa8c81e75d1a3a125cffd13c0f5419e4e03f
 
 build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
