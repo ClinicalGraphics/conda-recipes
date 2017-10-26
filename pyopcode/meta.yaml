@@ -1,5 +1,5 @@
 {% set version = "0.3.4" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 {% set md5 = "5a147d1dfee1d8fac0cd0dbdc2cfda79" %}
 
 package:
@@ -12,11 +12,8 @@ source:
   md5: {{ md5 }}
 
 build:
+  # warning, pyopcode can only be compiled with g++ 4 (ie. g++ 4.8.5 works)
   number: {{ build_number }}
-  features:
-  - vc9  # [win and py27]
-  - vc10  # [win and py34]
-  - vc14  # [win and py>=35]
 
 requirements:
   build:
@@ -29,8 +26,8 @@ requirements:
 
   run:
   - python
-  - numpy {{ numpy }}
-  - boost {{ boost }}
+  - numpy
+  - boost
 
 test:
   commands:
