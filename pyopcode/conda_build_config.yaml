@@ -1,4 +1,6 @@
-boost: 1.65
+boost:
+  - 1.61
+  - 1.65
 numpy: 1.13
 
 pin_run_as_build:
