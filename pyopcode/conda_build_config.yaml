@@ -1,0 +1,5 @@
+boost: 1.65
+numpy: 1.13
+pin_run_as_build:
+    boost:
+      max_pin: x.x
