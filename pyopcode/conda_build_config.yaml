@@ -1,0 +1,6 @@
+boost: 1.61
+numpy: 1.13
+
+pin_run_as_build:
+    boost: x.x
+    numpy: x.x

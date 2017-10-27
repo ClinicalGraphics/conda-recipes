@@ -12,10 +12,11 @@ cmake ../src -G "NMake Makefiles" ^
     -Wno-dev ^
     -DCMAKE_BUILD_TYPE=%BUILD_CONFIG% ^
     -DCMAKE_INSTALL_PREFIX="%PREFIX%" ^
-    -DPYTHON_INCLUDE_DIR:PATH="%PREFIX%/include" ^
+    -DPYTHON_INCLUDE_DIR:PATH="%PREFIX%\include" ^
     -DPYTHON_LIBRARY:FILEPATH="%PYTHON_LIBRARY%" ^
-    -DNUMPY_INCLUDE_DIR:PATH="%SP_DIR%/numpy/core/include" ^
-    -DBOOST_ROOT:PATH="%PREFIX%/Library"
+    -DNUMPY_INCLUDE_DIR:PATH="%SP_DIR%\numpy\core\include" ^
+    -DBOOST_ROOT:PATH="%PREFIX%\Library"
+
 if errorlevel 1 exit 1
 
 nmake

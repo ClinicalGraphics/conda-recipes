@@ -1,0 +1,8 @@
+libpng: 1.6.32
+zlib: 1.2.11
+jpeg: 9b
+
+pin_run_as_build:
+    libpng: x.x
+    zlib: x.x
+    jpeg: x.x

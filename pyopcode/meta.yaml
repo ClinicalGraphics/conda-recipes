@@ -1,5 +1,5 @@
 {% set version = "0.3.4" %}
-{% set build_number = 0 %}
+{% set build_number = 1 %}
 {% set md5 = "5a147d1dfee1d8fac0cd0dbdc2cfda79" %}
 
 package:
@@ -16,21 +16,21 @@ build:
   features:
   - vc9  # [win and py27]
   - vc10  # [win and py34]
-  - vc14  # [win and py>=35]
+  - vc14  # [win and py35]
 
 requirements:
   build:
   - python
   - setuptools
-  - cmake >=3.6.3
-  - numpy x.x
-  - boost >=1.61.0
+  - cmake >=3.9.1
+  - numpy {{ numpy }}
+  - boost {{ boost }}
   - pyyaml >=3.12
 
   run:
   - python
-  - numpy x.x
-  - boost >=1.61.0
+  - numpy
+  - boost
 
 test:
   commands:

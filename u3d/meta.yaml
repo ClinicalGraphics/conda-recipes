@@ -14,14 +14,14 @@ requirements:
     - python # [win]
     - cmake >=3.9.1
     - ninja >=1.7.2 # [unix]
-    - jpeg >=9b
-    - libpng >=1.6.28
-    - zlib >=1.2.11
+    - jpeg {{ jpeg }}
+    - libpng {{ libpng }}
+    - zlib {{ zlib }}
   run:
     - python # [win]
-    - jpeg >=9b
-    - libpng >=1.6.28
-    - zlib >=1.2.11
+    - jpeg
+    - libpng
+    - zlib
 
 test:
   commands:

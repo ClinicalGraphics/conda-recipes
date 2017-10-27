@@ -15,6 +15,11 @@ if [ `uname` = "Darwin" ]; then
     CXX_FLAGS="${CXX_FLAGS} -stdlib=libstdc++"
 fi
 
+# pyopcode can only be compiled with g++ 4, because of the Boost dependency. (i.e. g++ 4.8.5 works)
+if [ `uname` = "Linux" ]; then
+    export CXX=/usr/bin/g++-4.8
+fi
+
 cmake ../src \
     -Wno-dev \
     -DCMAKE_BUILD_TYPE=${BUILD_CONFIG} \
