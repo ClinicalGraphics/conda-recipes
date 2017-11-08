@@ -1,0 +1,30 @@
+package:
+  name: raytracer-python
+  version: 0.1
+
+source:
+  path: /home/maxcg/Code Repository/raytracer
+#  git_url: https://github.com/Maxyme/raytracer
+#  git_rev: 42cc0f93b31cab303c4fc9e7f8dbcef821551e1a
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - cffi 1.10.0
+    - pillow 4.2.1
+    - raytracer 0.1
+
+test:
+  imports:
+    - raytracer
+
+about:
+  home: https://github.com/Maxyme/raytracer (fork of https://github.com/bheisler/raytracer)
+  license: MIT
+  summary: A toy raytracer in Rust - python
