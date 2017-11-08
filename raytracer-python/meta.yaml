@@ -3,9 +3,8 @@ package:
   version: 0.1
 
 source:
-  path: /home/maxcg/Code Repository/raytracer
-#  git_url: https://github.com/Maxyme/raytracer
-#  git_rev: 42cc0f93b31cab303c4fc9e7f8dbcef821551e1a
+  git_url: https://github.com/Maxyme/raytracer
+  git_rev: a1144809ef1db217489c0e05a7801bc01c8f0fc9
 
 build:
   number: 0

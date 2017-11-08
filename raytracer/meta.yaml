@@ -3,9 +3,8 @@ package:
   version: 0.1
 
 source:
-  path: /home/maxcg/Code Repository/raytracer
-#  git_url: https://github.com/Maxyme/raytracer
-#  git_rev: 42cc0f93b31cab303c4fc9e7f8dbcef821551e1a
+  git_url: https://github.com/Maxyme/raytracer
+  git_rev: 42cc0f93b31cab303c4fc9e7f8dbcef821551e1a
 
 build:
   number: 0
@@ -18,8 +17,6 @@ requirements:
 test:
   commands:
   - test -f "${PREFIX}/lib/libraytracer_ffi.so" # [linux]
-#  imports:
-#  - raytracer
 
 about:
   home: https://github.com/Maxyme/raytracer (fork of https://github.com/bheisler/raytracer)
