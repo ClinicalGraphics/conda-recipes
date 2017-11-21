@@ -1,0 +1,31 @@
+package:
+  name: orthopy
+  version: 0.2.0
+
+source:
+  fn: v0.2.0.tar.gz
+  url: https://github.com/nschloe/orthopy/archive/v0.2.0.tar.gz
+
+build:
+  number: 0
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - matplotlib >=2.1.0
+    - numpy >=1.13.3
+    - scipy >=1.0.0
+    - sympy >=1.1.1
+
+test:
+  imports:
+    - orthopy
+
+about:
+  home: https://github.com/nschloe/orthopy
+  license: MIT License
+  summary: Tools for generating orthogonal polynomials and Gauss-type quadrature rules.
