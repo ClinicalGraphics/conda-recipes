@@ -1,0 +1,49 @@
+package:
+  name: dcmtk
+  version: 3.6.2
+
+source:
+  fn: DCMTK-3.6.2.tar.gz
+  url: http://dicom.offis.de/download/dcmtk/dcmtk362/dcmtk-3.6.2.tar.gz
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - cmake >=3.9.4
+    - libgcc  # [linux]
+    - ninja >=1.7.2
+    - openssl  {{ openssl }}
+    - libpng  {{ libpng }}
+    - libtiff  {{ libtiff  }}
+    - libxml2  {{ libxml2 }}
+    - zlib  {{ zlib }}
+    - jpeg  {{ jpeg }}
+  run:
+    - libgcc  # [linux]
+    - openssl
+    - libpng
+    - libtiff
+    - libxml2
+    - zlib
+    - jpeg
+
+test:
+  commands:
+    - dcmdata_tests
+    - dcmftest
+    - dcmiod_tests
+    - dcmnet_tests
+    - dcmrt_tests
+    - dcmseg_tests
+    - dcmsr_tests
+    - drttest  # [linux]
+    - ofstd_tests
+    - dcmdjpeg --version
+    - dcmcjpeg --version
+
+about:
+  home: http://dicom.offis.de
+  summary: DCMTK is a collection of libraries and applications implementing large parts the DICOM standard
+  license: BSD

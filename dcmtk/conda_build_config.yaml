@@ -1,0 +1,15 @@
+openssl: 1.0.2
+libpng:  1.6.32
+libtiff: 4.0.8
+libxml2: 2.9.4
+zlib: 1.2.11
+jpeg: 9b
+
+pin_run_as_build:
+    openssl: x.x
+    libpng: x.x
+    libtiff: x.x
+    libxml2: x.x
+    zlib: x.x
+    jpeg: x.x
+
