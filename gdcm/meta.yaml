@@ -1,0 +1,44 @@
+{% set version = "2.8.4" %}
+
+package:
+  name: gdcm
+  version: {{ version }}
+
+source:
+  fn: GDCM-{{ version }}.tar.gz
+  url: https://github.com/malaterre/GDCM/archive/v{{ version }}.tar.gz
+
+build:
+  number: 0
+  features:
+    - vc9  # [win and py27]
+    - vc10  # [win and py34]
+    - vc14  # [win and py>=35]
+
+requirements:
+  build:
+    - python
+    - cmake >=3.9.4
+    - ninja >=1.7.2
+    - swig >=3.0.10
+  run:
+    - python
+
+test:
+  imports:
+    - gdcm
+  commands:
+    - gdcmconv --version
+    - gdcmanon --version
+    - gdcmdump --version
+    - gdcmimg --version
+    - gdcminfo --version
+    - gdcmgendir --version
+    - gdcmraw --version
+    - gdcmscanner --version
+    - gdcmtar --version
+
+about:
+  home: https://sourceforge.net/p/gdcm/gdcm/
+  license: BSD-2-Clause
+  summary: Grassroots DICOM, cross-platform DICOM implementation.
