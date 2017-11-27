@@ -1,0 +1,6 @@
+u3d: 0.3.3
+vtk: 7.1.0
+
+pin_run_as_build:
+    u3d: x.x
+    vtk: x.x
