@@ -36,7 +36,7 @@ cmake .. -G "Ninja" \
     -DVTK_USE_OSMESA=ON \
     -DVTK_OPENGL_HAS_OSMESA:BOOL=ON \
     -DOSMESA_INCLUDE_DIR:PATH="$PREFIX/include" \
-    -DOSMESA_LIBRARY:FILEPATH="$PREFIX/lib/libOSMesa.so" \
+    -DOSMESA_LIBRARY:FILEPATH="$PREFIX/lib/libOSMesa32.so" \
     -DVTK_USE_OFFSCREEN:BOOL=ON \
 
 ninja install

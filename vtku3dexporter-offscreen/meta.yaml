@@ -7,19 +7,19 @@ source:
   url: https://github.com/ClinicalGraphics/u3d/archive/0.3.3.tar.gz
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
     - python
-    - cmake >=3.6.0
-    - ninja >=1.7  # [unix]
-    - u3d 0.3.3
-    - vtk-offscreen 7.1.0
+    - cmake >=3.9.4
+    - ninja >=1.7.2  # [unix]
+    - u3d ==0.3.3
+    - vtk-offscreen ==7.1.0
   run:
     - python
-    - u3d 0.3.3
-    - vtk-offscreen 7.1.0
+    - u3d ==0.3.3
+    - vtk-offscreen ==7.1.0
 
 test:
   imports:

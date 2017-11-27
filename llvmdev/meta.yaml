@@ -1,32 +1,27 @@
+{% set version = "5.0.0" %}
+
 package:
-  name: llvm
-  version: 4.0.0
+  name: llvmdev
+  version: {{ version }}
 
 source:
-  fn: llvm-4.0.0.src.tar.xz
-  url: http://releases.llvm.org/4.0.0/llvm-4.0.0.src.tar.xz
+  fn: llvm-{{ version }}.src.tar.xz
+  url: http://llvm.org/releases/{{ version }}/llvm-{{ version }}.src.tar.xz
+
 
 build:
   number: 0
-  features:
-    - vc14    # [win and (py35 or py36)]
+  skip:  true  # [py<36]
 
 requirements:
   build:
-    - cmake >=3.6.3
-    - system  # [linux and not armv7l]
-  run:
-    - system  # [linux and not armv7l]
-    - libgcc-6 # [unix]
+    - python
+    - cmake >=3.9.4
 
 test:
-  requires:                                                  # [win]
-    - python {{ environ['PY_VER'] + '*' }}                   # [win]
-
   commands:
     - $PREFIX/bin/llvm-config --libs                         # [not win]
     - $PREFIX/bin/llc -version                               # [not win]
-    - if not exist %LIBRARY_INC%\\llvm\\Pass.h exit 1        # [win]
     - test -f $PREFIX/include/llvm/Pass.h                    # [unix]
     - test -f $PREFIX/lib/libLLVMCore.a                      # [not win]
 

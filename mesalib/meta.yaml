@@ -1,0 +1,35 @@
+{% set version = "17.2.0" %}
+
+package:
+  name: mesalib
+  version: {{ version }}
+
+source:
+  fn: mesa-{{ version }}.tar.gz
+  url: ftp://ftp.freedesktop.org/pub/mesa/mesa-{{ version }}.tar.gz
+  sha256: 9484ad96b4bb6cda5bbf1aef52dfa35183dc21aa6258a2991c245996c2fdaf85
+
+build:
+  skip: True  # [win]
+  number: 0
+
+requirements:
+  build:
+      - pthread-stubs ==0.3
+      - libgcc-ng ==7.2.0 # [linux]
+      - llvmdev ==5.0.0
+  run:
+      - pthread-stubs ==0.3
+      - libgcc-ng ==7.2.0 # [linux]
+      - llvmdev ==5.0.0
+
+test:
+  commands:
+      - test -f $PREFIX/lib/libOSMesa32.so      # [linux]
+      - test -f $PREFIX/lib/libOSMesa32.dylib   # [osx]
+
+about:
+  home: http://www.mesa3d.org
+  license: MIT
+  license_file: docs/license.html
+  summary: Mesa is an open-source implementation of the OpenGL specification - a system for rendering interactive 3D graphics.

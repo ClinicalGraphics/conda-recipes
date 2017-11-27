@@ -1,5 +1,3 @@
-#!/usr/bin/env bash
-
 mkdir build
 cd build
 
@@ -12,8 +10,7 @@ cmake -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DLLVM_INCLUDE_DOCS=OFF \
       -DLLVM_INCLUDE_EXAMPLES=OFF \
       -DLLVM_ENABLE_TERMINFO=OFF \
-      -DLLVM_BUILD_LLVM_DYLIB=ON \
       ..
 
-make -j8
+make -j${CPU_COUNT}
 make install
