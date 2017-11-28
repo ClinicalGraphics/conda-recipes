@@ -11,8 +11,8 @@ fi
 # u3d can only be compiled with gcc 6.2.0:
 # Otherwise the follow error may happen: Cannot generate a safe runtime search path for target IFXCore because files
 if [ `uname` = "Linux" ]; then
-    export CXX=/usr/bin/g++-6.2
-    export CC=/usr/bin/gcc-6.2
+    export CXX=/usr/bin/g++-6
+    export CC=/usr/bin/gcc-6
 fi
 
 cmake .. -G "Ninja" \
