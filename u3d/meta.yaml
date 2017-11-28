@@ -17,13 +17,11 @@ requirements:
     - jpeg {{ jpeg }}
     - libpng {{ libpng }}
     - zlib {{ zlib }}
-    - libgcc-ng ==7.2.0
   run:
     - python # [win]
     - jpeg
     - libpng
     - zlib
-    - libgcc-ng ==7.2.0
 
 test:
   commands:
