@@ -5,9 +5,12 @@ package:
   version: {{ version }}
 
 source:
-  fn: install-tl-unx.tar.gz
-  url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-  md5: a72cbc37422fd54eb08aab21494dfecb
+  fn: install-tl-unx.tar.gz  # [unix]
+  url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz  # [unix]
+  md5: a72cbc37422fd54eb08aab21494dfecb  # [unix]
+  fn: install-tl.zip  # [win]
+  url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip  # [win]
+  sha256: f6d03384e1c6b883fb29b9abae3c28138bf73fa0216103c7b2b4c598828391c0  # [win]
 
 build:
     number: 0
