@@ -1,4 +1,7 @@
 #!/bin/bash
+# Update tlmgr because it might be outdated
+mkdir -p $PREFIX/tlpkg/backups
+tlmgr update --self
 
 # Download and unpack Acrotex package
 mkdir -p $PREFIX/texmf-local/tex/latex/local
@@ -13,4 +16,4 @@ texhash
 latex acrotex.ins
 
 # Install some needed texlive packages with tlmgr
-tlmgr install symbol conv-xkv media9 ocgx2 enumitem kurier adjustbox collectbox wallpaper lastpage multirow fontawesome threeparttable animate
+tlmgr install symbol conv-xkv media9 ocgx2 enumitem kurier adjustbox collectbox wallpaper lastpage multirow fontawesome threeparttable animate titling
