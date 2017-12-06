@@ -1,4 +1,4 @@
-{% set version = "20170906" %}
+{% set version = "20171206" %}
 
 package:
   name: texlive-selected
