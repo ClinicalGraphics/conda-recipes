@@ -1,8 +1,9 @@
 :: Update tlmgr because it might be outdated
+mkdir %LIBRARY_PREFIX%/tlpkg/backups
 tlmgr update --self
 
 :: Download and unpack Acrotex package
-mkdir -p %LIBRARY_PREFIX%/texmf-local/tex/latex/local
+mkdir %LIBRARY_PREFIX%/texmf-local/tex/latex/local
 cd %LIBRARY_PREFIX%/texmf-local/tex/latex/local
 python -c "import urllib; urllib.urlretrieve('http://mirrors.ctan.org/macros/latex/contrib/acrotex.zip', 'acrotex.zip')"
 python -c "import zipfile; zipfile.ZipFile('acrotex.zip').extractall()"
