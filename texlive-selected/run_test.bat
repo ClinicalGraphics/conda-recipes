@@ -1,8 +1,8 @@
 :: Apparently, only the first test command from meta.yml is run
 :: So here are all the test commands
-pdflatex --version
+call pdflatex --version
 if errorlevel 1 exit 1
-pdftex --version
+call pdftex --version
 if errorlevel 1 exit 1
-pdflatex template.tex
+call pdflatex template.tex
 if errorlevel 1 exit 1

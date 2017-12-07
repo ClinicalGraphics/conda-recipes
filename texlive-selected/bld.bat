@@ -13,12 +13,12 @@ del acrotex.zip
 
 :: Install the Acrotex package
 cd acrotex
-texhash
-latex acrotex.ins
+call texhash
+call latex acrotex.ins
 
 if errorlevel 1 exit 1
 
 :: Install some needed texlive packages with tlmgr
-tlmgr install symbol conv-xkv media9 ocgx2 enumitem kurier adjustbox collectbox wallpaper lastpage multirow fontawesome threeparttable animate titling
+call tlmgr install symbol conv-xkv media9 ocgx2 enumitem kurier adjustbox collectbox wallpaper lastpage multirow fontawesome threeparttable animate titling
 
 if errorlevel 1 exit 1

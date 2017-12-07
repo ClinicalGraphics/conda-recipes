@@ -33,9 +33,9 @@ test:
   files:
     - template.tex
   commands:
-    - pdflatex --version
-    - pdftex --version
-    - pdflatex template.tex
+    - pdflatex --version  # [unix]
+    - pdftex --version  # [unix]
+    - pdflatex template.tex  # [unix]
 
 about:
   home: https://www.tug.org/texlive/
