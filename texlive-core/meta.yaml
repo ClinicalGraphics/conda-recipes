@@ -7,10 +7,8 @@ package:
 source:
   fn: install-tl-unx.tar.gz  # [unix]
   url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz  # [unix]
-  sha256: f5b46f80c99e53ba2788edc352429c0f828935df6d7c1d4bef96f9825f5ce637  # [unix]
   fn: install-tl.zip  # [win]
   url: http://mirror.ctan.org/systems/texlive/tlnet/install-tl.zip  # [win]
-  sha256: 9309f85a2db250c38f73aed5aa148243237615aa7b68691d227fd9e7d07a5124  # [win]
 
 build:
     number: 0
