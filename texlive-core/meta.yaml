@@ -15,7 +15,7 @@ source:
 build:
     number: 0
 
-dependencies:
+requirements:
     build:
         - perl  # [linux]
         - fontconfig  # [linux]
