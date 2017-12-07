@@ -13,7 +13,7 @@ source:
 build:
     number: 0
 
-requirements:
+requirements:  # [linux]
     build:
         - perl  # [linux]
         - fontconfig  # [linux]
@@ -25,11 +25,11 @@ test:
     files:
         - template.tex
     commands:
-        - pdftex --version
-        - bibtex --version
-        - tlmgr --version
-        - pdflatex --version
-        - pdflatex template.tex
+        - pdftex --version  # [unix]
+        - bibtex --version  # [unix]
+        - tlmgr --version  # [unix]
+        - pdflatex --version  # [unix]
+        - pdflatex template.tex  # [unix]
 
 about:
     home: https://www.tug.org/texlive/
