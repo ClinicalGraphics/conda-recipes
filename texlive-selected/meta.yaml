@@ -1,4 +1,4 @@
-{% set version = "20171206" %}
+{% set version = "20171207" %}
 
 package:
   name: texlive-selected
@@ -24,10 +24,10 @@ build:
 
 requirements:
   build:
-    - texlive-core 20170906
+    - texlive-core 20171207*
     - python
   run:
-    - texlive-core 20170906
+    - texlive-core 20171207*
 
 test:
   files:
