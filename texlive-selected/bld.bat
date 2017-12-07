@@ -1,5 +1,5 @@
 :: Update tlmgr because it might be outdated
-mkdir %LIBRARY_PREFIX%/tlpkg/backups
+mkdir %LIBRARY_PREFIX%\tlpkg\backups
 call tlmgr update --self
 
 if errorlevel 1 exit 1
