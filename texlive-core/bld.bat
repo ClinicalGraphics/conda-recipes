@@ -33,6 +33,6 @@ if errorlevel 1 exit 1
 for %%f in ("%LIBRARY_BIN%\win32\*.exe") do echo %%f %%* >> "%SCRIPTS%\%%~nf.bat"
 
 :: Create 'symlink' also for tlmgr.bat files to make sure that we can actually run tlmgr
-for %%f in ("%LIBRARY_BIN%\win32\tlmgr.bat") do echo %%f %%* >> "%SCRIPTS%\%%~nf.bat"
+echo call "%LIBRARY_BIN%\win32\tlmgr.bat" %%* >> "%SCRIPTS%\tlmgr.bat"
 
 if errorlevel 1 exit 1

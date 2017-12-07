@@ -4,7 +4,7 @@ pdftex --version
 if errorlevel 1 exit 1
 bibtex --version
 if errorlevel 1 exit 1
-tlmgr --version
+call tlmgr --version
 if errorlevel 1 exit 1
 pdflatex --version
 if errorlevel 1 exit 1
