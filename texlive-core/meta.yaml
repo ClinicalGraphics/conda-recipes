@@ -15,11 +15,11 @@ build:
 
 requirements:  # [linux]
     build:
-        - perl  # [linux]
-        - fontconfig  # [linux]
+        - perl
+        - fontconfig
     run:
-        - perl  # [linux]
-        - fontconfig  # [linux]
+        - perl
+        - fontconfig
 
 test:
     files:
