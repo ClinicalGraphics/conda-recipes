@@ -30,7 +30,7 @@ call install-tl-windows -profile texlive-profile < nul
 if errorlevel 1 exit 1
 
 :: Create 'symlinks' to make sure that we can actually run pdflatex and friends
-for %%f in ("%LIBRARY_BIN%\win32\*.exe") do echo %%~dp0..\Library\bin\win32\%%~nf %%* >> "%SCRIPTS%\%%~nf.bat"
+for %%f in ("%LIBRARY_BIN%\win32\*.exe") do echo call "%%~dp0..\Library\bin\win32\%%~nf" %%* >> "%SCRIPTS%\%%~nf.bat"
 
 :: Create 'symlink' also for tlmgr.bat files to make sure that we can actually run tlmgr
 echo call "%%~dp0..\Library\bin\win32\tlmgr.bat" %%* >> "%SCRIPTS%\tlmgr.bat"
