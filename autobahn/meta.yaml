@@ -1,11 +1,11 @@
 package:
   name: autobahn
-  version: 17.6.2
+  version: 17.10.1
 
 source:
-  fn: autobahn-17.6.2.tar.gz
-  url: https://pypi.python.org/packages/02/77/8429ed2f7c9adc911e9f362f1c8058f87e209e5dc0273bac37d22fbe0b10/autobahn-17.6.2.tar.gz
-  md5: 905a07cde5c2eb3566a6d8d40832cac8
+  fn: autobahn-17.10.1.tar.gz
+  url: https://pypi.python.org/packages/e4/2e/01a64212b1eb580d601fa20f146c962235e3493795f46e3b254597ec635d/autobahn-17.10.1.tar.gz
+  md5: f8c8d74bf73644719b751e6fb11dc4a3
 
 build:
   number: 0
@@ -18,8 +18,8 @@ requirements:
     - setuptools
   run:
     - python
-    - six >=1.10.0
-    - txaio >=2.8.0
+    - six >=1.11.0
+    - txaio >=2.8.2
 
 test:
   imports:
