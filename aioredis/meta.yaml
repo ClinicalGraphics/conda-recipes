@@ -14,10 +14,10 @@ build:
 
 requirements:
   build:
-    - python >=3.5
+    - python >=3.5.3
     - setuptools
   run:
-    - python >=3.5
+    - python >=3.5.3
     - async-timeout >=2.0.0
 
 test:
