@@ -1,0 +1,29 @@
+package:
+  name: async-timeout
+  version: 2.0.0
+
+source:
+  fn: async-timeout-2.0.0.tar.gz
+  url: https://pypi.python.org/packages/78/10/7fd2551dc51f6065bdbba07d395865df4582cc18169297e7a5c8d90f5bd2/async-timeout-2.0.0.tar.gz
+  md5: 36e75397e54c6b899ffabdfe295a9f7c
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - async_timeout
+
+about:
+  home: https://pypi.python.org/pypi/async_timeout
+  license: Apache 2
+  summary: Timeout context manager for asyncio programs
