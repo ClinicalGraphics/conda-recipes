@@ -1,11 +1,11 @@
 package:
   name: channels
-  version: 1.1.5
+  version: 2.0.0
 
 source:
-  fn: channels-1.1.5.tar.gz
-  url: https://pypi.python.org/packages/f7/07/ce790cef91f866bd128eb460a067327d7e2213940814e273296f12506ee9/channels-1.1.5.tar.gz
-  md5: 5988e6859e5ae86eb27609251e0b1b00
+  fn: channels-2.0.0.tar.gz
+  url: https://pypi.python.org/packages/76/a5/eaff124e3066d442dcb524415da8fecc7ceea0ecc5a2c04e867ad79d2fe0/channels-2.0.0.tar.gz
+  md5: 8e8d3e2bcc9ffe2063c9f8bed745e6f4
 
 build:
   number: 0
@@ -18,15 +18,15 @@ requirements:
     - setuptools
   run:
     - python
-    - asgiref >=1.1.2
-    - daphne >=1.3.0
-    - django >=1.10.5
+    - asgiref >=2.1.0
+    - daphne >=2.0.0
+    - django >=1.11.8
 
 test:
   imports:
     - channels
 
 about:
-  home: http://github.com/andrewgodwin/django-channels
+  home: http://github.com/django/django-channels
   license: BSD
   summary: Brings event-driven capabilities to Django with a channel system. Django 1.8 and up only.

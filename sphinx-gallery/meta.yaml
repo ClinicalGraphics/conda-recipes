@@ -1,11 +1,10 @@
 package:
   name: sphinx-gallery
-  version: 0.1.10
+  version: 0.1.13
 
 source:
-  fn: sphinx-gallery-0.1.10.tar.gz
-  url: https://pypi.python.org/packages/93/3c/d8f2f2e650c07f09030a4b81a56920b1459bcd593e234304bde0646e476b/sphinx-gallery-0.1.10.tar.gz
-  md5: 2af76ced49ad2305a99790466c6c43cc
+  fn: v0.1.13.tar.gz
+  url: https://github.com/sphinx-gallery/sphinx-gallery/archive/v0.1.13.tar.gz
 
 build:
   number: 0
@@ -15,14 +14,13 @@ build:
 requirements:
   build:
     - python
-    - setuptools
     - pytest-runner >=2.11.1
 
   run:
     - python
     - matplotlib >=2.0.0
     - pillow >=4.1.1
-    - sphinx >=1.5.6
+    - sphinx >=1.6.6
 
 test:
   imports:

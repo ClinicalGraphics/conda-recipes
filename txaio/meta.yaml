@@ -1,11 +1,11 @@
 package:
   name: txaio
-  version: 2.8.0
+  version: 2.8.2
 
 source:
-  fn: txaio-2.8.0.tar.gz
-  url: https://pypi.python.org/packages/03/86/2cb7ae81209cc3fc64f68a31d70c20ab4771b520d7e13a5219b1f5e16ee1/txaio-2.8.0.tar.gz
-  md5: 643ac20b895b878786cd6a46790367d0
+  fn: txaio-2.8.2.tar.gz
+  url: https://pypi.python.org/packages/d6/95/d0c67304515f352342bc8fd14e5a3e7ca924134608acb730916073b18464/txaio-2.8.2.tar.gz
+  md5: a20e3431c95896a49fa3ffa84f77cde1
 
 build:
   number: 0
@@ -18,7 +18,7 @@ requirements:
     - setuptools
   run:
     - python
-    - six >=1.10.0
+    - six >=1.11.0
 
 test:
   imports:

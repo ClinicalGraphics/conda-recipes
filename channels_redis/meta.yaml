@@ -1,11 +1,10 @@
 package:
-  name: asgi_redis
-  version: 1.4.3
+  name: channels_redis
+  version: 2.0.0
 
 source:
-  fn: asgi_redis-1.4.3.tar.gz
-  url: https://pypi.python.org/packages/6b/4c/43d48dbf54dc64cf0a2866b892dc0215d5cef8a63f2f4d7c55960d654340/asgi_redis-1.4.3.tar.gz
-  md5: 19f251b8c656d61109be579ea1f0724a
+  fn: 2.0.0.tar.gz
+  url: https://github.com/django/channels_redis/archive/2.0.0.tar.gz
 
 build:
   number: 0
@@ -19,13 +18,14 @@ requirements:
   run:
     - python
     - six >=1.11.0
-    - redis-py >=2.10.6
+    - aioredis >=1.0.0
     - msgpack-python >=0.5.1
-    - asgiref ==1.1.2
+    - asgiref >=2.0.0
+    - channels >=2.0.0
 
 test:
   imports:
-    - asgi_redis
+    - channels_redis
 
 about:
   home: https://github.com/django/asgi_redis

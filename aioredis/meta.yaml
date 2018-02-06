@@ -1,0 +1,30 @@
+package:
+  name: aioredis
+  version: 1.0.0
+
+source:
+  fn: aioredis-1.0.0.tar.gz
+  url: https://pypi.python.org/packages/16/b0/9230ebc51c92bdaab067376d88f466fec26ca9ff02192aa7751503c97745/aioredis-1.0.0.tar.gz
+  md5: a839519aac8186f0fcd279eab0c394fc
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record=record.txt
+
+requirements:
+  build:
+    - python >=3.5.3
+    - setuptools
+  run:
+    - python >=3.5.3
+    - async-timeout >=2.0.0
+
+test:
+  imports:
+    - aioredis
+
+about:
+  home: https://pypi.python.org/pypi/aioredis
+  license: MIT
+  summary: asyncio (PEP 3156) Redis support
