@@ -1,14 +1,15 @@
 package:
   name: invoke
-  version: 0.17.0
+  version: 0.22.1
 
 source:
-  fn: invoke-0.17.0.tar.gz
-  url: https://pypi.python.org/packages/f8/cb/0aced931a57f9e8169f32f1f1234524a4d779de5e060b3c29708c7135f41/invoke-0.17.0.tar.gz
-  md5: 76054d9e4a3239676f61f05e9a6a5e63
+  fn: invoke-0.22.1.tar.gz
+  url: https://pypi.python.org/packages/68/10/29f8d036864b3328fd92da9867aac10e2804c01daa699f46e173ccf72a94/invoke-0.22.1.tar.gz
+  md5: 8f408e66121cd51173cccf8c19e1ec1c
 
 build:
   number: 0
+  noarch: python
   script: python setup.py install --single-version-externally-managed --record=record.txt
   entry_points:
     - invoke = invoke.main:program.run
@@ -28,8 +29,7 @@ test:
     - invoke.vendor
     - invoke.vendor.fluidity
     - invoke.vendor.lexicon
-    - invoke.vendor.yaml2    # [not py3k]
-    - invoke.vendor.yaml3    # [py3k]
+    - invoke.vendor.yaml3
   commands:
     - invoke --help
     - inv --help
