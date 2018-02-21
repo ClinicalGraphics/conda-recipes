@@ -1,0 +1,31 @@
+package:
+  name: pytest-benchmark
+  version: 3.1.1
+
+source:
+  fn: pytest-benchmark-3.1.1.tar.gz
+  url: https://pypi.python.org/packages/e1/35/30e3e108dd3db531d3200f9e3234210a600fea5efc971e3dacd2458e2153/pytest-benchmark-3.1.1.tar.gz
+  md5: dce60d8b2a63389cf8619acce8297186
+
+build:
+  number: 0
+  noarch: python
+  script: python setup.py install --single-version-externally-managed --record record.txt
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+    - pytest >=3.4
+    - py-cpuinfo
+
+test:
+  imports:
+    - pytest_benchmark
+
+about:
+  home: https://pypi.python.org/pypi/pytest-benchmark
+  license: BSD 3-Clause
+  summary: A ``py.test`` fixture for benchmarking code. It will group the tests into rounds that are calibrated to the chosen timer.
