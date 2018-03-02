@@ -1,0 +1,37 @@
+package:
+  name: py-cpuinfo
+  version: 3.3.0
+
+source:
+  fn: py-cpuinfo-3.3.0.tar.gz
+  url: https://pypi.python.org/packages/d4/2c/5e35a5264ddbe5474c6a1947d741b8e0c82a5d7f60162b53e68ad75f66da/py-cpuinfo-3.3.0.tar.gz
+  md5: 488dcd25e060dab3e2e6e2f2ba9f16de
+
+build:
+  number: 0
+  noarch: python
+  script_env:
+    - PROCESSOR_ARCHITEW6432
+    - PROCESSOR_ARCHITECTURE
+    - PROCESSOR_IDENTIFIER
+  script: python setup.py install --single-version-externally-managed --record record.txt
+  entry_points:
+    - cpuinfo = cpuinfo:main
+
+requirements:
+  build:
+    - python
+    - setuptools
+  run:
+    - python
+
+test:
+  imports:
+    - cpuinfo
+  commands:
+    - cpuinfo
+
+about:
+  home: https://pypi.python.org/pypi/py-cpuinfo
+  license: MIT
+  summary: A module for getting CPU info with Python 2 & 3
