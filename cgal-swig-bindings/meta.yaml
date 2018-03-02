@@ -1,0 +1,30 @@
+package:
+  name: cgal-swig-bindings
+  version: 0.1
+
+source:
+  git_rev: 2e775d076afbaaec76f87221bf3ae5dfb7c2089b
+  git_url: https://github.com/CGAL/cgal-swig-bindings
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - python
+    - cgal {{ cgal }}
+    - swig 3.0.10
+    - eigen 3.2.8
+
+  run:
+    - python
+    - cgal
+
+test:
+  imports:
+    - CGAL
+
+about:
+  home: https://github.com/CGAL/cgal-swig-bindings
+  license: GPL3/LGPL3
+  summary: CGAL bindings using SWIG

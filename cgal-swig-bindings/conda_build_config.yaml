@@ -1,0 +1,4 @@
+cgal: 4.11
+
+pin_run_as_build:
+    cgal: x.x

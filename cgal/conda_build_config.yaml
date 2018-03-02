@@ -1,0 +1,6 @@
+boost: 1.65.1
+mpfr: 3.1.5
+
+pin_run_as_build:
+    boost: x.x
+    mpfr: x.x

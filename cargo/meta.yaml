@@ -1,0 +1,36 @@
+package:
+    name: cargo
+    version: 0.22.0
+
+source:
+    fn: 0.22.0.tar.gz
+    url: https://github.com/rust-lang/cargo/archive/0.22.0.tar.gz
+
+build:
+    detect_binary_files_with_prefix: true
+    number: 0
+
+requirements:
+    build:
+      - cmake
+      - curl
+      - libiconv 1.*  # [osx]
+      - libssh2 1.8.*  # [not osx]
+      - openssl 1.0.*
+      - zlib 1.2.*
+    run:
+      - curl
+      - libiconv 1.*  # [osx]
+      - libssh2 1.8.*  # [not osx]
+      - openssl 1.0.*
+      - zlib 1.2.*
+
+test:
+    commands:
+      - conda inspect linkages -p $PREFIX $PKG_NAME
+      - cargo --version
+
+about:
+    home: https://www.crates.io/
+    license: MIT
+    summary: The Rust package manager.
