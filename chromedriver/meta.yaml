@@ -1,4 +1,4 @@
-{% set version = "2.33" %}
+{% set version = "2.35" %}
 
 package:
     name: chromedriver
